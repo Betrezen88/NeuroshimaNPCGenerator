@@ -1,0 +1,120 @@
+{
+    "Atrybuty": {
+        "Budowa": {
+            "Sprawność": [
+                "Kondycja",
+                "Pływanie",
+                "Wspinaczka"
+            ],
+            "Jeździectwo": [
+                "Jazda Konna",
+                "Powożenie",
+                "Ujeżdżanie"
+            ]
+        },
+        "Zręczność": {
+            "Walka Wręcz": [
+                "Bijatyka",
+                "Broń Ręczna",
+                "Rzucanie"
+            ],
+            "Prowadzenie Pojazdów": [
+                "Samochód",
+                "Motocykl",
+                "Ciężarówka"
+            ],
+            "Zdolności Manualne": [
+                "Kradzież kieszonkowa",
+                "Otwieranie zamków",
+                "Zwinne Dłonie"
+            ],
+            "Broń Strzelecka": [
+                "Pistolety",
+                "Karabiny",
+                "Broń maszynowa"
+            ],
+            "Broń Dystansowa": [
+                "Łuk",
+                "Kusza",
+                "Proca"
+            ]
+        },
+        "Charakter": {
+            "Negocjacje": [
+                "Zastraszanie",
+                "Perswazja",
+                "Zdolności Przywódcze"
+            ],
+            "Empatia": [
+                "Postrzeganie Emocji",
+                "Blef",
+                "Opieka nad zwierzętami"
+            ],
+            "Siła Woli": [
+                "Odporność na ból",
+                "Niezłomność",
+                "Morale"
+            ]
+        },
+        "Spryt": {
+            "Medycyna": [
+                "Pierwsza Pomoc",
+                "Leczenie Ran",
+                "Leczenie Chorób"
+            ],
+            "Technika": [
+                "Mechanika",
+                "Elektronika",
+                "Komputery"
+            ],
+            "Sprzęt": [
+                "Maszyny Ciężkie",
+                "Wozy Bojowe",
+                "Kutry"
+            ]
+        },
+        "Percepcja": {
+            "Orientacja w Terenie": [
+                "Wyczucie Kierunku",
+                "Przygotowanie Pułapki",
+                "Tropienie"
+            ],
+            "Spostrzegawczość": [
+                "Nasłuchiwanie",
+                "Wypatrywanie",
+                "Czujność"
+            ],
+            "Kamuflaż": [
+                "Skradanie się",
+                "Ukrywanie się",
+                "Maskowanie"
+            ],
+            "Przetrwanie": [
+                "Łowiectwo",
+                "Znajomość Terenu",
+                "Zdowbywanie Wody"
+            ]
+        }
+    },
+    "Postać": [
+        { no: 1, text: "Imię", type: "QLineEdit" },
+        { no: 2, text: "Pochodzenie", type: "QComboBox" },
+        { no: 3, text: "Cecha pochodzenia", type: "QComboBox" },
+        { no: 4, text: "Profesja", type: "QComboBox" },
+        { no: 5, text: "Cecha profesji", type: "QComboBox" },
+        { no: 6, text: "Specjalizacja", type: "QComboBox" },
+        { no: 7, text: "Choroba", type: "QComboBox" },
+        { no: 8, text: "Reputacja", type: "QSpinBox" },
+        { no: 9, text: "Sława", type: "QSpinBox" }
+    ],
+    "Sztuczki": [],
+    "Poziomy Trudności": [
+        { no: 1, value: "Łatwy" },
+        { no: 2, value: "Przeciętny" },
+        { no: 3, value: "Problematyczny" },
+        { no: 4, value: "Trudny" },
+        { no: 5, value: "Bardzo Trudny" },
+        { no: 6, value: "Cholernie Trudny" },
+        { no: 7, value: "Fart" }
+    ]
+}
