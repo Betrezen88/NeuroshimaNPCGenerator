@@ -108,7 +108,7 @@
         { "no": 9, "text": "Sława", "type": "QSpinBox" }
     ],
     "Sztuczki": [],
-    "Poziomy Trudności": [
+    "PT": [
         { "no": 1, "value": "Łatwy" },
         { "no": 2, "value": "Przeciętny" },
         { "no": 3, "value": "Problematyczny" },
