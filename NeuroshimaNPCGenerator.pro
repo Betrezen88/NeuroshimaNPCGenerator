@@ -28,11 +28,13 @@ SOURCES += \
         MainWindow.cpp
         MainWindow.cpp \
     Section.cpp \
+    PersonalSection.cpp
 
 HEADERS += \
         MainWindow.h
         MainWindow.h \
     Section.h \
+    PersonalSection.h
 
 RESOURCES += \
     data.qrc
