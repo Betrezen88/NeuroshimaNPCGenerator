@@ -26,9 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         MainWindow.cpp
+        MainWindow.cpp \
+    Section.cpp \
 
 HEADERS += \
         MainWindow.h
+        MainWindow.h \
+    Section.h \
 
 RESOURCES += \
     data.qrc
