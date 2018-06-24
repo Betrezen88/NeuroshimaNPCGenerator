@@ -25,14 +25,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        MainWindow.cpp
         MainWindow.cpp \
+    NPCCard.cpp \
     Section.cpp \
     PersonalSection.cpp
 
 HEADERS += \
-        MainWindow.h
         MainWindow.h \
+    NPCCard.h \
     Section.h \
     PersonalSection.h
 
