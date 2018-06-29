@@ -1,101 +1,183 @@
 ﻿{
-    "Atrybuty": {
-        "Budowa": {
-            "Sprawność": [
-                "Kondycja",
-                "Pływanie",
-                "Wspinaczka"
-            ],
-            "Jeździectwo": [
-                "Jazda Konna",
-                "Powożenie",
-                "Ujeżdżanie"
+    "Atrybuty": [
+        {
+            "name": "Budowa",
+            "skillPacks": [
+                {
+                    "name": "Sprawność",
+                    "skills": [
+                        "Kondycja",
+                        "Pływanie",
+                        "Wspinaczka"
+                    ]
+                },
+                {
+                    "name": "Jeździectwo",
+                    "skills": [
+                        "Jazda Konna",
+                        "Powożenie",
+                        "Ujeżdżanie"
+                    ]
+                }
             ]
         },
-        "Zręczność": {
-            "Walka Wręcz": [
-                "Bijatyka",
-                "Broń Ręczna",
-                "Rzucanie"
-            ],
-            "Prowadzenie Pojazdów": [
-                "Samochód",
-                "Motocykl",
-                "Ciężarówka"
-            ],
-            "Zdolności Manualne": [
-                "Kradzież kieszonkowa",
-                "Otwieranie zamków",
-                "Zwinne Dłonie"
-            ],
-            "Broń Strzelecka": [
-                "Pistolety",
-                "Karabiny",
-                "Broń maszynowa"
-            ],
-            "Broń Dystansowa": [
-                "Łuk",
-                "Kusza",
-                "Proca"
+        {
+            "name": "Zręczność",
+            "skillPacks": [
+                {
+                    "name": "Walka Wręcz",
+                    "skills": [
+                        "Bijatyka",
+                        "Broń Ręczna",
+                        "Rzucanie"
+                    ]
+                },
+                {
+                    "name": "Prowadzenie Pojazdów",
+                    "skills": [
+                        "Samochód",
+                        "Motocykl",
+                        "Ciężarówka"
+                    ]
+                },
+                {
+                    "name": "Zdolności Manualne",
+                    "skills": [
+                        "Kradzież kieszonkowa",
+                        "Otwieranie zamków",
+                        "Zwinne Dłonie"
+                    ]
+                },
+                {
+                    "name": "Broń Strzelecka",
+                    "skills": [
+                        "Pistolety",
+                        "Karabiny",
+                        "Broń maszynowa"
+                    ]
+                },
+                {
+                    "name": "Broń Dystansowa",
+                    "skills": [
+                        "Łuk",
+                        "Kusza",
+                        "Proca"
+                    ]
+                }
             ]
         },
-        "Charakter": {
-            "Negocjacje": [
-                "Zastraszanie",
-                "Perswazja",
-                "Zdolności Przywódcze"
-            ],
-            "Empatia": [
-                "Postrzeganie Emocji",
-                "Blef",
-                "Opieka nad zwierzętami"
-            ],
-            "Siła Woli": [
-                "Odporność na ból",
-                "Niezłomność",
-                "Morale"
+        {
+            "name": "Charakter",
+            "skillPacks": [
+                {
+                    "name": "Negocjacje",
+                    "skills": [
+                        "Zastraszanie",
+                        "Perswazja",
+                        "Zdolności Przywódcze"
+                    ]
+                },
+                {
+                    "name": "Empatia",
+                    "skills": [
+                        "Postrzeganie Emocji",
+                        "Blef",
+                        "Opieka nad zwierzętami"
+                    ]
+                },
+                {
+                    "name": "Siła Woli",
+                    "skills": [
+                        "Odporność na ból",
+                        "Niezłomność",
+                        "Morale"
+                    ]
+                }
             ]
         },
-        "Spryt": {
-            "Medycyna": [
-                "Pierwsza Pomoc",
-                "Leczenie Ran",
-                "Leczenie Chorób"
-            ],
-            "Technika": [
-                "Mechanika",
-                "Elektronika",
-                "Komputery"
-            ],
-            "Sprzęt": [
-                "Maszyny Ciężkie",
-                "Wozy Bojowe",
-                "Kutry"
+        {
+            "name": "Spryt",
+            "skillPacks": [
+                {
+                    "name": "Medycyna",
+                    "skills": [
+                        "Pierwsza Pomoc",
+                        "Leczenie Ran",
+                        "Leczenie Chorób"
+                    ]
+                },
+                {
+                    "name": "Technika",
+                    "skills": [
+                        "Mechanika",
+                        "Elektronika",
+                        "Komputery"
+                    ]
+                },
+                {
+                    "name": "Sprzęt",
+                    "skills": [
+                        "Maszyny Ciężkie",
+                        "Wozy Bojowe",
+                        "Kutry"
+                    ]
+                },
+                {
+                    "name": "Pirotechnika",
+                    "skills": [
+                        "Rusznikarstwo",
+                        "Wyrzutnie",
+                        "Materiały Wybuchowe"
+                    ]
+                },
+                {
+                    "name": "Wiedza Ogólna",
+                    "skills": [
+                        "Historia",
+                        "Biologia",
+                        "Chemia"
+                    ]
+                }
             ]
         },
-        "Percepcja": {
-            "Orientacja w Terenie": [
-                "Wyczucie Kierunku",
-                "Przygotowanie Pułapki",
-                "Tropienie"
-            ],
-            "Spostrzegawczość": [
-                "Nasłuchiwanie",
-                "Wypatrywanie",
-                "Czujność"
-            ],
-            "Kamuflaż": [
-                "Skradanie się",
-                "Ukrywanie się",
-                "Maskowanie"
-            ],
-            "Przetrwanie": [
-                "Łowiectwo",
-                "Znajomość Terenu",
-                "Zdowbywanie Wody"
+        {
+            "name": "Percepcja",
+            "skillPacks": [
+                {
+                    "name": "Orientacja w Terenie",
+                    "skills": [
+                        "Wyczucie Kierunku",
+                        "Przygotowanie Pułapki",
+                        "Tropienie"
+                    ]
+                },
+                {
+                    "name": "Spostrzegawczość",
+                    "skills": [
+                        "Nasłuchiwanie",
+                        "Wypatrywanie",
+                        "Czujność"
+                    ]
+                },
+                {
+                    "name": "Kamuflaż",
+                    "skills": [
+                        "Skradanie się",
+                        "Ukrywanie się",
+                        "Maskowanie"
+                    ]
+                },
+                {
+                    "name": "Przetrwanie",
+                    "skills": [
+                        "Łowiectwo",
+                        "Znajomość Terenu",
+                        "Zdowbywanie Wody"
+                    ]
+                }
             ]
         }
-    },
+    ],
     "Postać": [
         { "no": 1, "text": "Imię", "type": "QLineEdit" },
         { "no": 2, "text": "Pochodzenie", "type": "QComboBox" },
@@ -109,12 +191,12 @@
     ],
     "Sztuczki": [],
     "PT": [
-        { "no": 1, "value": "Łatwy" },
-        { "no": 2, "value": "Przeciętny" },
-        { "no": 3, "value": "Problematyczny" },
-        { "no": 4, "value": "Trudny" },
-        { "no": 5, "value": "Bardzo Trudny" },
-        { "no": 6, "value": "Cholernie Trudny" },
-        { "no": 7, "value": "Fart" }
+        { "no": 1, "value": "Łatwy", "label": "Ł." },
+        { "no": 2, "value": "Przeciętny", "label": "Prz." },
+        { "no": 3, "value": "Problematyczny", "label": "Pro." },
+        { "no": 4, "value": "Trudny", "label": "T." },
+        { "no": 5, "value": "Bardzo Trudny", "label": "B.T." },
+        { "no": 6, "value": "Cholernie Trudny", "label": "Ch.T." },
+        { "no": 7, "value": "Fart", "label": "F." }
     ]
 }
