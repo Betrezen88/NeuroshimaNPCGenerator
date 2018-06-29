@@ -29,14 +29,16 @@ SOURCES += \
     NPCCard.cpp \
     Section.cpp \
     PersonalSection.cpp \
-    AttributeSection.cpp
+    AttributeSection.cpp \
+    SkillsSection.cpp
 
 HEADERS += \
         MainWindow.h \
     NPCCard.h \
     Section.h \
     PersonalSection.h \
-    AttributeSection.h
+    AttributeSection.h \
+    SkillsSection.h
 
 RESOURCES += \
     data.qrc
