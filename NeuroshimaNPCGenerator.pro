@@ -31,7 +31,8 @@ SOURCES += \
     PersonalSection.cpp \
     AttributeSection.cpp \
     SkillsSection.cpp \
-    SkillPackSection.cpp
+    SkillPackSection.cpp \
+    Tricks.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -40,7 +41,8 @@ HEADERS += \
     PersonalSection.h \
     AttributeSection.h \
     SkillsSection.h \
-    SkillPackSection.h
+    SkillPackSection.h \
+    Tricks.h
 
 RESOURCES += \
     data.qrc

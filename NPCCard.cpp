@@ -24,6 +24,7 @@ NPCCard::NPCCard(QWidget *parent) : QWidget(parent)
     m_attributes = new AttributeSection( "Atrybuty", m_json, this );
 
     // Sekcja sztuczki
+    m_tricks = new Tricks( "Sztuczki", m_json, this );
 
     // Sekcja Umiejętności
     m_skillsSection = new SkillsSection( "Umiejętności", m_json, this );
@@ -31,7 +32,8 @@ NPCCard::NPCCard(QWidget *parent) : QWidget(parent)
     QGridLayout* all = new QGridLayout;
     all->addWidget( m_personal, 0, 0 );
     all->addWidget( m_attributes, 1, 0 );
-    all->addWidget( m_skillsSection, 0, 1, 0, 1 );
+    all->addWidget( m_tricks, 2, 0 );
+    all->addWidget( m_skillsSection, 0, 1, 0, 2 );
 
     setLayout( all );
 }
