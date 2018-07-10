@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QGroupBox>
 #include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonValue>
 
 class Section : public QWidget
 {
