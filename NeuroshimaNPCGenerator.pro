@@ -30,7 +30,6 @@ SOURCES += \
     Section.cpp \
     PersonalSection.cpp \
     AttributeSection.cpp \
-    SkillsSection.cpp
     SkillsSection.cpp \
     SkillPackSection.cpp
 
@@ -40,7 +39,6 @@ HEADERS += \
     Section.h \
     PersonalSection.h \
     AttributeSection.h \
-    SkillsSection.h
     SkillsSection.h \
     SkillPackSection.h
 

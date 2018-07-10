@@ -6,6 +6,7 @@
 
 #include "PersonalSection.h"
 #include "AttributeSection.h"
+#include "SkillsSection.h"
 
 class NPCCard : public QWidget
 {
@@ -21,6 +22,7 @@ private:
 
     PersonalSection* m_personal;
     AttributeSection* m_attributes;
+    SkillsSection* m_skillsSection;
 };
 
 #endif // NPCCARD_H
