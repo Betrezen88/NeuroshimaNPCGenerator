@@ -30,8 +30,8 @@ NPCCard::NPCCard(QWidget *parent) : QWidget(parent)
 
     QGridLayout* all = new QGridLayout;
     all->addWidget( m_personal, 0, 0 );
-    all->addWidget( m_attributes, 0, 1 );
-    all->addWidget( m_skillsSection, 1, 0, 1, 0 );
+    all->addWidget( m_attributes, 1, 0 );
+    all->addWidget( m_skillsSection, 0, 1, 0, 1 );
 
     setLayout( all );
 }
