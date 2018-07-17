@@ -28,7 +28,6 @@ QGroupBox *SkillsSection::createAttribute(const QJsonValue& value )
     const QString name = value.toObject().value("name").toString();
 
     QGroupBox* groupBox = new QGroupBox( name );
-
     QVBoxLayout* column = new QVBoxLayout;
 
     QJsonArray skillPacks = value.toObject().value( "skillPacks" ).toArray();
@@ -37,6 +36,7 @@ QGroupBox *SkillsSection::createAttribute(const QJsonValue& value )
         const QString packName = skillPack.toObject().value("name").toString();
         const QJsonDocument doc( skillPack.toObject().value("skills").toArray() );
         SkillPackSection* pack = new SkillPackSection( packName, doc, this );
+        m_skillPacks.insert( packName, pack );
         column->addWidget( pack );
     }
 

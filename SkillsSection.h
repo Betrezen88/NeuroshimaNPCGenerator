@@ -5,6 +5,7 @@
 #include "SkillPackSection.h"
 
 #include <QGridLayout>
+#include <QMap>
 
 class SkillsSection : public Section
 {
@@ -15,6 +16,9 @@ private:
     QGroupBox* create(const QString& name);
     QGroupBox* createAttribute(const QJsonValue &value);
     void addAttributeGroupBox(QGridLayout* layout);
+
+private:
+    QMap<QString, SkillPackSection*> m_skillPacks;
 };
 
 #endif // SKILLSSECTION_H
