@@ -12,11 +12,12 @@ public:
 
 private:
     QGroupBox* create(const QString &name);
-    void createLabelRow(QGridLayout *layout);
-    void createAttributeRows(QGridLayout *layout);
+    QHBoxLayout *createLabelRow();
+    void createAttributeRows(QVBoxLayout *layout);
     QWidget* createWidget(const int& index);
 
 private:
+    QVector<QWidget*> m_attributes;
 };
 
 #endif // ATTRIBUTESECTION_H

@@ -8,10 +8,12 @@
 #include <QLabel>
 #include <QSpinBox>
 
+#include "AttributeRow.h"
+
 AttributeSection::AttributeSection(const QString &name, const QJsonDocument &json, QWidget *parent)
     : Section(json, parent)
 {
-    QHBoxLayout* all = new QHBoxLayout;
+    QVBoxLayout* all = new QVBoxLayout;
     all->addWidget( create(name) );
 
     setLayout( all );
@@ -21,8 +23,8 @@ QGroupBox *AttributeSection::create(const QString &name)
 {
     QGroupBox* groupBox = new QGroupBox( name );
 
-    QGridLayout* attributesL = new QGridLayout;
-    createLabelRow( attributesL );
+    QVBoxLayout* attributesL = new QVBoxLayout;
+    attributesL->addLayout( createLabelRow() );
     createAttributeRows( attributesL );
 
     groupBox->setLayout( attributesL );
@@ -30,34 +32,37 @@ QGroupBox *AttributeSection::create(const QString &name)
     return groupBox;
 }
 
-void AttributeSection::createLabelRow(QGridLayout *layout)
+QHBoxLayout* AttributeSection::createLabelRow()
 {
+    QHBoxLayout* rowL = new QHBoxLayout;
+    QLabel* empty = new QLabel( "PT", this );
+    empty->setFixedWidth( 50 );
+    rowL->addWidget( empty );
+
     if ( !m_json.isEmpty() && m_json.object().contains("PT") ) {
         QJsonArray array = m_json.object().take("PT").toArray();
-        int index = 1;
         for ( const QJsonValue& item: array ) {
             QString text = item.toObject().value( "label" ).toString();
             QLabel* label = new QLabel( text, this );
-            layout->addWidget( label, 0, index++ );
+            label->setFixedWidth( 30 );
+            rowL->addWidget( label );
         }
     }
+
+    return rowL;
 }
 
-void AttributeSection::createAttributeRows(QGridLayout *layout)
+void AttributeSection::createAttributeRows(QVBoxLayout *layout)
 {
     if ( !m_json.isEmpty() && m_json.object().contains("Atrybuty") ) {
         QJsonArray array = m_json.object().take("Atrybuty").toArray();
+        QJsonArray ptArray = m_json.object().take("PT").toArray();
         int row = 1;
         for ( const QJsonValue& item: array ) {
-            int column = 0;
-            layout->addWidget( new QLabel( item.toObject().value("name").toString(), this ), row, column++ );
-            if ( !m_json.isEmpty() && m_json.object().contains("PT") ) {
-                QJsonArray ptArray = m_json.object().take("PT").toArray();
-                for ( const QJsonValue& item: ptArray ) {
-                    layout->addWidget( createWidget(item.toObject().value("no").toInt()), row, column++ );
-                }
-                row++;
-            }
+            QString name = item.toObject().value("name").toString();
+            AttributeRow* arow = new AttributeRow(name, ptArray);
+            layout->addWidget( arow , row, 0);
+            row++;
         }
     }
 }
