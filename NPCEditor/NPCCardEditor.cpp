@@ -1,6 +1,7 @@
 ﻿#include "NPCCardEditor.h"
 
 #include <QFile>
+#include <QJsonArray>
 #include <QJsonParseError>
 #include <QJsonObject>
 
@@ -10,6 +11,13 @@ NPCCardEditor::NPCCardEditor(QWidget *parent)
     : QWidget(parent)
 {
     m_json.insert( "Sections", loadJson(":/NPCCard.json") );
+
+    m_pPersonal = new Personal( m_json.value("Section").array(), this );
+
+    QGridLayout *all = new QGridLayout;
+    all->addWidget( m_pPersonal, 0, 0 );
+
+    setLayout( all );
 }
 
 NPCCardEditor::~NPCCardEditor()

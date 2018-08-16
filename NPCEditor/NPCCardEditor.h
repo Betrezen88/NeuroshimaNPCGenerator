@@ -6,6 +6,8 @@
 #include <QHash>
 #include <QJsonDocument>
 
+#include "Section/Personal.h"
+
 class NPCCardEditor : public QWidget
 {
     Q_OBJECT
@@ -22,6 +24,8 @@ private:
 
 private:
     QHash<QString, QJsonDocument> m_json;
+
+    Personal *m_pPersonal{nullptr};
 };
 
 #endif // NPCCARDEDITOR_H
