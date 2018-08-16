@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        MainWindow.cpp
+        MainWindow.cpp \
+    NPCEditor/NPCCardEditor.cpp
 
 HEADERS += \
-        MainWindow.h
+        MainWindow.h \
+    NPCEditor/NPCCardEditor.h
 
 RESOURCES += \
     json/json.qrc
