@@ -30,7 +30,8 @@ SOURCES += \
 
 HEADERS += \
         MainWindow.h \
-    NPCEditor/NPCCardEditor.h
+    NPCEditor/NPCCardEditor.h \
+    NPCEditor/Section/Section.h
 
 RESOURCES += \
     json/json.qrc
