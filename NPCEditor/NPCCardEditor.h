@@ -3,6 +3,9 @@
 
 #include <QWidget>
 
+#include <QHash>
+#include <QJsonDocument>
+
 class NPCCardEditor : public QWidget
 {
     Q_OBJECT
@@ -13,6 +16,12 @@ public:
 signals:
 
 public slots:
+
+private:
+    QJsonDocument loadJson(const QString &fileName);
+
+private:
+    QHash<QString, QJsonDocument> m_json;
 };
 
 #endif // NPCCARDEDITOR_H
