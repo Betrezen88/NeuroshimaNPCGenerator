@@ -23,7 +23,7 @@ private:
     QJsonDocument loadJson(const QString &fileName);
 
 private:
-    QHash<QString, QJsonDocument> m_json;
+    QJsonDocument m_NPCCard;
 
     Personal *m_pPersonal{nullptr};
 };

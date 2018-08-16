@@ -15,6 +15,7 @@ public:
 private:
     QVBoxLayout *createLayout(const QJsonArray &json);
     QWidget *createWidget(const QString &type);
+    QLayout *createElement(const QJsonObject &obj);
 
 private:
     QLabel *m_pPortrait{nullptr};

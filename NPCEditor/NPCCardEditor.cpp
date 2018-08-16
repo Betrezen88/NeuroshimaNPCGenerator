@@ -10,9 +10,9 @@
 NPCCardEditor::NPCCardEditor(QWidget *parent)
     : QWidget(parent)
 {
-    m_json.insert( "Sections", loadJson(":/NPCCard.json") );
+    m_NPCCard = loadJson(":/NPCCard.json");
 
-    m_pPersonal = new Personal( m_json.value("Section").array(), this );
+    m_pPersonal = new Personal( m_NPCCard.object().value("Postać").toArray(), this );
 
     QGridLayout *all = new QGridLayout;
     all->addWidget( m_pPersonal, 0, 0 );
