@@ -29,3 +29,9 @@ SOURCES += \
 
 HEADERS += \
         MainWindow.h
+
+RESOURCES += \
+    json/json.qrc
+
+DISTFILES += \
+    json/NPCCard.json

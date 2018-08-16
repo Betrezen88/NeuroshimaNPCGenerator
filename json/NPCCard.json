@@ -1,0 +1,13 @@
+﻿{
+    "Postać": [
+        { "label": "Imię", "Type": "QLineEdit" },
+        { "label": "Pochodzenie", "Type": "QComboBox" },
+        { "label": "Profesja", "Type": "QComboBox" },
+        { "label": "Specjalizacja", "Type": "QComboBox" },
+        { "label": "Choroba", "Type": "QComboBox" },
+        { "label": "Cecha z pochodzenia", "Type": "QComboBox" },
+        { "label": "Cecha z profesji", "Type": "QComboBox" },
+        { "label": "Reputacja", "Type": "QSpinBox" },
+        { "label": "Sława", "Type": "QSpinBox" }
+    ]
+}
