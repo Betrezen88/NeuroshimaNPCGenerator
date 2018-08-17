@@ -7,6 +7,7 @@
 #include <QJsonDocument>
 
 #include "Section/Personal.h"
+#include "Section/Attributes.h"
 
 class NPCCardEditor : public QWidget
 {
@@ -26,6 +27,7 @@ private:
     QJsonDocument m_NPCCard;
 
     Personal *m_pPersonal{nullptr};
+    Attributes *m_pAttributes{nullptr};
 };
 
 #endif // NPCCARDEDITOR_H

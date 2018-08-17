@@ -13,9 +13,11 @@ NPCCardEditor::NPCCardEditor(QWidget *parent)
     m_NPCCard = loadJson(":/NPCCard.json");
 
     m_pPersonal = new Personal( m_NPCCard.object().value("Postać").toArray(), this );
+    m_pAttributes = new Attributes( m_NPCCard.object().value("Atrybuty").toArray(), this );
 
     QGridLayout *all = new QGridLayout;
     all->addWidget( m_pPersonal, 0, 0 );
+    all->addWidget( m_pAttributes, 0, 1 );
 
     setLayout( all );
 }
