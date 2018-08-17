@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "AttributeTitleWidget.h"
+
 class AttributeWidget : public QWidget
 {
     Q_OBJECT
@@ -14,7 +16,7 @@ signals:
 public slots:
 
 private:
-    //AttributeTitleWidget
+    AttributeTitleWidget *m_pTitle{nullptr};
     //QHash<QString, SkillPackWidget*> m_skillPacks;
 };
 

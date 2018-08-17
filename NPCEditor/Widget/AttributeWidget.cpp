@@ -1,14 +1,13 @@
 #include "AttributeWidget.h"
 
-#include <QLabel>
 #include <QVBoxLayout>
 
-AttributeWidget::AttributeWidget(const QString &name, const QJsonArray &skillPacks, QWidget *parent) : QWidget(parent)
+AttributeWidget::AttributeWidget(const QString &name, const QJsonArray &skillPacks, QWidget *parent)
+    : QWidget(parent),
+      m_pTitle(new AttributeTitleWidget(name, this))
 {
-    QLabel *pLabel = new QLabel(name, this);
-
     QVBoxLayout* all = new QVBoxLayout;
-    all->addWidget( pLabel );
+    all->addWidget( m_pTitle );
 
     setLayout( all );
 }
