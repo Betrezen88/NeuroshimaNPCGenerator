@@ -28,14 +28,16 @@ SOURCES += \
         MainWindow.cpp \
     NPCEditor/NPCCardEditor.cpp \
     NPCEditor/Section/Personal.cpp \
-    NPCEditor/Section/Attributes.cpp
+    NPCEditor/Section/Attributes.cpp \
+    NPCEditor/Widget/AttributeWidget.cpp
 
 HEADERS += \
         MainWindow.h \
     NPCEditor/NPCCardEditor.h \
     NPCEditor/Section/Section.h \
     NPCEditor/Section/Personal.h \
-    NPCEditor/Section/Attributes.h
+    NPCEditor/Section/Attributes.h \
+    NPCEditor/Widget/AttributeWidget.h
 
 RESOURCES += \
     json/json.qrc

@@ -3,7 +3,10 @@
 
 #include "Section.h"
 
+#include "../Widget/AttributeWidget.h"
+
 #include <QLabel>
+#include <QHash>
 
 class Attributes : public Section
 {
@@ -16,7 +19,7 @@ private:
 
 
 private:
-    QLabel *m_pTitle{nullptr};
+    QHash<QString, AttributeWidget*> m_attributes;
 };
 
 #endif // ATTRIBUTES_H
