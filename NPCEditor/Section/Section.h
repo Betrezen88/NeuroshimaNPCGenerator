@@ -3,18 +3,26 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
-#include <QJsonObject>
+#include <QJsonArray>
+#include <QLabel>
 
 class Section : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Section(QWidget *parent = nullptr): QWidget(parent) {}
+    explicit Section(const QString &title, QWidget *parent = nullptr)
+        : QWidget(parent),
+          m_pTitle(new QLabel(title, this))
+    {
+        m_pTitle->setStyleSheet( m_titleStyle );
+        m_pTitle->setFixedHeight( 50 );
+    }
 
 protected:
     virtual QVBoxLayout *createLayout(const QJsonArray& json) = 0;
 
 protected:
+    QLabel* m_pTitle{nullptr};
     const QString m_titleStyle{ "QLabel{"
                                 " padding: 5px;"
                                 " background-color: black;"

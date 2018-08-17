@@ -19,7 +19,6 @@ private:
 
 private:
     QLabel *m_pPortrait{nullptr};
-    QLabel *m_pTitle{nullptr};
     QHash<QString, QWidget*> m_widgets;
 
     const QString m_portraitStyle{ "QLabel{"

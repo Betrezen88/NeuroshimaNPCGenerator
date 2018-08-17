@@ -3,22 +3,19 @@
 #include <QLineEdit>
 #include <QComboBox>
 #include <QSpinBox>
-#include <QJsonArray>
+#include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonValue>
 
 #include <QDebug>
 
 Personal::Personal(const QJsonArray &json, QWidget *parent)
-    : Section(parent),
-      m_pPortrait( new QLabel("", this) ),
-      m_pTitle( new QLabel("Postać", this) )
+    : Section("Postać", parent),
+      m_pPortrait( new QLabel("", this) )
 {
     m_pPortrait->setFixedWidth( 235 );
     m_pPortrait->setMinimumHeight( 150 );
     m_pPortrait->setStyleSheet( m_portraitStyle );
-    m_pTitle->setStyleSheet( Section::m_titleStyle );
-    m_pTitle->setFixedHeight( 50 );
 
     setLayout( createLayout(json) );
 }
