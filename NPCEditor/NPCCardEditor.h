@@ -5,9 +5,10 @@
 
 #include <QHash>
 #include <QJsonDocument>
+#include <QVBoxLayout>
 
-#include "Section/Personal.h"
-#include "Section/Attributes.h"
+#include "Widget/PersonalWidget.h"
+#include "Widget/AttributeWidget.h"
 
 class NPCCardEditor : public QWidget
 {
@@ -16,18 +17,18 @@ public:
     explicit NPCCardEditor(QWidget *parent = nullptr);
     ~NPCCardEditor();
 
-signals:
-
-public slots:
-
 private:
     QJsonDocument loadJson(const QString &fileName);
+    QVBoxLayout *createColumn1();
+    QVBoxLayout *createColumn2();
+    QVBoxLayout *createColumn3();
+    void fillAttributes();
 
 private:
     QJsonDocument m_NPCCard;
 
-    Personal *m_pPersonal{nullptr};
-    Attributes *m_pAttributes{nullptr};
+    PersonalWidget *m_pPersonal{nullptr};
+    QHash<QString, AttributeWidget*> m_attributes;
 };
 
 #endif // NPCCARDEDITOR_H
