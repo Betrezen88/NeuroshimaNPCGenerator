@@ -1,0 +1,35 @@
+﻿zrobić podział na kolumny
+
+ Kolumna 1    Kolumna 2       Kolumna 3
++----------------------------------------------+
+| Postać    | Współczynniki | Współczynniki cd |
+|           |               |                  |
+|           |               |                  |
+|           |               |                  |
+|           |               |                  |
+|           |               |                  |
+|           |               |                  |
+|           |               |                  |
++-----------+               |                  |
+|Sztuczki   |               |                  |
+|           |               |                  |
+|           |               |                  |
+|           |               |                  |
+|           +---------------+                  |
+|           | Rany          |                  |
+|           |               +------------------+
+|           |               | Modyfikatory     |
++-----------+---------------+------------------+
+
+
+
+Stworzyć klasę CardWidget dzeidziczącą po QWidget
+- nadpisać painEvent() w celu stosowania customowych layoutów
+- reszta dziedziczy po CardWidget
+    - PersonalWidget
+    - TricksWidget
+    - AttributeWidget
+      - AtributeTitleWidget
+      - SkillPacksWidget
+    - InjuriesWidget
+    - ModificatorWidget

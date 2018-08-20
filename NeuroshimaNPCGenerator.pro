@@ -48,3 +48,4 @@ RESOURCES += \
 
 DISTFILES += \
     json/NPCCard.json
+    Othres/Concept.txt
