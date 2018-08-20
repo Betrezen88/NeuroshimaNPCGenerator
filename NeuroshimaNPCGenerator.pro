@@ -27,11 +27,9 @@ SOURCES += \
         main.cpp \
         MainWindow.cpp \
     NPCEditor/NPCCardEditor.cpp \
-    NPCEditor/Section/Personal.cpp \
-    NPCEditor/Section/Attributes.cpp \
     NPCEditor/Widget/AttributeWidget.cpp \
     NPCEditor/Widget/AttributeTitleWidget.cpp \
-    NPCEditor/Widget/SkillPacksWidget.cpp
+    NPCEditor/Widget/SkillPacksWidget.cpp \
     NPCEditor/Widget/PersonalWidget.cpp \
     NPCEditor/Widget/CardWidget.cpp \
     NPCEditor/Widget/AttributeValueWidget.cpp
@@ -39,12 +37,9 @@ SOURCES += \
 HEADERS += \
         MainWindow.h \
     NPCEditor/NPCCardEditor.h \
-    NPCEditor/Section/Section.h \
-    NPCEditor/Section/Personal.h \
-    NPCEditor/Section/Attributes.h \
     NPCEditor/Widget/AttributeWidget.h \
     NPCEditor/Widget/AttributeTitleWidget.h \
-    NPCEditor/Widget/SkillPacksWidget.h
+    NPCEditor/Widget/SkillPacksWidget.h \
     NPCEditor/Widget/PersonalWidget.h \
     NPCEditor/Widget/CardWidget.h \
     NPCEditor/Widget/AttributeValueWidget.h
@@ -53,5 +48,5 @@ RESOURCES += \
     json/json.qrc
 
 DISTFILES += \
-    json/NPCCard.json
+    json/NPCCard.json \
     Othres/Concept.txt
