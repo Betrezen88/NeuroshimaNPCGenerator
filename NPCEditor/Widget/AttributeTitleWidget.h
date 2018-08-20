@@ -22,7 +22,7 @@ private:
                            " border: 1px solid;"
                            "}" };
     const QString m_labelStyle{ "QLabel#TitleLabel{"
-                                " font: 15px;"
+                                " font: bold 15px;"
                                 "}" };
 
     QStringList list{"Łat.", "Prze.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart"};
