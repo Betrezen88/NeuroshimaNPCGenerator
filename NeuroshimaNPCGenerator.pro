@@ -32,6 +32,7 @@ SOURCES += \
     NPCEditor/Widget/AttributeWidget.cpp \
     NPCEditor/Widget/AttributeTitleWidget.cpp \
     NPCEditor/Widget/SkillPacksWidget.cpp
+    NPCEditor/Widget/CardWidget.cpp \
 
 HEADERS += \
         MainWindow.h \
@@ -42,6 +43,7 @@ HEADERS += \
     NPCEditor/Widget/AttributeWidget.h \
     NPCEditor/Widget/AttributeTitleWidget.h \
     NPCEditor/Widget/SkillPacksWidget.h
+    NPCEditor/Widget/CardWidget.h \
 
 RESOURCES += \
     json/json.qrc
