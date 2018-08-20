@@ -1,25 +1,21 @@
-#ifndef ATTRIBUTEWIDGET_H
+﻿#ifndef ATTRIBUTEWIDGET_H
 #define ATTRIBUTEWIDGET_H
 
-#include <QWidget>
-#include <QHash>
-
+#include "CardWidget.h"
 #include "AttributeTitleWidget.h"
 #include "SkillPacksWidget.h"
 
-class AttributeWidget : public QWidget
+#include <QHash>
+
+class AttributeWidget : public CardWidget
 {
     Q_OBJECT
 public:
     explicit AttributeWidget(const QString &name, const QJsonArray &skillPacks, QWidget *parent = nullptr);
     ~AttributeWidget() = default;
 
-signals:
-
-public slots:
-
 private:
-    AttributeTitleWidget *m_pTitle{nullptr};
+    AttributeTitleWidget *m_pTitleBar{nullptr};
     QHash<QString, SkillPacksWidget*> m_skillPacks;
 };
 

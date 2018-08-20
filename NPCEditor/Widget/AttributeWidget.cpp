@@ -5,11 +5,12 @@
 #include <QVBoxLayout>
 
 AttributeWidget::AttributeWidget(const QString &name, const QJsonArray &skillPacks, QWidget *parent)
-    : QWidget(parent),
-      m_pTitle(new AttributeTitleWidget(name, this))
+    : CardWidget("", parent),
+      m_pTitleBar(new AttributeTitleWidget(name, this))
 {
+    setFixedHeight( 110 * skillPacks.count() + 50 );
     QVBoxLayout* all = new QVBoxLayout;
-    all->addWidget( m_pTitle );
+    all->addWidget( m_pTitleBar );
 
     for ( const QJsonValue &pack: skillPacks ) {
         const QJsonObject &obj = pack.toObject();
@@ -18,6 +19,7 @@ AttributeWidget::AttributeWidget(const QString &name, const QJsonArray &skillPac
         m_skillPacks.insert( name, new SkillPacksWidget(name, skills) );
         all->addWidget( m_skillPacks.value(name) );
     }
+    all->setSpacing( 1 );
 
     setLayout( all );
 }
