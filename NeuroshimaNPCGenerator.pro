@@ -32,6 +32,7 @@ SOURCES += \
     NPCEditor/Widget/AttributeWidget.cpp \
     NPCEditor/Widget/AttributeTitleWidget.cpp \
     NPCEditor/Widget/SkillPacksWidget.cpp
+    NPCEditor/Widget/PersonalWidget.cpp \
     NPCEditor/Widget/CardWidget.cpp \
 
 HEADERS += \
@@ -43,6 +44,7 @@ HEADERS += \
     NPCEditor/Widget/AttributeWidget.h \
     NPCEditor/Widget/AttributeTitleWidget.h \
     NPCEditor/Widget/SkillPacksWidget.h
+    NPCEditor/Widget/PersonalWidget.h \
     NPCEditor/Widget/CardWidget.h \
 
 RESOURCES += \
