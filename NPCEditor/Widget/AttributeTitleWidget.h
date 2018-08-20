@@ -1,24 +1,31 @@
-#ifndef ATTRIBUTETITLEWIDGET_H
+﻿#ifndef ATTRIBUTETITLEWIDGET_H
 #define ATTRIBUTETITLEWIDGET_H
 
-#include <QWidget>
+#include "CardWidget.h"
+
 #include <QLabel>
 
-class AttributeTitleWidget : public QWidget
+#include <QHBoxLayout>
+
+class AttributeTitleWidget : public CardWidget
 {
     Q_OBJECT
 public:
     explicit AttributeTitleWidget(const QString &name, QWidget *parent = nullptr);
 
+    QHBoxLayout *createLayout();
+
 private:
-    QLabel *m_pTitle{nullptr};
-    const QString m_widgetStyle{ "QWidget{"
+    QLabel *m_pTitleText{nullptr};
+    const QString m_widgetStyle{ "QWidget#TitleWidget{"
                            " background-color: gray;"
                            " border: 1px solid;"
                            "}" };
-    const QString m_labelStyle{ "QLabel{"
+    const QString m_labelStyle{ "QLabel#TitleLabel{"
                                 " font: 15px;"
                                 "}" };
+
+    QStringList list{"Łatwy", "Przec.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart"};
 };
 
 #endif // ATTRIBUTETITLEWIDGET_H

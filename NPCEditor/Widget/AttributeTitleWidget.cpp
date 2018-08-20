@@ -1,9 +1,34 @@
-#include "AttributeTitleWidget.h"
+﻿#include "AttributeTitleWidget.h"
+
+#include "AttributeValueWidget.h"
+
+#include <QHBoxLayout>
 
 AttributeTitleWidget::AttributeTitleWidget(const QString &name, QWidget *parent)
-    : QWidget(parent),
-      m_pTitle(new QLabel(name, this))
+    : CardWidget("", parent),
+      m_pTitleText(new QLabel(name, this))
 {
-    m_pTitle->setStyleSheet( m_labelStyle );
+    setObjectName("TitleWidget");
+    m_pTitleText->setObjectName( "TitleLabel" );
+    m_pTitleText->setStyleSheet( m_labelStyle );
     setStyleSheet( m_widgetStyle );
+
+    QHBoxLayout* pAll = new QHBoxLayout;
+    pAll->addWidget( m_pTitleText );
+    pAll->addLayout( createLayout() );
+
+    setLayout( pAll );
+}
+
+QHBoxLayout *AttributeTitleWidget::createLayout()
+{
+    QHBoxLayout *pLayot = new QHBoxLayout;
+
+
+    for ( const QString &label: list ) {
+        AttributeValueWidget *pWidget = new AttributeValueWidget(label, this);
+        pLayot->addWidget( pWidget );
+    }
+
+    return  pLayot;
 }
