@@ -7,7 +7,7 @@ AttributeValueWidget::AttributeValueWidget(const QString &name, QWidget *parent)
 {
     setObjectName("ValueWidget");
     setStyleSheet(m_widgetStyle);
-    setFixedSize( 40, 40 );
+    setFixedSize( 30, 40 );
 
     m_pNameLabel = new QLabel( name, this );
     m_pValueLabel = new QLabel( "0", this );
@@ -19,9 +19,10 @@ AttributeValueWidget::AttributeValueWidget(const QString &name, QWidget *parent)
     m_pValueLabel->setAlignment(Qt::AlignHCenter);
 
     QVBoxLayout *pAll = new QVBoxLayout;
-    pAll->addWidget( m_pNameLabel );
+    pAll->addWidget( m_pNameLabel, 0, Qt::AlignHCenter );
     pAll->addWidget( m_pValueLabel );
     pAll->setSpacing( 0 );
+    pAll->setMargin( 0 );
 
     setLayout( pAll );
 }

@@ -25,7 +25,7 @@ private:
                                 " font: 15px;"
                                 "}" };
 
-    QStringList list{"Łatwy", "Przec.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart"};
+    QStringList list{"Łat.", "Prze.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart"};
 };
 
 #endif // ATTRIBUTETITLEWIDGET_H
