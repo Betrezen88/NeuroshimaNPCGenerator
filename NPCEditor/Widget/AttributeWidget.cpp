@@ -8,7 +8,6 @@ AttributeWidget::AttributeWidget(const QString &name, const QJsonArray &skillPac
     : CardWidget("", parent),
       m_pTitleBar(new AttributeTitleWidget(name, this))
 {
-    setFixedHeight( 110 * skillPacks.count() + 50 );
     QVBoxLayout* all = new QVBoxLayout;
     all->addWidget( m_pTitleBar );
 
