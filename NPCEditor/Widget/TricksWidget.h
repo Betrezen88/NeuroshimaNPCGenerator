@@ -4,6 +4,7 @@
 #include "CardWidget.h"
 
 #include <QListWidget>
+#include <QPushButton>
 
 class TricksWidget : public CardWidget
 {
@@ -12,6 +13,8 @@ public:
 
 private:
     QListWidget *m_pTricksList{nullptr};
+    QPushButton *m_pAddBtn{nullptr};
+    QPushButton *m_pRemoveBtn{nullptr};
 };
 
 #endif // TRICKSWIDGET_H
