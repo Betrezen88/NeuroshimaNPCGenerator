@@ -22,6 +22,7 @@ private:
     QVBoxLayout *createColumn1();
     QVBoxLayout *createColumn2();
     QVBoxLayout *createColumn3();
+    QVBoxLayout *createColumn4();
     void fillAttributes();
 
 private:

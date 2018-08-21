@@ -10,7 +10,6 @@ CardWidget::CardWidget(const QString &title, QWidget *parent)
         m_pTitle = new QLabel(title, this);
         m_pTitle->setObjectName( "Title" );
         m_pTitle->setFixedHeight( 50 );
-        m_pTitle->setWordWrap( true );
         m_pTitle->setStyleSheet( m_titleStyle );
     }
 }

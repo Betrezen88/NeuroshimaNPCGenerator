@@ -7,6 +7,7 @@
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QSpacerItem>
 
 #include <QDebug>
 
@@ -20,9 +21,11 @@ NPCCardEditor::NPCCardEditor(QWidget *parent)
 
     QHBoxLayout *pAll = new QHBoxLayout;
     pAll->addLayout( createColumn1() );
+    pAll->addLayout( createColumn4() );
     pAll->addLayout( createColumn2() );
     pAll->addLayout( createColumn3() );
-    pAll->addWidget( m_attributes.value("Spryt") );
+
+    pAll->setSpacing( 5 );
 
     setLayout( pAll );
 }
@@ -60,7 +63,7 @@ QVBoxLayout *NPCCardEditor::createColumn2()
 {
     QVBoxLayout *pLayout = new QVBoxLayout;
 
-    pLayout->addWidget( new CardWidget("Współczynniki \ni umiejętności", this) );
+//    pLayout->addWidget( new CardWidget("Współczynniki \ni umiejętności", this) );
     pLayout->addWidget( m_attributes.value("Budowa") );
     pLayout->addWidget( m_attributes.value("Zręczność") );
     pLayout->setSpacing( 1 );
@@ -73,8 +76,18 @@ QVBoxLayout *NPCCardEditor::createColumn3()
     QVBoxLayout *pLayout = new QVBoxLayout;
 
     pLayout->addWidget( m_attributes.value("Charakter") );
-//    pLayout->addWidget( m_attributes.value("Spryt") );
     pLayout->addWidget( m_attributes.value("Percepcja") );
+    pLayout->setSpacing( 1 );
+
+    return pLayout;
+}
+
+QVBoxLayout *NPCCardEditor::createColumn4()
+{
+    QVBoxLayout *pLayout = new QVBoxLayout;
+
+    pLayout->addWidget( new CardWidget("Współczynniki i umiejętności", this) );
+    pLayout->addWidget( m_attributes.value("Spryt"), 0, Qt::AlignTop );
     pLayout->setSpacing( 1 );
 
     return pLayout;
