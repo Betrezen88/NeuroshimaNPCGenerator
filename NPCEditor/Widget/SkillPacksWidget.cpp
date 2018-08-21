@@ -2,41 +2,38 @@
 
 #include <QJsonObject>
 #include <QJsonValue>
-#include <QGridLayout>
-#include <QStyleOption>
-#include <QPainter>
 
 SkillPacksWidget::SkillPacksWidget(const QString &name, const QJsonArray &skills, QWidget *parent)
-    : QWidget(parent),
-      m_pTitle(new QLabel(name, this))
+    : CardWidget("", parent),
+      m_pTitlePack(new QLabel(name, this))
 {
-    setObjectName("A");
-    m_pTitle->setStyleSheet( m_titleStyle );
-    m_pTitle->setFixedHeight( 30 );
+    setObjectName("SkillPackWidget");
     setStyleSheet( m_widgetStyle );
     setFixedHeight( 110 );
+    m_pTitlePack->setObjectName("SkillPackTitle");
+    m_pTitlePack->setStyleSheet( m_skillPackLabelStyle );
+    m_pTitlePack->setFixedHeight( 30 );
 
-    QGridLayout* all = new QGridLayout;
+    QVBoxLayout* pAll = new QVBoxLayout;
+    pAll->addWidget( m_pTitlePack );
+    pAll->addLayout( createSkillsLayout(skills) );
 
-    all->addWidget( m_pTitle, 0, 0, 1, 0 );
+    setLayout( pAll );
+}
+
+QGridLayout *SkillPacksWidget::createSkillsLayout(const QJsonArray &skills)
+{
+    QGridLayout *pLayout = new QGridLayout;
 
     int row = 1;
     for ( const QJsonValue &pack: skills ) {
         QLabel *pLabel = new QLabel(pack.toString(), this);
         QSpinBox *pSpinBox = new QSpinBox(this);
         m_skills.insert( pack.toString(), pSpinBox );
-        all->addWidget( pLabel, row, 0 );
-        all->addWidget( pSpinBox, row, 1 );
+        pLayout->addWidget( pLabel, row, 0 );
+        pLayout->addWidget( pSpinBox, row, 1 );
         ++row;
     }
-
-    setLayout( all );
-}
-
-void SkillPacksWidget::paintEvent(QPaintEvent *)
-{
-    QStyleOption opt;
-    opt.init(this);
-    QPainter p(this);
-    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+    pLayout->setMargin( 0 );
+    return pLayout;
 }
