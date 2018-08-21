@@ -9,6 +9,7 @@
 
 #include "Widget/PersonalWidget.h"
 #include "Widget/AttributeWidget.h"
+#include "Widget/TricksWidget.h"
 
 class NPCCardEditor : public QWidget
 {
@@ -30,6 +31,7 @@ private:
 
     PersonalWidget *m_pPersonal{nullptr};
     QHash<QString, AttributeWidget*> m_attributes;
+    TricksWidget *m_pTricks{nullptr};
 };
 
 #endif // NPCCARDEDITOR_H

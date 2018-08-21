@@ -18,6 +18,7 @@ NPCCardEditor::NPCCardEditor(QWidget *parent)
 
     m_pPersonal = new PersonalWidget( m_NPCCard.object().value("Postać").toArray(), this );
     fillAttributes();
+    m_pTricks = new TricksWidget( this );
 
     QHBoxLayout *pAll = new QHBoxLayout;
     pAll->addLayout( createColumn1() );
@@ -55,6 +56,7 @@ QVBoxLayout *NPCCardEditor::createColumn1()
     QVBoxLayout *pLayout = new QVBoxLayout;
 
     pLayout->addWidget( m_pPersonal );
+    pLayout->addWidget( m_pTricks );
 
     return pLayout;
 }
