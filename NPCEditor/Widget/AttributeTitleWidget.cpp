@@ -13,6 +13,7 @@ AttributeTitleWidget::AttributeTitleWidget(const QString &name, QWidget *parent)
     setFixedHeight( 50 );
     m_pTitleText->setObjectName( "TitleLabel" );
     m_pTitleText->setStyleSheet( m_labelStyle );
+    m_pTitleText->setFixedWidth( 90 );
 
     QHBoxLayout* pAll = new QHBoxLayout;
     pAll->addWidget( m_pTitleText );

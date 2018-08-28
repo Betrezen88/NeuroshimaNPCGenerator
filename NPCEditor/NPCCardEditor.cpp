@@ -92,6 +92,7 @@ QVBoxLayout *NPCCardEditor::createColumn4()
     pLayout->addWidget( new CardWidget("Współczynniki i umiejętności", this) );
     pLayout->addWidget( m_attributes.value("Spryt"), 0, Qt::AlignTop );
     pLayout->addWidget( m_pWounds );
+    pLayout->addSpacing( 70 );
     pLayout->setSpacing( 1 );
 
     return pLayout;
