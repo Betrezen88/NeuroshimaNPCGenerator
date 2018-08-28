@@ -6,11 +6,12 @@
 class AttributeValueWidget : public CardWidget
 {
 public:
-    AttributeValueWidget(const QString &name, QWidget *parent = nullptr);
+    AttributeValueWidget(const QString &name, const int &value, QWidget *parent = nullptr);
 
 private:
     QLabel *m_pNameLabel{nullptr};
     QLabel *m_pValueLabel{nullptr};
+    int m_value{0};
 
     const QString m_widgetStyle{"QWidget#ValueWidget{"
                                 " border 1px solid black;"

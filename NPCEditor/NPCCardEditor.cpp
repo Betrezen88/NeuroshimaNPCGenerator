@@ -101,11 +101,12 @@ QVBoxLayout *NPCCardEditor::createColumn4()
 void NPCCardEditor::fillAttributes()
 {
     const QJsonArray &attributes = m_NPCCard.object().value("Atrybuty").toArray();
+    const QJsonArray &modificators = m_NPCCard.object().value("Modyfikatory").toArray();
 
     for ( const QJsonValue &attribute : attributes ) {
         const QJsonObject &obj = attribute.toObject();
         const QString &name = obj.value("name").toString();
         const QJsonArray &skillPacks = obj.value("skillPacks").toArray();
-        m_attributes.insert( name, new AttributeWidget(name, skillPacks) );
+        m_attributes.insert( name, new AttributeWidget(name, modificators, skillPacks) );
     }
 }

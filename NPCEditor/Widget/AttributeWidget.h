@@ -11,7 +11,10 @@ class AttributeWidget : public CardWidget
 {
     Q_OBJECT
 public:
-    explicit AttributeWidget(const QString &name, const QJsonArray &skillPacks, QWidget *parent = nullptr);
+    explicit AttributeWidget(const QString &name,
+                             const QJsonArray &modificators,
+                             const QJsonArray &skillPacks,
+                             QWidget *parent = nullptr);
     ~AttributeWidget() = default;
 
 private:

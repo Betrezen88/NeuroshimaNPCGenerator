@@ -3,8 +3,11 @@
 #include "AttributeValueWidget.h"
 
 #include <QHBoxLayout>
+#include <QJsonObject>
 
-AttributeTitleWidget::AttributeTitleWidget(const QString &name, QWidget *parent)
+AttributeTitleWidget::AttributeTitleWidget(const QString &name,
+                                           const QJsonArray &modificators,
+                                           QWidget *parent)
     : CardWidget("", parent),
       m_pTitleText(new QLabel(name, this))
 {
@@ -17,18 +20,21 @@ AttributeTitleWidget::AttributeTitleWidget(const QString &name, QWidget *parent)
 
     QHBoxLayout* pAll = new QHBoxLayout;
     pAll->addWidget( m_pTitleText );
-    pAll->addLayout( createLayout() );
+    pAll->addLayout( createLayout(modificators) );
     pAll->setMargin( 5 );
 
     setLayout( pAll );
 }
 
-QHBoxLayout *AttributeTitleWidget::createLayout()
+QHBoxLayout *AttributeTitleWidget::createLayout(const QJsonArray &modificators)
 {
     QHBoxLayout *pLayot = new QHBoxLayout;
 
-    for ( const QString &label: list ) {
-        AttributeValueWidget *pWidget = new AttributeValueWidget(label, this);
+    for ( const QJsonValue &mod: modificators ) {
+        const QJsonObject &obj = mod.toObject();
+        const QString &label = obj.value("short").toString();
+        const int &value = obj.value("value").toInt();
+        AttributeValueWidget *pWidget = new AttributeValueWidget(label, value, this);
         pLayot->addWidget( pWidget );
     }
 

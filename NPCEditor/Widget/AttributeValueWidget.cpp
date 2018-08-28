@@ -2,15 +2,16 @@
 
 #include <QVBoxLayout>
 
-AttributeValueWidget::AttributeValueWidget(const QString &name, QWidget *parent)
-    : CardWidget("", parent)
+AttributeValueWidget::AttributeValueWidget(const QString &name, const int &value, QWidget *parent)
+    : CardWidget("", parent),
+      m_value(value)
 {
     setObjectName("ValueWidget");
     setStyleSheet(m_widgetStyle);
     setFixedSize( 30, 40 );
 
     m_pNameLabel = new QLabel( name, this );
-    m_pValueLabel = new QLabel( "0", this );
+    m_pValueLabel = new QLabel( QString::number(m_value), this );
 
     m_pNameLabel->setObjectName("Label");
     m_pNameLabel->setStyleSheet( m_labelStyle );

@@ -15,7 +15,7 @@ SkillPacksWidget::SkillPacksWidget(const QString &name,
     m_pTitlePack = new QLabel(name + specLabel(specialization), this);
     m_pTitlePack->setObjectName("SkillPackTitle");
     m_pTitlePack->setStyleSheet( m_skillPackLabelStyle );
-    m_pTitlePack->setFixedHeight( 30 );
+    m_pTitlePack->setFixedHeight( 20 );
 
     QVBoxLayout* pAll = new QVBoxLayout;
     pAll->addWidget( m_pTitlePack );

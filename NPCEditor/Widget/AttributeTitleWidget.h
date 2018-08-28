@@ -4,6 +4,7 @@
 #include "CardWidget.h"
 
 #include <QLabel>
+#include <QJsonArray>
 
 #include <QHBoxLayout>
 
@@ -11,9 +12,11 @@ class AttributeTitleWidget : public CardWidget
 {
     Q_OBJECT
 public:
-    explicit AttributeTitleWidget(const QString &name, QWidget *parent = nullptr);
+    explicit AttributeTitleWidget(const QString &name,
+                                  const QJsonArray &modificators,
+                                  QWidget *parent = nullptr);
 
-    QHBoxLayout *createLayout();
+    QHBoxLayout *createLayout(const QJsonArray &modificators);
 
 private:
     QLabel *m_pTitleText{nullptr};

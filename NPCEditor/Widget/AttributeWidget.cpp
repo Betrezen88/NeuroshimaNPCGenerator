@@ -4,9 +4,12 @@
 #include <QJsonValue>
 #include <QVBoxLayout>
 
-AttributeWidget::AttributeWidget(const QString &name, const QJsonArray &skillPacks, QWidget *parent)
+AttributeWidget::AttributeWidget(const QString &name,
+                                 const QJsonArray &modificators,
+                                 const QJsonArray &skillPacks,
+                                 QWidget *parent)
     : CardWidget("", parent),
-      m_pTitleBar(new AttributeTitleWidget(name, this))
+      m_pTitleBar(new AttributeTitleWidget(name, modificators, this))
 {
     QVBoxLayout* all = new QVBoxLayout;
     all->addWidget( m_pTitleBar );
