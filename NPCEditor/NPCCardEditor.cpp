@@ -19,6 +19,7 @@ NPCCardEditor::NPCCardEditor(QWidget *parent)
     m_pPersonal = new PersonalWidget( m_NPCCard.object().value("Postać").toArray(), this );
     fillAttributes();
     m_pTricks = new TricksWidget( this );
+    m_pWounds = new WoundsWidget( m_NPCCard.object().value("Rany").toArray(), this );
 
     QHBoxLayout *pAll = new QHBoxLayout;
     pAll->addLayout( createColumn1() );
@@ -90,6 +91,7 @@ QVBoxLayout *NPCCardEditor::createColumn4()
 
     pLayout->addWidget( new CardWidget("Współczynniki i umiejętności", this) );
     pLayout->addWidget( m_attributes.value("Spryt"), 0, Qt::AlignTop );
+    pLayout->addWidget( m_pWounds );
     pLayout->setSpacing( 1 );
 
     return pLayout;
