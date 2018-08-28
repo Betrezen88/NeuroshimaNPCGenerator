@@ -15,7 +15,8 @@ AttributeWidget::AttributeWidget(const QString &name, const QJsonArray &skillPac
         const QJsonObject &obj = pack.toObject();
         const QString &name = obj.value("name").toString();
         const QJsonArray &skills = obj.value("skills").toArray();
-        m_skillPacks.insert( name, new SkillPacksWidget(name, skills) );
+        const QJsonArray &specialization = obj.value("Specialization").toArray();
+        m_skillPacks.insert( name, new SkillPacksWidget(name, specialization, skills) );
         all->addWidget( m_skillPacks.value(name) );
     }
     all->setSpacing( 1 );
