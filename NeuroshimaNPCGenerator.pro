@@ -33,7 +33,8 @@ SOURCES += \
     NPCEditor/Widget/PersonalWidget.cpp \
     NPCEditor/Widget/CardWidget.cpp \
     NPCEditor/Widget/AttributeValueWidget.cpp \
-    NPCEditor/Widget/TricksWidget.cpp
+    NPCEditor/Widget/TricksWidget.cpp \
+    NPCEditor/Widget/WoundsWidget.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -44,7 +45,8 @@ HEADERS += \
     NPCEditor/Widget/PersonalWidget.h \
     NPCEditor/Widget/CardWidget.h \
     NPCEditor/Widget/AttributeValueWidget.h \
-    NPCEditor/Widget/TricksWidget.h
+    NPCEditor/Widget/TricksWidget.h \
+    NPCEditor/Widget/WoundsWidget.h
 
 RESOURCES += \
     json/json.qrc
