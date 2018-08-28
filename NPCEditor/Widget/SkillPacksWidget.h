@@ -15,10 +15,12 @@ class SkillPacksWidget : public CardWidget
     Q_OBJECT
 public:
     explicit SkillPacksWidget(const QString &name,
+                              const QJsonArray &specialization,
                               const QJsonArray &skills,
                               QWidget *parent = nullptr);
 private:
     QGridLayout *createSkillsLayout(const QJsonArray &skills);
+    QString specLabel(const QJsonArray &specialization);
 
 private:
     QLabel *m_pTitlePack{nullptr};
