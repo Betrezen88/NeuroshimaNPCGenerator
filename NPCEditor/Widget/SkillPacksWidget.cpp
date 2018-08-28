@@ -37,7 +37,7 @@ QGridLayout *SkillPacksWidget::createSkillsLayout(const QJsonArray &skills)
         pLayout->addWidget( pSpinBox, row, 1 );
         ++row;
     }
-    pLayout->setMargin( 0 );
+    pLayout->setSpacing( 0 );
     return pLayout;
 }
 
