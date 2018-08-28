@@ -27,7 +27,7 @@ QVBoxLayout *PersonalWidget::createLayout(const QJsonArray &json)
 
     for ( const QJsonValue &value: json ) {
         const QJsonObject &obj = value.toObject();
-        pLayout->addLayout( createElement(obj) );
+        pLayout->addWidget( createElement(obj) );
     }
 
     pLayout->setSpacing( 2 );
@@ -49,8 +49,10 @@ QWidget *PersonalWidget::createWidget(const QString &type)
     return widget;
 }
 
-QLayout *PersonalWidget::createElement(const QJsonObject &obj)
+QWidget *PersonalWidget::createElement(const QJsonObject &obj)
 {
+    QWidget *pWidget = new QWidget(this);
+
     const QString &key = obj.value("label").toString();
     const QString &type = obj.value("Type").toString();
     m_widgets.insert( key, createWidget(type) );
@@ -64,5 +66,9 @@ QLayout *PersonalWidget::createElement(const QJsonObject &obj)
     pLayout->addWidget( new QLabel(key) );
     pLayout->addWidget( m_widgets.value(key) );
 
-    return pLayout;
+    pWidget->setObjectName( "PersonalItem" );
+    pWidget->setStyleSheet( m_personalWidgetStyle );
+    pWidget->setLayout( pLayout );
+
+    return pWidget;
 }

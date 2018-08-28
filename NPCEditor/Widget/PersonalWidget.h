@@ -18,7 +18,7 @@ public:
 private:
     QVBoxLayout *createLayout(const QJsonArray &json);
     QWidget *createWidget(const QString &type);
-    QLayout *createElement(const QJsonObject &obj);
+    QWidget *createElement(const QJsonObject &obj);
 
 private:
     QLabel *m_pPortrait{nullptr};
@@ -28,6 +28,10 @@ private:
                                    " border: 2px solid;"
                                    " border-radius: 5px;"
                                    "}" };
+    const QString m_personalWidgetStyle{ "QWidget#PersonalItem{"
+                                         " border: 1px solid black;"
+                                         " border-radius: 10px;"
+                                         "}" };
 };
 
 #endif // PERSONALWIDGET_H
