@@ -7,7 +7,9 @@
 #include <QLineEdit>
 #include <QComboBox>
 
-PersonalWidget::PersonalWidget(const QJsonArray &json, QWidget *parent)
+#include <QDebug>
+
+PersonalWidget::PersonalWidget(const QJsonArray &json, const QJsonArray &origins, QWidget *parent)
     : CardWidget("Postać", parent),
       m_pPortrait(new QLabel("", this))
 {
@@ -15,7 +17,43 @@ PersonalWidget::PersonalWidget(const QJsonArray &json, QWidget *parent)
     m_pPortrait->setMinimumHeight( 150 );
     m_pPortrait->setStyleSheet( m_portraitStyle );
 
+    m_origins = origins;
+
     setLayout( createLayout(json) );
+
+    connect( qobject_cast<QComboBox*>(m_widgets.value("Pochodzenie")),
+             &QComboBox::currentTextChanged,
+             this,
+             &PersonalWidget::onOriginChanged);
+
+    connect( qobject_cast<QComboBox*>(m_widgets.value("Cecha z pochodzenia")),
+             &QComboBox::currentTextChanged,
+             this,
+             &PersonalWidget::onOriginFeatureChanged);
+
+    loadData( origins );
+}
+
+void PersonalWidget::onOriginChanged(const QString &originName)
+{
+    m_features.clear();
+    const QJsonObject originObj = origin(originName);
+    const QJsonArray &features = originObj.value("features").toArray();
+
+    for ( const QJsonValue &feature: features ) {
+        const QJsonObject &obj = feature.toObject();
+        const QString &name = obj.value("name").toString();
+        const QString &description = obj.value("description").toString();
+        m_features.insert( name, description );
+    }
+
+    qobject_cast<QComboBox*>(m_widgets.value("Cecha z pochodzenia"))->clear();
+    qobject_cast<QComboBox*>(m_widgets.value("Cecha z pochodzenia"))->insertItems(0, m_features.keys());
+}
+
+void PersonalWidget::onOriginFeatureChanged(const QString &feature)
+{
+    qobject_cast<QComboBox*>(m_widgets.value("Cecha z pochodzenia"))->setToolTip( m_features.value(feature) );
 }
 
 QVBoxLayout *PersonalWidget::createLayout(const QJsonArray &json)
@@ -71,4 +109,27 @@ QWidget *PersonalWidget::createElement(const QJsonObject &obj)
     pWidget->setLayout( pLayout );
 
     return pWidget;
+}
+
+void PersonalWidget::loadData(const QJsonArray &origins)
+{
+    QStringList originsNames;
+
+    for ( const QJsonValue &origin: origins )
+        originsNames << origin.toObject().value("name").toString();
+
+    qobject_cast<QComboBox*>(m_widgets.value("Pochodzenie"))->insertItems(0, originsNames);
+}
+
+const QJsonObject PersonalWidget::origin(const QString &name) const
+{
+    QJsonObject objOrigin;
+    for ( const QJsonValue &jOrigin: m_origins ) {
+        const QJsonObject &obj = jOrigin.toObject();
+        if ( name == obj.value("name").toString() ) {
+            objOrigin = obj;
+            break;
+        }
+    }
+    return objOrigin;
 }

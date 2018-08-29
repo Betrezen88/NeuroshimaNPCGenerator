@@ -29,6 +29,7 @@ private:
 
 private:
     QJsonDocument m_NPCCard;
+    QJsonDocument m_origin;
 
     PersonalWidget *m_pPersonal{nullptr};
     QHash<QString, AttributeWidget*> m_attributes;

@@ -15,9 +15,12 @@ NPCCardEditor::NPCCardEditor(QWidget *parent)
     : QWidget(parent)
 {
     m_NPCCard = loadJson(":/NPCCard.json");
+    m_origin = loadJson(":/Origins.json");
 
-    m_pPersonal = new PersonalWidget( m_NPCCard.object().value("Postać").toArray(), this );
     fillAttributes();
+    m_pPersonal = new PersonalWidget( m_NPCCard.object().value("Postać").toArray(),
+                                      m_origin.object().value("Pochodzenie").toArray(),
+                                      this );
     m_pTricks = new TricksWidget( this );
     m_pWounds = new WoundsWidget( m_NPCCard.object().value("Rany").toArray(), this );
 
