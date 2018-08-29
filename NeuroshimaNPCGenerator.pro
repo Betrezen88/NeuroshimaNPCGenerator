@@ -53,4 +53,5 @@ RESOURCES += \
 
 DISTFILES += \
     json/NPCCard.json \
-    Othres/Concept.txt
+    Othres/Concept.txt \
+    json/Origins.json
