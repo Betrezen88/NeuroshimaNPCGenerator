@@ -25,8 +25,9 @@ private:
     QVBoxLayout *createLayout(const QJsonArray &json);
     QWidget *createWidget(const QString &type);
     QWidget *createElement(const QJsonObject &obj);
-    void loadData(const QJsonArray &origins);
+    void loadData();
     const QJsonObject origin(const QString &name) const;
+    const QStringList originsList() const;
 
 private:
     QLabel *m_pPortrait{nullptr};

@@ -31,7 +31,7 @@ PersonalWidget::PersonalWidget(const QJsonArray &json, const QJsonArray &origins
              this,
              &PersonalWidget::onOriginFeatureChanged);
 
-    loadData( origins );
+    loadData();
 }
 
 void PersonalWidget::onOriginChanged(const QString &originName)
@@ -111,14 +111,9 @@ QWidget *PersonalWidget::createElement(const QJsonObject &obj)
     return pWidget;
 }
 
-void PersonalWidget::loadData(const QJsonArray &origins)
+void PersonalWidget::loadData()
 {
-    QStringList originsNames;
-
-    for ( const QJsonValue &origin: origins )
-        originsNames << origin.toObject().value("name").toString();
-
-    qobject_cast<QComboBox*>(m_widgets.value("Pochodzenie"))->insertItems(0, originsNames);
+    qobject_cast<QComboBox*>(m_widgets.value("Pochodzenie"))->insertItems(0, originsList());
 }
 
 const QJsonObject PersonalWidget::origin(const QString &name) const
@@ -132,4 +127,14 @@ const QJsonObject PersonalWidget::origin(const QString &name) const
         }
     }
     return objOrigin;
+}
+
+const QStringList PersonalWidget::originsList() const
+{
+    QStringList names;
+
+    for ( const QJsonValue &origin: m_origins )
+        names << origin.toObject().value("name").toString();
+
+    return names;
 }
