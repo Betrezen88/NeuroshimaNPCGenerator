@@ -34,7 +34,11 @@ SOURCES += \
     NPCEditor/Widget/CardWidget.cpp \
     NPCEditor/Widget/AttributeValueWidget.cpp \
     NPCEditor/Widget/TricksWidget.cpp \
-    NPCEditor/Widget/WoundsWidget.cpp
+    NPCEditor/Widget/WoundsWidget.cpp \
+    NPC/NPCHero.cpp \
+    NPC/NPCAttribute.cpp \
+    NPC/NPCCard.cpp \
+    NPC/NPCSkillPack.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -46,7 +50,11 @@ HEADERS += \
     NPCEditor/Widget/CardWidget.h \
     NPCEditor/Widget/AttributeValueWidget.h \
     NPCEditor/Widget/TricksWidget.h \
-    NPCEditor/Widget/WoundsWidget.h
+    NPCEditor/Widget/WoundsWidget.h \
+    NPC/NPCHero.h \
+    NPC/NPCAttribute.h \
+    NPC/NPCCard.h \
+    NPC/NPCSkillPack.h
 
 RESOURCES += \
     json/json.qrc

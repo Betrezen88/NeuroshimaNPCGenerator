@@ -1,12 +1,15 @@
 ﻿#include "MainWindow.h"
 
+#include "NPC/NPCCard.h"
+
 #include <QMenuBar>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
       m_pTabWidget(new QTabWidget(this))
 {
-    NPCCardEditor* pEditor = new NPCCardEditor(this);
+//    NPCCardEditor* pEditor = new NPCCardEditor(this);
+    NPCCard *pEditor = new NPCCard(this);
 
     createActions();
     createMenus();
