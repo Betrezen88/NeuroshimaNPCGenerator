@@ -1,5 +1,6 @@
-#include "NPCCard.h"
+﻿#include "NPCCard.h"
 
+#include <QTextEdit>
 #include <QHBoxLayout>
 
 NPCCard::NPCCard(QWidget *parent)
@@ -239,6 +240,30 @@ QWidget *NPCCard::createWoundsSection()
     return pWidget;
 }
 
+QWidget *NPCCard::createWoundsModificatorsSection()
+{
+    QTextEdit *pLineEdit = new QTextEdit(this);
+    pLineEdit->setFixedHeight( 80 );
+    pLineEdit->setWordWrapMode( QTextOption::WordWrap );
+    return pLineEdit;
+}
+
+QWidget *NPCCard::createProgressSection()
+{
+    QWidget *pWidget = new QWidget(this);
+    QGridLayout *pLayout = new QGridLayout;
+
+    pLayout->addWidget( new QLabel("Atrybuty", this), 0, 0 );
+    pLayout->addWidget( new QSpinBox(this), 0, 1 );
+    pLayout->addWidget( new QLabel("Umiejętności", this), 1, 0 );
+    pLayout->addWidget( new QSpinBox(this), 1, 1 );
+    pLayout->addWidget( new QLabel("Doświadczenie", this), 2, 0 );
+    pLayout->addWidget( new QSpinBox(this), 2, 1 );
+
+    pWidget->setLayout( pLayout );
+    return pWidget;
+}
+
 QLabel *NPCCard::createLabel(const QString &text,
                              const QString &objName,
                              const QString &style,
@@ -299,6 +324,10 @@ QVBoxLayout *NPCCard::column4()
     pLayout->addWidget( createAttributeSection(m_pHero->attributes().at(4)) );
     pLayout->addWidget( createLabel("Rany", "Title", m_titleStyle, 0, 40) );
     pLayout->addWidget( createWoundsSection() );
+    pLayout->addWidget( createLabel("Modyfikatory", "Title", m_titleStyle, 0, 40) );
+    pLayout->addWidget( createWoundsModificatorsSection() );
+    pLayout->addWidget( createLabel("Punkty Rozwoju", "Title", m_titleStyle, 0, 40) );
+    pLayout->addWidget( createProgressSection() );
 
     pLayout->setMargin( 0 );
     pLayout->setSpacing( 1 );

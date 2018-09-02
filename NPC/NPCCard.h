@@ -1,4 +1,4 @@
-#ifndef NPCCARD_H
+﻿#ifndef NPCCARD_H
 #define NPCCARD_H
 
 #include <QWidget>
@@ -28,6 +28,8 @@ private:
     QWidget *createModificatorSection();
     QWidget *createModificatorWidget();
     QWidget *createWoundsSection();
+    QWidget *createWoundsModificatorsSection();
+    QWidget *createProgressSection();
 
     QLabel *createLabel(const QString &text,
                         const QString &objName = "",
