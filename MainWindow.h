@@ -6,7 +6,7 @@
 #include <QAction>
 #include <QMenu>
 
-#include "NPCEditor/NPCCardEditor.h"
+#include "NPC/NPCCard.h"
 
 class MainWindow : public QMainWindow
 {
@@ -25,6 +25,8 @@ private:
 
 private:
     QTabWidget* m_pTabWidget{nullptr};
+
+    NPCCard *m_pCard{nullptr};
 
     QMenu *m_pHeroMenu{nullptr};
 
