@@ -26,15 +26,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         MainWindow.cpp \
-    NPCEditor/NPCCardEditor.cpp \
-    NPCEditor/Widget/AttributeWidget.cpp \
-    NPCEditor/Widget/AttributeTitleWidget.cpp \
-    NPCEditor/Widget/SkillPacksWidget.cpp \
-    NPCEditor/Widget/PersonalWidget.cpp \
-    NPCEditor/Widget/CardWidget.cpp \
-    NPCEditor/Widget/AttributeValueWidget.cpp \
-    NPCEditor/Widget/TricksWidget.cpp \
-    NPCEditor/Widget/WoundsWidget.cpp \
     NPC/NPCHero.cpp \
     NPC/NPCAttribute.cpp \
     NPC/NPCCard.cpp \
@@ -42,15 +33,6 @@ SOURCES += \
 
 HEADERS += \
         MainWindow.h \
-    NPCEditor/NPCCardEditor.h \
-    NPCEditor/Widget/AttributeWidget.h \
-    NPCEditor/Widget/AttributeTitleWidget.h \
-    NPCEditor/Widget/SkillPacksWidget.h \
-    NPCEditor/Widget/PersonalWidget.h \
-    NPCEditor/Widget/CardWidget.h \
-    NPCEditor/Widget/AttributeValueWidget.h \
-    NPCEditor/Widget/TricksWidget.h \
-    NPCEditor/Widget/WoundsWidget.h \
     NPC/NPCHero.h \
     NPC/NPCAttribute.h \
     NPC/NPCCard.h \
