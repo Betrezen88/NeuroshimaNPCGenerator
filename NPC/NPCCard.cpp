@@ -242,10 +242,10 @@ QWidget *NPCCard::createWoundsSection()
 
 QWidget *NPCCard::createWoundsModificatorsSection()
 {
-    QTextEdit *pLineEdit = new QTextEdit(this);
-    pLineEdit->setFixedHeight( 80 );
-    pLineEdit->setWordWrapMode( QTextOption::WordWrap );
-    return pLineEdit;
+    QTextEdit *pTextEdit = new QTextEdit(this);
+    pTextEdit->setFixedHeight( 80 );
+    pTextEdit->setWordWrapMode( QTextOption::WordWrap );
+    return pTextEdit;
 }
 
 QWidget *NPCCard::createProgressSection()
