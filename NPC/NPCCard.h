@@ -118,6 +118,10 @@ private:
                                   " border: 1px solid;"
                                   " border-radius: 5px;"
                                   "}" };
+    const QString m_woundsModificatorsWidget{ "QTextEdit#WoundsModificator{"
+                                              " border: 1px solid;"
+                                              " border-radius: 5px;"
+                                              "}" };
 };
 
 #endif // NPCCARD_H

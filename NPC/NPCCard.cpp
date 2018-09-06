@@ -243,6 +243,8 @@ QWidget *NPCCard::createWoundsSection()
 QWidget *NPCCard::createWoundsModificatorsSection()
 {
     QTextEdit *pTextEdit = new QTextEdit(this);
+    pTextEdit->setObjectName( "WoundsModificator" );
+    pTextEdit->setStyleSheet( m_woundsModificatorsWidget );
     pTextEdit->setFixedHeight( 80 );
     pTextEdit->setWordWrapMode( QTextOption::WordWrap );
     return pTextEdit;
