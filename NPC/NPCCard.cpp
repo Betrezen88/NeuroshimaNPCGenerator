@@ -253,6 +253,8 @@ QWidget *NPCCard::createWoundsModificatorsSection()
 QWidget *NPCCard::createProgressSection()
 {
     QWidget *pWidget = new QWidget(this);
+    pWidget->setObjectName( "ProgressWidget" );
+    pWidget->setStyleSheet( m_progressWidget );
     QGridLayout *pLayout = new QGridLayout;
 
     pLayout->addWidget( new QLabel("Atrybuty", this), 0, 0 );

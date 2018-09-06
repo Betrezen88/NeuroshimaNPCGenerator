@@ -122,6 +122,10 @@ private:
                                               " border: 1px solid;"
                                               " border-radius: 5px;"
                                               "}" };
+    const QString m_progressWidget{ "QWidget#ProgressWidget{"
+                                    " border: 1px solid;"
+                                    " border-radius: 5px;"
+                                    "}" };
 };
 
 #endif // NPCCARD_H
