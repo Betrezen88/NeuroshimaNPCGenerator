@@ -2,6 +2,8 @@
 
 #include <QTextEdit>
 #include <QHBoxLayout>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 NPCCard::NPCCard(QWidget *parent)
     : QWidget(parent),

@@ -9,6 +9,7 @@
 #include <QListWidget>
 #include <QVarLengthArray>
 #include <QVBoxLayout>
+#include <QJsonArray>
 
 #include "Widgets/NPCAttributeWidget.h"
 
