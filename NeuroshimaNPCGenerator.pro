@@ -41,6 +41,6 @@ RESOURCES += \
 
 DISTFILES += \
     Othres/Concept.txt \
-    json/Origins.json
+    json/Origins.json \
     json/Attributes.json \
     json/Specializations.json
