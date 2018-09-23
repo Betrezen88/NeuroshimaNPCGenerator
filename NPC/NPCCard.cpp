@@ -24,9 +24,8 @@ NPCCard::NPCCard(QWidget *parent)
       m_pTricks(new QListWidget(this)),
       m_pSpendSkillPoints(new QLabel())
 {
-    loadJsonObject( m_attributesJson, ":/Attributes.json" );
-    loadJsonObject( m_specializationsJson, ":/Specializations.json" );
-    createAndFillAttributes();
+    initCardData();
+
     QHBoxLayout *pAll = new QHBoxLayout;
     setLayout( pAll );
 
@@ -42,6 +41,20 @@ void NPCCard::onSkillPackBougth(const bool &checked, const QStringList &specs)
     int value = (checked) ? 5 : -5;
     m_spendedSkillPoints += value;
     updateSpendedSkillPoints();
+}
+
+void NPCCard::initCardData()
+{
+    loadJsonObject( m_attributesJson, ":/Attributes.json" );
+    loadJsonObject( m_specializationsJson, ":/Specializations.json" );
+
+    QStringList tSpecs;
+    for ( const QJsonValue &spec: m_specializationsJson )
+        tSpecs << spec.toString();
+
+    m_pSpecialization->insertItems( 0, tSpecs );
+
+    createAndFillAttributes();
 }
 
 QWidget *NPCCard::createPersonalSection()

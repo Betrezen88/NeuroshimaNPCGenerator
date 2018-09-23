@@ -24,6 +24,7 @@ public slots:
     void onSkillPackBougth(const bool &checked, const QStringList &specs);
 
 private:
+    void initCardData();
     QWidget *createPersonalSection();
     QWidget *createTricksSection();
     QWidget *createModificatorSection();
