@@ -30,6 +30,7 @@ SOURCES += \
     NPC/NPCAttribute.cpp \
     NPC/NPCCard.cpp \
     NPC/NPCSkillPack.cpp
+    NPC/Widgets/NPCAttributeWidget.cpp \
     NPC/Widgets/NPCSkillPackWidget.cpp
 
 HEADERS += \
@@ -38,6 +39,7 @@ HEADERS += \
     NPC/NPCAttribute.h \
     NPC/NPCCard.h \
     NPC/NPCSkillPack.h
+    NPC/Widgets/NPCAttributeWidget.h \
     NPC/Widgets/NPCSkillPackWidget.h
 
 RESOURCES += \
