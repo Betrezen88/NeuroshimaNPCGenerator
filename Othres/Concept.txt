@@ -11,3 +11,16 @@
 - sekcja Rozwój postaci pownien byś oddzielnym widgetem z własnymi zadaniami ?
     odpowiedzialny za pilnowanie ile punktów kreacji zostało
 
+- cechy z pochodzenia i profesji oferują bonusy, utworzyć info o bonusie aby łatwiej
+    było cofać i aktualizować zmiany, w jsonie zrobić
+    "Bonus": {
+        "type": "Trick", //skill pack, skill(s)
+        "name": "Trick name //skillPackName, skills array with values ?
+    }
+
+- obecnie mamy ciąg sygnałów i slotów NPCSkillPackWidget -> NPCAttributeWudget -> NPCCard,
+    a gdyby tak przenieść connecty do NPCCard wystawiając NPCSkillPackWidget-y do NPCCard
+    za pomocą api ?
+- QSpinBox nie informuje o tym czy wartość została zwiększona czy zmniejszona
+    1) Zrobić dodatkową zmienną pamiętającą poprzednią wartość
+    2) Utworzyć klasę dziedziczącą po QAbstractSpinBox
