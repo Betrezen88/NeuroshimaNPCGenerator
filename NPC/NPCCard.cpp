@@ -24,6 +24,7 @@ NPCCard::NPCCard(QWidget *parent)
       m_pTricks(new QListWidget(this)),
 {
     loadJsonObject( m_attributesJson, ":/Attributes.json" );
+    createAndFillAttributes();
     QHBoxLayout *pAll = new QHBoxLayout;
     setLayout( pAll );
 
@@ -193,6 +194,18 @@ QWidget *NPCCard::createProgressSection()
 
     pWidget->setLayout( pLayout );
     return pWidget;
+}
+
+void NPCCard::createAndFillAttributes()
+{
+    for ( const QJsonValue &attr: m_attributesJson ) {
+        const QJsonObject &attribute = attr.toObject();
+        const QString &name = attribute.value("name").toString();
+        const QJsonArray &skillPacks = attribute.value("skillPacks").toArray();
+        NPCAttributeWidget *pAttribute = new NPCAttributeWidget(name, skillPacks, m_mods, this);
+        connect( pAttribute, &NPCAttributeWidget::skillPackBougth, this, &NPCCard::onSkillPackBougth );
+        m_attributes.insert( name, pAttribute );
+    }
 }
 
 QLabel *NPCCard::createLabel(const QString &text,

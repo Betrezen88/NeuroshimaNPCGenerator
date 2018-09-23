@@ -27,6 +27,7 @@ private:
     QWidget *createWoundsSection();
     QWidget *createWoundsModificatorsSection();
     QWidget *createProgressSection();
+    void createAndFillAttributes();
 
     QLabel *createLabel(const QString &text,
                         const QString &objName = "",
