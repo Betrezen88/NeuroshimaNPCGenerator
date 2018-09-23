@@ -30,6 +30,7 @@ SOURCES += \
     NPC/NPCAttribute.cpp \
     NPC/NPCCard.cpp \
     NPC/NPCSkillPack.cpp
+    NPC/Widgets/NPCSkillPackWidget.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -37,6 +38,7 @@ HEADERS += \
     NPC/NPCAttribute.h \
     NPC/NPCCard.h \
     NPC/NPCSkillPack.h
+    NPC/Widgets/NPCSkillPackWidget.h
 
 RESOURCES += \
     json/json.qrc
