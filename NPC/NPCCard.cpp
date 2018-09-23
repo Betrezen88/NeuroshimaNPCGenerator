@@ -251,3 +251,20 @@ QVBoxLayout *NPCCard::column4()
     pLayout->setSpacing( 1 );
     return pLayout;
 }
+
+void NPCCard::loadJsonObject(QJsonArray &array, const QString &fileName)
+{
+    QFile file( fileName );
+    file.open( QIODevice::ReadOnly );
+
+    if ( file.isOpen() ) {
+        QJsonParseError error;
+        QJsonDocument doc = QJsonDocument::fromJson( file.readAll(), &error );
+        if ( doc.isEmpty() )
+            qDebug() << "Parsing error in file " << fileName << ": " << error.errorString();
+        array = doc.array();
+    }
+    else {
+        qDebug() << "File " << fileName << " not open !";
+    }
+}

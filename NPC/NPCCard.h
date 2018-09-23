@@ -38,6 +38,8 @@ private:
     QVBoxLayout *column3();
     QVBoxLayout *column4();
 
+    void loadJsonObject(QJsonArray &array, const QString &fileName);
+
 private:
     QLabel *m_pPortrait{nullptr};
     QLineEdit *m_pName{nullptr};
