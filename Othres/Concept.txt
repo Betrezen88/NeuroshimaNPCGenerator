@@ -1,35 +1,13 @@
-﻿zrobić podział na kolumny
+﻿- pakiet można kupić tylko wtedy gdy żadna z umiejętności w pakiecie nie została już kupiona.
+- po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
 
- Kolumna 1    Kolumna 2       Kolumna 3
-+----------------------------------------------+
-| Postać    | Współczynniki | Współczynniki cd |
-|           |               |                  |
-|           |               |                  |
-|           |               |                  |
-|           |               |                  |
-|           |               |                  |
-|           |               |                  |
-|           |               |                  |
-+-----------+               |                  |
-|Sztuczki   |               |                  |
-|           |               |                  |
-|           |               |                  |
-|           |               |                  |
-|           +---------------+                  |
-|           | Rany          |                  |
-|           |               +------------------+
-|           |               | Modyfikatory     |
-+-----------+---------------+------------------+
+- po wczytaniu tablicy atrybutów z pliku json trzymanie tablicy jest zbędne
+- po wczytaniu specjalizacji z pliku json trzymanie tablicy jest zbędne
 
+- przerobić loadJsonObject aby zwracała QJsonArray ?
 
+- przenieść modyfikatory do pliku json ?
 
-Stworzyć klasę CardWidget dzeidziczącą po QWidget
-- nadpisać painEvent() w celu stosowania customowych layoutów
-- reszta dziedziczy po CardWidget
-    - PersonalWidget
-    - TricksWidget
-    - AttributeWidget
-      - AtributeTitleWidget
-      - SkillPacksWidget
-    - InjuriesWidget
-    - ModificatorWidget
+- sekcja Rozwój postaci pownien byś oddzielnym widgetem z własnymi zadaniami ?
+    odpowiedzialny za pilnowanie ile punktów kreacji zostało
+
