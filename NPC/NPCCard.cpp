@@ -18,13 +18,13 @@ NPCCard::NPCCard(QWidget *parent)
       m_pTricks(new QListWidget(this)),
 {
     QHBoxLayout *pAll = new QHBoxLayout;
+    setLayout( pAll );
 
     pAll->addLayout( column1() );
     pAll->addLayout( column2() );
     pAll->addLayout( column3() );
     pAll->addLayout( column4() );
 
-    setLayout( pAll );
 }
 
 QWidget *NPCCard::createPersonalSection()
