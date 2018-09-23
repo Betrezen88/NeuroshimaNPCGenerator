@@ -65,6 +65,13 @@ private:
     const QStringList m_woundsList{ "Draśnięcia", "Lekkie", "Ciężkie", "Krytyczne" };
     const QStringList m_shortModsList{ "Łat.", "Prze.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart" };
     const QVarLengthArray<int, 7> m_modsVals{ 2, 0, -2, -5, -8, -11, -15 };
+    const QVector<QPair<QString, int>> m_mods{ QPair<QString, int>("Łat.", 2),
+                                               QPair<QString, int>("Prze.", 0),
+                                               QPair<QString, int>("Prob.", -2),
+                                               QPair<QString, int>("Trud.", -5),
+                                               QPair<QString, int>("B.Tr.", -8),
+                                               QPair<QString, int>("Ch.T.", -11),
+                                               QPair<QString, int>("Fuks", -15)};
 
     const QString m_titleStyle{ "QLabel#Title{"
                                 " padding: 5px;"
