@@ -17,6 +17,7 @@ NPCCard::NPCCard(QWidget *parent)
       m_pFame(new QSpinBox(this)),
       m_pTricks(new QListWidget(this)),
 {
+    loadJsonObject( m_attributesJson, ":/Attributes.json" );
     QHBoxLayout *pAll = new QHBoxLayout;
     setLayout( pAll );
 

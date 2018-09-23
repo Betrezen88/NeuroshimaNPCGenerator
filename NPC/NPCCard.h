@@ -54,6 +54,7 @@ private:
     QSpinBox *m_pFame{nullptr};
     QListWidget *m_pTricks{nullptr};
 
+    QJsonArray m_attributesJson;
 
     const QStringList m_woundsList{ "Draśnięcia", "Lekkie", "Ciężkie", "Krytyczne" };
     const QStringList m_shortModsList{ "Łat.", "Prze.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart" };
