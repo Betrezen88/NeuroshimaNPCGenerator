@@ -10,6 +10,7 @@
 #include <QVarLengthArray>
 #include <QVBoxLayout>
 
+#include "Widgets/NPCAttributeWidget.h"
 
 class NPCCard : public QWidget
 {
