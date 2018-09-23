@@ -16,7 +16,6 @@ NPCCard::NPCCard(QWidget *parent)
       m_pReputation(new QSpinBox(this)),
       m_pFame(new QSpinBox(this)),
       m_pTricks(new QListWidget(this)),
-      m_pHero(new NPCHero(this))
 {
     QHBoxLayout *pAll = new QHBoxLayout;
 

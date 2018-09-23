@@ -10,7 +10,6 @@
 #include <QVarLengthArray>
 #include <QVBoxLayout>
 
-#include "NPCHero.h"
 
 class NPCCard : public QWidget
 {
@@ -52,7 +51,6 @@ private:
     QSpinBox *m_pFame{nullptr};
     QListWidget *m_pTricks{nullptr};
 
-    NPCHero *m_pHero{nullptr};
 
     const QStringList m_woundsList{ "Draśnięcia", "Lekkie", "Ciężkie", "Krytyczne" };
     const QStringList m_shortModsList{ "Łat.", "Prze.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart" };
