@@ -22,6 +22,7 @@ NPCCard::NPCCard(QWidget *parent)
       m_pReputation(new QSpinBox(this)),
       m_pFame(new QSpinBox(this)),
       m_pTricks(new QListWidget(this)),
+      m_pSpendSkillPoints(new QLabel())
 {
     loadJsonObject( m_attributesJson, ":/Attributes.json" );
     createAndFillAttributes();
@@ -33,6 +34,13 @@ NPCCard::NPCCard(QWidget *parent)
     pAll->addLayout( column3() );
     pAll->addLayout( column4() );
 
+}
+
+void NPCCard::onSkillPackBougth(const bool &checked, const QStringList &specs)
+{
+    int value = (checked) ? 5 : -5;
+    m_spendedSkillPoints += value;
+    updateSpendedSkillPoints();
 }
 
 QWidget *NPCCard::createPersonalSection()
@@ -185,10 +193,12 @@ QWidget *NPCCard::createProgressSection()
     pWidget->setStyleSheet( m_progressWidget );
     QGridLayout *pLayout = new QGridLayout;
 
+    updateSpendedSkillPoints();
+
     pLayout->addWidget( new QLabel("Atrybuty", this), 0, 0 );
     pLayout->addWidget( new QSpinBox(this), 0, 1 );
     pLayout->addWidget( new QLabel("Umiejętności", this), 1, 0 );
-    pLayout->addWidget( new QSpinBox(this), 1, 1 );
+    pLayout->addWidget( m_pSpendSkillPoints, 1, 1 );
     pLayout->addWidget( new QLabel("Doświadczenie", this), 2, 0 );
     pLayout->addWidget( new QSpinBox(this), 2, 1 );
 
@@ -222,6 +232,13 @@ QLabel *NPCCard::createLabel(const QString &text,
     if ( 0 != width ) pLabel->setFixedWidth( width );
     if ( 0 != heigth ) pLabel->setFixedHeight( heigth );
     return pLabel;
+}
+
+void NPCCard::updateSpendedSkillPoints()
+{
+    m_pSpendSkillPoints->setText( QString::number(m_skillPoints
+                                                  +m_specSkillPoints
+                                                  -m_spendedSkillPoints) );
 }
 
 QVBoxLayout *NPCCard::column1()
