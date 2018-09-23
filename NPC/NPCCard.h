@@ -10,6 +10,7 @@
 #include <QVarLengthArray>
 #include <QVBoxLayout>
 #include <QJsonArray>
+#include <QHash>
 
 #include "Widgets/NPCAttributeWidget.h"
 
@@ -55,6 +56,9 @@ private:
     QSpinBox *m_pReputation{nullptr};
     QSpinBox *m_pFame{nullptr};
     QListWidget *m_pTricks{nullptr};
+
+
+    QHash<QString, NPCAttributeWidget*> m_attributes;
 
     QJsonArray m_attributesJson;
 
