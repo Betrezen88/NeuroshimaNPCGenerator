@@ -256,6 +256,8 @@ QVBoxLayout *NPCCard::column2()
     QVBoxLayout *pLayout = new QVBoxLayout;
 
     pLayout->addWidget( createLabel("Współczynniki i umiejętności", "Title", m_titleStyle, 0, 40) );
+    pLayout->addWidget( m_attributes.value("Budowa") );
+    pLayout->addWidget( m_attributes.value("Zręczność") );
     pLayout->addWidget( createModificatorSection() );
 
     pLayout->setMargin( 0 );
@@ -267,6 +269,8 @@ QVBoxLayout *NPCCard::column3()
 {
     QVBoxLayout *pLayout = new QVBoxLayout;
 
+    pLayout->addWidget( m_attributes.value("Charakter") );
+    pLayout->addWidget( m_attributes.value("Percepcja") );
 
     pLayout->setMargin( 0 );
     pLayout->setSpacing( 1 );
@@ -277,6 +281,7 @@ QVBoxLayout *NPCCard::column4()
 {
     QVBoxLayout *pLayout = new QVBoxLayout;
 
+    pLayout->addWidget( m_attributes.value("Spryt") );
     pLayout->addWidget( createLabel("Rany", "Title", m_titleStyle, 0, 40) );
     pLayout->addWidget( createWoundsSection() );
     pLayout->addWidget( createLabel("Modyfikatory", "Title", m_titleStyle, 0, 40) );
