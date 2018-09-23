@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>NPCCard.json</file>
         <file>Origins.json</file>
+        <file>Attributes.json</file>
     </qresource>
 </RCC>

@@ -44,6 +44,6 @@ RESOURCES += \
     json/json.qrc
 
 DISTFILES += \
-    json/NPCCard.json \
     Othres/Concept.txt \
     json/Origins.json
+    json/Attributes.json \
