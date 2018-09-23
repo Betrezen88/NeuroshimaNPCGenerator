@@ -1,5 +1,6 @@
 ﻿#include "NPCCard.h"
 
+#include <QCheckBox>
 #include <QTextEdit>
 #include <QHBoxLayout>
 #include <QFile>
