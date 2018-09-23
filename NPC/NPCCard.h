@@ -69,6 +69,7 @@ private:
     QHash<QString, NPCAttributeWidget*> m_attributes;
 
     QJsonArray m_attributesJson;
+    QJsonArray m_specializationsJson;
 
     const QStringList m_woundsList{ "Draśnięcia", "Lekkie", "Ciężkie", "Krytyczne" };
     const QStringList m_shortModsList{ "Łat.", "Prze.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart" };

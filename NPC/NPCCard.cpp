@@ -25,6 +25,7 @@ NPCCard::NPCCard(QWidget *parent)
       m_pSpendSkillPoints(new QLabel())
 {
     loadJsonObject( m_attributesJson, ":/Attributes.json" );
+    loadJsonObject( m_specializationsJson, ":/Specializations.json" );
     createAndFillAttributes();
     QHBoxLayout *pAll = new QHBoxLayout;
     setLayout( pAll );
