@@ -71,8 +71,10 @@ void NPCSkillPackWidget::paintEvent(QPaintEvent *)
 void NPCSkillPackWidget::onBougth(const bool &checked)
 {
     int value = (checked) ? 1 : 0;
-    for ( QPair<const QLabel*, QSpinBox*> skill: m_skills)
+    for ( QPair<const QLabel*, QSpinBox*> skill: m_skills) {
+        skill.second->setMinimum( value );
         skill.second->setValue( value );
+    }
 }
 
 void NPCSkillPackWidget::createSkills(const QJsonArray &skills)
