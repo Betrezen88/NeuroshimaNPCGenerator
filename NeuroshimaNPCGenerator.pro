@@ -26,7 +26,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         MainWindow.cpp \
-    NPC/NPCHero.cpp \
     NPC/NPCAttribute.cpp \
     NPC/NPCCard.cpp \
     NPC/NPCSkillPack.cpp
@@ -35,7 +34,6 @@ SOURCES += \
 
 HEADERS += \
         MainWindow.h \
-    NPC/NPCHero.h \
     NPC/NPCAttribute.h \
     NPC/NPCCard.h \
     NPC/NPCSkillPack.h
