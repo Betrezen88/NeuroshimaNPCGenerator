@@ -2,6 +2,7 @@
 
 #include <QTextEdit>
 #include <QHBoxLayout>
+#include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
 
