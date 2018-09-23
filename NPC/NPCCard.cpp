@@ -7,6 +7,8 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
+#include <QDebug>
+
 NPCCard::NPCCard(QWidget *parent)
     : QWidget(parent),
       m_pPortrait(new QLabel(this)),
