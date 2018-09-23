@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>Origins.json</file>
         <file>Attributes.json</file>
+        <file>Specializations.json</file>
     </qresource>
 </RCC>
