@@ -26,17 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         MainWindow.cpp \
-    NPC/NPCAttribute.cpp \
     NPC/NPCCard.cpp \
-    NPC/NPCSkillPack.cpp
     NPC/Widgets/NPCAttributeWidget.cpp \
     NPC/Widgets/NPCSkillPackWidget.cpp
 
 HEADERS += \
         MainWindow.h \
-    NPC/NPCAttribute.h \
     NPC/NPCCard.h \
-    NPC/NPCSkillPack.h
     NPC/Widgets/NPCAttributeWidget.h \
     NPC/Widgets/NPCSkillPackWidget.h
 
