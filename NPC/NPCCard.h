@@ -21,10 +21,6 @@ public:
 private:
     QWidget *createPersonalSection();
     QWidget *createTricksSection();
-    QWidget *createAttributeSection(NPCAttribute *attribute);
-    QWidget *createAttributeTitle(const QString &name, const int &value);
-    QWidget *createAttributeValue(const QString &text, const int &value, const int &mod);
-    QWidget *createSkillPackSection(NPCSkillPack *skillPack);
     QWidget *createModificatorSection();
     QWidget *createModificatorWidget();
     QWidget *createWoundsSection();

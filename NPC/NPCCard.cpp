@@ -104,85 +104,6 @@ QWidget *NPCCard::createTricksSection()
     return pWidget;
 }
 
-QWidget *NPCCard::createAttributeSection(NPCAttribute *attribute)
-{
-    QWidget *pWidget = new QWidget(this);
-    QVBoxLayout *pLayout = new QVBoxLayout;
-
-    pLayout->addWidget( createAttributeTitle(attribute->name(), attribute->value()) );
-
-    for ( NPCSkillPack *tSkillPack: attribute->skillPacks() )
-        pLayout->addWidget( createSkillPackSection(tSkillPack) );
-
-    pWidget->setLayout( pLayout );
-    pLayout->setMargin( 0 );
-    pLayout->setSpacing( 1 );
-    return pWidget;
-}
-
-QWidget *NPCCard::createAttributeTitle(const QString &name, const int &value)
-{
-    QWidget *pWidget = new QWidget();
-    pWidget->setObjectName( "AttributeTitle" );
-    pWidget->setStyleSheet( m_attributeTitle );
-    pWidget->setFixedHeight( 40 );
-    QHBoxLayout *pLayout = new QHBoxLayout;
-    pLayout->setSpacing( 1 );
-    pLayout->setMargin( 0 );
-
-    pLayout->addWidget( createLabel(name, "AttributeName", m_attributeLabel,
-                                    100, 40, Qt::AlignBottom) );
-
-    for ( int i=0; i<m_shortModsList.size(); ++i )
-        pLayout->addWidget( createAttributeValue(m_shortModsList.at(i), value, m_modsVals.at(i)) );
-
-    pWidget->setLayout( pLayout );
-    return pWidget;
-}
-
-QWidget *NPCCard::createAttributeValue(const QString &text, const int &value, const int &mod)
-{
-    QWidget *pWidget = new QWidget();
-    pWidget->setObjectName( "ValueWidget" );
-    pWidget->setStyleSheet( m_valueWidget );
-    pWidget->setFixedSize( 30, 35 );
-    QVBoxLayout *pLayout = new QVBoxLayout;
-    pLayout->setSpacing( 1 );
-    pLayout->setMargin( 0 );
-
-    pLayout->addWidget( createLabel(text, "ModLabel", m_modLabStyle) );
-    pLayout->addWidget( createLabel(QString::number(value+mod)) );
-
-    pWidget->setLayout( pLayout );
-    return  pWidget;
-}
-
-QWidget *NPCCard::createSkillPackSection(NPCSkillPack *skillPack)
-{
-    QWidget *pWidget = new QWidget();
-    pWidget->setObjectName( "SkillPackWidget" );
-    pWidget->setStyleSheet( m_skillPackWidget );
-    QVBoxLayout *pLayout = new QVBoxLayout;
-    pLayout->setSpacing( 1 );
-
-    pLayout->addWidget( createLabel(skillPack->name()+skillPack->specializationsShort(),
-                                    "SkillPackTitle",
-                                    m_skillPackTitle,
-                                    0, 0, Qt::AlignBaseline) );
-
-    for ( const QPair<QString, int> &skill: skillPack->skills() ) {
-        QHBoxLayout *pRowL = new QHBoxLayout;
-        pRowL->addWidget( new QLabel(skill.first, pWidget) );
-        QSpinBox *pSpinBox = new QSpinBox(pWidget);
-        pSpinBox->setValue( skill.second );
-        pRowL->addWidget( pSpinBox );
-        pLayout->addLayout( pRowL );
-    }
-
-    pWidget->setLayout( pLayout );
-    return pWidget;
-}
-
 QWidget *NPCCard::createModificatorSection()
 {
     QWidget *pWidget = new QWidget(this);
@@ -299,9 +220,6 @@ QVBoxLayout *NPCCard::column2()
     QVBoxLayout *pLayout = new QVBoxLayout;
 
     pLayout->addWidget( createLabel("Współczynniki i umiejętności", "Title", m_titleStyle, 0, 40) );
-
-    pLayout->addWidget( createAttributeSection(m_pHero->attributes().at(0)) );
-    pLayout->addWidget( createAttributeSection(m_pHero->attributes().at(1)) );
     pLayout->addWidget( createModificatorSection() );
 
     pLayout->setMargin( 0 );
@@ -313,8 +231,6 @@ QVBoxLayout *NPCCard::column3()
 {
     QVBoxLayout *pLayout = new QVBoxLayout;
 
-    pLayout->addWidget( createAttributeSection(m_pHero->attributes().at(2)) );
-    pLayout->addWidget( createAttributeSection(m_pHero->attributes().at(3)) );
 
     pLayout->setMargin( 0 );
     pLayout->setSpacing( 1 );
@@ -325,7 +241,6 @@ QVBoxLayout *NPCCard::column4()
 {
     QVBoxLayout *pLayout = new QVBoxLayout;
 
-    pLayout->addWidget( createAttributeSection(m_pHero->attributes().at(4)) );
     pLayout->addWidget( createLabel("Rany", "Title", m_titleStyle, 0, 40) );
     pLayout->addWidget( createWoundsSection() );
     pLayout->addWidget( createLabel("Modyfikatory", "Title", m_titleStyle, 0, 40) );
