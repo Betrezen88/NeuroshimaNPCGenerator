@@ -20,6 +20,7 @@ signals:
 private slots:
     void skillUp();
     void skillDown();
+    void setDisabled(const bool &disable);
 
 private:
     QLineEdit *m_pValue{nullptr};
