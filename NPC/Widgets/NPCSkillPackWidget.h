@@ -5,10 +5,10 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QPair>
-#include <QSpinBox>
 #include <QVector>
 #include <QJsonArray>
 #include <QStringList>
+#include <QGridLayout>
 
 #include "SkillSpinBox.h"
 
@@ -33,7 +33,7 @@ private slots:
     void onBougth(const bool &checked);
 
 private:
-    void createSkills(const QJsonArray &skills);
+    QGridLayout *createSkills(const QJsonArray &skills);
     const QString createSkillPackName(const QString &name, const QJsonArray &specs);
     void fillSpecs(const QJsonArray &specs);
 

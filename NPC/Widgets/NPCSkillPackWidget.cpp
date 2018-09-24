@@ -32,7 +32,7 @@ NPCSkillPackWidget::NPCSkillPackWidget(const QString &name,
     pTitleBar->addWidget( m_pBougth, 0, Qt::AlignRight );
 
     pLayout->addLayout( pTitleBar );
-    createSkills( skills );
+    pLayout->addLayout( createSkills(skills) );
 
     connect( m_pBougth, &QCheckBox::toggled,
              [this](const bool &checked){
@@ -77,20 +77,24 @@ void NPCSkillPackWidget::onBougth(const bool &checked)
     }
 }
 
-void NPCSkillPackWidget::createSkills(const QJsonArray &skills)
+QGridLayout *NPCSkillPackWidget::createSkills(const QJsonArray &skills)
 {
-    QVBoxLayout *pLayout = qobject_cast<QVBoxLayout*>( layout() );
+    QGridLayout *pSkillsLayout = new QGridLayout;
+    int row = 0;
     for ( const QJsonValue &skill: skills ) {
         const QString &name = skill.toString();
 
-        QLabel *pLabel = new QLabel( name, this );
-        SkillSpinBox *pSpinBox = new SkillSpinBox( this );
-        QHBoxLayout* pSkillRowL = new QHBoxLayout;
-        pSkillRowL->addWidget( pLabel );
-        pSkillRowL->addWidget( pSpinBox );
-        pLayout->addLayout( pSkillRowL );
+        QLabel *pLabel = new QLabel( name );
+        SkillSpinBox *pSpinBox = new SkillSpinBox();
+        pLabel->setMinimumWidth( 150 );
+
+        pSkillsLayout->addWidget( pLabel, row, 0 );
+        pSkillsLayout->addWidget( pSpinBox, row, 1 );
+        ++row;
+
         m_skills.push_back( QPair<const QLabel*, SkillSpinBox*>(pLabel, pSpinBox) );
     }
+    return pSkillsLayout;
 }
 
 const QString NPCSkillPackWidget::createSkillPackName(const QString &name, const QJsonArray &specs)
