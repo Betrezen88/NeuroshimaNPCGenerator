@@ -43,6 +43,11 @@ void NPCCard::onSkillPackBougth(const bool &checked, const QStringList &specs)
     updateSpendedSkillPoints();
 }
 
+void NPCCard::onSkillValueChanged(const int &value, const QStringList &specs)
+{
+    qDebug() << "Skill changed: " << value << specs;
+}
+
 void NPCCard::initCardData()
 {
     loadJsonObject( m_attributesJson, ":/Attributes.json" );

@@ -22,6 +22,7 @@ public:
 
 public slots:
     void onSkillPackBougth(const bool &checked, const QStringList &specs);
+    void onSkillValueChanged(const int &value, const QStringList &specs);
 
 private:
     void initCardData();
