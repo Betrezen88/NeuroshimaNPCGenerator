@@ -10,6 +10,8 @@
 #include <QJsonArray>
 #include <QStringList>
 
+#include "SkillSpinBox.h"
+
 class NPCSkillPackWidget : public QWidget
 {
     Q_OBJECT
@@ -20,7 +22,7 @@ public:
                                 QWidget *parent = nullptr);
 
     bool hasSkill(const QString &name) const;
-    QSpinBox *skill(const QString &name);
+    SkillSpinBox *skill(const QString &name);
 
     void paintEvent(QPaintEvent *);
 
@@ -38,7 +40,7 @@ private:
 private:
     QLabel *m_pName{nullptr};
     QStringList m_specs;
-    QVector<QPair<const QLabel*, QSpinBox*>> m_skills;
+    QVector<QPair<const QLabel*, SkillSpinBox*>> m_skills;
     QCheckBox *m_pBougth{nullptr};
 
     const QString m_skillPackWidgetStyle{ "QWidget#SkillPack{"

@@ -44,16 +44,16 @@ NPCSkillPackWidget::NPCSkillPackWidget(const QString &name,
 
 bool NPCSkillPackWidget::hasSkill(const QString &name) const
 {
-    for ( const QPair<const QLabel*, QSpinBox*> &tSkill: m_skills ) {
+    for ( const QPair<const QLabel*, SkillSpinBox*> &tSkill: m_skills ) {
         if ( tSkill.first->text() == name )
             return true;
     }
     return false;
 }
 
-QSpinBox *NPCSkillPackWidget::skill(const QString &name)
+SkillSpinBox *NPCSkillPackWidget::skill(const QString &name)
 {
-    for ( const QPair<const QLabel*, QSpinBox*> &tSkill: m_skills ) {
+    for ( const QPair<const QLabel*, SkillSpinBox*> &tSkill: m_skills ) {
         if ( tSkill.first->text() == name )
             return tSkill.second;
     }
@@ -71,7 +71,7 @@ void NPCSkillPackWidget::paintEvent(QPaintEvent *)
 void NPCSkillPackWidget::onBougth(const bool &checked)
 {
     int value = (checked) ? 1 : 0;
-    for ( QPair<const QLabel*, QSpinBox*> skill: m_skills) {
+    for ( QPair<const QLabel*, SkillSpinBox*> skill: m_skills) {
         skill.second->setMinimum( value );
         skill.second->setValue( value );
     }
@@ -84,12 +84,12 @@ void NPCSkillPackWidget::createSkills(const QJsonArray &skills)
         const QString &name = skill.toString();
 
         QLabel *pLabel = new QLabel( name, this );
-        QSpinBox *pSpinBox = new QSpinBox( this );
+        SkillSpinBox *pSpinBox = new SkillSpinBox( this );
         QHBoxLayout* pSkillRowL = new QHBoxLayout;
         pSkillRowL->addWidget( pLabel );
         pSkillRowL->addWidget( pSpinBox );
         pLayout->addLayout( pSkillRowL );
-        m_skills.push_back( QPair<const QLabel*, QSpinBox*>(pLabel, pSpinBox) );
+        m_skills.push_back( QPair<const QLabel*, SkillSpinBox*>(pLabel, pSpinBox) );
     }
 }
 
