@@ -50,7 +50,7 @@ void NPCCard::onSkillValueChanged(const int &value, const QStringList &specs)
 
 void NPCCard::initCardData()
 {
-    m_attributesJson = loadJson( ":/Attributes.json" );
+    QJsonArray attributes = loadJson( ":/Attributes.json" );
     m_specializationsJson = loadJson( ":/Specializations.json" );
 
     QStringList tSpecs;
@@ -59,7 +59,7 @@ void NPCCard::initCardData()
 
     m_pSpecialization->insertItems( 0, tSpecs );
 
-    createAndFillAttributes( m_attributesJson );
+    createAndFillAttributes( attributes );
 }
 
 QWidget *NPCCard::createPersonalSection()
