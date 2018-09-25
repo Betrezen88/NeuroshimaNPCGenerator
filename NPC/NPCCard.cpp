@@ -51,10 +51,10 @@ void NPCCard::onSkillValueChanged(const int &value, const QStringList &specs)
 void NPCCard::initCardData()
 {
     QJsonArray attributes = loadJson( ":/Attributes.json" );
-    m_specializationsJson = loadJson( ":/Specializations.json" );
+    QJsonArray specializations = loadJson( ":/Specializations.json" );
 
     QStringList tSpecs;
-    for ( const QJsonValue &spec: m_specializationsJson )
+    for ( const QJsonValue &spec: specializations )
         tSpecs << spec.toString();
 
     m_pSpecialization->insertItems( 0, tSpecs );
