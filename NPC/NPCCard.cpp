@@ -50,8 +50,8 @@ void NPCCard::onSkillValueChanged(const int &value, const QStringList &specs)
 
 void NPCCard::initCardData()
 {
-    loadJsonObject( m_attributesJson, ":/Attributes.json" );
-    loadJsonObject( m_specializationsJson, ":/Specializations.json" );
+    m_attributesJson = loadJson( ":/Attributes.json" );
+    m_specializationsJson = loadJson( ":/Specializations.json" );
 
     QStringList tSpecs;
     for ( const QJsonValue &spec: m_specializationsJson )
@@ -313,8 +313,9 @@ QVBoxLayout *NPCCard::column4()
     return pLayout;
 }
 
-void NPCCard::loadJsonObject(QJsonArray &array, const QString &fileName)
+QJsonArray NPCCard::loadJson(const QString &fileName)
 {
+    QJsonArray array;
     QFile file( fileName );
     file.open( QIODevice::ReadOnly );
 
@@ -328,4 +329,5 @@ void NPCCard::loadJsonObject(QJsonArray &array, const QString &fileName)
     else {
         qDebug() << "File " << fileName << " not open !";
     }
+    return array;
 }

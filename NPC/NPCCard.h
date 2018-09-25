@@ -49,7 +49,7 @@ private:
     QVBoxLayout *column3();
     QVBoxLayout *column4();
 
-    void loadJsonObject(QJsonArray &array, const QString &fileName);
+    QJsonArray loadJson(const QString &fileName);
 
 private:
     QLabel *m_pPortrait{nullptr};
