@@ -53,12 +53,7 @@ void NPCCard::initCardData()
     QJsonArray attributes = loadJson( ":/Attributes.json" );
     QJsonArray specializations = loadJson( ":/Specializations.json" );
 
-    QStringList tSpecs;
-    for ( const QJsonValue &spec: specializations )
-        tSpecs << spec.toString();
-
-    m_pSpecialization->insertItems( 0, tSpecs );
-
+    fillSpecializations( specializations );
     createAndFillAttributes( attributes );
 }
 
@@ -235,6 +230,13 @@ void NPCCard::createAndFillAttributes(const QJsonArray &attributes)
         connect( pAttribute, &NPCAttributeWidget::skillPackBougth, this, &NPCCard::onSkillPackBougth );
         m_attributes.insert( name, pAttribute );
     }
+}
+
+void NPCCard::fillSpecializations(const QJsonArray &specializations)
+{
+    int index = -1;
+    for ( const QJsonValue &spec: specializations )
+        m_pSpecialization->insertItem( ++index, spec.toString() );
 }
 
 QLabel *NPCCard::createLabel(const QString &text,
