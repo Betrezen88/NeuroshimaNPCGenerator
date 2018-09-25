@@ -59,7 +59,7 @@ void NPCCard::initCardData()
 
     m_pSpecialization->insertItems( 0, tSpecs );
 
-    createAndFillAttributes();
+    createAndFillAttributes( m_attributesJson );
 }
 
 QWidget *NPCCard::createPersonalSection()
@@ -225,9 +225,9 @@ QWidget *NPCCard::createProgressSection()
     return pWidget;
 }
 
-void NPCCard::createAndFillAttributes()
+void NPCCard::createAndFillAttributes(const QJsonArray &attributes)
 {
-    for ( const QJsonValue &attr: m_attributesJson ) {
+    for ( const QJsonValue &attr: attributes ) {
         const QJsonObject &attribute = attr.toObject();
         const QString &name = attribute.value("name").toString();
         const QJsonArray &skillPacks = attribute.value("skillPacks").toArray();

@@ -33,7 +33,7 @@ private:
     QWidget *createWoundsSection();
     QWidget *createWoundsModificatorsSection();
     QWidget *createProgressSection();
-    void createAndFillAttributes();
+    void createAndFillAttributes(const QJsonArray &attributes);
 
     QLabel *createLabel(const QString &text,
                         const QString &objName = "",
