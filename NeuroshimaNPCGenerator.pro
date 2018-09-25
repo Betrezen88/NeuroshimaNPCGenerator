@@ -29,14 +29,16 @@ SOURCES += \
     NPC/NPCCard.cpp \
     NPC/Widgets/NPCAttributeWidget.cpp \
     NPC/Widgets/NPCSkillPackWidget.cpp \
-    NPC/Widgets/SkillSpinBox.cpp
+    NPC/Widgets/SkillSpinBox.cpp \
+    NPC/Widgets/NPCProgressWidget.cpp
 
 HEADERS += \
         MainWindow.h \
     NPC/NPCCard.h \
     NPC/Widgets/NPCAttributeWidget.h \
     NPC/Widgets/NPCSkillPackWidget.h \
-    NPC/Widgets/SkillSpinBox.h
+    NPC/Widgets/SkillSpinBox.h \
+    NPC/Widgets/NPCProgressWidget.h
 
 RESOURCES += \
     json/json.qrc
