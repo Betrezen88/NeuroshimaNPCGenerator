@@ -1,6 +1,67 @@
-#include "NPCProgressWidget.h"
+﻿#include "NPCProgressWidget.h"
 
-NPCProgressWidget::NPCProgressWidget(QWidget *parent) : QWidget(parent)
+#include <QGridLayout>
+
+NPCProgressWidget::NPCProgressWidget(QComboBox *pSpecialization, QWidget *parent)
+    : QWidget(parent),
+      m_pSpecialization(pSpecialization),
+      m_pSkillPoints(new QLabel(this)),
+      m_pGambels(new QLabel(this)),
+      m_pExperience(new QLabel(this))
 {
+    QGridLayout *pAll = new QGridLayout;
+    pAll->addWidget( new QLabel("Umiejętności"), 0, 0 );
+    pAll->addWidget( m_pSkillPoints, 0, 1 );
+    pAll->addWidget( new QLabel("Gamble"), 1, 0 );
+    pAll->addWidget( m_pGambels );
+    pAll->addWidget( new QLabel("Punkty Doś."), 2, 0 );
+    pAll->addWidget( m_pExperience );
 
+    setLayout( pAll );
+
+    updateLabels();
+}
+
+void NPCProgressWidget::onSkillPackBougth(const bool &bougth, const QStringList &specs)
+{
+    int tSkillPackCost = (bougth) ? 5 : -5;
+    if ( specs.contains(m_pSpecialization->currentText()) )
+        m_specPoints.second += tSkillPackCost;
+    else
+        m_skillPoints.second += tSkillPackCost;
+    updateLabels();
+}
+
+void NPCProgressWidget::onSkillBougth(const int &value, const QStringList &specs, const bool &increase)
+{
+    int tSkillCost = calculateSkillCost(value, increase);
+    if ( specs.contains(m_pSpecialization->currentText()) )
+        m_specPoints.second += tSkillCost;
+    else
+        m_skillPoints.second += tSkillCost;
+    updateLabels();
+}
+
+void NPCProgressWidget::updateLabels()
+{
+    int availableSkillPoints = (m_skillPoints.first + m_specPoints.first)
+            - ( m_skillPoints.second + m_specPoints.second );
+    int availableGambels = m_gambels.first - m_gambels.second;
+    int availableExperience = m_experience.first - m_experience.second;
+    m_pSkillPoints->setText( QString::number(availableSkillPoints) );
+    m_pGambels->setText( QString::number(availableGambels) );
+    m_pExperience->setText( QString::number(availableExperience) );
+}
+
+int NPCProgressWidget::calculateSkillCost(const int &value, const bool &increase)
+{
+    int cost = 0;
+    int multi = (increase) ? 1 : -1;
+
+    if ( 1 < value )
+        cost = value * multi;
+    else
+        cost = 3 * multi;
+
+    return cost;
 }

@@ -13,6 +13,7 @@
 #include <QHash>
 
 #include "Widgets/NPCAttributeWidget.h"
+#include "Widgets/NPCProgressWidget.h"
 
 class NPCCard : public QWidget
 {
@@ -32,7 +33,6 @@ private:
     QWidget *createModificatorWidget();
     QWidget *createWoundsSection();
     QWidget *createWoundsModificatorsSection();
-    QWidget *createProgressSection();
 
     void createAndFillAttributes(const QJsonArray &attributes);
     void fillSpecializations(const QJsonArray &specializations);
@@ -43,8 +43,6 @@ private:
                         const int &width = 0,
                         const int &heigth = 0,
                         Qt::Alignment aligment = Qt::AlignHCenter);
-
-    void updateSpendedSkillPoints();
 
     QVBoxLayout *column1();
     QVBoxLayout *column2();
@@ -66,17 +64,13 @@ private:
     QSpinBox *m_pFame{nullptr};
     QListWidget *m_pTricks{nullptr};
 
-    QLabel *m_pSpendSkillPoints{nullptr};
-
-    int m_spendedSkillPoints{0};
+    NPCProgressWidget *m_pProgressWidget{nullptr};
 
     QHash<QString, NPCAttributeWidget*> m_attributes;
 
     const QStringList m_woundsList{ "Draśnięcia", "Lekkie", "Ciężkie", "Krytyczne" };
     const QStringList m_shortModsList{ "Łat.", "Prze.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart" };
     const QVarLengthArray<int, 7> m_modsVals{ 2, 0, -2, -5, -8, -11, -15 };
-    const int m_skillPoints{30};
-    const int m_specSkillPoints{35};
 
     const QVector<QPair<QString, int>> m_mods{ QPair<QString, int>("Łat.", 2),
                                                QPair<QString, int>("Prze.", 0),

@@ -22,7 +22,7 @@ NPCCard::NPCCard(QWidget *parent)
       m_pReputation(new QSpinBox(this)),
       m_pFame(new QSpinBox(this)),
       m_pTricks(new QListWidget(this)),
-      m_pSpendSkillPoints(new QLabel())
+      m_pProgressWidget(new NPCProgressWidget( m_pSpecialization, this))
 {
     initCardData();
 
@@ -39,8 +39,6 @@ NPCCard::NPCCard(QWidget *parent)
 void NPCCard::onSkillPackBougth(const bool &checked, const QStringList &specs)
 {
     int value = (checked) ? 5 : -5;
-    m_spendedSkillPoints += value;
-    updateSpendedSkillPoints();
 }
 
 void NPCCard::onSkillValueChanged(const int &value, const QStringList &specs)
@@ -200,26 +198,6 @@ QWidget *NPCCard::createWoundsModificatorsSection()
     return pTextEdit;
 }
 
-QWidget *NPCCard::createProgressSection()
-{
-    QWidget *pWidget = new QWidget(this);
-    pWidget->setObjectName( "ProgressWidget" );
-    pWidget->setStyleSheet( m_progressWidget );
-    QGridLayout *pLayout = new QGridLayout;
-
-    updateSpendedSkillPoints();
-
-    pLayout->addWidget( new QLabel("Atrybuty", this), 0, 0 );
-    pLayout->addWidget( new QSpinBox(this), 0, 1 );
-    pLayout->addWidget( new QLabel("Umiejętności", this), 1, 0 );
-    pLayout->addWidget( m_pSpendSkillPoints, 1, 1 );
-    pLayout->addWidget( new QLabel("Doświadczenie", this), 2, 0 );
-    pLayout->addWidget( new QSpinBox(this), 2, 1 );
-
-    pWidget->setLayout( pLayout );
-    return pWidget;
-}
-
 void NPCCard::createAndFillAttributes(const QJsonArray &attributes)
 {
     for ( const QJsonValue &attr: attributes ) {
@@ -227,7 +205,7 @@ void NPCCard::createAndFillAttributes(const QJsonArray &attributes)
         const QString &name = attribute.value("name").toString();
         const QJsonArray &skillPacks = attribute.value("skillPacks").toArray();
         NPCAttributeWidget *pAttribute = new NPCAttributeWidget(name, skillPacks, m_mods, this);
-        connect( pAttribute, &NPCAttributeWidget::skillPackBougth, this, &NPCCard::onSkillPackBougth );
+        connect( pAttribute, &NPCAttributeWidget::skillPackBougth, m_pProgressWidget, &NPCProgressWidget::onSkillPackBougth );
         m_attributes.insert( name, pAttribute );
     }
 }
@@ -253,13 +231,6 @@ QLabel *NPCCard::createLabel(const QString &text,
     if ( 0 != width ) pLabel->setFixedWidth( width );
     if ( 0 != heigth ) pLabel->setFixedHeight( heigth );
     return pLabel;
-}
-
-void NPCCard::updateSpendedSkillPoints()
-{
-    m_pSpendSkillPoints->setText( QString::number(m_skillPoints
-                                                  +m_specSkillPoints
-                                                  -m_spendedSkillPoints) );
 }
 
 QVBoxLayout *NPCCard::column1()
@@ -308,7 +279,7 @@ QVBoxLayout *NPCCard::column4()
     pLayout->addWidget( createLabel("Modyfikatory", "Title", m_titleStyle, 0, 40) );
     pLayout->addWidget( createWoundsModificatorsSection() );
     pLayout->addWidget( createLabel("Punkty Rozwoju", "Title", m_titleStyle, 0, 40) );
-    pLayout->addWidget( createProgressSection() );
+    pLayout->addWidget( m_pProgressWidget );
 
     pLayout->setMargin( 0 );
     pLayout->setSpacing( 1 );
