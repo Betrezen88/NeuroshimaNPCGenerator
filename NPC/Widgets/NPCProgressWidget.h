@@ -13,6 +13,7 @@ public:
     explicit NPCProgressWidget(QComboBox *pSpecialization, QWidget *parent = nullptr);
 
 signals:
+    void availableSkillPointsChanged(const int value);
 
 public slots:
     void onSkillPackBougth(const bool &bougth, const QStringList &specs);

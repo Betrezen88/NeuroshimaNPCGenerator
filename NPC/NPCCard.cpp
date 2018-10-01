@@ -36,23 +36,13 @@ NPCCard::NPCCard(QWidget *parent)
 
 }
 
-void NPCCard::onSkillPackBougth(const bool &checked, const QStringList &specs)
-{
-    int value = (checked) ? 5 : -5;
-}
-
-void NPCCard::onSkillValueChanged(const int &value, const QStringList &specs)
-{
-    qDebug() << "Skill changed: " << value << specs;
-}
-
 void NPCCard::initCardData()
 {
     QJsonArray attributes = loadJson( ":/Attributes.json" );
     QJsonArray specializations = loadJson( ":/Specializations.json" );
 
     fillSpecializations( specializations );
-    createAndFillAttributes( attributes );
+    fillAttributes( attributes );
 }
 
 QWidget *NPCCard::createPersonalSection()
@@ -198,14 +188,49 @@ QWidget *NPCCard::createWoundsModificatorsSection()
     return pTextEdit;
 }
 
-void NPCCard::createAndFillAttributes(const QJsonArray &attributes)
+NPCSkillPackWidget *NPCCard::createSkillPack(const QJsonObject &skillPack)
 {
-    for ( const QJsonValue &attr: attributes ) {
-        const QJsonObject &attribute = attr.toObject();
-        const QString &name = attribute.value("name").toString();
-        const QJsonArray &skillPacks = attribute.value("skillPacks").toArray();
-        NPCAttributeWidget *pAttribute = new NPCAttributeWidget(name, skillPacks, m_mods, this);
-        connect( pAttribute, &NPCAttributeWidget::skillPackBougth, m_pProgressWidget, &NPCProgressWidget::onSkillPackBougth );
+    NPCSkillPackWidget* pSkillPack = new NPCSkillPackWidget( skillPack.value("name").toString() );
+
+    connect( pSkillPack, &NPCSkillPackWidget::bougth,
+             m_pProgressWidget, &NPCProgressWidget::onSkillPackBougth );
+    connect( m_pProgressWidget, &NPCProgressWidget::availableSkillPointsChanged,
+             pSkillPack, &NPCSkillPackWidget::onAvailableSkillPointsChanged);
+
+    const QJsonArray &specs = skillPack.value("Specializations").toArray();
+    for ( const QJsonValue &tSpec: specs )
+        pSkillPack->addSpecialization( tSpec.toString() );
+
+    const QJsonArray &skills = skillPack.value("skills").toArray();
+    for ( const QJsonValue &tSkill: skills ) {
+        SkillSpinBox *pSkillBox = new SkillSpinBox( pSkillPack );
+        connect( pSkillBox, &SkillSpinBox::skillValueChanged,
+                 [this, pSkillPack](const int &value, const bool &increase){
+            emit m_pProgressWidget->onSkillBougth(value, pSkillPack->specializations(), increase);
+        } );
+        connect( m_pProgressWidget, &NPCProgressWidget::availableSkillPointsChanged,
+                 pSkillBox, &SkillSpinBox::onAvailableSkillPointsChanged );
+        pSkillPack->addSkill(tSkill.toString(), pSkillBox );
+    }
+
+    return pSkillPack;
+}
+
+void NPCCard::fillAttributes(const QJsonArray &attributes)
+{
+    for ( const QJsonValue &tAttribute: attributes ) {
+        const QJsonObject &object = tAttribute.toObject();
+        const QString &name = object.value("name").toString();
+
+        NPCAttributeWidget *pAttribute = new NPCAttributeWidget(name, m_mods, this);
+
+        const QJsonArray &skillPacks = object.value("skillPacks").toArray();
+        for ( const QJsonValue &tSkillPack: skillPacks ) {
+            const QJsonObject &skillPack = tSkillPack.toObject();
+            NPCSkillPackWidget *pSkillPack = createSkillPack( skillPack );
+            pAttribute->addSkillPack( skillPack.value("name").toString(), pSkillPack );
+        }
+
         m_attributes.insert( name, pAttribute );
     }
 }

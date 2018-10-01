@@ -18,6 +18,13 @@ public:
                                 const QJsonArray &skillPacks,
                                 const QVector<QPair<QString, int>> &mods,
                                 QWidget *parent = nullptr);
+    explicit NPCAttributeWidget(const QString &name,
+                                const QVector<QPair<QString, int>> &mods,
+                                QWidget *parent = nullptr);
+
+    QHash<const QString &, NPCSkillPackWidget *> *skillPacks();
+    void addSkillPack(const QString &name, NPCSkillPackWidget *skillPack);
+
 signals:
     void skillPackBougth(const bool &checked, const QStringList &specs);
 
@@ -26,7 +33,6 @@ public slots:
 private:
     QWidget *createTitleBar(const QVector<QPair<QString, int>> &mods);
     QWidget *createValueWidget(const QString &name, const int &value);
-    void createSkillPackWidget(const QJsonValue &skillPack);
 
 private:
     int m_value{0};
@@ -52,8 +58,6 @@ private:
                                " border-radius: 10px;"
                                " background-color: white;"
                                "}" };
-
-
 };
 
 #endif // NPCATTRIBUTEWIDGET_H

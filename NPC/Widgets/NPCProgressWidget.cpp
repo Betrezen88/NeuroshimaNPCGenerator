@@ -2,6 +2,8 @@
 
 #include <QGridLayout>
 
+#include <QDebug>
+
 NPCProgressWidget::NPCProgressWidget(QComboBox *pSpecialization, QWidget *parent)
     : QWidget(parent),
       m_pSpecialization(pSpecialization),
@@ -51,15 +53,17 @@ void NPCProgressWidget::updateLabels()
     m_pSkillPoints->setText( QString::number(availableSkillPoints) );
     m_pGambels->setText( QString::number(availableGambels) );
     m_pExperience->setText( QString::number(availableExperience) );
+    emit availableSkillPointsChanged( availableSkillPoints );
 }
 
 int NPCProgressWidget::calculateSkillCost(const int &value, const bool &increase)
 {
     int cost = 0;
     int multi = (increase) ? 1 : -1;
+    int newValue = (increase) ? value : value + 1;
 
-    if ( 1 < value )
-        cost = value * multi;
+    if ( 1 < newValue )
+        cost = newValue * multi;
     else
         cost = 3 * multi;
 

@@ -40,6 +40,12 @@ void SkillSpinBox::setValue(const int &value)
         m_pValue->setText( QString::number(value) );
 }
 
+void SkillSpinBox::onAvailableSkillPointsChanged(const int value)
+{
+    const bool disable = (0 == value) || (value < m_pValue->text().toInt());
+    m_pStepUp->setDisabled( disable );
+}
+
 void SkillSpinBox::skillUp()
 {
     int value = m_pValue->text().toInt();

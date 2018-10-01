@@ -21,10 +21,6 @@ class NPCCard : public QWidget
 public:
     explicit NPCCard(QWidget *parent = nullptr);
 
-public slots:
-    void onSkillPackBougth(const bool &checked, const QStringList &specs);
-    void onSkillValueChanged(const int &value, const QStringList &specs);
-
 private:
     void initCardData();
     QWidget *createPersonalSection();
@@ -34,7 +30,9 @@ private:
     QWidget *createWoundsSection();
     QWidget *createWoundsModificatorsSection();
 
-    void createAndFillAttributes(const QJsonArray &attributes);
+    NPCSkillPackWidget *createSkillPack(const QJsonObject &skillPack);
+
+    void fillAttributes(const QJsonArray &attributes);
     void fillSpecializations(const QJsonArray &specializations);
 
     QLabel *createLabel(const QString &text,

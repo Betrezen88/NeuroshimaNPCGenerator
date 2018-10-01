@@ -16,32 +16,37 @@ class NPCSkillPackWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit NPCSkillPackWidget(const QString &name,
-                                const QJsonArray &skills,
-                                const QJsonArray &specializations,
-                                QWidget *parent = nullptr);
+    explicit NPCSkillPackWidget(const QString &name, QWidget *parent = nullptr);
 
+    void addSkill(const QString &name, SkillSpinBox *skillBox);
     bool hasSkill(const QString &name) const;
     SkillSpinBox *skill(const QString &name);
+    QVector<SkillSpinBox *> skills();
+
+    void addSpecialization(const QString &spec);
+    QStringList specializations() const;
 
     void paintEvent(QPaintEvent *);
 
 signals:
     void bougth(const bool &state, const QStringList &specs);
 
+public slots:
+    void onAvailableSkillPointsChanged(const int value);
+
 private slots:
     void onBougth(const bool &checked);
 
 private:
-    QGridLayout *createSkills(const QJsonArray &skills);
     const QString createSkillPackName(const QString &name, const QJsonArray &specs);
-    void fillSpecs(const QJsonArray &specs);
 
 private:
     QLabel *m_pName{nullptr};
     QStringList m_specs;
     QVector<QPair<const QLabel*, SkillSpinBox*>> m_skills;
     QCheckBox *m_pBougth{nullptr};
+
+    QGridLayout *m_pSkillLayout{nullptr};
 
     const QString m_skillPackWidgetStyle{ "QWidget#SkillPack{"
                                           " border: 1px solid black;"

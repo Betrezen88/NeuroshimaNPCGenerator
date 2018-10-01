@@ -17,6 +17,9 @@ public:
 signals:
     void skillValueChanged(const int &newValue, const bool &increase);
 
+public slots:
+    void onAvailableSkillPointsChanged(const int value);
+
 private slots:
     void skillUp();
     void skillDown();

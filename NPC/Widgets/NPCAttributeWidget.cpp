@@ -21,10 +21,32 @@ NPCAttributeWidget::NPCAttributeWidget(const QString& name,
     QVBoxLayout *pLayout = new QVBoxLayout;
     setLayout( pLayout );
     pLayout->addWidget( createTitleBar(mods) );
+}
 
-    for ( const QJsonValue &skillPack: skillPacks ) {
-        createSkillPackWidget( skillPack );
-    }
+NPCAttributeWidget::NPCAttributeWidget(const QString &name,
+                                       const QVector<QPair<QString, int> > &mods,
+                                       QWidget *parent)
+    : QWidget (parent),
+      m_pName(new QLabel(name))
+{
+    m_pName->setObjectName( "NameStyle" );
+    m_pName->setStyleSheet( m_nameStyle );
+    m_pName->setFixedSize( 100, 40 );
+
+    QVBoxLayout *pLayout = new QVBoxLayout;
+    setLayout( pLayout );
+    pLayout->addWidget( createTitleBar(mods) );
+}
+
+QHash<const QString &, NPCSkillPackWidget *> *NPCAttributeWidget::skillPacks()
+{
+    return &m_skillPacks;
+}
+
+void NPCAttributeWidget::addSkillPack(const QString &name, NPCSkillPackWidget *skillPack)
+{
+    m_skillPacks.insert( name, skillPack );
+    layout()->addWidget( skillPack );
 }
 
 QWidget *NPCAttributeWidget::createTitleBar(const QVector<QPair<QString, int>> &mods)
@@ -67,18 +89,4 @@ QWidget *NPCAttributeWidget::createValueWidget(const QString &name, const int &v
     pLayout->setMargin( 0 );
     pWidget->setLayout( pLayout );
     return pWidget;
-}
-
-void NPCAttributeWidget::createSkillPackWidget(const QJsonValue &skillPack)
-{
-    const QJsonObject &skillPackObject = skillPack.toObject();
-    const QString &name = skillPackObject.value("name").toString();
-    const QJsonArray &specializations = skillPackObject.value("Specialization").toArray();
-    const QJsonArray &skills = skillPackObject.value("skills").toArray();
-    NPCSkillPackWidget *pSkillPack = new NPCSkillPackWidget(name, skills, specializations, this);
-    m_skillPacks.insert( name, pSkillPack );
-    layout()->addWidget( pSkillPack );
-
-    connect( pSkillPack, &NPCSkillPackWidget::bougth,
-             this, &NPCAttributeWidget::skillPackBougth );
 }
