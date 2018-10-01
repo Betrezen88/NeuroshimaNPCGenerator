@@ -42,7 +42,8 @@ void SkillSpinBox::setValue(const int &value)
 
 void SkillSpinBox::onAvailableSkillPointsChanged(const int value)
 {
-    const bool disable = (0 == value) || (value < m_pValue->text().toInt());
+    const int &skillValue = m_pValue->text().toInt();
+    const bool disable = (0 == value) || ((0 == skillValue) && (3 > value)) || (value < skillValue+1 );
     m_pStepUp->setDisabled( disable );
 }
 
