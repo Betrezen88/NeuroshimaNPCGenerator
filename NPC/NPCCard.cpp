@@ -196,6 +196,8 @@ NPCSkillPackWidget *NPCCard::createSkillPack(const QJsonObject &skillPack)
              m_pProgressWidget, &NPCProgressWidget::onSkillPackBougth );
     connect( m_pProgressWidget, &NPCProgressWidget::availableSkillPointsChanged,
              pSkillPack, &NPCSkillPackWidget::onAvailableSkillPointsChanged);
+    connect( pSkillPack, &NPCSkillPackWidget::refundPoints,
+             m_pProgressWidget, &NPCProgressWidget::onRefundPoints );
 
     const QJsonArray &specs = skillPack.value("Specializations").toArray();
     for ( const QJsonValue &tSpec: specs )
