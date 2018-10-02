@@ -44,6 +44,15 @@ void NPCProgressWidget::onSkillBougth(const int &value, const QStringList &specs
     updateLabels();
 }
 
+void NPCProgressWidget::onRefundPoints(const int value, const QStringList &specs)
+{
+    if ( specs.contains(m_pSpecialization->currentText()) )
+        m_specPoints.second -= value;
+    else
+        m_skillPoints.second -= value;
+    updateLabels();
+}
+
 void NPCProgressWidget::updateLabels()
 {
     int availableSkillPoints = (m_skillPoints.first + m_specPoints.first)
