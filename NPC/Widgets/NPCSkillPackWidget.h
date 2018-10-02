@@ -30,6 +30,7 @@ public:
 
 signals:
     void bougth(const bool &state, const QStringList &specs);
+    void refundPoints(const int value, const QStringList &specs);
 
 public slots:
     void onAvailableSkillPointsChanged(const int value);
