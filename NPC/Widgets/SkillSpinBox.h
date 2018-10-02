@@ -12,7 +12,10 @@ public:
     explicit SkillSpinBox(QWidget *parent = nullptr);
 
     void setMinimum(const int &minValue);
+    int minimum() const;
+
     void setValue(const int &value);
+    int value() const;
 
 signals:
     void skillValueChanged(const int &newValue, const bool &increase);
