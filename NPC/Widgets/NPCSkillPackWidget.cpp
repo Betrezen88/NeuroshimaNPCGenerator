@@ -104,6 +104,17 @@ void NPCSkillPackWidget::onAvailableSkillPointsChanged(const int value)
 void NPCSkillPackWidget::onBougth(const bool &checked)
 {
     int value = (checked) ? 1 : 0;
+
+    if ( !checked ) {
+        int returnPoints = 0;
+        for ( QPair<const QLabel*, SkillSpinBox*> skill: m_skills) {
+            for ( int i = skill.second->value(); i>skill.second->minimum(); --i )
+                returnPoints += i;
+        }
+        if ( 0 < returnPoints )
+            emit refundPoints( returnPoints, m_specs );
+    }
+
     for ( QPair<const QLabel*, SkillSpinBox*> skill: m_skills) {
         skill.second->setMinimum( value );
         skill.second->setValue( value );
