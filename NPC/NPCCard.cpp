@@ -103,6 +103,8 @@ QWidget *NPCCard::createPersonalSection()
     pFameL->addWidget( new QLabel("Sława", pWidget) );
     pFameL->addWidget( m_pFame );
 
+    connect( m_pOrigin, &QComboBox::currentTextChanged, this, &NPCCard::onOriginChange );
+
     pLayout->addLayout( pTitleL );
     pLayout->addLayout( pNameL );
     pLayout->addLayout( pOriginL );
@@ -267,6 +269,7 @@ void NPCCard::fillOrigins(const QJsonArray &origins)
     }
 
     m_pOrigin->insertItems( 0, list );
+    onOriginChange( m_pOrigin->currentText() );
 }
 
 QLabel *NPCCard::createLabel(const QString &text,
