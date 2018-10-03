@@ -7,22 +7,6 @@
 
 #include <QDebug>
 
-NPCAttributeWidget::NPCAttributeWidget(const QString& name,
-                                       const QJsonArray &skillPacks,
-                                       const QVector<QPair<QString, int>> &mods,
-                                       QWidget *parent)
-    : QWidget(parent),
-      m_pName(new QLabel(name))
-{
-    m_pName->setObjectName( "NameStyle" );
-    m_pName->setStyleSheet( m_nameStyle );
-    m_pName->setFixedSize( 100, 40 );
-
-    QVBoxLayout *pLayout = new QVBoxLayout;
-    setLayout( pLayout );
-    pLayout->addWidget( createTitleBar(mods) );
-}
-
 NPCAttributeWidget::NPCAttributeWidget(const QString &name,
                                        const QVector<QPair<QString, int> > &mods,
                                        QWidget *parent)

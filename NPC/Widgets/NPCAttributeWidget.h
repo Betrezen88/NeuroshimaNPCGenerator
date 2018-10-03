@@ -14,10 +14,6 @@ class NPCAttributeWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit NPCAttributeWidget(const QString& name,
-                                const QJsonArray &skillPacks,
-                                const QVector<QPair<QString, int>> &mods,
-                                QWidget *parent = nullptr);
     explicit NPCAttributeWidget(const QString &name,
                                 const QVector<QPair<QString, int>> &mods,
                                 QWidget *parent = nullptr);
