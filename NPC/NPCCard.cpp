@@ -5,7 +5,6 @@
 #include <QHBoxLayout>
 #include <QFile>
 #include <QJsonDocument>
-#include <QJsonObject>
 
 #include <QDebug>
 
@@ -40,9 +39,11 @@ void NPCCard::initCardData()
 {
     QJsonArray attributes = loadJson( ":/Attributes.json" );
     QJsonArray specializations = loadJson( ":/Specializations.json" );
+    QJsonArray origins = loadJson( ":/Origins.json" );
 
     fillSpecializations( specializations );
     fillAttributes( attributes );
+    fillOrigins( origins );
 }
 
 QWidget *NPCCard::createPersonalSection()
@@ -242,6 +243,18 @@ void NPCCard::fillSpecializations(const QJsonArray &specializations)
     int index = -1;
     for ( const QJsonValue &spec: specializations )
         m_pSpecialization->insertItem( ++index, spec.toString() );
+}
+
+void NPCCard::fillOrigins(const QJsonArray &origins)
+{
+    QStringList list;
+    for ( const QJsonValue &tOrigin: origins ) {
+        QString name = tOrigin.toObject().value("name").toString();
+        m_origins.insert( name, std::move(tOrigin.toObject()) );
+        list << name;
+    }
+
+    m_pOrigin->insertItems( 0, list );
 }
 
 QLabel *NPCCard::createLabel(const QString &text,

@@ -10,6 +10,7 @@
 #include <QVarLengthArray>
 #include <QVBoxLayout>
 #include <QJsonArray>
+#include <QJsonObject>
 #include <QHash>
 
 #include "Widgets/NPCAttributeWidget.h"
@@ -34,6 +35,7 @@ private:
 
     void fillAttributes(const QJsonArray &attributes);
     void fillSpecializations(const QJsonArray &specializations);
+    void fillOrigins(const QJsonArray &origins);
 
     QLabel *createLabel(const QString &text,
                         const QString &objName = "",
@@ -66,6 +68,7 @@ private:
 
     QHash<QString, NPCAttributeWidget*> m_attributes;
 
+    QHash<QString, QJsonObject> m_origins;
     const QStringList m_woundsList{ "Draśnięcia", "Lekkie", "Ciężkie", "Krytyczne" };
     const QStringList m_shortModsList{ "Łat.", "Prze.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart" };
     const QVarLengthArray<int, 7> m_modsVals{ 2, 0, -2, -5, -8, -11, -15 };
