@@ -22,6 +22,9 @@ class NPCCard : public QWidget
 public:
     explicit NPCCard(QWidget *parent = nullptr);
 
+private slots:
+    void onOriginChange(const QString &name);
+
 private:
     void initCardData();
     QWidget *createPersonalSection();
@@ -69,6 +72,8 @@ private:
     QHash<QString, NPCAttributeWidget*> m_attributes;
 
     QHash<QString, QJsonObject> m_origins;
+    QJsonArray m_originFeatures;
+
     const QStringList m_woundsList{ "Draśnięcia", "Lekkie", "Ciężkie", "Krytyczne" };
     const QStringList m_shortModsList{ "Łat.", "Prze.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart" };
     const QVarLengthArray<int, 7> m_modsVals{ 2, 0, -2, -5, -8, -11, -15 };

@@ -35,6 +35,18 @@ NPCCard::NPCCard(QWidget *parent)
 
 }
 
+void NPCCard::onOriginChange(const QString &name)
+{
+    const QJsonObject origin = m_origins.value( name );
+    QStringList featureNames;
+    m_originFeatures = origin.value("features").toArray();
+
+    for ( const QJsonValue &tOrigin: m_originFeatures )
+        featureNames << tOrigin.toObject().value("name").toString();
+    m_pFeature1->clear();
+    m_pFeature1->insertItems( 0, featureNames );
+}
+
 void NPCCard::initCardData()
 {
     QJsonArray attributes = loadJson( ":/Attributes.json" );
