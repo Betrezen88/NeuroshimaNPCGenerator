@@ -1,265 +1,263 @@
-{
-    "Pochodzenie": [
-        {
+﻿[
+    {
+        "name": "Brak",
+        "attribute": {
             "name": "Brak",
-            "attribute": {
+            "value": 0
+        },
+        "features": [
+            {
                 "name": "Brak",
-                "value": 0
-            },
-            "features": [
-                {
-                    "name": "Brak",
-                    "description": "Brak"
-                }
-            ]
+                "description": "Brak"
+            }
+        ]
+    },
+    {
+        "name": "Południowa Hegemonia",
+        "attribute": {
+            "name": "Budowa",
+            "value": 1
         },
-        {
-            "name": "Południowa Hegemonia",
-            "attribute": {
-                "name": "Budowa",
-                "value": 1
+        "features": [
+            {
+                "name": "Urodzony Morderca",
+                "description": "Wyrzuciliby cię z Areny za szczególne bestialstwo.\nWybierz sobie dowolny pakiet Umiejętności Wojownika.\nWszystkie Umiejętności z paczki posiadasz na poziomie +2."
             },
-            "features": [
-                {
-                    "name": "Urodzony Morderca",
-                    "description": "Wyrzuciliby cię z Areny za szczególne bestialstwo.\nWybierz sobie dowolny pakiet Umiejętności Wojownika.\nWszystkie Umiejętności z paczki posiadasz na poziomie +2."
-                },
-                {
-                    "name": "Wiesz, zjadłem własnego psa",
-                    "description": "Budzisz grozę. Twój widok paraliżuje. Jeżeli udało ci\nsię kogoś zastraszyć (test Morale przed walką), w walce\nz nim automatycznie wygrywasz Inicjatywę."
-                },
-                {
-                    "name": "Zawzięty sukinkot",
-                    "description": "Mówią o tobie, że pociągniesz do grobu swojego zabójcę.\nTo prawda. Jesteś uparty, twardy i nie popuszczasz. Raz\nw ciągu sesji, podczas wykonywania testu Umiejętności,\nzamiast wymaganego Współczynnika możesz użyć Charakteru."
-                }
-            ]
+            {
+                "name": "Wiesz, zjadłem własnego psa",
+                "description": "Budzisz grozę. Twój widok paraliżuje. Jeżeli udało ci\nsię kogoś zastraszyć (test Morale przed walką), w walce\nz nim automatycznie wygrywasz Inicjatywę."
+            },
+            {
+                "name": "Zawzięty sukinkot",
+                "description": "Mówią o tobie, że pociągniesz do grobu swojego zabójcę.\nTo prawda. Jesteś uparty, twardy i nie popuszczasz. Raz\nw ciągu sesji, podczas wykonywania testu Umiejętności,\nzamiast wymaganego Współczynnika możesz użyć Charakteru."
+            }
+        ]
+    },
+    {
+        "name": "Vegas",
+        "attribute": {
+            "name": "Zręczność",
+            "value": 1
         },
-        {
-            "name": "Vegas",
-            "attribute": {
-                "name": "Zręczność",
-                "value": 1
+        "features": [
+            {
+                "name": "Fart",
+                "description": "No i czego się cieszysz? Myślisz, że masz farta\ni właśnie dlatego jesteś bezpieczny, jak jajeczko\nszczęście? Popatrz, załaduję jedną kulkę i zagramy w\nrosyjską ruletkę, chcesz? Co, tak... Poważnie chcesz?\nJesteś chory.\n   Wiesz, zróbmy tak, że trzyktornie podczas sesji\nmożesz powtórzyć jeden nieudany rzut na dowolnej\nz trzech kości."
             },
-            "features": [
-                {
-                    "name": "Fart",
-                    "description": "No i czego się cieszysz? Myślisz, że masz farta\ni właśnie dlatego jesteś bezpieczny, jak jajeczko\nszczęście? Popatrz, załaduję jedną kulkę i zagramy w\nrosyjską ruletkę, chcesz? Co, tak... Poważnie chcesz?\nJesteś chory.\n   Wiesz, zróbmy tak, że trzyktornie podczas sesji\nmożesz powtórzyć jeden nieudany rzut na dowolnej\nz trzech kości."
-                },
-                {
-                    "name": "Hazardzista",
-                    "description": "Zwinne paluszki to bogactwo naturalne. Znasz tysiąc\noszustw. Miałeś kiedyś okazję wyćwiczyć swoje dłonie\ni manupulujesz nimi lepiej niż japoński robot. Zaczynasz\ngrę posiadając (gratisowo) wszystkie Umiejętności\nz pakietu Zdolności manualne na poziomie +2."
-                },
-                {
-                    "name": "Telepata",
-                    "description": "A ty telepata jesteś? Skąd wiesz, że on blefuje? Co\nznaczy, że on nas nie zabije? Masz to gdzieś piśmie?\nChyba nie myślisz, że ci uwierzę!\n   Poziom trudności wszystkich testów Blefu, Perswazji\ni Zastraszania w stosunku do ciebie jest większany\no jeden w górę."
-                }
-            ]
+            {
+                "name": "Hazardzista",
+                "description": "Zwinne paluszki to bogactwo naturalne. Znasz tysiąc\noszustw. Miałeś kiedyś okazję wyćwiczyć swoje dłonie\ni manupulujesz nimi lepiej niż japoński robot. Zaczynasz\ngrę posiadając (gratisowo) wszystkie Umiejętności\nz pakietu Zdolności manualne na poziomie +2."
+            },
+            {
+                "name": "Telepata",
+                "description": "A ty telepata jesteś? Skąd wiesz, że on blefuje? Co\nznaczy, że on nas nie zabije? Masz to gdzieś piśmie?\nChyba nie myślisz, że ci uwierzę!\n   Poziom trudności wszystkich testów Blefu, Perswazji\ni Zastraszania w stosunku do ciebie jest większany\no jeden w górę."
+            }
+        ]
+    },
+    {
+        "name": "Człowiek pustyni",
+        "attribute": {
+            "name": "Percepcja",
+            "value": 1
         },
-        {
-            "name": "Człowiek pustyni",
-            "attribute": {
-                "name": "Percepcja",
-                "value": 1
+        "features": [
+            {
+                "name": "Towarzysz",
+                "description": "Ten skorpion to też twój przyjaciel? Wiesz, psa bym zrozumiał,\nmoże jakiegoś ptaka, czy coś. Ale skorpion? Wybierz sobie inne.\n   Możesz wybrać  jedno zwierzę, które będzie twoim kompanem,\nbędzie cie służył, ale musisz je kochać. Zwierzęciem może być\ndowolny ssak, ptak, gad lub inne stworzenie za pozwoleniem MG.\nOd tej pory jest was dwóch. Gdybyś na przykład miał tandem,\nmoglibyście sobie pojeździć po pustynie, he, he...\n   Takiemu towarzyszowi możesz wydawać kilka rodzajów poleceń\nnp, \"bierz go\", \"do nogi\", \"cicho\", \"leżeć\", itp."
             },
-            "features": [
-                {
-                    "name": "Towarzysz",
-                    "description": "Ten skorpion to też twój przyjaciel? Wiesz, psa bym zrozumiał,\nmoże jakiegoś ptaka, czy coś. Ale skorpion? Wybierz sobie inne.\n   Możesz wybrać  jedno zwierzę, które będzie twoim kompanem,\nbędzie cie służył, ale musisz je kochać. Zwierzęciem może być\ndowolny ssak, ptak, gad lub inne stworzenie za pozwoleniem MG.\nOd tej pory jest was dwóch. Gdybyś na przykład miał tandem,\nmoglibyście sobie pojeździć po pustynie, he, he...\n   Takiemu towarzyszowi możesz wydawać kilka rodzajów poleceń\nnp, \"bierz go\", \"do nogi\", \"cicho\", \"leżeć\", itp."
-                },
-                {
-                    "name": "Jestem duchem pustyni",
-                    "description": "Nauczyłeś się przydatnej sztuczki, W trudnych warunkach\n(wysoka temperatura lub brak pożywienia i wody), potrafisz\npogrążyć się w katalepsji i przeżyć. W stanie uśpienia leżysz\nnieruchomo i nie odbierasz żadnych bodźców zewnętrznych do czasu,\naż warunki staną się bardziej sprzyjające. W ten sposób możesz\nprzetrwać trzy miesiące."
-                },
-                {
-                    "name": "Polegam tylko na sobie",
-                    "description": "Jeżeli posługujesz się bronią własnej roboty (nie dotyczy broni\npalnej) lub jakimkolwiek innym wykonanym przez siebie narzędziem\nw każdym teście z jego wykorzystaniem możesz odjąć dwa oczka od\nrzutu na jednej z kostek."
-                }
-            ]
+            {
+                "name": "Jestem duchem pustyni",
+                "description": "Nauczyłeś się przydatnej sztuczki, W trudnych warunkach\n(wysoka temperatura lub brak pożywienia i wody), potrafisz\npogrążyć się w katalepsji i przeżyć. W stanie uśpienia leżysz\nnieruchomo i nie odbierasz żadnych bodźców zewnętrznych do czasu,\naż warunki staną się bardziej sprzyjające. W ten sposób możesz\nprzetrwać trzy miesiące."
+            },
+            {
+                "name": "Polegam tylko na sobie",
+                "description": "Jeżeli posługujesz się bronią własnej roboty (nie dotyczy broni\npalnej) lub jakimkolwiek innym wykonanym przez siebie narzędziem\nw każdym teście z jego wykorzystaniem możesz odjąć dwa oczka od\nrzutu na jednej z kostek."
+            }
+        ]
+    },
+    {
+        "name": "Nowy Jork",
+        "attribute": {
+            "name": "Charakter",
+            "value": 1
         },
-        {
-            "name": "Nowy Jork",
-            "attribute": {
-                "name": "Charakter",
-                "value": 1
+        "features": [
+            {
+                "name": "Zalety klasycznego wykształcenia",
+                "description": "Miałeś bardzo dobrych nauczycieli. Jeżeli na dalszym etapie\ntworzenia postaci wybierzesz jako specjalizację Technika,\notrzymujesz dodatkowe 10 punktów do wydania na umiejętności\noparte o Spryt."
             },
-            "features": [
-                {
-                    "name": "Zalety klasycznego wykształcenia",
-                    "description": "Miałeś bardzo dobrych nauczycieli. Jeżeli na dalszym etapie\ntworzenia postaci wybierzesz jako specjalizację Technika,\notrzymujesz dodatkowe 10 punktów do wydania na umiejętności\noparte o Spryt."
-                },
-                {
-                    "name": "Wizja",
-                    "description": "Wiele lat odbudowywania NJ nauczyło cię, jak pracować\nw ruinach. Teraz możesz wjechać nawet do największej dziury,\nale nie dostrzeżesz ruin i syf, lecz plac budowlany. Taki\noptymizm przydaje się w wielu sytuacjach. Jesteś w jakiejś\nzapadłej wiosce, którą w ciągu ośmiu godzin trzeba na twierdzę?\nInni by płakali, Ty zabierasz się do roboty. MG jest zobowiązany\npodpowiedzieć ci, jak najlepiej odbudować lub przebudować daną\nlokację - według potrzeb (nocleg, dom, twierdza, itp.)."
-                },
-                {
-                    "name": "Czas patriotów",
-                    "description": "Heroizm to twoje drugie imię. Raz na sesję wykonujesz test\nCholernie trudny możesz dodać wartość swojego Charakteru do\ntestowanej Umiejętności. Krótko mówiąc, raz na sesje zdajesz\nautomatycznie test, mam rację?"
-                }
-            ]
+            {
+                "name": "Wizja",
+                "description": "Wiele lat odbudowywania NJ nauczyło cię, jak pracować\nw ruinach. Teraz możesz wjechać nawet do największej dziury,\nale nie dostrzeżesz ruin i syf, lecz plac budowlany. Taki\noptymizm przydaje się w wielu sytuacjach. Jesteś w jakiejś\nzapadłej wiosce, którą w ciągu ośmiu godzin trzeba na twierdzę?\nInni by płakali, Ty zabierasz się do roboty. MG jest zobowiązany\npodpowiedzieć ci, jak najlepiej odbudować lub przebudować daną\nlokację - według potrzeb (nocleg, dom, twierdza, itp.)."
+            },
+            {
+                "name": "Czas patriotów",
+                "description": "Heroizm to twoje drugie imię. Raz na sesję wykonujesz test\nCholernie trudny możesz dodać wartość swojego Charakteru do\ntestowanej Umiejętności. Krótko mówiąc, raz na sesje zdajesz\nautomatycznie test, mam rację?"
+            }
+        ]
+    },
+    {
+        "name": "Texas",
+        "attribute": {
+            "name": "Budowa",
+            "value": 1
         },
-        {
-            "name": "Texas",
-            "attribute": {
-                "name": "Budowa",
-                "value": 1
+        "features": [
+            {
+                "name": "Człowiek zwany koniem",
+                "description": "Jesteś silny jak wół, zwinny jak puma i twardy jak głaz.\nKiedy idziesz po górach, powodujesz lawinę. Kiedy dosiadasz\nkonia, to koń... Co ja ci zresztą będę opowiadał? Wybierz pakiet\nUmiejętności Sprawność albo Jeździectwo z wybranej grupy jest\njest obniżony o jeden poziom."
             },
-            "features": [
-                {
-                    "name": "Człowiek zwany koniem",
-                    "description": "Jesteś silny jak wół, zwinny jak puma i twardy jak głaz.\nKiedy idziesz po górach, powodujesz lawinę. Kiedy dosiadasz\nkonia, to koń... Co ja ci zresztą będę opowiadał? Wybierz pakiet\nUmiejętności Sprawność albo Jeździectwo z wybranej grupy jest\njest obniżony o jeden poziom."
-                },
-                {
-                    "name": "Doktor Quinn",
-                    "description": "Nigdy nie słyszałeś o doktor Qiunn? Żona \"człowieka obrusa\",\nnajsłynniejsza felczerka z Teksasu. Jeździ i leczy. Zresztą\nnie tylko ona! Każda kobieta pochodząca z Teksasu posiada wszystkie\nUmiejętności z pakietu Medycyna na poziomie +4, Każdą, dasz wiarę?"
-                },
-                {
-                    "name": "Zdrowa okolica",
-                    "description": "Wychowałeś się w zdrowej, nieskażonej okolicy. Jesteś dobrze\nodżywiony i nie zostałeś napromieniowany. Na etapie tworzenia\npostaci nie musisz wykonywać rzutu określającego choroby, jakich\nsię nabawiłeś. I jak? Teraz zastanów się, po co ci żona felczerka,\npanie Quinn..."
-                }
-            ]
+            {
+                "name": "Doktor Quinn",
+                "description": "Nigdy nie słyszałeś o doktor Qiunn? Żona \"człowieka obrusa\",\nnajsłynniejsza felczerka z Teksasu. Jeździ i leczy. Zresztą\nnie tylko ona! Każda kobieta pochodząca z Teksasu posiada wszystkie\nUmiejętności z pakietu Medycyna na poziomie +4, Każdą, dasz wiarę?"
+            },
+            {
+                "name": "Zdrowa okolica",
+                "description": "Wychowałeś się w zdrowej, nieskażonej okolicy. Jesteś dobrze\nodżywiony i nie zostałeś napromieniowany. Na etapie tworzenia\npostaci nie musisz wykonywać rzutu określającego choroby, jakich\nsię nabawiłeś. I jak? Teraz zastanów się, po co ci żona felczerka,\npanie Quinn..."
+            }
+        ]
+    },
+    {
+        "name": "Federacja Appalachów",
+        "attribute": {
+            "name": "Charakter",
+            "value": 1
         },
-        {
-            "name": "Federacja Appalachów",
-            "attribute": {
-                "name": "Charakter",
-                "value": 1
+        "features": [
+            {
+                "name": "Szlachetnie urodzony",
+                "description": "Urodziłeś się, by panować nad innymi. Wiesz jak traktować ludzi.\nWybierz sobie jeden pakiet Umiejętności opartych o Charakter.\nKażdą z Umiejętności w pakiecie posiadasz na poziomie +2."
             },
-            "features": [
-                {
-                    "name": "Szlachetnie urodzony",
-                    "description": "Urodziłeś się, by panować nad innymi. Wiesz jak traktować ludzi.\nWybierz sobie jeden pakiet Umiejętności opartych o Charakter.\nKażdą z Umiejętności w pakiecie posiadasz na poziomie +2."
-                },
-                {
-                    "name": "Pojedynkowicz",
-                    "description": "Nigdy nie przepuściłeś okazji, by zmierzyć się z przeciwnikiem.\nDawałeś wrogom nauczkę i sam się czegoś nauczyłeś. Najwazniejsza\nnauka jaką wyciągnąłeś, to ta, iż każdego można pokonać. Podczas\nwalki sam na sam ignorujesz pierwszą Lekką ranę lub Draśnięcia.\nŻaden przeciwnik nie zdoła cię przerazić i dlatego właśnie jestes\ntwardzielem."
-                },
-                {
-                    "name": "Wychuchana spluwa",
-                    "description": "Wybierz jedną z broni palnych, które nosisz przy sobie. Każdego\nwieczoru czyścisz ją, chuchasz, dmuchasz i w efekcie możesz dla\nzawsze powtórzyć rzut na efekt zacięcia broni."
-                }
-            ]
+            {
+                "name": "Pojedynkowicz",
+                "description": "Nigdy nie przepuściłeś okazji, by zmierzyć się z przeciwnikiem.\nDawałeś wrogom nauczkę i sam się czegoś nauczyłeś. Najwazniejsza\nnauka jaką wyciągnąłeś, to ta, iż każdego można pokonać. Podczas\nwalki sam na sam ignorujesz pierwszą Lekką ranę lub Draśnięcia.\nŻaden przeciwnik nie zdoła cię przerazić i dlatego właśnie jestes\ntwardzielem."
+            },
+            {
+                "name": "Wychuchana spluwa",
+                "description": "Wybierz jedną z broni palnych, które nosisz przy sobie. Każdego\nwieczoru czyścisz ją, chuchasz, dmuchasz i w efekcie możesz dla\nzawsze powtórzyć rzut na efekt zacięcia broni."
+            }
+        ]
+    },
+    {
+        "name": "Miami",
+        "attribute": {
+            "name": "Percepcja",
+            "value": 1
         },
-        {
-            "name": "Miami",
-            "attribute": {
-                "name": "Percepcja",
-                "value": 1
+        "features": [
+            {
+                "name": "Człowiek-aligator",
+                "description": "Połowę życia spędziłeś w wodzie na trzęsawiskach lub\nw tropiku. W czasie każdej walki, w której wykorzystujesz\ndo ukrycia zbiornik wodny lub bagno (gdy jesteś\nzanurzony), osłona maskuje cię o dwa poziomy\nlepiej. Dodatkowo, w przypadku błyskawicznego ataku\nz zaskoczenia na terenie wodnym lub bagiennym, twoi\nprzeciwnicy sa utomatycznie zaskoczeni."
             },
-            "features": [
-                {
-                    "name": "Człowiek-aligator",
-                    "description": "Połowę życia spędziłeś w wodzie na trzęsawiskach lub\nw tropiku. W czasie każdej walki, w której wykorzystujesz\ndo ukrycia zbiornik wodny lub bagno (gdy jesteś\nzanurzony), osłona maskuje cię o dwa poziomy\nlepiej. Dodatkowo, w przypadku błyskawicznego ataku\nz zaskoczenia na terenie wodnym lub bagiennym, twoi\nprzeciwnicy sa utomatycznie zaskoczeni."
-                },
-                {
-                    "name": "Ja już swoje odchorowałem",
-                    "description": "Żyłeś w niezdrowej okolicy Miami i uodporniłeś się na\n wiele chorób i jadów. Możesz powrórzyć każdy rzut\nodpornościowy przeciw chorobom i truciznom\n pochodzenia organicznego."
-                },
-                {
-                    "name": "Walkabout",
-                    "description": "Siedzisz sobie w knajpie i nagle postanawiasz iść na mały\nwalkabout. Wychodzisz i przez miesiąc włóczysz się po\nokolicy. Wracasz do knajpy, patrzysz, a twoje ziółka na\nstole wystygły. Myślisz sobie - nie będę pił zimnych.\nI idziesz odwiedzić kumpla z Vegas.\n   Możesz powtórzyć każdy test Kondycji. Zaczynasz\nze Sztuczką \"Dom na plecach\"."
-                }
-            ]
+            {
+                "name": "Ja już swoje odchorowałem",
+                "description": "Żyłeś w niezdrowej okolicy Miami i uodporniłeś się na\n wiele chorób i jadów. Możesz powrórzyć każdy rzut\nodpornościowy przeciw chorobom i truciznom\n pochodzenia organicznego."
+            },
+            {
+                "name": "Walkabout",
+                "description": "Siedzisz sobie w knajpie i nagle postanawiasz iść na mały\nwalkabout. Wychodzisz i przez miesiąc włóczysz się po\nokolicy. Wracasz do knajpy, patrzysz, a twoje ziółka na\nstole wystygły. Myślisz sobie - nie będę pił zimnych.\nI idziesz odwiedzić kumpla z Vegas.\n   Możesz powtórzyć każdy test Kondycji. Zaczynasz\nze Sztuczką \"Dom na plecach\"."
+            }
+        ]
+    },
+    {
+        "name": "Człowiek z... nie twój zasrany interes",
+        "attribute": {
+            "name": "dowolny",
+            "value": 1
         },
-        {
-            "name": "Człowiek z... nie twój zasrany interes",
-            "attribute": {
-                "name": "dowolny",
-                "value": 1
+        "features": [
+            {
+                "name": "Wszechstronność",
+                "description": "Złaziłeś już spory kawał świata. Aby przetrwać uczyłeś\nsię wszystkiego po trochu. Wszystkie Umiejętności\noparte na najwyższej z twoich cech, a których\nnie wykupiłeś, mają wartość 1. Znasz się na wszystkim.\nI tak naprawdę gówno umiesz, ot, moja opinia."
             },
-            "features": [
-                {
-                    "name": "Wszechstronność",
-                    "description": "Złaziłeś już spory kawał świata. Aby przetrwać uczyłeś\nsię wszystkiego po trochu. Wszystkie Umiejętności\noparte na najwyższej z twoich cech, a których\nnie wykupiłeś, mają wartość 1. Znasz się na wszystkim.\nI tak naprawdę gówno umiesz, ot, moja opinia."
-                },
-                {
-                    "name": "Wszchstronność do kwadratu",
-                    "description": "Możesz wybrać dowolną z cech innych nacji. Dowolną.\nNo jeśli jesteś facetem, to umówmy się, że zapomnisz\no \"doktor Quinn\", OK?"
-                }
-            ]
+            {
+                "name": "Wszchstronność do kwadratu",
+                "description": "Możesz wybrać dowolną z cech innych nacji. Dowolną.\nNo jeśli jesteś facetem, to umówmy się, że zapomnisz\no \"doktor Quinn\", OK?"
+            }
+        ]
+    },
+    {
+        "name": "Salt Lake City",
+        "attribute": {
+            "name": "Spryt",
+            "value": 1
         },
-        {
-            "name": "Salt Lake City",
-            "attribute": {
-                "name": "Spryt",
-                "value": 1
+        "features": [
+            {
+                "name": "Cholerny kaznodzieja",
+                "description": "Potrafisz walną taki monolog, że słuchacze nie wiedzą, co ze\nsobą zrobić. Jeśli próbujesz przekonać kogoś do racji, w które\nsam wierzysz (sprawy wiary), w testach Perswazji odrzucasz\nkostkę, która najmniej ci odpowiada i mówiesz, że wypadło na\nniej tyle co na innej. Trochę to skomplikowane, nie? Ale wiesz,\nsorawy wiary to trudny temat."
             },
-            "features": [
-                {
-                    "name": "Cholerny kaznodzieja",
-                    "description": "Potrafisz walną taki monolog, że słuchacze nie wiedzą, co ze\nsobą zrobić. Jeśli próbujesz przekonać kogoś do racji, w które\nsam wierzysz (sprawy wiary), w testach Perswazji odrzucasz\nkostkę, która najmniej ci odpowiada i mówiesz, że wypadło na\nniej tyle co na innej. Trochę to skomplikowane, nie? Ale wiesz,\nsorawy wiary to trudny temat."
-                },
-                {
-                    "name": "Wierzę",
-                    "description": "Chłopie, nie będę lazł pięćset metrów do tej głupiej stacji tylko\ndlatego, że przez lornetkę widzisz tam automat z Colą. On nie\ndziała, to nie ma sensu... Co? Co znaczy, że wierzysz, że działa?\nI co, chcesz bym teraz tam poszedł? Bo ty wierzysz? No bez\njaj. To że raz w ciągu sesji, w sytuacji zagrożenia, możesz\npowiedzieć MG \"wierzę\" i wtedy MG powinien dać ci szansę\nwykaraskania się z sytuacji, nie oznacza, że da nam teraz tę\nColę! Zrozum! Tylko w sytuacji zagrożenia! I w dodatku\n ostateczna decyzja należy do MG! A przecież wiesz, że on jest\nzłośliwy!Nie da nam tej Coli, mówię ci..."
-                },
-                {
-                    "name": "Przed wojną wszystko było lepsze",
-                    "description": "Przysłuchiwałeś się opowieściom doświadczonych wojowników\ni mądrych starców. Chłonołeś historię o czasach sprzed wojny.\nWszystkie testy Sprytu związane z wiedzą o czasach sprzed\nApokalipsą mogą być dla ciebie co najwyżej Trudne. Co\nnajwyżej, łapiesz? Mistrz Gry może sobie bełkotać o Bardzo\nTrudnym, o Cholernie Trudnym... Wiesz co? Pokaż mi ten podręcznik,\notwórz na tej stronie i daj mu to przeczytać \"Mistrzu Gry\ndo ciebie mówię. Ten facet, co dał ci teraz podręcznik, wie o\nczasach sprzed wojny wszystko. Łapiesz to? więc nie smuć o\nBardzo Trudnym teście."
-                }
-            ]
+            {
+                "name": "Wierzę",
+                "description": "Chłopie, nie będę lazł pięćset metrów do tej głupiej stacji tylko\ndlatego, że przez lornetkę widzisz tam automat z Colą. On nie\ndziała, to nie ma sensu... Co? Co znaczy, że wierzysz, że działa?\nI co, chcesz bym teraz tam poszedł? Bo ty wierzysz? No bez\njaj. To że raz w ciągu sesji, w sytuacji zagrożenia, możesz\npowiedzieć MG \"wierzę\" i wtedy MG powinien dać ci szansę\nwykaraskania się z sytuacji, nie oznacza, że da nam teraz tę\nColę! Zrozum! Tylko w sytuacji zagrożenia! I w dodatku\n ostateczna decyzja należy do MG! A przecież wiesz, że on jest\nzłośliwy!Nie da nam tej Coli, mówię ci..."
+            },
+            {
+                "name": "Przed wojną wszystko było lepsze",
+                "description": "Przysłuchiwałeś się opowieściom doświadczonych wojowników\ni mądrych starców. Chłonołeś historię o czasach sprzed wojny.\nWszystkie testy Sprytu związane z wiedzą o czasach sprzed\nApokalipsą mogą być dla ciebie co najwyżej Trudne. Co\nnajwyżej, łapiesz? Mistrz Gry może sobie bełkotać o Bardzo\nTrudnym, o Cholernie Trudnym... Wiesz co? Pokaż mi ten podręcznik,\notwórz na tej stronie i daj mu to przeczytać \"Mistrzu Gry\ndo ciebie mówię. Ten facet, co dał ci teraz podręcznik, wie o\nczasach sprzed wojny wszystko. Łapiesz to? więc nie smuć o\nBardzo Trudnym teście."
+            }
+        ]
+    },
+    {
+        "name": "Missispi",
+        "attribute": {
+            "name": "Percepcja",
+            "value": 1
         },
-        {
-            "name": "Missispi",
-            "attribute": {
-                "name": "Percepcja",
-                "value": 1
+        "features": [
+            {
+                "name": "Coś mi tu śmierdzi",
+                "description": "Dorastałeś na terenach opanowanych przez mutków.\nWyczuwasz ich inność, choćby nie wiem jak się\nmaskowali. Za każdym razem, gdy stajesz wobec osoby\ndotniętej niewidocznymi mutacjami, MG powinien\nwykonać sekretny rzut na Percepcję (Trudny) i w\nrazie powodzenia testu, poinformować cię, że czujesz\nsię nieswojo. Rączki świerzbią, nie? Spluwa się\ngotuje..."
             },
-            "features": [
-                {
-                    "name": "Coś mi tu śmierdzi",
-                    "description": "Dorastałeś na terenach opanowanych przez mutków.\nWyczuwasz ich inność, choćby nie wiem jak się\nmaskowali. Za każdym razem, gdy stajesz wobec osoby\ndotniętej niewidocznymi mutacjami, MG powinien\nwykonać sekretny rzut na Percepcję (Trudny) i w\nrazie powodzenia testu, poinformować cię, że czujesz\nsię nieswojo. Rączki świerzbią, nie? Spluwa się\ngotuje..."
-                },
-                {
-                    "name": "Chodźmy, na pewno już utonął",
-                    "description": "Masz płuca jak miechy. Jesteś w stanie wytrzymać\npod wodą dwa razy dłużej, niż przeciętny człowiek.\n   To znaczy ile? Pół minuty za każde 4 punkty\nBudowy. Właśnie tyle."
-                },
-                {
-                    "name": "Kwas w żyłach, chlor w płucach",
-                    "description": "Urodziłeś się i mieszkałeś przy Wielkiej Rzece.\nJesteś tak przesiąknięty płynącą w niej trucizną, że\nżadna nowa franca już w ciebie nie wejdzie. Możesz\npowtórzyć każdy rzut odpornościowy przecziw\ntrującym chemikaliom i substancjom żrącym."
-                }
-            ]
+            {
+                "name": "Chodźmy, na pewno już utonął",
+                "description": "Masz płuca jak miechy. Jesteś w stanie wytrzymać\npod wodą dwa razy dłużej, niż przeciętny człowiek.\n   To znaczy ile? Pół minuty za każde 4 punkty\nBudowy. Właśnie tyle."
+            },
+            {
+                "name": "Kwas w żyłach, chlor w płucach",
+                "description": "Urodziłeś się i mieszkałeś przy Wielkiej Rzece.\nJesteś tak przesiąknięty płynącą w niej trucizną, że\nżadna nowa franca już w ciebie nie wejdzie. Możesz\npowtórzyć każdy rzut odpornościowy przecziw\ntrującym chemikaliom i substancjom żrącym."
+            }
+        ]
+    },
+    {
+        "name": "Posterunek",
+        "attribute": {
+            "name": "Spryt",
+            "value": 1
         },
-        {
-            "name": "Posterunek",
-            "attribute": {
-                "name": "Spryt",
-                "value": 1
+        "features": [
+            {
+                "name": "Na symulatorze działało...",
+                "description": "Jak to spokojnie! Jak grałeś w to?! W co grałeś? Symulator?!\nO czym ty człowieku pieprzysz, strzelają do nas, nie rozumiesz?!\nJa też przeszedłem służbę wojskową, w dodatku na froncie\ni jakoś nie jestem taki spokojny! Miałeś dostęp do komputerowych\nsymulatorów pojazdów i pola walki? No popatrz, to po\nprostu wspaniale. Grałeś sobie w Quake, kiedy do mnie strzelali\nna froncie, tak? I każesz mi być spokojnym?! I co, trochę się\nz nich nauczyłeś? Możesz przerzycić jedną kostkę w testach\nWozów bojowych, Maszyn Ciężkich i Komputerów? Super. To\nlepiej przerzucaj, bo mamy kłopoty!"
             },
-            "features": [
-                {
-                    "name": "Na symulatorze działało...",
-                    "description": "Jak to spokojnie! Jak grałeś w to?! W co grałeś? Symulator?!\nO czym ty człowieku pieprzysz, strzelają do nas, nie rozumiesz?!\nJa też przeszedłem służbę wojskową, w dodatku na froncie\ni jakoś nie jestem taki spokojny! Miałeś dostęp do komputerowych\nsymulatorów pojazdów i pola walki? No popatrz, to po\nprostu wspaniale. Grałeś sobie w Quake, kiedy do mnie strzelali\nna froncie, tak? I każesz mi być spokojnym?! I co, trochę się\nz nich nauczyłeś? Możesz przerzycić jedną kostkę w testach\nWozów bojowych, Maszyn Ciężkich i Komputerów? Super. To\nlepiej przerzucaj, bo mamy kłopoty!"
-                },
-                {
-                    "name": "Hi-Tech",
-                    "description": "Od maleńkości rosłes w otoczeniu wytworów zaawansowanej\ntechnologii. Mikser do pomarańczy, czasem suszarka do włosów.\nCo więcej, było i radio, a nawet jakiś wykrywacz ruchu...\nNo dobra, koniec jaj. Posterunek to najlepiej wyposażony w\nsprzęt elektroniczny przyczółek ludzkości. W kazdym teście\nzwiązanym z obsługą urządzenia elektronicznego możesz przerzucić\njedną z kostek, właśnie dlatego, ze dawno temu za\ngrzechotkę robił ci słoik z porcesorami, a za łopatkę płyta główna."
-                },
-                {
-                    "name": "Moloch? Coś o nim słyszałem",
-                    "description": "Miałeś kontakt z Molochem i jego tworami. Znasz slangowe\nnazwy określajace maszyny, potrafisz rozpoznawać je i wiesz\nczego możesz się spodziewać po każdym z tworów Bestii.\nKażdy test związany z maszynami Molocha może być dla ciebie co\nnajwyżej Bardzo Trudny."
-                }
-            ]
+            {
+                "name": "Hi-Tech",
+                "description": "Od maleńkości rosłes w otoczeniu wytworów zaawansowanej\ntechnologii. Mikser do pomarańczy, czasem suszarka do włosów.\nCo więcej, było i radio, a nawet jakiś wykrywacz ruchu...\nNo dobra, koniec jaj. Posterunek to najlepiej wyposażony w\nsprzęt elektroniczny przyczółek ludzkości. W kazdym teście\nzwiązanym z obsługą urządzenia elektronicznego możesz przerzucić\njedną z kostek, właśnie dlatego, ze dawno temu za\ngrzechotkę robił ci słoik z porcesorami, a za łopatkę płyta główna."
+            },
+            {
+                "name": "Moloch? Coś o nim słyszałem",
+                "description": "Miałeś kontakt z Molochem i jego tworami. Znasz slangowe\nnazwy określajace maszyny, potrafisz rozpoznawać je i wiesz\nczego możesz się spodziewać po każdym z tworów Bestii.\nKażdy test związany z maszynami Molocha może być dla ciebie co\nnajwyżej Bardzo Trudny."
+            }
+        ]
+    },
+    {
+        "name": "Detroit",
+        "attribute": {
+            "name": "Zręczność",
+            "value": 1
         },
-        {
-            "name": "Detroit",
-            "attribute": {
-                "name": "Zręczność",
-                "value": 1
+        "features": [
+            {
+                "name": "Jeśli ma silnik to ruszy",
+                "description": "W czasie nie dłuższym niż 30 sekund jesteś w stanie\nuruchomić dowolny pojazd z silnikiem spalinowym,\npod warunkiem, że jest on zdatny do jazdy. I o ile ma,\npaliwo. Jeśli MG uważa, że wóz może jeździć, ty go\nuruchomisz. Tak to działa."
             },
-            "features": [
-                {
-                    "name": "Jeśli ma silnik to ruszy",
-                    "description": "W czasie nie dłuższym niż 30 sekund jesteś w stanie\nuruchomić dowolny pojazd z silnikiem spalinowym,\npod warunkiem, że jest on zdatny do jazdy. I o ile ma,\npaliwo. Jeśli MG uważa, że wóz może jeździć, ty go\nuruchomisz. Tak to działa."
-                },
-                {
-                    "name": "Siódme poty",
-                    "description": "Jeżeli prowadzisz dowolny pojazd z silnikiem spalinowym,\njesteś w stanie wycisnąć z niego 25% ponad\nmaksymalną prędkość, balansując na granicy zatarcia\nsilnika, a nawet rozpadnięcia się całej konstrukcji\nmaszyny. Kiedy pojazd zatrzyma się, nie ruszy\nponownie, aż do momentu naprawienia uszkodzeń\n(Bardzo Trudny test Mechaniki)."
-                },
-                {
-                    "name": "Ale jazda!",
-                    "description": "Lata spędzone na ulicach Detroitzrobiły swoje. Jeżeli\nstrzelasz w ruchu - z pędzącego pojazdu,\nwierzchowca, spadając itp. - nie doliczasz sobie żadnych\nutrudnień za strzał w ruchu."
-                }
-            ]
-        }
-    ]
-}
+            {
+                "name": "Siódme poty",
+                "description": "Jeżeli prowadzisz dowolny pojazd z silnikiem spalinowym,\njesteś w stanie wycisnąć z niego 25% ponad\nmaksymalną prędkość, balansując na granicy zatarcia\nsilnika, a nawet rozpadnięcia się całej konstrukcji\nmaszyny. Kiedy pojazd zatrzyma się, nie ruszy\nponownie, aż do momentu naprawienia uszkodzeń\n(Bardzo Trudny test Mechaniki)."
+            },
+            {
+                "name": "Ale jazda!",
+                "description": "Lata spędzone na ulicach Detroitzrobiły swoje. Jeżeli\nstrzelasz w ruchu - z pędzącego pojazdu,\nwierzchowca, spadając itp. - nie doliczasz sobie żadnych\nutrudnień za strzał w ruchu."
+            }
+        ]
+    }
+]
