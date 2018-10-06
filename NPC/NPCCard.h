@@ -24,6 +24,7 @@ public:
 
 private slots:
     void onOriginChange(const QString &name);
+    void onProfessionChanged(const QString &name);
 
 private:
     void initCardData();
@@ -75,6 +76,7 @@ private:
     QHash<QString, QJsonObject> m_origins;
     QJsonArray m_originFeatures;
     QHash<QString, QJsonObject> m_professions;
+    QJsonArray m_professionFeatures;
 
     const QStringList m_woundsList{ "Draśnięcia", "Lekkie", "Ciężkie", "Krytyczne" };
     const QStringList m_shortModsList{ "Łat.", "Prze.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart" };

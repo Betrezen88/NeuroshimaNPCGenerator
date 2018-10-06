@@ -47,6 +47,19 @@ void NPCCard::onOriginChange(const QString &name)
     m_pFeature1->insertItems( 0, featureNames );
 }
 
+void NPCCard::onProfessionChanged(const QString &name)
+{
+    const QJsonObject profession = m_professions.value( name );
+    QStringList featureNames;
+    m_professionFeatures = profession.value("features").toArray();
+
+    for (const QJsonValue &tProfession: m_professionFeatures)
+        featureNames << tProfession.toObject().value("name").toString();
+
+    m_pFeature2->clear();
+    m_pFeature2->insertItems( 0, featureNames );
+}
+
 void NPCCard::initCardData()
 {
     QJsonArray attributes = loadJson( ":/Attributes.json" );
@@ -284,6 +297,7 @@ void NPCCard::fillProfessions(const QJsonArray &professions)
     }
 
     m_pProfession->insertItems( 0, list );
+    onProfessionChanged( m_pProfession->currentText() );
 }
 
 QLabel *NPCCard::createLabel(const QString &text,
