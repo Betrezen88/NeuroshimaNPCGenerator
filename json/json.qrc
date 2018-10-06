@@ -3,5 +3,6 @@
         <file>Origins.json</file>
         <file>Attributes.json</file>
         <file>Specializations.json</file>
+        <file>Professions.json</file>
     </qresource>
 </RCC>

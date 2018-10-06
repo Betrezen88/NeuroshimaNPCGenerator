@@ -47,4 +47,5 @@ DISTFILES += \
     Othres/Concept.txt \
     json/Origins.json \
     json/Attributes.json \
-    json/Specializations.json
+    json/Specializations.json \
+    json/Professions.json
