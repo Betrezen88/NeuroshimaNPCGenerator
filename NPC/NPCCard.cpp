@@ -119,6 +119,7 @@ QWidget *NPCCard::createPersonalSection()
     pFameL->addWidget( m_pFame );
 
     connect( m_pOrigin, &QComboBox::currentTextChanged, this, &NPCCard::onOriginChange );
+    connect( m_pProfession,  &QComboBox::currentTextChanged, this, &NPCCard::onProfessionChanged );
 
     pLayout->addLayout( pTitleL );
     pLayout->addLayout( pNameL );
