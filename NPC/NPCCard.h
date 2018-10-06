@@ -39,6 +39,7 @@ private:
     void fillAttributes(const QJsonArray &attributes);
     void fillSpecializations(const QJsonArray &specializations);
     void fillOrigins(const QJsonArray &origins);
+    void fillProfessions(const QJsonArray &professions);
 
     QLabel *createLabel(const QString &text,
                         const QString &objName = "",
@@ -73,6 +74,7 @@ private:
 
     QHash<QString, QJsonObject> m_origins;
     QJsonArray m_originFeatures;
+    QHash<QString, QJsonObject> m_professions;
 
     const QStringList m_woundsList{ "Draśnięcia", "Lekkie", "Ciężkie", "Krytyczne" };
     const QStringList m_shortModsList{ "Łat.", "Prze.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart" };

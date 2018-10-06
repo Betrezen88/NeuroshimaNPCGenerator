@@ -52,10 +52,12 @@ void NPCCard::initCardData()
     QJsonArray attributes = loadJson( ":/Attributes.json" );
     QJsonArray specializations = loadJson( ":/Specializations.json" );
     QJsonArray origins = loadJson( ":/Origins.json" );
+    QJsonArray professions = loadJson( ":/Professions.json" );
 
     fillSpecializations( specializations );
     fillAttributes( attributes );
     fillOrigins( origins );
+    fillProfessions( professions );
 }
 
 QWidget *NPCCard::createPersonalSection()
@@ -264,12 +266,24 @@ void NPCCard::fillOrigins(const QJsonArray &origins)
     QStringList list;
     for ( const QJsonValue &tOrigin: origins ) {
         QString name = tOrigin.toObject().value("name").toString();
-        m_origins.insert( name, std::move(tOrigin.toObject()) );
+        m_origins.insert( name, tOrigin.toObject() );
         list << name;
     }
 
     m_pOrigin->insertItems( 0, list );
     onOriginChange( m_pOrigin->currentText() );
+}
+
+void NPCCard::fillProfessions(const QJsonArray &professions)
+{
+    QStringList list;
+    for ( const QJsonValue &tProfession: professions) {
+        QString name = tProfession.toObject().value("name").toString();
+        m_professions.insert( name, tProfession.toObject() );
+        list << name;
+    }
+
+    m_pProfession->insertItems( 0, list );
 }
 
 QLabel *NPCCard::createLabel(const QString &text,
