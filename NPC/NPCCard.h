@@ -25,6 +25,7 @@ public:
 private slots:
     void onOriginChange(const QString &name);
     void onProfessionChanged(const QString &name);
+    void onFeatureChanged(QComboBox *pFeature, const QJsonArray &features);
 
 private:
     void initCardData();

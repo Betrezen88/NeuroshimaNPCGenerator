@@ -58,6 +58,16 @@ void NPCCard::onProfessionChanged(const QString &name)
 
     m_pFeature2->clear();
     m_pFeature2->insertItems( 0, featureNames );
+
+void NPCCard::onFeatureChanged(QComboBox *pFeature, const QJsonArray &features)
+{
+    for ( const QJsonValue &tFeature: features ) {
+        const QJsonObject &feature = tFeature.toObject();
+        if ( feature.value("name").toString() == pFeature->currentText() ) {
+            pFeature->setToolTip( feature.value("description").toString() );
+            break;
+        }
+    }
 }
 
 void NPCCard::initCardData()
