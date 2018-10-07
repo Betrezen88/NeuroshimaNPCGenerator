@@ -43,8 +43,10 @@ void NPCCard::onOriginChange(const QString &name)
 
     for ( const QJsonValue &tOrigin: m_originFeatures )
         featureNames << tOrigin.toObject().value("name").toString();
+
     m_pFeature1->clear();
     m_pFeature1->insertItems( 0, featureNames );
+    onFeatureChanged( m_pFeature1, m_originFeatures );
 }
 
 void NPCCard::onProfessionChanged(const QString &name)
@@ -58,6 +60,8 @@ void NPCCard::onProfessionChanged(const QString &name)
 
     m_pFeature2->clear();
     m_pFeature2->insertItems( 0, featureNames );
+    onFeatureChanged( m_pFeature2, m_professionFeatures );
+}
 
 void NPCCard::onFeatureChanged(QComboBox *pFeature, const QJsonArray &features)
 {
@@ -130,6 +134,12 @@ QWidget *NPCCard::createPersonalSection()
 
     connect( m_pOrigin, &QComboBox::currentTextChanged, this, &NPCCard::onOriginChange );
     connect( m_pProfession,  &QComboBox::currentTextChanged, this, &NPCCard::onProfessionChanged );
+    connect( m_pFeature1, &QComboBox::currentTextChanged, [this](){
+        onFeatureChanged( m_pFeature1, m_originFeatures );
+    } );
+    connect( m_pFeature2, &QComboBox::currentTextChanged, [this](){
+        onFeatureChanged( m_pFeature2, m_professionFeatures );
+    } );
 
     pLayout->addLayout( pTitleL );
     pLayout->addLayout( pNameL );
