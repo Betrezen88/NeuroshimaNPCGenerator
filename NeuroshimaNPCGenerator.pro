@@ -30,7 +30,8 @@ SOURCES += \
     NPC/Widgets/NPCAttributeWidget.cpp \
     NPC/Widgets/NPCSkillPackWidget.cpp \
     NPC/Widgets/SkillSpinBox.cpp \
-    NPC/Widgets/NPCProgressWidget.cpp
+    NPC/Widgets/NPCProgressWidget.cpp \
+    NPC/Utils/Dice.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     NPC/Widgets/NPCAttributeWidget.h \
     NPC/Widgets/NPCSkillPackWidget.h \
     NPC/Widgets/SkillSpinBox.h \
-    NPC/Widgets/NPCProgressWidget.h
+    NPC/Widgets/NPCProgressWidget.h \
+    NPC/Utils/Dice.h
 
 RESOURCES += \
     json/json.qrc
