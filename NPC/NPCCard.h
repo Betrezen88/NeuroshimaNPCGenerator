@@ -80,6 +80,8 @@ private:
     QJsonArray m_originFeatures;
     QHash<QString, QJsonObject> m_professions;
     QJsonArray m_professionFeatures;
+    QJsonArray m_sickness;
+
     Dice m_dice;
 
     const QStringList m_woundsList{ "Draśnięcia", "Lekkie", "Ciężkie", "Krytyczne" };

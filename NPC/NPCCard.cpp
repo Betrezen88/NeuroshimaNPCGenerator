@@ -81,6 +81,7 @@ void NPCCard::initCardData()
     QJsonArray specializations = loadJson( ":/Specializations.json" );
     QJsonArray origins = loadJson( ":/Origins.json" );
     QJsonArray professions = loadJson( ":/Professions.json" );
+    m_sickness = loadJson( ":/Sickness.json" );
 
     fillSpecializations( specializations );
     fillAttributes( attributes );
