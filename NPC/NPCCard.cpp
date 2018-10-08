@@ -15,13 +15,13 @@ NPCCard::NPCCard(QWidget *parent)
       m_pOrigin(new QComboBox(this)),
       m_pProfession(new QComboBox(this)),
       m_pSpecialization(new QComboBox(this)),
-      m_pSickness(new QComboBox(this)),
+      m_pSickness(new QLineEdit(this)),
       m_pFeature1(new QComboBox(this)),
       m_pFeature2(new QComboBox(this)),
       m_pReputation(new QSpinBox(this)),
       m_pFame(new QSpinBox(this)),
       m_pTricks(new QListWidget(this)),
-      m_pProgressWidget(new NPCProgressWidget( m_pSpecialization, this))
+      m_pProgressWidget(new NPCProgressWidget( m_pSpecialization, this)),
       m_dice(Dice(20))
 {
     initCardData();
@@ -114,8 +114,11 @@ QWidget *NPCCard::createPersonalSection()
     pSpecializationL->addWidget( new QLabel("Specjalizacja", pWidget) );
     pSpecializationL->addWidget( m_pSpecialization );
 
+    m_pSickness->setReadOnly( true );
+    QHBoxLayout *pSicknessHL = new QHBoxLayout;
+    pSicknessHL->addWidget( new QLabel("Choroba", pWidget) );
     QVBoxLayout *pSicknessL = new QVBoxLayout;
-    pSicknessL->addWidget( new QLabel("Choroba", pWidget) );
+    pSicknessL->addLayout( pSicknessHL );
     pSicknessL->addWidget( m_pSickness );
 
     QVBoxLayout *pFeature1L = new QVBoxLayout;
