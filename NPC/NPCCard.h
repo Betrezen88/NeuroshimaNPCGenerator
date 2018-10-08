@@ -16,6 +16,8 @@
 #include "Widgets/NPCAttributeWidget.h"
 #include "Widgets/NPCProgressWidget.h"
 
+#include "Utils/Dice.h"
+
 class NPCCard : public QWidget
 {
     Q_OBJECT
@@ -78,6 +80,7 @@ private:
     QJsonArray m_originFeatures;
     QHash<QString, QJsonObject> m_professions;
     QJsonArray m_professionFeatures;
+    Dice m_dice;
 
     const QStringList m_woundsList{ "Draśnięcia", "Lekkie", "Ciężkie", "Krytyczne" };
     const QStringList m_shortModsList{ "Łat.", "Prze.", "Prob.", "Trud.", "B.Tr.", "Ch.T.", "Fart" };
