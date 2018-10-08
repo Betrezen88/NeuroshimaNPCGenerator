@@ -50,4 +50,5 @@ DISTFILES += \
     json/Origins.json \
     json/Attributes.json \
     json/Specializations.json \
-    json/Professions.json
+    json/Professions.json \
+    json/Sickness.json

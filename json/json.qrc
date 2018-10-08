@@ -4,5 +4,6 @@
         <file>Attributes.json</file>
         <file>Specializations.json</file>
         <file>Professions.json</file>
+        <file>Sickness.json</file>
     </qresource>
 </RCC>
