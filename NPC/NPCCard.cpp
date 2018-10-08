@@ -114,9 +114,13 @@ QWidget *NPCCard::createPersonalSection()
     pSpecializationL->addWidget( new QLabel("Specjalizacja", pWidget) );
     pSpecializationL->addWidget( m_pSpecialization );
 
+    m_pRandomSicknessBtn = new QPushButton( "Losuj", pWidget );
     m_pSickness->setReadOnly( true );
+
     QHBoxLayout *pSicknessHL = new QHBoxLayout;
     pSicknessHL->addWidget( new QLabel("Choroba", pWidget) );
+    pSicknessHL->addWidget( m_pRandomSicknessBtn );
+
     QVBoxLayout *pSicknessL = new QVBoxLayout;
     pSicknessL->addLayout( pSicknessHL );
     pSicknessL->addWidget( m_pSickness );
