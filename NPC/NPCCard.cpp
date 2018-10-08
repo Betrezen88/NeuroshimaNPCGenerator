@@ -146,6 +146,7 @@ QWidget *NPCCard::createPersonalSection()
     pFameL->addWidget( new QLabel("Sława", pWidget) );
     pFameL->addWidget( m_pFame );
 
+    connect( m_pRandomSicknessBtn, &QPushButton::clicked, this, &NPCCard::onRandomSicknessClicked );
     connect( m_pOrigin, &QComboBox::currentTextChanged, this, &NPCCard::onOriginChange );
     connect( m_pProfession,  &QComboBox::currentTextChanged, this, &NPCCard::onProfessionChanged );
     connect( m_pFeature1, &QComboBox::currentTextChanged, [this](){
