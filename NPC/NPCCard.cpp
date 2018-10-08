@@ -75,6 +75,11 @@ void NPCCard::onFeatureChanged(QComboBox *pFeature, const QJsonArray &features)
     }
 }
 
+void NPCCard::onRandomSicknessClicked()
+{
+    m_pSickness->setText( m_sickness.at(m_dice.throwValue()).toString() );
+}
+
 void NPCCard::initCardData()
 {
     QJsonArray attributes = loadJson( ":/Attributes.json" );
