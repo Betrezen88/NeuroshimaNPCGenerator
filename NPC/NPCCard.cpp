@@ -1,10 +1,10 @@
 ﻿#include "NPCCard.h"
 
+#include "Utils/DataLoader.h"
+
 #include <QCheckBox>
 #include <QTextEdit>
 #include <QHBoxLayout>
-#include <QFile>
-#include <QJsonDocument>
 
 #include <QDebug>
 
@@ -82,11 +82,11 @@ void NPCCard::onRandomSicknessClicked()
 
 void NPCCard::initCardData()
 {
-    QJsonArray attributes = loadJson( ":/Attributes.json" );
-    QJsonArray specializations = loadJson( ":/Specializations.json" );
-    QJsonArray origins = loadJson( ":/Origins.json" );
-    QJsonArray professions = loadJson( ":/Professions.json" );
-    m_sickness = loadJson( ":/Sickness.json" );
+    QJsonArray attributes = DataLoader::loadJson( ":/Attributes.json" );
+    QJsonArray specializations = DataLoader::loadJson( ":/Specializations.json" );
+    QJsonArray origins = DataLoader::loadJson( ":/Origins.json" );
+    QJsonArray professions = DataLoader::loadJson( ":/Professions.json" );
+    m_sickness = DataLoader::loadJson( ":/Sickness.json" );
 
     fillSpecializations( specializations );
     fillAttributes( attributes );
@@ -390,23 +390,4 @@ QVBoxLayout *NPCCard::column4()
     pLayout->setMargin( 0 );
     pLayout->setSpacing( 1 );
     return pLayout;
-}
-
-QJsonArray NPCCard::loadJson(const QString &fileName)
-{
-    QJsonArray array;
-    QFile file( fileName );
-    file.open( QIODevice::ReadOnly );
-
-    if ( file.isOpen() ) {
-        QJsonParseError error;
-        QJsonDocument doc = QJsonDocument::fromJson( file.readAll(), &error );
-        if ( doc.isEmpty() )
-            qDebug() << "Parsing error in file " << fileName << ": " << error.errorString();
-        array = doc.array();
-    }
-    else {
-        qDebug() << "File " << fileName << " not open !";
-    }
-    return array;
 }
