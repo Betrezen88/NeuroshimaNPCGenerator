@@ -20,7 +20,7 @@ NPCCard::NPCCard(QWidget *parent)
       m_pFeature2(new QComboBox(this)),
       m_pReputation(new QSpinBox(this)),
       m_pFame(new QSpinBox(this)),
-      m_pTricks(new QListWidget(this)),
+      m_pTricks(new NPCTricksWidget(this)),
       m_pProgressWidget(new NPCProgressWidget( m_pSpecialization, this)),
       m_dice(Dice(20))
 {
@@ -167,20 +167,6 @@ QWidget *NPCCard::createPersonalSection()
     pLayout->addLayout( pReputationL );
     pLayout->addLayout( pFameL );
     pLayout->setSpacing( 2 );
-    pLayout->setMargin( 0 );
-
-    pWidget->setLayout( pLayout );
-    return pWidget;
-}
-
-QWidget *NPCCard::createTricksSection()
-{
-    QWidget *pWidget = new QWidget(this);
-    QVBoxLayout *pLayout = new QVBoxLayout;
-
-    pLayout->addWidget( createLabel("Sztuczki", "Title", m_titleStyle, 0, 40) );
-    pLayout->addWidget( m_pTricks );
-    pLayout->setSpacing( 1 );
     pLayout->setMargin( 0 );
 
     pWidget->setLayout( pLayout );
@@ -356,7 +342,8 @@ QVBoxLayout *NPCCard::column1()
 {
     QVBoxLayout *pLayout = new QVBoxLayout;
     pLayout->addWidget( createPersonalSection() );
-    pLayout->addWidget( createTricksSection() );
+    pLayout->addWidget( createLabel("Sztuczki", "Title", m_titleStyle, 0, 40) );
+    pLayout->addWidget( m_pTricks );
     pLayout->setMargin( 0 );
     pLayout->setSpacing( 1 );
     return pLayout;

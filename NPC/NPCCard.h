@@ -15,6 +15,7 @@
 
 #include "Widgets/NPCAttributeWidget.h"
 #include "Widgets/NPCProgressWidget.h"
+#include "Widgets/NPCTricksWidget.h"
 
 #include "Utils/Dice.h"
 
@@ -33,7 +34,6 @@ private slots:
 private:
     void initCardData();
     QWidget *createPersonalSection();
-    QWidget *createTricksSection();
     QWidget *createModificatorSection();
     QWidget *createModificatorWidget();
     QWidget *createWoundsSection();
@@ -71,8 +71,8 @@ private:
     QComboBox *m_pFeature2{nullptr};
     QSpinBox *m_pReputation{nullptr};
     QSpinBox *m_pFame{nullptr};
-    QListWidget *m_pTricks{nullptr};
 
+    NPCTricksWidget *m_pTricks{nullptr};
     NPCProgressWidget *m_pProgressWidget{nullptr};
 
     QPushButton *m_pRandomSicknessBtn{nullptr};
