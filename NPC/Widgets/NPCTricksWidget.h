@@ -5,6 +5,7 @@
 
 #include <QListWidget>
 #include <QPushButton>
+#include <QJsonArray>
 
 class NPCTricksWidget : public QWidget
 {
@@ -13,13 +14,18 @@ public:
     explicit NPCTricksWidget(QWidget *parent = nullptr);
 
 signals:
+    void clicked();
 
 public slots:
 
 private:
+    bool fitRequirements(const QJsonArray &attributes, const QJsonArray &skills) const;
+
+private:
     QListWidget *m_pTricks{nullptr};
-    QPushButton *m_pBuyBtn{nullptr};
-    QPushButton *m_pSellBtn{nullptr};
+    QPushButton *m_pManageBtn{nullptr};
+
+    QJsonArray m_tricks;
 };
 
 #endif // NPCTRICKSWIDGET_H
