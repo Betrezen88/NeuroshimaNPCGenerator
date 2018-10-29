@@ -33,6 +33,11 @@ void NPCAttributeWidget::addSkillPack(const QString &name, NPCSkillPackWidget *s
     layout()->addWidget( skillPack );
 }
 
+const int *NPCAttributeWidget::value() const
+{
+    return &m_value;
+}
+
 QWidget *NPCAttributeWidget::createTitleBar(const QVector<QPair<QString, int>> &mods)
 {
     QWidget *pWidget = new QWidget( this );
