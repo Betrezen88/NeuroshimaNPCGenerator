@@ -18,7 +18,7 @@ public:
                                 const QVector<QPair<QString, int>> &mods,
                                 QWidget *parent = nullptr);
 
-    QHash<const QString &, NPCSkillPackWidget *> *skillPacks();
+    QHash<const QString, NPCSkillPackWidget *> *skillPacks();
     void addSkillPack(const QString &name, NPCSkillPackWidget *skillPack);
     const int *value() const;
 
@@ -35,7 +35,7 @@ private:
     int m_value{0};
     QLabel* m_pName{nullptr};
     QVector<QLabel*> m_values;
-    QHash<const QString&, NPCSkillPackWidget*> m_skillPacks;
+    QHash<const QString, NPCSkillPackWidget*> m_skillPacks;
 
     const QString m_nameStyle{ "QLabel#NameStyle{"
                                     " font: bold 15px;"
