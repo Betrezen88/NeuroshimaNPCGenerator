@@ -47,8 +47,8 @@
                 "name": "Zdolności Manualne",
                 "Specialization": [ "Cwaniak" ],
                 "skills": [
-                    "Kradzież kieszonkowa",
-                    "Otwieranie zamków",
+                    "Kradzież Kieszonkowa",
+                    "Otwieranie Zamków",
                     "Zwinne Dłonie"
                 ]
             },
@@ -58,7 +58,7 @@
                 "skills": [
                     "Pistolety",
                     "Karabiny",
-                    "Broń maszynowa"
+                    "Broń Maszynowa"
                 ]
             },
             {
@@ -90,14 +90,14 @@
                 "skills": [
                     "Postrzeganie Emocji",
                     "Blef",
-                    "Opieka nad zwierzętami"
+                    "Opieka nad Zwierzętami"
                 ]
             },
             {
                 "name": "Siła Woli",
                 "Specialization": [ "Wojownik" ],
                 "skills": [
-                    "Odporność na ból",
+                    "Odporność na Ból",
                     "Niezłomność",
                     "Morale"
                 ]
@@ -190,7 +190,7 @@
                 "skills": [
                     "Łowiectwo",
                     "Znajomość Terenu",
-                    "Zdowbywanie Wody"
+                    "Zdobywanie Wody"
                 ]
             }
         ]
