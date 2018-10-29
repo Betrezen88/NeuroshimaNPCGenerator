@@ -342,6 +342,11 @@ QLabel *NPCCard::createLabel(const QString &text,
 
 QVBoxLayout *NPCCard::column1()
 {
+    connect( m_pTricks, &NPCTricksWidget::clicked,
+             m_pTricksDialog, &NPCTrickManagerDialog::distributeTricks );
+    connect( m_pTricks, &NPCTricksWidget::clicked,
+             m_pTricksDialog, &NPCTrickManagerDialog::show );
+
     QVBoxLayout *pLayout = new QVBoxLayout;
     pLayout->addWidget( createPersonalSection() );
     pLayout->addWidget( createLabel("Sztuczki", "Title", m_titleStyle, 0, 40) );

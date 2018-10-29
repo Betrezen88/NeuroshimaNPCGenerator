@@ -6,7 +6,6 @@
 #include <QComboBox>
 #include <QSpinBox>
 #include <QLabel>
-#include <QListWidget>
 #include <QVarLengthArray>
 #include <QVBoxLayout>
 #include <QJsonArray>
