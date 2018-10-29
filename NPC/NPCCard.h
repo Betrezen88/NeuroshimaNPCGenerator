@@ -75,7 +75,7 @@ private:
 
     QPushButton *m_pRandomSicknessBtn{nullptr};
 
-    QHash<QString, NPCAttributeWidget*> m_attributes;
+    QHash<QString, NPCAttributeWidget*> m_attributes{};
 
     QHash<QString, QJsonObject> m_origins;
     QJsonArray m_originFeatures;
