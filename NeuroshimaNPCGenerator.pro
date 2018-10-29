@@ -33,7 +33,7 @@ SOURCES += \
     NPC/Widgets/NPCProgressWidget.cpp \
     NPC/Utils/Dice.cpp \
     NPC/Widgets/NPCTricksWidget.cpp \
-    NPC/Utils/DataLoader.cpp
+    NPC/Widgets/NPCTrickWdgetItem.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -44,7 +44,7 @@ HEADERS += \
     NPC/Widgets/NPCProgressWidget.h \
     NPC/Utils/Dice.h \
     NPC/Widgets/NPCTricksWidget.h \
-    NPC/Utils/DataLoader.h
+    NPC/Widgets/NPCTrickWdgetItem.h
 
 RESOURCES += \
     json/json.qrc
