@@ -58,7 +58,7 @@ bool NPCSkillPackWidget::hasSkill(const QString &name) const
     return false;
 }
 
-SkillSpinBox *NPCSkillPackWidget::skill(const QString &name)
+SkillSpinBox *NPCSkillPackWidget::skill(const QString &name) const
 {
     for ( const QPair<const QLabel*, SkillSpinBox*> &tSkill: m_skills ) {
         if ( tSkill.first->text() == name )
