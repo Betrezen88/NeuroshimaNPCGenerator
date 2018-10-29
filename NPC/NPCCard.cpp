@@ -26,6 +26,8 @@ NPCCard::NPCCard(QWidget *parent)
 {
     initCardData();
 
+    m_pTricksDialog = new NPCTrickManagerDialog(&m_attributes ,this);
+
     QHBoxLayout *pAll = new QHBoxLayout;
     setLayout( pAll );
 

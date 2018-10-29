@@ -17,6 +17,8 @@
 #include "Widgets/NPCProgressWidget.h"
 #include "Widgets/NPCTricksWidget.h"
 
+#include "Dialogs/NPCTrickManagerDialog.h"
+
 #include "Utils/Dice.h"
 
 class NPCCard : public QWidget
@@ -72,6 +74,8 @@ private:
 
     NPCTricksWidget *m_pTricks{nullptr};
     NPCProgressWidget *m_pProgressWidget{nullptr};
+
+    NPCTrickManagerDialog *m_pTricksDialog{nullptr};
 
     QPushButton *m_pRandomSicknessBtn{nullptr};
 
