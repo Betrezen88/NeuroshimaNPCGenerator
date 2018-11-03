@@ -34,7 +34,12 @@ private:
     QPair<const int, int> m_specPoints{ 35, 0 };
     QPair<const int, int> m_skillPoints{ 30, 0 };
     QPair<const int, int> m_gambels{ 100, 0 };
+    QPair<const int, int> m_tricks{ 1, 0 };
+    // Experience { Wydane, Zdobyte }
     QPair<int, int> m_experience{ 0, 0 };
+
+    // costs
+    const int m_trickCost{ 200 };
 };
 
 #endif // NPCPROGRESSWIDGET_H
