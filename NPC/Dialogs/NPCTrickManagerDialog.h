@@ -10,18 +10,19 @@
 
 class NPCTrickManagerDialog : public QDialog
 {
+    Q_OBJECT
 public:
     NPCTrickManagerDialog(const QHash<QString, NPCAttributeWidget *> *attributes,
                           QWidget *parent = nullptr);
+
+signals:
+    void buyTrick(QListWidgetItem *trick);
 
 public slots:
     void distributeTricks();
 
 private:
     void addTricks(const QJsonArray &tricks);
-
-
-
     bool isTrickAvailable(const NPCTrickWdgetItem *pItem) const;
 
 private:
