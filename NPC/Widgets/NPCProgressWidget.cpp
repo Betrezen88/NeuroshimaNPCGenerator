@@ -53,6 +53,17 @@ void NPCProgressWidget::onRefundPoints(const int value, const QStringList &specs
     updateLabels();
 }
 
+void NPCProgressWidget::onTrickBougth(QListWidgetItem *trick)
+{
+    if ( m_tricks.second == 0 || (availableExperience() >= m_trickCost) ) {
+        if ( m_tricks.second == 0 )
+            ++m_tricks.second;
+        else
+            m_experience.first += m_trickCost;
+        emit addTrick( dynamic_cast<NPCTrickWdgetItem*>(trick) );
+    }
+}
+
 void NPCProgressWidget::updateLabels()
 {
     int availableSkillPoints = (m_skillPoints.first + m_specPoints.first)

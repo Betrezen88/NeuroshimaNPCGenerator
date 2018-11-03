@@ -22,6 +22,7 @@ public slots:
     void onSkillPackBougth(const bool &bougth, const QStringList &specs);
     void onSkillBougth(const int &value, const QStringList &specs, const bool &increase);
     void onRefundPoints(const int value, const QStringList &specs);
+    void onTrickBougth(QListWidgetItem *trick);
 
 private:
     void updateLabels();
