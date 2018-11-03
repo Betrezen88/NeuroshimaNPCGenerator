@@ -21,6 +21,9 @@ NPCTrickManagerDialog::NPCTrickManagerDialog(const QHash<QString, NPCAttributeWi
     setWindowTitle( "Zarządzaj sztuczkami" );
     setMinimumSize( 200, 200 );
 
+    connect( m_pAvailable, &QListWidget::itemDoubleClicked,
+             this, &NPCTrickManagerDialog::buyTrick );
+
     QGridLayout *pLayout = new QGridLayout;
     pLayout->addWidget( new QLabel("Dostępne", this), 0, 0 );
     pLayout->addWidget( m_pAvailable, 1, 0 );
