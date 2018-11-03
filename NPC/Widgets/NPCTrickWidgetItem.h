@@ -5,19 +5,19 @@
 #include <QJsonArray>
 #include <QHash>
 
-class NPCTrickWdgetItem : public QListWidgetItem
+class NPCTrickWidgetItem : public QListWidgetItem
 {
 public:
-    NPCTrickWdgetItem(const QString &name,
+    NPCTrickWidgetItem(const QString &name,
                       const QString &description,
                       const QString &action,
                       const QJsonArray &attributes,
                       const QJsonArray &skills,
                       const QJsonArray &orSkills);
-    NPCTrickWdgetItem(const QString &name,
+    NPCTrickWidgetItem(const QString &name,
                       const QString &description,
                       const QString &action);
-    ~NPCTrickWdgetItem()=default;
+    ~NPCTrickWidgetItem()=default;
 
     const QHash<QString, int> *attributes() const;
     const QHash<QString, int> *skills() const;

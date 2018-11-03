@@ -6,7 +6,7 @@
 #include <QLabel>
 #include <QComboBox>
 
-#include "NPC/Widgets/NPCTrickWdgetItem.h"
+#include "NPC/Widgets/NPCTrickWidgetItem.h"
 
 class NPCProgressWidget : public QWidget
 {
@@ -16,7 +16,7 @@ public:
 
 signals:
     void availableSkillPointsChanged(const int value);
-    void addTrick(NPCTrickWdgetItem *trick);
+    void addTrick(NPCTrickWidgetItem *trick);
 
 public slots:
     void onSkillPackBougth(const bool &bougth, const QStringList &specs);

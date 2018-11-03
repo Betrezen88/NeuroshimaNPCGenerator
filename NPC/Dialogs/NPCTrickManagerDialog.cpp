@@ -1,7 +1,7 @@
 ﻿#include "NPCTrickManagerDialog.h"
 
 #include "../Utils/DataLoader.h"
-#include "NPC/Widgets/NPCTrickWdgetItem.h"
+#include "NPC/Widgets/NPCTrickWidgetItem.h"
 
 #include <QJsonObject>
 #include <QJsonValue>
@@ -42,7 +42,7 @@ void NPCTrickManagerDialog::distributeTricks()
     addTricks( DataLoader::loadJson( ":/Tricks.json" ) );
 }
 
-void NPCTrickManagerDialog::trickBougth(NPCTrickWdgetItem *trick)
+void NPCTrickManagerDialog::trickBougth(NPCTrickWidgetItem *trick)
 {
     m_pBougth->addItem( m_pAvailable->takeItem(m_pAvailable->row(trick)) );
 }
@@ -57,7 +57,7 @@ void NPCTrickManagerDialog::addTricks(const QJsonArray &tricks)
         const QString &action = trick.value("action").toString();
         const QJsonObject &requirements = trick.value("requirements").toObject();
 
-        NPCTrickWdgetItem *pItem = new NPCTrickWdgetItem(name, description, action);
+        NPCTrickWidgetItem *pItem = new NPCTrickWidgetItem(name, description, action);
         if ( requirements.keys().contains("attributes") ) {
             const QJsonArray &attributes = requirements.value("attributes").toArray();
             for ( const QJsonValue &tAttribute: attributes ) {
@@ -91,7 +91,7 @@ void NPCTrickManagerDialog::addTricks(const QJsonArray &tricks)
     }
 }
 
-bool NPCTrickManagerDialog::isTrickAvailable(const NPCTrickWdgetItem *pItem) const
+bool NPCTrickManagerDialog::isTrickAvailable(const NPCTrickWidgetItem *pItem) const
 {
     bool attr{true}, skill{true}, orSkill{true};
 

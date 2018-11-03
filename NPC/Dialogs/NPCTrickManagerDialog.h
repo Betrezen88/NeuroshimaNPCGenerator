@@ -6,7 +6,7 @@
 #include <QJsonArray>
 
 #include "../Widgets/NPCAttributeWidget.h"
-#include "../Widgets/NPCTrickWdgetItem.h"
+#include "../Widgets/NPCTrickWidgetItem.h"
 
 class NPCTrickManagerDialog : public QDialog
 {
@@ -20,11 +20,11 @@ signals:
 
 public slots:
     void distributeTricks();
-    void trickBougth(NPCTrickWdgetItem *trick);
+    void trickBougth(NPCTrickWidgetItem *trick);
 
 private:
     void addTricks(const QJsonArray &tricks);
-    bool isTrickAvailable(const NPCTrickWdgetItem *pItem) const;
+    bool isTrickAvailable(const NPCTrickWidgetItem *pItem) const;
 
 private:
     const QHash<QString, NPCAttributeWidget*> *m_pAttributes;
@@ -32,7 +32,7 @@ private:
     QListWidget *m_pUnavailable{nullptr};
     QListWidget *m_pBougth{nullptr};
 
-    QVector<NPCTrickWdgetItem*> m_allTricks;
+    QVector<NPCTrickWidgetItem*> m_allTricks;
 };
 
 #endif // NPCTRICKMANAGERDIALOG_H

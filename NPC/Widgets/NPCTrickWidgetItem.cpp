@@ -1,9 +1,9 @@
-﻿#include "NPCTrickWdgetItem.h"
+﻿#include "NPCTrickWidgetItem.h"
 
 #include <QJsonValue>
 #include <QJsonObject>
 
-NPCTrickWdgetItem::NPCTrickWdgetItem(const QString &name,
+NPCTrickWidgetItem::NPCTrickWidgetItem(const QString &name,
                                      const QString &description,
                                      const QString &action,
                                      const QJsonArray &attributes,
@@ -33,7 +33,7 @@ NPCTrickWdgetItem::NPCTrickWdgetItem(const QString &name,
     setToolTip( toolTipText() );
 }
 
-NPCTrickWdgetItem::NPCTrickWdgetItem(const QString &name,
+NPCTrickWidgetItem::NPCTrickWidgetItem(const QString &name,
                                      const QString &description,
                                      const QString &action)
     : QListWidgetItem (name),
@@ -43,42 +43,42 @@ NPCTrickWdgetItem::NPCTrickWdgetItem(const QString &name,
 
 }
 
-const QHash<QString, int> *NPCTrickWdgetItem::attributes() const
+const QHash<QString, int> *NPCTrickWidgetItem::attributes() const
 {
     return &m_attributes;
 }
 
-const QHash<QString, int> *NPCTrickWdgetItem::skills() const
+const QHash<QString, int> *NPCTrickWidgetItem::skills() const
 {
     return &m_skills;
 }
 
-const QHash<QString, int> *NPCTrickWdgetItem::orSkills() const
+const QHash<QString, int> *NPCTrickWidgetItem::orSkills() const
 {
     return &m_orSkills;
 }
 
-void NPCTrickWdgetItem::addAttribute(const QString &name, const int &value)
+void NPCTrickWidgetItem::addAttribute(const QString &name, const int &value)
 {
     m_attributes.insert( name, value );
 }
 
-void NPCTrickWdgetItem::addSkill(const QString &name, const int &value)
+void NPCTrickWidgetItem::addSkill(const QString &name, const int &value)
 {
     m_skills.insert( name, value );
 }
 
-void NPCTrickWdgetItem::addOrSkill(const QString &name, const int &value)
+void NPCTrickWidgetItem::addOrSkill(const QString &name, const int &value)
 {
     m_orSkills.insert( name, value );
 }
 
-void NPCTrickWdgetItem::createTooltipText()
+void NPCTrickWidgetItem::createTooltipText()
 {
     setToolTip( toolTipText() );
 }
 
-QString NPCTrickWdgetItem::toolTipText() const
+QString NPCTrickWidgetItem::toolTipText() const
 {
     QString requirements{""};
 

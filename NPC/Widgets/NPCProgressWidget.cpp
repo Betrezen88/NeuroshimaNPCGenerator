@@ -60,7 +60,7 @@ void NPCProgressWidget::onTrickBougth(QListWidgetItem *trick)
             ++m_tricks.second;
         else
             m_experience.first += m_trickCost;
-        emit addTrick( dynamic_cast<NPCTrickWdgetItem*>(trick) );
+        emit addTrick( dynamic_cast<NPCTrickWidgetItem*>(trick) );
     }
 }
 
