@@ -31,8 +31,6 @@ private:
     QListWidget *m_pAvailable{nullptr};
     QListWidget *m_pUnavailable{nullptr};
     QListWidget *m_pBougth{nullptr};
-
-    QVector<NPCTrickWidgetItem*> m_allTricks;
 };
 
 #endif // NPCTRICKMANAGERDIALOG_H
