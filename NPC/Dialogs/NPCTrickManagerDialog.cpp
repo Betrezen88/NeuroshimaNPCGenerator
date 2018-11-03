@@ -39,6 +39,11 @@ void NPCTrickManagerDialog::distributeTricks()
     addTricks( DataLoader::loadJson( ":/Tricks.json" ) );
 }
 
+void NPCTrickManagerDialog::trickBougth(NPCTrickWdgetItem *trick)
+{
+    m_pBougth->addItem( m_pAvailable->takeItem(m_pAvailable->row(trick)) );
+}
+
 void NPCTrickManagerDialog::addTricks(const QJsonArray &tricks)
 {
     for ( const QJsonValue &tTrick: tricks ) {
