@@ -26,6 +26,7 @@ public slots:
 private:
     void updateLabels();
     int calculateSkillCost(const int &value, const bool &increase);
+    int availableExperience();
 
 private:
     const QComboBox *m_pSpecialization;

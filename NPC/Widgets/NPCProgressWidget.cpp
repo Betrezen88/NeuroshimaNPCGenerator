@@ -78,3 +78,8 @@ int NPCProgressWidget::calculateSkillCost(const int &value, const bool &increase
 
     return cost;
 }
+
+int NPCProgressWidget::availableExperience()
+{
+    return m_experience.second - m_experience.first;
+}
