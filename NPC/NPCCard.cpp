@@ -28,6 +28,8 @@ NPCCard::NPCCard(QWidget *parent)
 
     m_pTricksDialog = new NPCTrickManagerDialog(&m_attributes ,this);
 
+    connect( m_pTricksDialog, &NPCTrickManagerDialog::buyTrick,
+             m_pProgressWidget, &NPCProgressWidget::onTrickBougth);
     QHBoxLayout *pAll = new QHBoxLayout;
     setLayout( pAll );
 
