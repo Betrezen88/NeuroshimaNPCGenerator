@@ -17,6 +17,7 @@ public:
 
 signals:
     void buyTrick(QListWidgetItem *trick);
+    void resignTrick(QListWidgetItem *trick);
 
 public slots:
     void distributeTricks();
