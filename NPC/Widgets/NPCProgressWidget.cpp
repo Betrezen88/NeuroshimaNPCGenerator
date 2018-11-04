@@ -64,6 +64,16 @@ void NPCProgressWidget::onTrickBougth(QListWidgetItem *trick)
     }
 }
 
+void NPCProgressWidget::onTrickResign(QListWidgetItem *trick)
+{
+    // TO DO: change this logic, this is placeholder for now
+    if ( m_experience.first == 0 )
+        --m_tricks.second;
+    else
+        m_experience.first += m_trickCost;
+    emit removeTrick( dynamic_cast<NPCTrickWidgetItem*>(trick) );
+}
+
 void NPCProgressWidget::updateLabels()
 {
     int availableSkillPoints = (m_skillPoints.first + m_specPoints.first)
