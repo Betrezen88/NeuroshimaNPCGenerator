@@ -47,6 +47,11 @@ void NPCTrickManagerDialog::trickBougth(NPCTrickWidgetItem *trick)
     m_pBougth->addItem( m_pAvailable->takeItem(m_pAvailable->row(trick)) );
 }
 
+void NPCTrickManagerDialog::trickRemove(NPCTrickWidgetItem *trick)
+{
+    m_pAvailable->addItem( m_pBougth->takeItem(m_pBougth->row(trick)) );
+}
+
 void NPCTrickManagerDialog::addTricks(const QJsonArray &tricks)
 {
     for ( const QJsonValue &tTrick: tricks ) {

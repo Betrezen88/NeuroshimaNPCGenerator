@@ -22,6 +22,7 @@ signals:
 public slots:
     void distributeTricks();
     void trickBougth(NPCTrickWidgetItem *trick);
+    void trickRemove(NPCTrickWidgetItem *trick);
 
 private:
     void addTricks(const QJsonArray &tricks);
