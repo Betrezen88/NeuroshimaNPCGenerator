@@ -61,6 +61,7 @@ void NPCTrickManagerDialog::trickBougth(NPCTrickWidgetItem *trick)
 void NPCTrickManagerDialog::trickRemove(NPCTrickWidgetItem *trick)
 {
     m_pAvailable->addItem( m_pBougth->takeItem(m_pBougth->row(trick)) );
+    m_pAvailable->sortItems( Qt::SortOrder::AscendingOrder );
 }
 
 void NPCTrickManagerDialog::addTricks(const QJsonArray &tricks)
