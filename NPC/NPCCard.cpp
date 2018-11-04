@@ -32,6 +32,8 @@ NPCCard::NPCCard(QWidget *parent)
              m_pProgressWidget, &NPCProgressWidget::onTrickBougth);
     connect( m_pProgressWidget, &NPCProgressWidget::addTrick,
              m_pTricksDialog, &NPCTrickManagerDialog::trickBougth);
+    connect( m_pTricksDialog, &NPCTrickManagerDialog::resignTrick,
+             m_pProgressWidget, &NPCProgressWidget::onTrickResign);
 
     QHBoxLayout *pAll = new QHBoxLayout;
     setLayout( pAll );
