@@ -23,6 +23,8 @@ NPCTrickManagerDialog::NPCTrickManagerDialog(const QHash<QString, NPCAttributeWi
 
     connect( m_pAvailable, &QListWidget::itemDoubleClicked,
              this, &NPCTrickManagerDialog::buyTrick );
+    connect( m_pBougth, &QListWidget::itemDoubleClicked,
+             this, &NPCTrickManagerDialog::resignTrick );
 
     QGridLayout *pLayout = new QGridLayout;
     pLayout->addWidget( new QLabel("Dostępne", this), 0, 0 );
