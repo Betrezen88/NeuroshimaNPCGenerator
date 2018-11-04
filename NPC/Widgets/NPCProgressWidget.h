@@ -17,6 +17,7 @@ public:
 signals:
     void availableSkillPointsChanged(const int value);
     void addTrick(NPCTrickWidgetItem *trick);
+    void removeTrick(NPCTrickWidgetItem *trick);
 
 public slots:
     void onSkillPackBougth(const bool &bougth, const QStringList &specs);
