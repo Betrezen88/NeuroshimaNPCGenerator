@@ -16,15 +16,23 @@ NPCTrickManagerDialog::NPCTrickManagerDialog(const QHash<QString, NPCAttributeWi
       m_pAttributes(attributes),
       m_pAvailable(new QListWidget(this)),
       m_pUnavailable(new QListWidget(this)),
-      m_pBougth(new QListWidget(this))
+      m_pBougth(new QListWidget(this)),
+      m_pAcceptBtn(new QPushButton("Akceptuj", this)),
+      m_pCancelBtn(new QPushButton("Anuluj", this))
 {
     setWindowTitle( "Zarządzaj sztuczkami" );
     setMinimumSize( 200, 200 );
+
+    QHBoxLayout *pButtonsL = new QHBoxLayout;
+    pButtonsL->addWidget( m_pAcceptBtn );
+    pButtonsL->addWidget( m_pCancelBtn );
 
     connect( m_pAvailable, &QListWidget::itemDoubleClicked,
              this, &NPCTrickManagerDialog::buyTrick );
     connect( m_pBougth, &QListWidget::itemDoubleClicked,
              this, &NPCTrickManagerDialog::resignTrick );
+    connect( m_pCancelBtn, &QPushButton::clicked,
+             this, &NPCTrickManagerDialog::close);
 
     QGridLayout *pLayout = new QGridLayout;
     pLayout->addWidget( new QLabel("Dostępne", this), 0, 0 );
@@ -33,6 +41,7 @@ NPCTrickManagerDialog::NPCTrickManagerDialog(const QHash<QString, NPCAttributeWi
     pLayout->addWidget( m_pUnavailable, 3, 0 );
     pLayout->addWidget( new QLabel("Posiadane", this), 0, 1 );
     pLayout->addWidget( m_pBougth, 1, 1, 3, 1 );
+    pLayout->addLayout( pButtonsL, 4, 1 );
     setLayout( pLayout );
 }
 

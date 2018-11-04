@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QListWidget>
 #include <QJsonArray>
+#include <QPushButton>
 
 #include "../Widgets/NPCAttributeWidget.h"
 #include "../Widgets/NPCTrickWidgetItem.h"
@@ -33,6 +34,9 @@ private:
     QListWidget *m_pAvailable{nullptr};
     QListWidget *m_pUnavailable{nullptr};
     QListWidget *m_pBougth{nullptr};
+
+    QPushButton *m_pAcceptBtn{nullptr};
+    QPushButton *m_pCancelBtn{nullptr};
 };
 
 #endif // NPCTRICKMANAGERDIALOG_H
