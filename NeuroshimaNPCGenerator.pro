@@ -38,6 +38,7 @@ SOURCES += \
     NPC/Utils/DataLoader.cpp \
     NPC/Dialogs/NPCTrickManagerDialog.cpp \
     NPC/Widgets/NPCTrickWidgetItem.cpp
+    NPC/Dialogs/NPCAttributeManagerDialog.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -53,6 +54,7 @@ HEADERS += \
     NPC/Utils/DataLoader.h \
     NPC/Dialogs/NPCTrickManagerDialog.h \
     NPC/Widgets/NPCTrickWidgetItem.h
+    NPC/Dialogs/NPCAttributeManagerDialog.h
 
 RESOURCES += \
     json/json.qrc
