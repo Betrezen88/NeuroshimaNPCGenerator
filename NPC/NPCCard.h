@@ -31,6 +31,7 @@ private slots:
     void onProfessionChanged(const QString &name);
     void onFeatureChanged(QComboBox *pFeature, const QJsonArray &features);
     void onRandomSicknessClicked();
+    void onAttributesChanged(QVector<int> attributes);
 
 private:
     void initCardData();

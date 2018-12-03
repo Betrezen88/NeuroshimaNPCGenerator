@@ -90,6 +90,17 @@ void NPCCard::onRandomSicknessClicked()
     m_pSickness->setText( m_sickness.at(m_dice.throwValue()).toString() );
 }
 
+void NPCCard::onAttributesChanged(QVector<int> attributes)
+{
+    QStringList names = m_attributes.keys();
+
+    int index = 0;
+    for ( const QString tName: names ) {
+        m_attributes.value( tName )->setValue( attributes.at(index) );
+        ++index;
+    }
+}
+
 void NPCCard::initCardData()
 {
     QJsonArray attributes = DataLoader::loadJson( ":/Attributes.json" );
@@ -359,6 +370,8 @@ QVBoxLayout *NPCCard::column1()
              m_pTricksDialog, &NPCTrickManagerDialog::show );
     connect( pAttributeBtn, &QPushButton::clicked,
              pAttributeDialog, &QDialog::show );
+    connect( pAttributeDialog, &NPCAttributeManagerDialog::acceptAttributes,
+             this, &NPCCard::onAttributesChanged );
 
     QVBoxLayout *pLayout = new QVBoxLayout;
     pLayout->addWidget( createPersonalSection() );
