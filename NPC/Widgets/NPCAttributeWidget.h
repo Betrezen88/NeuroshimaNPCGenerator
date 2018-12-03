@@ -24,6 +24,7 @@ public:
 
 signals:
     void skillPackBougth(const bool &checked, const QStringList &specs);
+    void valueChanged(const int &value);
 
 public slots:
 
