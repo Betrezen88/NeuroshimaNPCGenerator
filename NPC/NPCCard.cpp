@@ -55,7 +55,7 @@ void NPCCard::onOriginChange(const QString &name)
     QStringList featureNames;
     m_originFeatures = origin.value("features").toArray();
 
-    for ( const QJsonValue &tOrigin: m_originFeatures )
+    for ( const QJsonValueRef tOrigin: m_originFeatures )
         featureNames << tOrigin.toObject().value("name").toString();
 
     m_pFeature1->clear();
@@ -69,7 +69,7 @@ void NPCCard::onProfessionChanged(const QString &name)
     QStringList featureNames;
     m_professionFeatures = profession.value("features").toArray();
 
-    for (const QJsonValue &tProfession: m_professionFeatures)
+    for (const QJsonValueRef tProfession: m_professionFeatures)
         featureNames << tProfession.toObject().value("name").toString();
 
     m_pFeature2->clear();
@@ -98,7 +98,7 @@ void NPCCard::onAttributesChanged(QVector<int> attributes)
     QStringList names = m_attributes.keys();
 
     int index = 0;
-    for ( const QString tName: names ) {
+    for ( const QString &tName: names ) {
         m_attributes.value( tName )->setValue( attributes.at(index) );
         ++index;
     }
