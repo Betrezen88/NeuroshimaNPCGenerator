@@ -11,7 +11,8 @@ NPCAttributeWidget::NPCAttributeWidget(const QString &name,
                                        const QVector<QPair<QString, int> > &mods,
                                        QWidget *parent)
     : QWidget (parent),
-      m_pName(new QLabel(name))
+      m_pName(new QLabel(name)),
+      m_mods(mods)
 {
     m_pName->setObjectName( "NameStyle" );
     m_pName->setStyleSheet( m_nameStyle );

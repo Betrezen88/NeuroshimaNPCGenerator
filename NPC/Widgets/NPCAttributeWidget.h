@@ -32,9 +32,10 @@ private:
     QWidget *createValueWidget(const QString &name, const int &value);
 
 private:
-    int m_value{0};
     QLabel* m_pName{nullptr};
     QVector<QLabel*> m_values;
+    const QVector<QPair<QString, int>> &m_mods;
+    int m_value{0};
     QHash<const QString, NPCSkillPackWidget*> m_skillPacks;
 
     const QString m_nameStyle{ "QLabel#NameStyle{"
