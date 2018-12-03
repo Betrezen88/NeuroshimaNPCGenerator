@@ -6,14 +6,17 @@
 class Dice
 {
 public:
-    Dice(const int &value);
+    Dice(const quint32 &value);
     ~Dice() =default;
 
-    int throwValue();
+    quint32 throwValue();
 
 private:
-    int m_value{0};
-    unsigned int m_throws{0};
+    quint32 seed();
+
+private:
+    quint32 m_value{0};
+    quint32 m_throws{1};
     QRandomGenerator m_generator;
 };
 
