@@ -66,23 +66,9 @@ QWidget *NPCAttributeWidget::createTitleBar(const QVector<QPair<QString, int>> &
 
 QWidget *NPCAttributeWidget::createValueWidget(const QString &name, const int &value)
 {
-    QWidget *pWidget = new QWidget( this );
-    pWidget->setObjectName( "ValueStyle" );
-    pWidget->setStyleSheet( m_valueStyle );
-    pWidget->setFixedSize( 30, 35 );
-    QVBoxLayout *pLayout = new QVBoxLayout;
-
-    QLabel *pLabel = new QLabel( name, pWidget );
-    pLabel->setObjectName( "LabelStyle" );
-    pLabel->setStyleSheet( m_labelStyle );
-
-    QLabel *pValue = new QLabel( QString::number(m_value + value), pWidget );
-
-    pLayout->addWidget( pLabel, 0, Qt::AlignHCenter );
-    pLayout->addWidget( pValue, 0, Qt::AlignHCenter );
-
-    pLayout->setSpacing( 1 );
-    pLayout->setMargin( 0 );
-    pWidget->setLayout( pLayout );
-    return pWidget;
+    NPCAttributeValueWidget *pValue = new NPCAttributeValueWidget( name, value );
+    pValue->updateValue( m_value );
+    connect( this, &NPCAttributeWidget::valueChanged,
+             pValue, &NPCAttributeValueWidget::updateValue );
+    return pValue;
 }

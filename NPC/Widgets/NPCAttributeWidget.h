@@ -9,6 +9,7 @@
 #include <QHash>
 
 #include "NPCSkillPackWidget.h"
+#include "NPCAttributeValueWidget.h"
 
 class NPCAttributeWidget : public QWidget
 {
