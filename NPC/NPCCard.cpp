@@ -21,8 +21,6 @@ NPCCard::NPCCard(QWidget *parent)
       m_pReputation(new QSpinBox(this)),
       m_pFame(new QSpinBox(this)),
       m_pTricks(new NPCTricksWidget(this)),
-      m_pProgressWidget(new NPCProgressWidget( m_pSpecialization, this)),
-      m_dice(Dice(20))
 {
     initCardData();
 
