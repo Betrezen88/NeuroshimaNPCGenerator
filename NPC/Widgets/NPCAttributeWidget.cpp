@@ -39,6 +39,12 @@ const int *NPCAttributeWidget::value() const
     return &m_value;
 }
 
+void NPCAttributeWidget::setValue(const int value)
+{
+    m_value = value;
+    emit valueChanged( m_value );
+}
+
 QWidget *NPCAttributeWidget::createTitleBar(const QVector<QPair<QString, int>> &mods)
 {
     QWidget *pWidget = new QWidget( this );

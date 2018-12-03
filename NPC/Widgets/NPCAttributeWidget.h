@@ -21,6 +21,7 @@ public:
     QHash<const QString, NPCSkillPackWidget *> *skillPacks();
     void addSkillPack(const QString &name, NPCSkillPackWidget *skillPack);
     const int *value() const;
+    void setValue(const int value);
 
 signals:
     void skillPackBougth(const bool &checked, const QStringList &specs);
