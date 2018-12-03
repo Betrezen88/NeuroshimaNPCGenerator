@@ -36,7 +36,6 @@ private:
 
 private:
     QLabel* m_pName{nullptr};
-    QVector<QLabel*> m_values;
     const QVector<QPair<QString, int>> &m_mods;
     int m_value{0};
     QHash<const QString, NPCSkillPackWidget*> m_skillPacks;
@@ -49,16 +48,6 @@ private:
                            " border: 1px solid;"
                            " background-color: gray;"
                            "}" };
-    const QString m_labelStyle{ "QLabel#LabelStyle{"
-                                " font: 7px;"
-                                " padding-top: 3px;"
-                                "}" };
-    const QString m_valueStyle{ "QWidget#ValueStyle{"
-                               " font: solid 11px;"
-                               " border: 1px solid;"
-                               " border-radius: 10px;"
-                               " background-color: white;"
-                               "}" };
 };
 
 #endif // NPCATTRIBUTEWIDGET_H
