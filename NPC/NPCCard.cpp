@@ -1,6 +1,7 @@
 ﻿#include "NPCCard.h"
 
 #include "Utils/DataLoader.h"
+#include "Dialogs/NPCAttributeManagerDialog.h"
 
 #include <QCheckBox>
 #include <QTextEdit>
@@ -349,15 +350,21 @@ QLabel *NPCCard::createLabel(const QString &text,
 
 QVBoxLayout *NPCCard::column1()
 {
+    QPushButton *pAttributeBtn = new QPushButton( "Atrybuty", this );
+    NPCAttributeManagerDialog *pAttributeDialog = new NPCAttributeManagerDialog(this);
+
     connect( m_pTricks, &NPCTricksWidget::clicked,
              m_pTricksDialog, &NPCTrickManagerDialog::distributeTricks );
     connect( m_pTricks, &NPCTricksWidget::clicked,
              m_pTricksDialog, &NPCTrickManagerDialog::show );
+    connect( pAttributeBtn, &QPushButton::clicked,
+             pAttributeDialog, &QDialog::show );
 
     QVBoxLayout *pLayout = new QVBoxLayout;
     pLayout->addWidget( createPersonalSection() );
     pLayout->addWidget( createLabel("Sztuczki", "Title", m_titleStyle, 0, 40) );
     pLayout->addWidget( m_pTricks );
+    pLayout->addWidget( pAttributeBtn );
     pLayout->setMargin( 0 );
     pLayout->setSpacing( 1 );
     return pLayout;
