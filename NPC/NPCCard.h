@@ -26,6 +26,9 @@ class NPCCard : public QWidget
 public:
     explicit NPCCard(QWidget *parent = nullptr);
 
+signals:
+    void heroNameChanged(const QString &heroName);
+
 private slots:
     void onOriginChange(const QString &name);
     void onProfessionChanged(const QString &name);
