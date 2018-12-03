@@ -30,15 +30,16 @@ SOURCES += \
     NPC/Widgets/NPCAttributeWidget.cpp \
     NPC/Widgets/NPCAttributeValueWidget.cpp \
     NPC/Widgets/NPCSkillPackWidget.cpp \
-    NPC/Widgets/SkillSpinBox.cpp \
     NPC/Widgets/NPCProgressWidget.cpp \
-    NPC/Utils/Dice.cpp \
+    NPC/Widgets/NPCTrickWidgetItem.cpp \
     NPC/Widgets/NPCTricksWidget.cpp \
+    NPC/Widgets/SkillSpinBox.cpp \
     NPC/Widgets/DragDropAreaWidget.cpp \
     NPC/Utils/DataLoader.cpp \
+    NPC/Utils/Dice.cpp \
     NPC/Dialogs/NPCTrickManagerDialog.cpp \
-    NPC/Widgets/NPCTrickWidgetItem.cpp
     NPC/Dialogs/NPCAttributeManagerDialog.cpp
+
 
 HEADERS += \
         MainWindow.h \
@@ -46,14 +47,14 @@ HEADERS += \
     NPC/Widgets/NPCAttributeWidget.h \
     NPC/Widgets/NPCAttributeValueWidget.h \
     NPC/Widgets/NPCSkillPackWidget.h \
-    NPC/Widgets/SkillSpinBox.h \
     NPC/Widgets/NPCProgressWidget.h \
-    NPC/Utils/Dice.h \
     NPC/Widgets/NPCTricksWidget.h \
+    NPC/Widgets/NPCTrickWidgetItem.h \
+    NPC/Widgets/SkillSpinBox.h \
     NPC/Widgets/DragDropAreaWidget.h \
     NPC/Utils/DataLoader.h \
+    NPC/Utils/Dice.h \
     NPC/Dialogs/NPCTrickManagerDialog.h \
-    NPC/Widgets/NPCTrickWidgetItem.h
     NPC/Dialogs/NPCAttributeManagerDialog.h
 
 RESOURCES += \
