@@ -13,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_pTabWidget->addTab( m_pCard, "Postać" );
 
+    connect( m_pCard, &NPCCard::heroNameChanged,
+             this, &MainWindow::updateTabText );
+
     setCentralWidget( m_pTabWidget );
 }
 
@@ -24,6 +27,11 @@ MainWindow::~MainWindow()
 void MainWindow::showAttributeDialog()
 {
 
+}
+
+void MainWindow::updateTabText(const QString &text)
+{
+    m_pTabWidget->setTabText( m_pTabWidget->currentIndex(), text );
 }
 
 void MainWindow::createActions()

@@ -18,6 +18,7 @@ public:
 
 private slots:
     void showAttributeDialog();
+    void updateTabText(const QString &text);
 
 private:
     void createActions();
