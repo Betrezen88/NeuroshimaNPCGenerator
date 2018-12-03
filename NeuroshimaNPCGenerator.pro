@@ -33,6 +33,7 @@ SOURCES += \
     NPC/Widgets/NPCProgressWidget.cpp \
     NPC/Utils/Dice.cpp \
     NPC/Widgets/NPCTricksWidget.cpp \
+    NPC/Widgets/DragDropAreaWidget.cpp \
     NPC/Utils/DataLoader.cpp \
     NPC/Dialogs/NPCTrickManagerDialog.cpp \
     NPC/Widgets/NPCTrickWidgetItem.cpp
@@ -46,6 +47,7 @@ HEADERS += \
     NPC/Widgets/NPCProgressWidget.h \
     NPC/Utils/Dice.h \
     NPC/Widgets/NPCTricksWidget.h \
+    NPC/Widgets/DragDropAreaWidget.h \
     NPC/Utils/DataLoader.h \
     NPC/Dialogs/NPCTrickManagerDialog.h \
     NPC/Widgets/NPCTrickWidgetItem.h
