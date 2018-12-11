@@ -1,0 +1,9 @@
+﻿[
+    { "name": "Łatwy", "short": "Łat.", "value": 2 },
+    { "name": "Przeciętny", "short": "Prze.", "value": 0 },
+    { "name": "Problematyczny", "short": "Prob.", "value": -2 },
+    { "name": "Trudny", "short": "Trud.", "value": -5 },
+    { "name": "Bardzo Trudny", "short": "B.Tr.", "value": -8 },
+    { "name": "Cholernie Trudny", "short": "Ch.T.", "value": -11 },
+    { "name": "Fuks", "short": "Fuks", "value": -15 }
+]

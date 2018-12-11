@@ -6,5 +6,6 @@
         <file>Professions.json</file>
         <file>Sickness.json</file>
         <file>Tricks.json</file>
+        <file>DifficultyLevel.json</file>
     </qresource>
 </RCC>

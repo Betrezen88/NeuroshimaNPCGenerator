@@ -67,4 +67,5 @@ DISTFILES += \
     json/Specializations.json \
     json/Professions.json \
     json/Sickness.json \
-    json/Tricks.json
+    json/Tricks.json \
+    json/DifficultyLevel.json
