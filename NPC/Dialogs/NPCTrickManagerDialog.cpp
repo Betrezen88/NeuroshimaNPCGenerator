@@ -35,6 +35,7 @@ NPCTrickManagerDialog::NPCTrickManagerDialog(const QHash<QString, NPCAttributeWi
              this, &NPCTrickManagerDialog::close);
 
     QGridLayout *pLayout = new QGridLayout;
+    setLayout( pLayout );
     pLayout->addWidget( new QLabel("Dostępne", this), 0, 0 );
     pLayout->addWidget( m_pAvailable, 1, 0 );
     pLayout->addWidget( new QLabel("Niedostępne", this), 2, 0 );
@@ -42,7 +43,6 @@ NPCTrickManagerDialog::NPCTrickManagerDialog(const QHash<QString, NPCAttributeWi
     pLayout->addWidget( new QLabel("Posiadane", this), 0, 1 );
     pLayout->addWidget( m_pBougth, 1, 1, 3, 1 );
     pLayout->addLayout( pButtonsL, 4, 1 );
-    setLayout( pLayout );
 }
 
 void NPCTrickManagerDialog::distributeTricks()
