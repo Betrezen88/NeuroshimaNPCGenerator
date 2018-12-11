@@ -41,6 +41,7 @@ SOURCES += \
     NPC/Dialogs/NPCTrickManagerDialog.cpp \
     NPC/Dialogs/NPCAttributeManagerDialog.cpp
 
+    NPC/NPCCardObverse.cpp \
 
 HEADERS += \
         MainWindow.h \
@@ -58,6 +59,7 @@ HEADERS += \
     NPC/Utils/Dice.h \
     NPC/Dialogs/NPCTrickManagerDialog.h \
     NPC/Dialogs/NPCAttributeManagerDialog.h
+    NPC/NPCCardObverse.h \
 
 RESOURCES += \
     json/json.qrc
