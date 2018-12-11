@@ -26,7 +26,7 @@ NPCAttributeManagerDialog::NPCAttributeManagerDialog(QWidget *parent)
     connect( m_pRollBtn, &QPushButton::clicked,
              this, &NPCAttributeManagerDialog::addResultRow );
     connect( m_pCancelBtn, &QPushButton::clicked,
-             this, &NPCAttributeManagerDialog::close );
+             this, &NPCAttributeManagerDialog::hideDialog );
     connect( m_pAcceptBtn, &QPushButton::clicked,
              this, &NPCAttributeManagerDialog::acceptBtnPressed );
 
@@ -54,8 +54,8 @@ void NPCAttributeManagerDialog::acceptBtnPressed()
     for ( const DragDropAreaWidget *pDrag: m_results.values() )
         results.push_back( pDrag->value() );
 
-    acceptAttributes( results );
-    close();
+    emit acceptAttributes( results );
+    hideDialog();
 }
 
 void NPCAttributeManagerDialog::addResultRow()
@@ -86,6 +86,12 @@ void NPCAttributeManagerDialog::addResultRow()
 void NPCAttributeManagerDialog::onResultChanged()
 {
     m_pAcceptBtn->setEnabled( acceptBtnActive() );
+}
+
+void NPCAttributeManagerDialog::hideDialog()
+{
+    emit hidden();
+    hide();
 }
 
 QWidget *NPCAttributeManagerDialog::createResultRowWidget()
