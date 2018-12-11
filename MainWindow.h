@@ -7,6 +7,9 @@
 #include <QMenu>
 
 #include "NPC/NPCCard.h"
+#include "NPC/NPCCardTab.h"
+
+#include "NPC/Dialogs/NPCAttributeManagerDialog.h"
 
 class MainWindow : public QMainWindow
 {
@@ -18,6 +21,8 @@ public:
 
 private slots:
     void showAttributeDialog();
+    void onAttributeDialogClose();
+    void createNewCard();
     void updateTabText(const QString &text);
 
 private:
@@ -26,12 +31,13 @@ private:
 
 private:
     QTabWidget* m_pTabWidget{nullptr};
-
-    NPCCard *m_pCard{nullptr};
+    QVector<NPCCardTab*> m_cards;
+    NPCAttributeManagerDialog *m_pAttributeDialog{nullptr};
 
     QMenu *m_pHeroMenu{nullptr};
 
     QAction *m_pAttributesAction{nullptr};
+    QAction *m_pNewCardAction{nullptr};
 };
 
 #endif // MAINWINDOW_H
