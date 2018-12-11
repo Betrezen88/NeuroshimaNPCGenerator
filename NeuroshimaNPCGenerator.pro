@@ -27,6 +27,7 @@ SOURCES += \
         main.cpp \
         MainWindow.cpp \
     NPC/NPCCard.cpp \
+    NPC/Widgets/NPCAttributesModsInfoWidget.cpp \
     NPC/Widgets/NPCAttributeWidget.cpp \
     NPC/Widgets/NPCAttributeValueWidget.cpp \
     NPC/Widgets/NPCSkillPackWidget.cpp \
@@ -44,6 +45,7 @@ SOURCES += \
 HEADERS += \
         MainWindow.h \
     NPC/NPCCard.h \
+    NPC/Widgets/NPCAttributesModsInfoWidget.h \
     NPC/Widgets/NPCAttributeWidget.h \
     NPC/Widgets/NPCAttributeValueWidget.h \
     NPC/Widgets/NPCSkillPackWidget.h \
