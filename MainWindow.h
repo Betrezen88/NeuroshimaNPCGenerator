@@ -35,9 +35,17 @@ private:
 
     QMenu *m_pHeroMenu{nullptr};
     QMenu *m_pRandomMenu{nullptr};
+    QMenu *m_pAddMenu{nullptr};
+    QMenu *m_pGameMasterMenu{nullptr};
 
     QAction *m_pNewCardAction{nullptr};
+    QAction *m_pSaveCardAction{nullptr};
+    QAction *m_pLoadCardAction{nullptr};
     QAction *m_pRandomAttributesAction{nullptr};
+    QAction *m_pRandomSicknessAction{nullptr};
+    QAction *m_pTrickAction{nullptr};
+    QAction *m_pExperienceAction{nullptr};
+
 };
 
 #endif // MAINWINDOW_H

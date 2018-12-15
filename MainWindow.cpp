@@ -78,7 +78,20 @@ void MainWindow::createMenus()
 {
     m_pRandomMenu = new QMenu( "Losuj" );
     m_pRandomMenu->addAction( m_pRandomAttributesAction );
+    m_pRandomMenu->addAction( m_pRandomSicknessAction );
+
+    m_pAddMenu = new QMenu( "Dodaj" );
+    m_pAddMenu->addAction( m_pTrickAction );
+
+    m_pGameMasterMenu = new QMenu( "MG" );
+    m_pGameMasterMenu->addAction( m_pExperienceAction );
+
     m_pHeroMenu = menuBar()->addMenu( "Postać" );
     m_pHeroMenu->addAction( m_pNewCardAction );
+    m_pHeroMenu->addAction( m_pSaveCardAction );
+    m_pHeroMenu->addAction( m_pLoadCardAction );
+    m_pHeroMenu->addSeparator();
     m_pHeroMenu->addMenu( m_pRandomMenu );
+    m_pHeroMenu->addMenu( m_pAddMenu );
+    m_pHeroMenu->addMenu( m_pGameMasterMenu );
 }
