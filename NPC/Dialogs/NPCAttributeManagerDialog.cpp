@@ -15,6 +15,7 @@ NPCAttributeManagerDialog::NPCAttributeManagerDialog(QWidget *parent)
       m_pRollType(new QComboBox()),
       m_pResultGroupBox( createResultGroupBox() )
 {
+    setAttribute( Qt::WA_DeleteOnClose );
     setWindowTitle( "Zarządzaj atrybutami" );
     setMinimumSize( 350, 310 );
     createResultHash();
@@ -26,7 +27,7 @@ NPCAttributeManagerDialog::NPCAttributeManagerDialog(QWidget *parent)
     connect( m_pRollBtn, &QPushButton::clicked,
              this, &NPCAttributeManagerDialog::addResultRow );
     connect( m_pCancelBtn, &QPushButton::clicked,
-             this, &NPCAttributeManagerDialog::hideDialog );
+             this, &NPCAttributeManagerDialog::close );
     connect( m_pAcceptBtn, &QPushButton::clicked,
              this, &NPCAttributeManagerDialog::acceptBtnPressed );
 
@@ -55,7 +56,7 @@ void NPCAttributeManagerDialog::acceptBtnPressed()
         results.push_back( pDrag->value() );
 
     emit acceptAttributes( results );
-    hideDialog();
+    close();
 }
 
 void NPCAttributeManagerDialog::addResultRow()
@@ -86,12 +87,6 @@ void NPCAttributeManagerDialog::addResultRow()
 void NPCAttributeManagerDialog::onResultChanged()
 {
     m_pAcceptBtn->setEnabled( acceptBtnActive() );
-}
-
-void NPCAttributeManagerDialog::hideDialog()
-{
-    emit hidden();
-    hide();
 }
 
 QWidget *NPCAttributeManagerDialog::createResultRowWidget()

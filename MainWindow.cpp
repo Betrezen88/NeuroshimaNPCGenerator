@@ -2,11 +2,11 @@
 
 #include <QMenuBar>
 #include <QScrollArea>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
-      m_pTabWidget(new QTabWidget(this)),
-      m_pAttributeDialog(new NPCAttributeManagerDialog(this))
+      m_pTabWidget(new QTabWidget(this))
 {
     createActions();
     createMenus();
@@ -21,19 +21,20 @@ MainWindow::~MainWindow()
 
 void MainWindow::showAttributeDialog()
 {
+    if ( m_cards.isEmpty() ) {
+        QMessageBox::warning(this, "Błąd losowania atrybutów",
+                             "Brak istniejących postaci do losowania atrybutów!",
+                             QMessageBox::Ok);
+        return;
+    }
+
     NPCCardObverse *pCardObverse = m_cards.at(m_pTabWidget->currentIndex())->obverse();
+    m_pAttributeDialog = new NPCAttributeManagerDialog( this );
 
     connect( m_pAttributeDialog, &NPCAttributeManagerDialog::acceptAttributes,
              pCardObverse, &NPCCardObverse::onAttributeChanged );
-    connect( m_pAttributeDialog, &NPCAttributeManagerDialog::hidden,
-             this, &MainWindow::onAttributeDialogClose );
 
     m_pAttributeDialog->show();
-}
-
-void MainWindow::onAttributeDialogClose()
-{
-    m_pAttributeDialog->disconnect( m_cards.at(m_pTabWidget->currentIndex())->obverse() );
 }
 
 void MainWindow::createNewCard()
@@ -54,18 +55,30 @@ void MainWindow::updateTabText(const QString &text)
 
 void MainWindow::createActions()
 {
-    m_pAttributesAction = new QAction( "Atrybuty", this );
-    connect( m_pAttributesAction, &QAction::triggered,
-             this, &MainWindow::showAttributeDialog );
-
-    m_pNewCardAction = new QAction( "Nowa Postać", this );
+    m_pNewCardAction = new QAction( "Stwórz", this );
     connect( m_pNewCardAction, &QAction::triggered,
              this, &MainWindow::createNewCard );
+
+    m_pSaveCardAction = new QAction( "Zapisz", this );
+
+    m_pLoadCardAction = new QAction( "Wczytaj", this );
+
+    m_pRandomAttributesAction = new QAction( "Atrybuty" );
+    connect( m_pRandomAttributesAction, &QAction::triggered,
+             this, &MainWindow::showAttributeDialog );
+
+    m_pRandomSicknessAction = new QAction( "Choroba", this );
+
+    m_pTrickAction = new QAction( "Sztuczka", this );
+
+    m_pExperienceAction = new QAction( "Doświadczenie", this );
 }
 
 void MainWindow::createMenus()
 {
-    m_pHeroMenu = menuBar()->addMenu( "Postać..." );
+    m_pRandomMenu = new QMenu( "Losuj" );
+    m_pRandomMenu->addAction( m_pRandomAttributesAction );
+    m_pHeroMenu = menuBar()->addMenu( "Postać" );
     m_pHeroMenu->addAction( m_pNewCardAction );
-    m_pHeroMenu->addAction( m_pAttributesAction );
+    m_pHeroMenu->addMenu( m_pRandomMenu );
 }

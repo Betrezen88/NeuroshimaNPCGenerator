@@ -21,7 +21,6 @@ public:
 
 private slots:
     void showAttributeDialog();
-    void onAttributeDialogClose();
     void createNewCard();
     void updateTabText(const QString &text);
 
@@ -35,9 +34,10 @@ private:
     NPCAttributeManagerDialog *m_pAttributeDialog{nullptr};
 
     QMenu *m_pHeroMenu{nullptr};
+    QMenu *m_pRandomMenu{nullptr};
 
-    QAction *m_pAttributesAction{nullptr};
     QAction *m_pNewCardAction{nullptr};
+    QAction *m_pRandomAttributesAction{nullptr};
 };
 
 #endif // MAINWINDOW_H

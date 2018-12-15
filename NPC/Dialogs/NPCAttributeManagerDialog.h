@@ -20,13 +20,11 @@ public:
 
 signals:
     void acceptAttributes(QVector<int> attributes);
-    void hidden();
 
 private slots:
     void acceptBtnPressed();
     void addResultRow();
     void onResultChanged();
-    void hideDialog();
 
 private:
     QWidget *createResultRowWidget();
