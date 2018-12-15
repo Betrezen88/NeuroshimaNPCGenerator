@@ -37,6 +37,30 @@ void MainWindow::showAttributeDialog()
     m_pAttributeDialog->show();
 }
 
+void MainWindow::showTricksDialog()
+{
+    if ( m_cards.isEmpty() ) {
+        QMessageBox::warning(this, "Błąd sztuczek",
+                             "Brak istniejących postaci do nabycia sztuczek!",
+                             QMessageBox::Ok);
+        return;
+    }
+    NPCCardObverse *pCardObverse = m_cards.at(m_pTabWidget->currentIndex())->obverse();
+
+    m_pTricksDialog = new NPCTrickManagerDialog( pCardObverse->attributes(), this );
+
+    connect( m_pTricksDialog, &NPCTrickManagerDialog::buyTrick,
+             pCardObverse->progressWidget(), &NPCProgressWidget::onTrickBougth );
+    connect( m_pTricksDialog, &NPCTrickManagerDialog::resignTrick,
+             pCardObverse->progressWidget(), &NPCProgressWidget::onTrickResign );
+    connect( pCardObverse->progressWidget(), &NPCProgressWidget::addTrick,
+             m_pTricksDialog, &NPCTrickManagerDialog::trickBougth );
+    connect( pCardObverse->progressWidget(), &NPCProgressWidget::removeTrick,
+             m_pTricksDialog, &NPCTrickManagerDialog::trickRemove );
+
+    m_pTricksDialog->show();
+}
+
 void MainWindow::createNewCard()
 {
     NPCCardTab *pCard = new NPCCardTab( this );
@@ -70,6 +94,8 @@ void MainWindow::createActions()
     m_pRandomSicknessAction = new QAction( "Choroba", this );
 
     m_pTrickAction = new QAction( "Sztuczka", this );
+    connect( m_pTrickAction, &QAction::triggered,
+             this, &MainWindow::showTricksDialog );
 
     m_pExperienceAction = new QAction( "Doświadczenie", this );
 }

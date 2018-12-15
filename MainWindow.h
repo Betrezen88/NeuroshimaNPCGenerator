@@ -22,6 +22,7 @@ public:
 
 private slots:
     void showAttributeDialog();
+    void showTricksDialog();
     void createNewCard();
     void updateTabText(const QString &text);
 
