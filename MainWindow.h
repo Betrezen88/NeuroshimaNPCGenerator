@@ -10,6 +10,7 @@
 #include "NPC/NPCCardTab.h"
 
 #include "NPC/Dialogs/NPCAttributeManagerDialog.h"
+#include "NPC/Dialogs/NPCTrickManagerDialog.h"
 
 class MainWindow : public QMainWindow
 {
@@ -32,6 +33,7 @@ private:
     QTabWidget* m_pTabWidget{nullptr};
     QVector<NPCCardTab*> m_cards;
     NPCAttributeManagerDialog *m_pAttributeDialog{nullptr};
+    NPCTrickManagerDialog *m_pTricksDialog{nullptr};
 
     QMenu *m_pHeroMenu{nullptr};
     QMenu *m_pRandomMenu{nullptr};
