@@ -20,6 +20,7 @@ NPCTrickManagerDialog::NPCTrickManagerDialog(const QHash<QString, NPCAttributeWi
       m_pAcceptBtn(new QPushButton("Akceptuj", this)),
       m_pCancelBtn(new QPushButton("Anuluj", this))
 {
+    setAttribute( Qt::WA_DeleteOnClose );
     setWindowTitle( "Zarządzaj sztuczkami" );
     setMinimumSize( 200, 200 );
 
@@ -43,6 +44,8 @@ NPCTrickManagerDialog::NPCTrickManagerDialog(const QHash<QString, NPCAttributeWi
     pLayout->addWidget( new QLabel("Posiadane", this), 0, 1 );
     pLayout->addWidget( m_pBougth, 1, 1, 3, 1 );
     pLayout->addLayout( pButtonsL, 4, 1 );
+
+    distributeTricks();
 }
 
 void NPCTrickManagerDialog::distributeTricks()
