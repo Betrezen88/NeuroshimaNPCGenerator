@@ -17,7 +17,6 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
       m_pReputation(new QSpinBox(this)),
       m_pFame(new QSpinBox(this)),
       m_pTricks(new QListWidget(this)),
-      m_pManageTricksBtn(new QPushButton("Dodaj/Usuń", this)),
       m_pProgressWidget(new NPCProgressWidget(m_pSpecialization, this))
 {
     setAttributes( DataLoader::loadJson(":/Attributes.json") );
@@ -27,7 +26,6 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
     m_attributesMods = DataLoader::loadJson( ":/DifficultyLevel.json" );
 
     m_pAttributesModsInfo = new NPCAttributesModsInfoWidget( m_attributesMods, this );
-    m_pTrickManagerDialog = new NPCTrickManagerDialog( &m_attributes, this );
 
     connect( m_pName, &QLineEdit::textChanged,
              this, &NPCCardObverse::heroNameChanged );
@@ -41,18 +39,6 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
     connect( m_pFeature2, &QComboBox::currentTextChanged, [this](){
         onFeatureChanged( m_pFeature2, m_professionFeatures );
     } );
-    connect( m_pManageTricksBtn, &QPushButton::clicked,
-             m_pTrickManagerDialog, &NPCTrickManagerDialog::distributeTricks );
-    connect( m_pManageTricksBtn, &QPushButton::clicked,
-             m_pTrickManagerDialog, &NPCTrickManagerDialog::show );
-    connect( m_pTrickManagerDialog, &NPCTrickManagerDialog::buyTrick,
-             m_pProgressWidget, &NPCProgressWidget::onTrickBougth );
-    connect( m_pTrickManagerDialog, &NPCTrickManagerDialog::resignTrick,
-             m_pProgressWidget, &NPCProgressWidget::onTrickResign );
-    connect( m_pProgressWidget, &NPCProgressWidget::addTrick,
-             m_pTrickManagerDialog, &NPCTrickManagerDialog::trickBougth );
-    connect( m_pProgressWidget, &NPCProgressWidget::removeTrick,
-             m_pTrickManagerDialog, &NPCTrickManagerDialog::trickRemove );
 
     QHBoxLayout *pLayout = new QHBoxLayout;
     setLayout( pLayout );
@@ -304,7 +290,6 @@ QVBoxLayout *NPCCardObverse::column1()
                                            m_titleStyle,
                                            0, 40) );
     pLayout->addWidget( m_pTricks );
-    pLayout->addWidget( m_pManageTricksBtn );
     pLayout->setMargin( 0 );
     pLayout->setSpacing( 1 );
     return pLayout;

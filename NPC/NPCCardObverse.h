@@ -14,8 +14,6 @@
 #include <QSpinBox>
 #include <QVBoxLayout>
 
-#include "Dialogs/NPCTrickManagerDialog.h"
-
 #include "Widgets/NPCAttributeWidget.h"
 #include "Widgets/NPCAttributesModsInfoWidget.h"
 #include "Widgets/NPCProgressWidget.h"
@@ -74,9 +72,7 @@ private:
 
     // Others widgets
     QListWidget *m_pTricks{nullptr};
-    QPushButton *m_pManageTricksBtn{nullptr};
     NPCProgressWidget *m_pProgressWidget{nullptr};
-    NPCTrickManagerDialog *m_pTrickManagerDialog{nullptr};
     NPCAttributesModsInfoWidget *m_pAttributesModsInfo{nullptr};
 
     // Data containers
