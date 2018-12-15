@@ -238,6 +238,11 @@ const QHash<QString, NPCAttributeWidget *> *NPCCardObverse::attributes() const
     return &m_attributes;
 }
 
+const NPCProgressWidget *NPCCardObverse::progressWidget() const
+{
+    return m_pProgressWidget;
+}
+
 void NPCCardObverse::setAttributes(const QJsonArray &attributes)
 {
     for ( const QJsonValue &tAttribute: attributes ) {

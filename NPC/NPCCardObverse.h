@@ -36,6 +36,8 @@ public slots:
     void onAttributeChanged(QVector<int> attributes);
 
     const QHash<QString, NPCAttributeWidget *> *attributes() const;
+    const NPCProgressWidget *progressWidget() const;
+
 private:
     QLabel *createSpecialLabel(const QString &text,
                                const QString &objName = "",
