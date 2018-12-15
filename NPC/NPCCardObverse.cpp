@@ -233,6 +233,11 @@ NPCSkillPackWidget *NPCCardObverse::createSkillPack(const QJsonObject &skillPack
     return pSkillPack;
 }
 
+const QHash<QString, NPCAttributeWidget *> *NPCCardObverse::attributes() const
+{
+    return &m_attributes;
+}
+
 void NPCCardObverse::setAttributes(const QJsonArray &attributes)
 {
     for ( const QJsonValue &tAttribute: attributes ) {

@@ -35,6 +35,7 @@ public slots:
     void onFeatureChanged(QComboBox *pFeature, const QJsonArray &features);
     void onAttributeChanged(QVector<int> attributes);
 
+    const QHash<QString, NPCAttributeWidget *> *attributes() const;
 private:
     QLabel *createSpecialLabel(const QString &text,
                                const QString &objName = "",
