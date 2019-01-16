@@ -24,6 +24,9 @@ class NPCCardObverse : public QWidget
 public:
     explicit NPCCardObverse(QWidget *parent = nullptr);
 
+    const QHash<QString, NPCAttributeWidget *> *attributes() const;
+    const NPCProgressWidget *progressWidget() const;
+
 signals:
     void heroNameChanged(const QString &name);
 
@@ -32,9 +35,6 @@ public slots:
     void onProfessionChanged(const QString &name);
     void onFeatureChanged(QComboBox *pFeature, const QJsonArray &features);
     void onAttributeChanged(QVector<int> attributes);
-
-    const QHash<QString, NPCAttributeWidget *> *attributes() const;
-    const NPCProgressWidget *progressWidget() const;
 
 private:
     QLabel *createSpecialLabel(const QString &text,
