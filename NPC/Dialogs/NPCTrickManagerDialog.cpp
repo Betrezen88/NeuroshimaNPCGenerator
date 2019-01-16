@@ -34,6 +34,8 @@ NPCTrickManagerDialog::NPCTrickManagerDialog(const QHash<QString, NPCAttributeWi
              this, &NPCTrickManagerDialog::resignTrick );
     connect( m_pCancelBtn, &QPushButton::clicked,
              this, &NPCTrickManagerDialog::close);
+    connect( m_pAcceptBtn, &QPushButton::clicked,
+             this, &NPCTrickManagerDialog::onAcceptBtn );
 
     QGridLayout *pLayout = new QGridLayout;
     setLayout( pLayout );
@@ -65,6 +67,17 @@ void NPCTrickManagerDialog::trickRemove(NPCTrickWidgetItem *trick)
 {
     m_pAvailable->addItem( m_pBougth->takeItem(m_pBougth->row(trick)) );
     m_pAvailable->sortItems( Qt::SortOrder::AscendingOrder );
+}
+
+void NPCTrickManagerDialog::onAcceptBtn()
+{
+    QVector<QListWidgetItem*> tricks;
+
+    for ( int i=m_pBougth->count()-1; i>=0; --i )
+        tricks.push_back( m_pBougth->takeItem(i) );
+
+    emit acceptTricks(tricks);
+    close();
 }
 
 void NPCTrickManagerDialog::addTricks(const QJsonArray &tricks)

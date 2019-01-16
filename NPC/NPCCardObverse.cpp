@@ -3,6 +3,7 @@
 #include "Utils/DataLoader.h"
 
 #include <QHBoxLayout>
+#include <QDebug>
 
 NPCCardObverse::NPCCardObverse(QWidget *parent)
     : QWidget(parent),
@@ -95,6 +96,14 @@ void NPCCardObverse::onAttributeChanged(QVector<int> attributes)
     for ( const QString &tName: names ) {
         m_attributes.value( tName )->setValue( attributes.at(index) );
         ++index;
+    }
+}
+
+void NPCCardObverse::addBougthTricks(QVector<QListWidgetItem *> tricks)
+{
+    for ( QListWidgetItem *trick: tricks ) {
+        trick->setFlags( Qt::ItemIsEnabled );
+        m_pTricks->addItem( trick );
     }
 }
 

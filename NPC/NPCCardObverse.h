@@ -35,6 +35,7 @@ public slots:
     void onProfessionChanged(const QString &name);
     void onFeatureChanged(QComboBox *pFeature, const QJsonArray &features);
     void onAttributeChanged(QVector<int> attributes);
+    void addBougthTricks(QVector<QListWidgetItem*> tricks);
 
 private:
     QLabel *createSpecialLabel(const QString &text,

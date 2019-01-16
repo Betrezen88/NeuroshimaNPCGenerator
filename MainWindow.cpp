@@ -57,6 +57,8 @@ void MainWindow::showTricksDialog()
              m_pTricksDialog, &NPCTrickManagerDialog::trickBougth );
     connect( pCardObverse->progressWidget(), &NPCProgressWidget::removeTrick,
              m_pTricksDialog, &NPCTrickManagerDialog::trickRemove );
+    connect( m_pTricksDialog, &NPCTrickManagerDialog::acceptTricks,
+             pCardObverse, &NPCCardObverse::addBougthTricks );
 
     m_pTricksDialog->show();
 }

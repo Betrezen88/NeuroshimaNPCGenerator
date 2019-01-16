@@ -19,11 +19,13 @@ public:
 signals:
     void buyTrick(QListWidgetItem *trick);
     void resignTrick(QListWidgetItem *trick);
+    void acceptTricks(QVector<QListWidgetItem*> tricks);
 
 public slots:
     void distributeTricks();
     void trickBougth(NPCTrickWidgetItem *trick);
     void trickRemove(NPCTrickWidgetItem *trick);
+    void onAcceptBtn();
 
 private:
     void addTricks(const QJsonArray &tricks);
