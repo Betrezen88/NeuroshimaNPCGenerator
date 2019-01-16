@@ -69,7 +69,10 @@ void MainWindow::createNewCard()
     connect( pCard->obverse(), &NPCCardObverse::heroNameChanged,
              this, &MainWindow::updateTabText );
 
-    m_pTabWidget->addTab( pCard, "Nowa Postać" );
+    QScrollArea *pScrollArea = new QScrollArea();
+    pScrollArea->setWidget( pCard );
+
+    m_pTabWidget->addTab( pScrollArea, "Nowa Postać" );
 }
 
 void MainWindow::updateTabText(const QString &text)
