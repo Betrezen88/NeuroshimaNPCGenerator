@@ -37,6 +37,7 @@ public slots:
 
 private slots:
     void onBougth(const bool &checked);
+    void enableBougthCheckbox();
 
 private:
     const QString createSkillPackName(const QString &name, const QJsonArray &specs);

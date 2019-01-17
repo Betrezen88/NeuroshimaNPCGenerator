@@ -47,6 +47,9 @@ void NPCSkillPackWidget::addSkill(const QString &name, SkillSpinBox *skillBox)
     m_pSkillLayout->addWidget( pLabel, row, 0 );
     m_pSkillLayout->addWidget( skillBox, row, 1 );
     m_skills.push_back( QPair<const QLabel *, SkillSpinBox *>{ pLabel, skillBox } );
+
+    connect( skillBox, &SkillSpinBox::skillValueChanged,
+             this, &NPCSkillPackWidget::enableBougthCheckbox );
 }
 
 bool NPCSkillPackWidget::hasSkill(const QString &name) const
@@ -119,6 +122,17 @@ void NPCSkillPackWidget::onBougth(const bool &checked)
         skill.second->setMinimum( value );
         skill.second->setValue( value );
     }
+}
+
+void NPCSkillPackWidget::enableBougthCheckbox()
+{
+    int sum{0};
+    for ( QPair<const QLabel*, SkillSpinBox*> skill: m_skills )
+        sum += skill.second->value();
+
+    bool enable = (0 == sum) || (m_pBougth->isChecked());
+
+    m_pBougth->setEnabled( enable );
 }
 
 const QString NPCSkillPackWidget::createSkillPackName(const QString &name, const QJsonArray &specs)
