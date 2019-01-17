@@ -20,6 +20,8 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
       m_pTricks(new QListWidget(this)),
       m_pProgressWidget(new NPCProgressWidget(m_pSpecialization, this))
 {
+    m_pSickness->setReadOnly( true );
+
     setAttributes( DataLoader::loadJson(":/data/json/Attributes.json") );
     setSpecializations( DataLoader::loadJson(":/data/json/Specializations.json") );
     setOrigins( DataLoader::loadJson(":/data/json/Origins.json") );
