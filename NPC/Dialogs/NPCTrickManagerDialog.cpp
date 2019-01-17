@@ -55,7 +55,7 @@ void NPCTrickManagerDialog::distributeTricks()
     m_pAvailable->clear();
     m_pUnavailable->clear();
 
-    addTricks( DataLoader::loadJson( ":/Tricks.json" ) );
+    addTricks( DataLoader::loadJson( ":/data/json/Tricks.json" ) );
 }
 
 void NPCTrickManagerDialog::trickBougth(NPCTrickWidgetItem *trick)

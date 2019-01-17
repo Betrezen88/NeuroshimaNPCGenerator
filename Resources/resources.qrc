@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/data">
+        <file>json/Attributes.json</file>
+        <file>json/DifficultyLevel.json</file>
+        <file>json/Origins.json</file>
+        <file>json/Professions.json</file>
+        <file>json/Sickness.json</file>
+        <file>json/Specializations.json</file>
+        <file>json/Tricks.json</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>icons/Neuroshima_icon.png</file>
+    </qresource>
+</RCC>

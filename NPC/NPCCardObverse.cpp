@@ -20,11 +20,11 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
       m_pTricks(new QListWidget(this)),
       m_pProgressWidget(new NPCProgressWidget(m_pSpecialization, this))
 {
-    setAttributes( DataLoader::loadJson(":/Attributes.json") );
-    setSpecializations( DataLoader::loadJson(":/Specializations.json") );
-    setOrigins( DataLoader::loadJson(":/Origins.json") );
-    setProfessions( DataLoader::loadJson(":/Professions.json") );
-    m_attributesMods = DataLoader::loadJson( ":/DifficultyLevel.json" );
+    setAttributes( DataLoader::loadJson(":/data/json/Attributes.json") );
+    setSpecializations( DataLoader::loadJson(":/data/json/Specializations.json") );
+    setOrigins( DataLoader::loadJson(":/data/json/Origins.json") );
+    setProfessions( DataLoader::loadJson(":/data/json/Professions.json") );
+    m_attributesMods = DataLoader::loadJson( ":/data/json/DifficultyLevel.json" );
 
     m_pAttributesModsInfo = new NPCAttributesModsInfoWidget( m_attributesMods, this );
 

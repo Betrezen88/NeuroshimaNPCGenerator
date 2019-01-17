@@ -65,7 +65,7 @@ HEADERS += \
     NPC/NPCCardTab.h
 
 RESOURCES += \
-    json/json.qrc
+    Resources/resources.qrc
 
 DISTFILES += \
     Othres/Concept.txt \
