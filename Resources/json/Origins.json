@@ -1,18 +1,5 @@
 ﻿[
     {
-        "name": "Brak",
-        "attribute": {
-            "name": "Brak",
-            "value": 0
-        },
-        "features": [
-            {
-                "name": "Brak",
-                "description": "Brak"
-            }
-        ]
-    },
-    {
         "name": "Południowa Hegemonia",
         "attribute": {
             "name": "Budowa",
