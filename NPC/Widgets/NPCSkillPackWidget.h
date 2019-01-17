@@ -31,6 +31,7 @@ public:
 signals:
     void bougth(const bool &state, const QStringList &specs);
     void refundPoints(const int value, const QStringList &specs);
+    void onSpecsChanged(const QStringList &specs);
 
 public slots:
     void onAvailableSkillPointsChanged(const int value);
@@ -38,11 +39,13 @@ public slots:
 private slots:
     void onBougth(const bool &checked);
     void enableBougthCheckbox();
+    void updateNameLabel(const QStringList &specs);
 
 private:
     const QString createSkillPackName(const QString &name, const QJsonArray &specs);
 
 private:
+    QString m_name;
     QLabel *m_pName{nullptr};
     QStringList m_specs;
     QVector<QPair<const QLabel*, SkillSpinBox*>> m_skills;

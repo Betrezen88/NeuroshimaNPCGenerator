@@ -11,7 +11,8 @@
 
 NPCSkillPackWidget::NPCSkillPackWidget(const QString &name, QWidget *parent)
     : QWidget(parent),
-      m_pName(new QLabel(name, this)),
+      m_name(name),
+      m_pName(new QLabel(m_name, this)),
       m_pBougth(new QCheckBox("Pakiet",this)),
       m_pSkillLayout(new QGridLayout)
 {
@@ -38,6 +39,8 @@ NPCSkillPackWidget::NPCSkillPackWidget(const QString &name, QWidget *parent)
     } );
     connect( m_pBougth, &QCheckBox::toggled,
              this, &NPCSkillPackWidget::onBougth);
+    connect( this, &NPCSkillPackWidget::onSpecsChanged,
+             this, &NPCSkillPackWidget::updateNameLabel );
 }
 
 void NPCSkillPackWidget::addSkill(const QString &name, SkillSpinBox *skillBox)
@@ -83,6 +86,7 @@ QVector<SkillSpinBox *> NPCSkillPackWidget::skills()
 void NPCSkillPackWidget::addSpecialization(const QString &spec)
 {
     m_specs << spec;
+    emit onSpecsChanged( m_specs );
 }
 
 QStringList NPCSkillPackWidget::specializations() const
@@ -133,6 +137,16 @@ void NPCSkillPackWidget::enableBougthCheckbox()
     bool enable = (0 == sum) || (m_pBougth->isChecked());
 
     m_pBougth->setEnabled( enable );
+}
+
+void NPCSkillPackWidget::updateNameLabel(const QStringList &specs)
+{
+    QStringList tSpecs;
+
+    for ( const QString &spec: specs )
+        tSpecs << spec.at(0);
+
+    m_pName->setText( QString("%1 (%2)").arg(m_name).arg(tSpecs.join(',')) );
 }
 
 const QString NPCSkillPackWidget::createSkillPackName(const QString &name, const QJsonArray &specs)
