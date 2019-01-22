@@ -39,10 +39,21 @@ const int *NPCAttributeWidget::value() const
     return &m_value;
 }
 
-void NPCAttributeWidget::setValue(const int value)
+const int *NPCAttributeWidget::modValue() const
+{
+    return &m_modValue;
+}
+
+void NPCAttributeWidget::setValue(const int &value)
 {
     m_value = value;
-    emit valueChanged( m_value );
+    emit currentValueChanged( m_value + m_modValue );
+}
+
+void NPCAttributeWidget::setModValue(const int &modValue)
+{
+    m_modValue = modValue;
+    emit currentValueChanged( m_value + m_modValue );
 }
 
 QWidget *NPCAttributeWidget::createTitleBar(const QVector<QPair<QString, int>> &mods)
@@ -67,8 +78,7 @@ QWidget *NPCAttributeWidget::createTitleBar(const QVector<QPair<QString, int>> &
 QWidget *NPCAttributeWidget::createValueWidget(const QString &name, const int &value)
 {
     NPCAttributeValueWidget *pValue = new NPCAttributeValueWidget( name, value );
-    pValue->updateValue( m_value );
-    connect( this, &NPCAttributeWidget::valueChanged,
-             pValue, &NPCAttributeValueWidget::updateValue );
+    connect( this, &NPCAttributeWidget::currentValueChanged,
+             pValue, &NPCAttributeValueWidget::updateValueLabel );
     return pValue;
 }

@@ -13,7 +13,7 @@ public:
 signals:
 
 public slots:
-    void updateValue(const int &value);
+    void updateValueLabel(const int &value);
 
 protected:
     void paintEvent(QPaintEvent *);

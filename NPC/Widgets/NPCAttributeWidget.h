@@ -22,13 +22,16 @@ public:
     QHash<const QString, NPCSkillPackWidget *> *skillPacks();
     void addSkillPack(const QString &name, NPCSkillPackWidget *skillPack);
     const int *value() const;
-    void setValue(const int value);
+    const int *modValue() const;
 
 signals:
     void skillPackBougth(const bool &checked, const QStringList &specs);
     void valueChanged(const int &value);
+    void currentValueChanged(const int &value);
 
 public slots:
+    void setValue(const int &value);
+    void setModValue(const int &modValue);
 
 private:
     QWidget *createTitleBar(const QVector<QPair<QString, int>> &mods);
@@ -37,8 +40,10 @@ private:
 private:
     QLabel* m_pName{nullptr};
     const QVector<QPair<QString, int>> &m_mods;
-    int m_value{0};
     QHash<const QString, NPCSkillPackWidget*> m_skillPacks;
+
+    int m_value{0};
+    int m_modValue{0};
 
     const QString m_nameStyle{ "QLabel#NameStyle{"
                                     " font: bold 15px;"

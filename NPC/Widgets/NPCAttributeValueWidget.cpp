@@ -27,16 +27,16 @@ NPCAttributeValueWidget::NPCAttributeValueWidget(const QString &modName,
     setLayout( pLayout );
 }
 
-void NPCAttributeValueWidget::updateValue(const int &value)
-{
-    int tValue = value + m_modValue;
-    m_pValueLabel->setText( (tValue > 0) ? QString::number(tValue) : "NA" );
-}
-
 void NPCAttributeValueWidget::paintEvent(QPaintEvent *)
 {
     QStyleOption opt;
     opt.init(this);
     QPainter p(this);
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+}
+
+void NPCAttributeValueWidget::updateValueLabel(const int &value)
+{
+    int tValue = value + m_modValue;
+    m_pValueLabel->setText( (tValue > 0) ? QString::number(tValue) : "NA" );
 }

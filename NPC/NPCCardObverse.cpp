@@ -54,8 +54,15 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
 void NPCCardObverse::onOriginChange(const QString &name)
 {
     const QJsonObject origin = m_origins.value( name );
+    const QJsonObject attribute = origin.value( "attribute" ).toObject();
     QStringList featureNames;
     m_originFeatures = origin.value("features").toArray();
+
+    for ( NPCAttributeWidget *attribute: m_attributes )
+        if ( 1 == *attribute->modValue() )
+            attribute->setModValue( 0 );
+    if ( m_attributes.keys().contains(attribute.value("name").toString()) )
+        m_attributes[attribute.value("name").toString()]->setModValue( attribute.value("value").toInt() );
 
     for ( const QJsonValueRef tOrigin: m_originFeatures )
         featureNames << tOrigin.toObject().value("name").toString();
@@ -247,6 +254,7 @@ void NPCCardObverse::setAttributes(const QJsonArray &attributes)
         const QString &name = object.value("name").toString();
 
         NPCAttributeWidget *pAttribute = new NPCAttributeWidget(name, m_mods, this);
+        pAttribute->setValue( 0 );
 
         const QJsonArray &skillPacks = object.value("skillPacks").toArray();
         for ( const QJsonValue &tSkillPack: skillPacks ) {
