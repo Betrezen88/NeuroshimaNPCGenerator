@@ -4,12 +4,19 @@
 #include <QScrollArea>
 #include <QMessageBox>
 
+#include <QDebug>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
       m_pTabWidget(new QTabWidget(this))
 {
     createActions();
     createMenus();
+
+    m_pTabWidget->setTabsClosable( true );
+
+    connect( m_pTabWidget, &QTabWidget::tabCloseRequested,
+             this, &MainWindow::onCardClose );
 
     setCentralWidget( m_pTabWidget );
 }
@@ -80,6 +87,26 @@ void MainWindow::createNewCard()
 void MainWindow::updateTabText(const QString &text)
 {
     m_pTabWidget->setTabText( m_pTabWidget->currentIndex(), text );
+}
+
+void MainWindow::onCardClose(const int &index)
+{
+    QMessageBox::StandardButton btn =
+            QMessageBox::question(this,
+                                  "Zapisz postać",
+                                  "Czy chcesz zapisać postać ?",
+                                  QMessageBox::StandardButton::Yes
+                                  | QMessageBox::StandardButton::No
+                                  | QMessageBox::StandardButton::Cancel );
+
+    if ( QMessageBox::StandardButton::Cancel == btn )
+        return;
+
+    if ( QMessageBox::StandardButton::Yes == btn )
+        qDebug() << "Saving NPCCard... not yet implemented !";
+
+    m_pTabWidget->removeTab( index );
+    m_cards.remove( index );
 }
 
 void MainWindow::createActions()

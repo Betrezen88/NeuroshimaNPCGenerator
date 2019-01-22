@@ -25,6 +25,7 @@ private slots:
     void showTricksDialog();
     void createNewCard();
     void updateTabText(const QString &text);
+    void onCardClose(const int &index);
 
 private:
     void createActions();
