@@ -37,6 +37,8 @@ public:
     int reputation() const;
     int fame() const;
 
+    const QListWidget *tricks() const;
+
 signals:
     void heroNameChanged(const QString &name);
 

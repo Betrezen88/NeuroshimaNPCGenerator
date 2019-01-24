@@ -294,6 +294,11 @@ int NPCCardObverse::fame() const
     return m_pFame->value();
 }
 
+const QListWidget *NPCCardObverse::tricks() const
+{
+    return m_pTricks;
+}
+
 void NPCCardObverse::setAttributes(const QJsonArray &attributes)
 {
     for ( const QJsonValue &tAttribute: attributes ) {
