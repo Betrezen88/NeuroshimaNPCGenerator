@@ -14,6 +14,7 @@ public:
 
 private:
     const QJsonObject personalJson(const NPCCardObverse *obverse) const;
+    const QJsonArray tricksJson(const QListWidget *tricks) const;
 };
 
 #endif // CARDCONVERTER_H

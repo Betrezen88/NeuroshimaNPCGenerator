@@ -12,6 +12,7 @@ const QJsonObject CardConverter::toJson(const NPCCardTab *card) const
     QJsonObject cardJson;
 
     cardJson.insert( "personal", personalJson(card->obverse()) );
+    cardJson.insert( "tricks", tricksJson(card->obverse()->tricks()) );
 
     return cardJson;
 }
@@ -35,4 +36,12 @@ const QJsonObject CardConverter::personalJson(const NPCCardObverse *obverse) con
     personalObj.insert( "features", featuresObj );
 
     return personalObj;
+}
+
+const QJsonArray CardConverter::tricksJson(const QListWidget *tricks) const
+{
+    QJsonArray tricksObj;
+    for ( int i=0; i<tricks->count(); ++i )
+        tricksObj.push_back( tricks->item(i)->text() );
+    return tricksObj;
 }
