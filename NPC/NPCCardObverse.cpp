@@ -49,6 +49,8 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
     pLayout->addLayout( column2() );
     pLayout->addLayout( column3() );
     pLayout->addLayout( column4() );
+
+    m_pName->setText( "Nowa Postać" );
 }
 
 void NPCCardObverse::onOriginChange(const QString &name)

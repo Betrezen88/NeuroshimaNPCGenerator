@@ -112,9 +112,11 @@ void MainWindow::onCardClose(const int &index)
 
 void MainWindow::saveCard()
 {
+    NPCCardTab *pCard = m_cards.at( m_pTabWidget->currentIndex() );
     QString filePath = QFileDialog::getSaveFileName( this,
                                                      "Zapisz postać",
-                                                     QDir::homePath(),
+                                                     QDir::homePath() + "/"
+                                                     + pCard->obverse()->heroName() + ".json",
                                                      "(*.json)" );
     if ( filePath.isEmpty() )
         return;
