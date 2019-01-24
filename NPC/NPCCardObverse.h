@@ -27,6 +27,8 @@ public:
     const QHash<QString, NPCAttributeWidget *> *attributes() const;
     const NPCProgressWidget *progressWidget() const;
 
+    const QString heroName() const;
+
 signals:
     void heroNameChanged(const QString &name);
 

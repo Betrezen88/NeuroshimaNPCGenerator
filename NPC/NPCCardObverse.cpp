@@ -247,6 +247,11 @@ const NPCProgressWidget *NPCCardObverse::progressWidget() const
     return m_pProgressWidget;
 }
 
+const QString NPCCardObverse::heroName() const
+{
+    return m_pName->text();
+}
+
 void NPCCardObverse::setAttributes(const QJsonArray &attributes)
 {
     for ( const QJsonValue &tAttribute: attributes ) {
