@@ -1,23 +1,14 @@
 ﻿To Do:
-- Dodanie zapisu postaci do pliku json
-
 - Dodanie wczytania postaci z pliku json
 
-- w klasie SkillSpinBox sprawić aby etykieta i line edit zajmowały:
-  1) równą ilość miejsca
-  2) etykiety więcej ale tyle samo, line edit mniej
+- Dodać specjalną logikę dla pochodzenia "Człowiek z... nie twój zasrany interes"
+    Osobne okno z wyborem atrybutu ?
 
-- usunąć puste pochodzenie z pliku Origins.json
+- Dodanie zapisu postaci do pliku json
 
 - Dodać losowanie choroby
 
-- QLienEdit z chorobą przerobić na tylko do odczytu
-
-- Dodać informacje o stadiach choroby oraz lekach do pliku Sickness.json
-
 - Dodać tooltip do QLineEdit z chorobą o stadiach i lekach
-
-- pakiet można kupić tylko wtedy gdy żadna z umiejętności w pakiecie nie została już kupiona.
 
 - cechy z pochodzenia i profesji oferują bonusy, utworzyć info o bonusie aby łatwiej
     było cofać i aktualizować zmiany, w jsonie zrobić
@@ -25,6 +16,13 @@
         "type": "Trick", //skill pack, skill(s)
         "name": "Trick name //skillPackName, skills array with values ?
     }
+
+
+In progress:
+- Dodać konwersje NPCCardTab na QJsonObject
+    * stworzyć klasę CardConverter
+    * dodać metodę toJson()
+    * dodać metodę toCard()
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
@@ -39,3 +37,12 @@ Done:
     za pomocą api ?
 + QSpinBox nie informuje o tym czy wartość została zwiększona czy zmniejszona
     Utworzyć własną klasę
++ QLienEdit z chorobą przerobić na tylko do odczytu
++ pakiet można kupić tylko wtedy gdy żadna z umiejętności w pakiecie nie została już kupiona.
++ dodać informacje o specjalizacjach przypisanych do pakietu umiejętności
++ usunąć puste pochodzenie z pliku Origins.json
++ w klasie NPCSkillPackWidget sprawić aby etykieta i line edit zajmowały:
+    etykiety więcej ale tyle samo, line edit resztę dostęgo miejsca
++ Dodać informacje o stadiach choroby oraz lekach do pliku Sickness.json
++ dodać modyfikator do atrybutu z wybranego pochodzenia
++ dodać możliwość zamykania zakładek postaci, z pytaniem czy zapisać postać
