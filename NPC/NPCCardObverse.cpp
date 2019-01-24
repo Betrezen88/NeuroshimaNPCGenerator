@@ -254,6 +254,46 @@ const QString NPCCardObverse::heroName() const
     return m_pName->text();
 }
 
+const QString NPCCardObverse::origin() const
+{
+    return m_pOrigin->currentText();
+}
+
+const QString NPCCardObverse::profession() const
+{
+    return m_pProfession->currentText();
+}
+
+const QString NPCCardObverse::specialization() const
+{
+    return m_pSpecialization->currentText();
+}
+
+const QString NPCCardObverse::sickness() const
+{
+    return m_pSickness->text();
+}
+
+const QString NPCCardObverse::originFeature() const
+{
+    return m_pFeature1->currentText();
+}
+
+const QString NPCCardObverse::professionFeature() const
+{
+    return m_pFeature2->currentText();
+}
+
+int NPCCardObverse::reputation() const
+{
+    return m_pReputation->value();
+}
+
+int NPCCardObverse::fame() const
+{
+    return m_pFame->value();
+}
+
 void NPCCardObverse::setAttributes(const QJsonArray &attributes)
 {
     for ( const QJsonValue &tAttribute: attributes ) {

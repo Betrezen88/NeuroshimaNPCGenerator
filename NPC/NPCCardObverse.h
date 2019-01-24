@@ -28,6 +28,14 @@ public:
     const NPCProgressWidget *progressWidget() const;
 
     const QString heroName() const;
+    const QString origin() const;
+    const QString profession() const;
+    const QString specialization() const;
+    const QString sickness() const;
+    const QString originFeature() const;
+    const QString professionFeature() const;
+    int reputation() const;
+    int fame() const;
 
 signals:
     void heroNameChanged(const QString &name);
