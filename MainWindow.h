@@ -26,6 +26,7 @@ private slots:
     void createNewCard();
     void updateTabText(const QString &text);
     void onCardClose(const int &index);
+    void saveCard();
 
 private:
     void createActions();

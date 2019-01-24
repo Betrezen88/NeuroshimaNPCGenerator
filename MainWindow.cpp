@@ -3,6 +3,7 @@
 #include <QMenuBar>
 #include <QScrollArea>
 #include <QMessageBox>
+#include <QFileDialog>
 
 #include <QDebug>
 
@@ -103,10 +104,28 @@ void MainWindow::onCardClose(const int &index)
         return;
 
     if ( QMessageBox::StandardButton::Yes == btn )
-        qDebug() << "Saving NPCCard... not yet implemented !";
+        saveCard();
 
     m_pTabWidget->removeTab( index );
     m_cards.remove( index );
+}
+
+void MainWindow::saveCard()
+{
+    QString filePath = QFileDialog::getSaveFileName( this,
+                                                     "Zapisz postać",
+                                                     QDir::homePath(),
+                                                     "(*.json)" );
+    if ( filePath.isEmpty() )
+        return;
+
+    QFile file( filePath );
+    if ( !file.open(QIODevice::WriteOnly) ) {
+        qDebug() << "File open failed !";
+        return;
+    }
+
+    file.write("");
 }
 
 void MainWindow::createActions()
