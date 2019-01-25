@@ -67,9 +67,27 @@ const QJsonArray CardConverter::packetsJson(const QHash<const QString, NPCSkillP
 {
     QJsonArray packetsArray;
 
-    for ( NPCSkillPackWidget *skillPack: skillPacks )
-        if ( skillPack->isBougth() )
-            packetsArray.push_back( skillPacks.key(skillPack) );
+    for ( NPCSkillPackWidget *skillPack: skillPacks ) {
+        QJsonObject skillPackObj;
+        skillPackObj.insert( "name", skillPacks.key(skillPack) );
+        skillPackObj.insert( "bougth", skillPack->isBougth() );
+        skillPackObj.insert( "skills", skillsJson(skillPack->skills()) );
+        packetsArray.push_back( skillPackObj );
+    }
 
     return packetsArray;
+}
+
+const QJsonArray CardConverter::skillsJson(const QVector<QPair<const QLabel *, SkillSpinBox *> > &skills) const
+{
+    QJsonArray skillsArray;
+
+    for ( QPair<const QLabel*, SkillSpinBox*> skill: skills ) {
+        QJsonObject skillObj;
+        skillObj.insert( "name", skill.first->text() );
+        skillObj.insert( "value", skill.second->value() );
+        skillsArray.push_back( skillObj );
+    }
+
+    return skillsArray;
 }

@@ -17,6 +17,7 @@ private:
     const QJsonArray tricksJson(const QListWidget *tricks) const;
     const QJsonArray attributesJson(const QHash<QString, NPCAttributeWidget*> *attributes) const;
     const QJsonArray packetsJson(const QHash<const QString, NPCSkillPackWidget*> &skillPacks) const;
+    const QJsonArray skillsJson(const QVector<QPair<const QLabel*, SkillSpinBox*>> &skills) const;
 };
 
 #endif // CARDCONVERTER_H
