@@ -94,6 +94,11 @@ QStringList NPCSkillPackWidget::specializations() const
     return m_specs;
 }
 
+bool NPCSkillPackWidget::isBougth() const
+{
+    return m_pBougth->isChecked();
+}
+
 void NPCSkillPackWidget::paintEvent(QPaintEvent *)
 {
     QStyleOption opt;

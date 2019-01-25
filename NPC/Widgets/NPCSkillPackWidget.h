@@ -26,6 +26,8 @@ public:
     void addSpecialization(const QString &spec);
     QStringList specializations() const;
 
+    bool isBougth() const;
+
     void paintEvent(QPaintEvent *);
 
 signals:
