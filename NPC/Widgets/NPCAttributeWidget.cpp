@@ -28,6 +28,11 @@ QHash<const QString, NPCSkillPackWidget *> *NPCAttributeWidget::skillPacks()
     return &m_skillPacks;
 }
 
+const QHash<const QString, NPCSkillPackWidget *> *NPCAttributeWidget::skillPacks() const
+{
+    return &m_skillPacks;
+}
+
 void NPCAttributeWidget::addSkillPack(const QString &name, NPCSkillPackWidget *skillPack)
 {
     m_skillPacks.insert( name, skillPack );

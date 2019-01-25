@@ -20,6 +20,7 @@ public:
                                 QWidget *parent = nullptr);
 
     QHash<const QString, NPCSkillPackWidget *> *skillPacks();
+    const QHash<const QString, NPCSkillPackWidget *> *skillPacks() const;
     void addSkillPack(const QString &name, NPCSkillPackWidget *skillPack);
     const int *value() const;
     const int *modValue() const;
