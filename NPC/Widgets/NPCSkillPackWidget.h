@@ -21,7 +21,7 @@ public:
     void addSkill(const QString &name, SkillSpinBox *skillBox);
     bool hasSkill(const QString &name) const;
     SkillSpinBox *skill(const QString &name) const;
-    QVector<SkillSpinBox *> skills();
+    QVector<QPair<const QLabel *, SkillSpinBox *> > skills() const;
 
     void addSpecialization(const QString &spec);
     QStringList specializations() const;

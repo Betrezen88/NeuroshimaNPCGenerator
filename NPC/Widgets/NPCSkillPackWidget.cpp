@@ -73,14 +73,9 @@ SkillSpinBox *NPCSkillPackWidget::skill(const QString &name) const
     return nullptr;
 }
 
-QVector<SkillSpinBox *> NPCSkillPackWidget::skills()
+QVector<QPair<const QLabel *, SkillSpinBox *> > NPCSkillPackWidget::skills() const
 {
-    QVector<SkillSpinBox *> tSkills = QVector<SkillSpinBox *>(3);
-
-    for ( QPair<const QLabel *, SkillSpinBox *> tSkill: m_skills )
-        tSkills.push_back( tSkill.second );
-
-    return tSkills;
+    return m_skills;
 }
 
 void NPCSkillPackWidget::addSpecialization(const QString &spec)
