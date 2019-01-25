@@ -1,9 +1,11 @@
 ﻿#include "MainWindow.h"
+#include "NPC/Utils/CardConverter.h"
 
 #include <QMenuBar>
 #include <QScrollArea>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QJsonDocument>
 
 #include <QDebug>
 
@@ -127,7 +129,10 @@ void MainWindow::saveCard()
         return;
     }
 
-    file.write("");
+    CardConverter converter;
+    QJsonDocument json;
+    json.setObject( converter.toJson(pCard) );
+    file.write( json.toJson() );
 }
 
 void MainWindow::createActions()
