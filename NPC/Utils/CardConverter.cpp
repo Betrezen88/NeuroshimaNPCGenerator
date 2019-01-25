@@ -13,6 +13,7 @@ const QJsonObject CardConverter::toJson(const NPCCardTab *card) const
 
     cardJson.insert( "personal", personalJson(card->obverse()) );
     cardJson.insert( "tricks", tricksJson(card->obverse()->tricks()) );
+    cardJson.insert( "stats", attributesJson(card->obverse()->attributes()) );
 
     return cardJson;
 }
@@ -44,4 +45,31 @@ const QJsonArray CardConverter::tricksJson(const QListWidget *tricks) const
     for ( int i=0; i<tricks->count(); ++i )
         tricksObj.push_back( tricks->item(i)->text() );
     return tricksObj;
+}
+
+const QJsonArray CardConverter::attributesJson(const QHash<QString, NPCAttributeWidget *> *attributes) const
+{
+    QJsonArray attributesObj;
+
+    for ( NPCAttributeWidget *attribute: *attributes ) {
+        QJsonObject tAttributeObj;
+        tAttributeObj.insert( "name", attributes->key(attribute) );
+        tAttributeObj.insert( "value", *attribute->value() );
+        tAttributeObj.insert( "mod", *attribute->modValue() );
+        tAttributeObj.insert( "skillPacks", packetsJson(*attribute->skillPacks()) );
+        attributesObj.push_back( tAttributeObj );
+    }
+
+    return attributesObj;
+}
+
+const QJsonArray CardConverter::packetsJson(const QHash<const QString, NPCSkillPackWidget *> &skillPacks) const
+{
+    QJsonArray packetsArray;
+
+    for ( NPCSkillPackWidget *skillPack: skillPacks )
+        if ( skillPack->isBougth() )
+            packetsArray.push_back( skillPacks.key(skillPack) );
+
+    return packetsArray;
 }

@@ -15,6 +15,8 @@ public:
 private:
     const QJsonObject personalJson(const NPCCardObverse *obverse) const;
     const QJsonArray tricksJson(const QListWidget *tricks) const;
+    const QJsonArray attributesJson(const QHash<QString, NPCAttributeWidget*> *attributes) const;
+    const QJsonArray packetsJson(const QHash<const QString, NPCSkillPackWidget*> &skillPacks) const;
 };
 
 #endif // CARDCONVERTER_H
