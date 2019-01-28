@@ -23,6 +23,7 @@ public:
 private slots:
     void showAttributeDialog();
     void showTricksDialog();
+    void showSicknessDialog();
     void createNewCard();
     void updateTabText(const QString &text);
     void onCardClose(const int &index);

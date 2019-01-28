@@ -1,5 +1,6 @@
 ﻿#include "MainWindow.h"
 #include "NPC/Utils/CardConverter.h"
+#include "NPC/Dialogs/NPCSkicnessDialog.h"
 
 #include <QMenuBar>
 #include <QScrollArea>
@@ -71,6 +72,24 @@ void MainWindow::showTricksDialog()
              pCardObverse, &NPCCardObverse::addBougthTricks );
 
     m_pTricksDialog->show();
+}
+
+void MainWindow::showSicknessDialog()
+{
+    if ( m_cards.isEmpty() ) {
+        QMessageBox::warning(this, "Brak postaci",
+                             "Brak istniejących postaci do nabycia choroby!",
+                             QMessageBox::Ok);
+        return;
+    }
+    NPCCardObverse *pCardObverse = m_cards.at(m_pTabWidget->currentIndex())->obverse();
+
+    NPCSkicnessDialog *pSicknessDialog = new NPCSkicnessDialog(this);
+
+    connect( pSicknessDialog, &NPCSkicnessDialog::acceptSickness,
+             pCardObverse, &NPCCardObverse::setSickness );
+
+    pSicknessDialog->show();
 }
 
 void MainWindow::createNewCard()
@@ -150,6 +169,8 @@ void MainWindow::createActions()
              this, &MainWindow::showAttributeDialog );
 
     m_pRandomSicknessAction = new QAction( "Choroba", this );
+    connect( m_pRandomSicknessAction, &QAction::triggered,
+             this, &MainWindow::showSicknessDialog );
 
     m_pTrickAction = new QAction( "Sztuczka", this );
     connect( m_pTrickAction, &QAction::triggered,
