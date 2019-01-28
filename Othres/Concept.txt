@@ -6,8 +6,6 @@
 
 - Dodać specjalną logikę dla cechy Wszechstronność
 
-- Dodać losowanie choroby
-
 - Dodać tooltip do QLineEdit z chorobą o stadiach i lekach
 
 - cechy z pochodzenia i profesji oferują bonusy, utworzyć info o bonusie aby łatwiej
@@ -17,13 +15,16 @@
         "name": "Trick name //skillPackName, skills array with values ?
     }
 
-- poprawić literówki ploku Origins.json
+- poprawić literówki pliku Sickness.json
+
+- poprawić literówki pliku Origins.json
 
 - usunąć znaczniki nowej lini z Origins.json
 
 - okreslić rozmiar tooltipa dla pochodzenia (QComboBox m_pOrigin)
 
 In progress:
+
 
 
 Done:
@@ -60,3 +61,4 @@ Done:
         + tworzące json z informacjami o wartościach skili bohatera
 + Dodanie zapisu postaci do pliku json
     * dodać metodę saveCard(), która utworzy plik z nazwą postaci
++ Dodać losowanie choroby
