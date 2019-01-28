@@ -65,6 +65,7 @@ private:
     void setSpecializations(const QJsonArray &specializations);
     void setOrigins(const QJsonArray &origins);
     void setProfessions(const QJsonArray &professions);
+    void setSicknessTooltip(const QJsonObject &sickness);
 
     QVBoxLayout *column1();
     QVBoxLayout *column2();

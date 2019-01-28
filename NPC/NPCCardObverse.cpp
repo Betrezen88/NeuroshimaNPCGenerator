@@ -122,6 +122,7 @@ void NPCCardObverse::setSickness(const QJsonObject &sickness)
 {
     m_sickness = sickness;
     m_pSickness->setText( m_sickness.value("name").toString() );
+    setSicknessTooltip( m_sickness );
 }
 
 QLabel *NPCCardObverse::createSpecialLabel(
@@ -356,6 +357,30 @@ void NPCCardObverse::setProfessions(const QJsonArray &professions)
 
     m_pProfession->insertItems( 0, list );
     onProfessionChanged( m_pProfession->currentText() );
+}
+
+void NPCCardObverse::setSicknessTooltip(const QJsonObject &sickness)
+{
+    QString tooltip;
+    const QJsonObject &symptoms = sickness.value("symptoms").toObject();
+
+    tooltip = "<b>Nazwa:</b> " + sickness.value("name").toString()
+            + "<br><br><b>Opis:</b> " + sickness.value("description").toString()
+            + "<br><br><b>Lekarstwo:</b> " + sickness.value("cure").toString()
+            + "<br><br><b>Symptomy</b>:"
+            + "<ul>"
+            + "<li><b>Pierwsze symptomy:</b> " + symptoms.value("1").toObject().value("description").toString()
+            + "<br><b>Kary:</b>" + symptoms.value("1").toObject().value("penalties").toString() + "</li>"
+            + "<li><b>Stan ostry:</b> " + symptoms.value("2").toObject().value("description").toString()
+            + "<br><b>Kary:</b>" + symptoms.value("2").toObject().value("penalties").toString() + "</li>"
+            + "<li><b>Stan krytyczny:</b> " + symptoms.value("3").toObject().value("description").toString()
+            + "<br><b>Kary:</b>" + symptoms.value("3").toObject().value("penalties").toString() + "</li>"
+            + "<li><b>Stan terminalny:</b> " + symptoms.value("4").toObject().value("description").toString()
+            + "<br><b>Kary:</b>" + symptoms.value("4").toObject().value("penalties").toString() + "</li>"
+            + "</ul>";
+
+    m_pSickness->setToolTip( tooltip );
+    m_pSickness->setToolTipDuration( 5 * 60 * 100 );
 }
 
 QVBoxLayout *NPCCardObverse::column1()
