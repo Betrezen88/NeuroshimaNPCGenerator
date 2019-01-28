@@ -4,6 +4,8 @@
 - Dodać specjalną logikę dla pochodzenia "Człowiek z... nie twój zasrany interes"
     Osobne okno z wyborem atrybutu ?
 
+- Dodać specjalną logikę dla cechy Wszechstronność
+
 - Dodać losowanie choroby
 
 - Dodać tooltip do QLineEdit z chorobą o stadiach i lekach
@@ -15,10 +17,14 @@
         "name": "Trick name //skillPackName, skills array with values ?
     }
 
+- poprawić literówki ploku Origins.json
+
+- usunąć znaczniki nowej lini z Origins.json
+
+- okreslić rozmiar tooltipa dla pochodzenia (QComboBox m_pOrigin)
 
 In progress:
-- Dodanie zapisu postaci do pliku json
-    * dodać metodę saveCard(), która utworzy plik z nazwą postaci
+
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
@@ -52,3 +58,5 @@ Done:
         + tworzące json z informacjami o atrybutach bohatera
         + tworzące json z informacjami o kupionych pakietach
         + tworzące json z informacjami o wartościach skili bohatera
++ Dodanie zapisu postaci do pliku json
+    * dodać metodę saveCard(), która utworzy plik z nazwą postaci
