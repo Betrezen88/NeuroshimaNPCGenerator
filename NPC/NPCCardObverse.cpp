@@ -118,6 +118,12 @@ void NPCCardObverse::addBougthTricks(QVector<QListWidgetItem *> tricks)
     }
 }
 
+void NPCCardObverse::setSickness(const QJsonObject &sickness)
+{
+    m_sickness = sickness;
+    m_pSickness->setText( m_sickness.value("name").toString() );
+}
+
 QLabel *NPCCardObverse::createSpecialLabel(
         const QString &text,
         const QString &objName,

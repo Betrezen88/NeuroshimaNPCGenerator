@@ -48,6 +48,7 @@ public slots:
     void onFeatureChanged(QComboBox *pFeature, const QJsonArray &features);
     void onAttributeChanged(QVector<int> attributes);
     void addBougthTricks(QVector<QListWidgetItem*> tricks);
+    void setSickness(const QJsonObject &sickness);
 
 private:
     QLabel *createSpecialLabel(const QString &text,
@@ -95,6 +96,7 @@ private:
     QHash<QString, QJsonObject> m_professions;
     QJsonArray m_professionFeatures;
     QJsonArray m_attributesMods;
+    QJsonObject m_sickness;
 
     // Data
     const QVector<QPair<QString, int>> m_mods{
