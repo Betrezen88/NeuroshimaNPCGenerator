@@ -20,6 +20,8 @@ NPCSkillPackWidget::NPCSkillPackWidget(const QString &name, QWidget *parent)
     setStyleSheet( m_skillPackWidgetStyle );
     m_pName->setObjectName( "SkillPackTitle" );
     m_pName->setStyleSheet( m_skillPackTitleStyle );
+    m_pSkillLayout->setColumnStretch( 0, 1);
+    m_pSkillLayout->setColumnStretch( 1, 1);
 
     QVBoxLayout *pLayout = new QVBoxLayout;
     pLayout->setMargin( 5 );
