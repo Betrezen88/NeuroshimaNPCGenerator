@@ -40,6 +40,7 @@ SOURCES += \
     NPC/Utils/Dice.cpp \
     NPC/Dialogs/NPCTrickManagerDialog.cpp \
     NPC/Dialogs/NPCAttributeManagerDialog.cpp \
+    NPC/Dialogs/NPCSkicnessDialog.cpp \
     NPC/NPCCardObverse.cpp \
     NPC/NPCCardReverse.cpp \
     NPC/NPCCardTab.cpp \
@@ -61,6 +62,7 @@ HEADERS += \
     NPC/Utils/Dice.h \
     NPC/Dialogs/NPCTrickManagerDialog.h \
     NPC/Dialogs/NPCAttributeManagerDialog.h \
+    NPC/Dialogs/NPCSkicnessDialog.h \
     NPC/NPCCardObverse.h \
     NPC/NPCCardReverse.h \
     NPC/NPCCardTab.h \
