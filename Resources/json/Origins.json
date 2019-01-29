@@ -37,7 +37,7 @@
             },
             {
                 "name": "Telepata",
-                "description": "A ty telepata jesteś? Skąd wiesz, że on blefuje? Co znaczy, że on nas nie zabije? Masz to gdzieś piśmie? Chyba nie myślisz, że ci uwierzę!    Poziom trudności wszystkich testów Blefu, Perswazji i Zastraszania w stosunku do ciebie jest większany o jeden w górę."
+                "description": "A ty telepata jesteś? Skąd wiesz, że on blefuje? Co znaczy, że on nas nie zabije? Masz to gdzieś na piśmie? Chyba nie myślisz, że ci uwierzę! Poziom trudności wszystkich testów Blefu, Perswazji i Zastraszania w stosunku do ciebie jest większany o jeden w górę."
             }
         ]
     },
@@ -138,7 +138,7 @@
             },
             {
                 "name": "Ja już swoje odchorowałem",
-                "description": "Żyłeś w niezdrowej okolicy Miami i uodporniłeś się na  wiele chorób i jadów. Możesz powrórzyć każdy rzut odpornościowy przeciw chorobom i truciznom  pochodzenia organicznego."
+                "description": "Żyłeś w niezdrowej okolicy Miami i uodporniłeś się na  wiele chorób i jadów. Możesz powtórzyć każdy rzut odpornościowy przeciw chorobom i truciznom  pochodzenia organicznego."
             },
             {
                 "name": "Walkabout",
@@ -172,7 +172,7 @@
         "features": [
             {
                 "name": "Cholerny kaznodzieja",
-                "description": "Potrafisz walną taki monolog, że słuchacze nie wiedzą, co ze sobą zrobić. Jeśli próbujesz przekonać kogoś do racji, w które sam wierzysz (sprawy wiary), w testach Perswazji odrzucasz kostkę, która najmniej ci odpowiada i mówiesz, że wypadło na niej tyle co na innej. Trochę to skomplikowane, nie? Ale wiesz, sorawy wiary to trudny temat."
+                "description": "Potrafisz walnąć taki monolog, że słuchacze nie wiedzą, co ze sobą zrobić. Jeśli próbujesz przekonać kogoś do racji, w które sam wierzysz (sprawy wiary), w testach Perswazji odrzucasz kostkę, która najmniej ci odpowiada i mówisz, że wypadło na niej tyle co na innej. Trochę to skomplikowane, nie? Ale wiesz, sprawy wiary to trudny temat."
             },
             {
                 "name": "Wierzę",
@@ -180,7 +180,7 @@
             },
             {
                 "name": "Przed wojną wszystko było lepsze",
-                "description": "Przysłuchiwałeś się opowieściom doświadczonych wojowników i mądrych starców. Chłonołeś historię o czasach sprzed wojny. Wszystkie testy Sprytu związane z wiedzą o czasach sprzed Apokalipsą mogą być dla ciebie co najwyżej Trudne. Co najwyżej, łapiesz? Mistrz Gry może sobie bełkotać o Bardzo Trudnym, o Cholernie Trudnym... Wiesz co? Pokaż mi ten podręcznik, otwórz na tej stronie i daj mu to przeczytać \"Mistrzu Gry do ciebie mówię. Ten facet, co dał ci teraz podręcznik, wie o czasach sprzed wojny wszystko. Łapiesz to? więc nie smuć o Bardzo Trudnym teście."
+                "description": "Przysłuchiwałeś się opowieściom doświadczonych wojowników i mądrych starców. Chłonołeś historię o czasach sprzed wojny. Wszystkie testy Sprytu związane z wiedzą o czasach sprzed Apokalipsą mogą być dla ciebie co najwyżej Trudne. Co najwyżej, łapiesz? Mistrz Gry może sobie bełkotać o Bardzo Trudnym, o Cholernie Trudnym... Wiesz co? Pokaż mi ten podręcznik, otwórz na tej stronie i daj mu to przeczytać \"Mistrzu Gry do ciebie mówię. Ten facet, co dał ci teraz podręcznik, wie o czasach sprzed wojny wszystko. Łapiesz to? Więc nie smuć o Bardzo Trudnym teście."
             }
         ]
     },
@@ -214,11 +214,11 @@
         "features": [
             {
                 "name": "Na symulatorze działało...",
-                "description": "Jak to spokojnie! Jak grałeś w to?! W co grałeś? Symulator?! O czym ty człowieku pieprzysz, strzelają do nas, nie rozumiesz?! Ja też przeszedłem służbę wojskową, w dodatku na froncie i jakoś nie jestem taki spokojny! Miałeś dostęp do komputerowych symulatorów pojazdów i pola walki? No popatrz, to po prostu wspaniale. Grałeś sobie w Quake, kiedy do mnie strzelali na froncie, tak? I każesz mi być spokojnym?! I co, trochę się z nich nauczyłeś? Możesz przerzycić jedną kostkę w testach Wozów bojowych, Maszyn Ciężkich i Komputerów? Super. To lepiej przerzucaj, bo mamy kłopoty!"
+                "description": "Jak to spokojnie! Jak grałeś w to?! W co grałeś? Symulator?! O czym ty człowieku pieprzysz, strzelają do nas, nie rozumiesz?! Ja też przeszedłem służbę wojskową, w dodatku na froncie i jakoś nie jestem taki spokojny! Miałeś dostęp do komputerowych symulatorów pojazdów i pola walki? No popatrz, to po prostu wspaniale. Grałeś sobie w Quake, kiedy do mnie strzelali na froncie, tak? I każesz mi być spokojnym?! I co, trochę się z nich nauczyłeś? Możesz przerzucić jedną kostkę w testach Wozów bojowych, Maszyn Ciężkich i Komputerów? Super. To lepiej przerzucaj, bo mamy kłopoty!"
             },
             {
                 "name": "Hi-Tech",
-                "description": "Od maleńkości rosłes w otoczeniu wytworów zaawansowanej technologii. Mikser do pomarańczy, czasem suszarka do włosów. Co więcej, było i radio, a nawet jakiś wykrywacz ruchu... No dobra, koniec jaj. Posterunek to najlepiej wyposażony w sprzęt elektroniczny przyczółek ludzkości. W kazdym teście związanym z obsługą urządzenia elektronicznego możesz przerzucić jedną z kostek, właśnie dlatego, ze dawno temu za grzechotkę robił ci słoik z porcesorami, a za łopatkę płyta główna."
+                "description": "Od maleńkości rosłes w otoczeniu wytworów zaawansowanej technologii. Mikser do pomarańczy, czasem suszarka do włosów. Co więcej, było i radio, a nawet jakiś wykrywacz ruchu... No dobra, koniec jaj. Posterunek to najlepiej wyposażony w sprzęt elektroniczny przyczółek ludzkości. W każdym teście związanym z obsługą urządzenia elektronicznego możesz przerzucić jedną z kostek, właśnie dlatego, ze dawno temu za grzechotkę robił ci słoik z porcesorami, a za łopatkę płyta główna."
             },
             {
                 "name": "Moloch? Coś o nim słyszałem",
@@ -243,7 +243,7 @@
             },
             {
                 "name": "Ale jazda!",
-                "description": "Lata spędzone na ulicach Detroitzrobiły swoje. Jeżeli strzelasz w ruchu - z pędzącego pojazdu, wierzchowca, spadając itp. - nie doliczasz sobie żadnych utrudnień za strzał w ruchu."
+                "description": "Lata spędzone na ulicach Detroit zrobiły swoje. Jeżeli strzelasz w ruchu - z pędzącego pojazdu, wierzchowca, spadając itp. - nie doliczasz sobie żadnych utrudnień za strzał w ruchu."
             }
         ]
     }
