@@ -15,8 +15,6 @@
 
 - poprawić literówki pliku Sickness.json
 
-- poprawić literówki pliku Origins.json
-
 In progress:
 
 
@@ -59,3 +57,4 @@ Done:
 + usunąć znaczniki nowej lini z Origins.json
 + okreslić rozmiar tooltipa dla cechy pochodzenia (QComboBox m_pFeature1)
 + Dodać tooltip do QLineEdit z chorobą o stadiach i lekach
++ poprawić literówki pliku Origins.json
