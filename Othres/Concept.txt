@@ -19,8 +19,6 @@
 
 - poprawić literówki pliku Origins.json
 
-- usunąć znaczniki nowej lini z Origins.json
-
 - okreslić rozmiar tooltipa dla pochodzenia (QComboBox m_pOrigin)
 
 In progress:
@@ -62,3 +60,4 @@ Done:
 + Dodanie zapisu postaci do pliku json
     * dodać metodę saveCard(), która utworzy plik z nazwą postaci
 + Dodać losowanie choroby
++ usunąć znaczniki nowej lini z Origins.json
