@@ -6,8 +6,6 @@
 
 - Dodać specjalną logikę dla cechy Wszechstronność
 
-- Dodać tooltip do QLineEdit z chorobą o stadiach i lekach
-
 - cechy z pochodzenia i profesji oferują bonusy, utworzyć info o bonusie aby łatwiej
     było cofać i aktualizować zmiany, w jsonie zrobić
     "Bonus": {
@@ -60,3 +58,4 @@ Done:
 + Dodać losowanie choroby
 + usunąć znaczniki nowej lini z Origins.json
 + okreslić rozmiar tooltipa dla cechy pochodzenia (QComboBox m_pFeature1)
++ Dodać tooltip do QLineEdit z chorobą o stadiach i lekach
