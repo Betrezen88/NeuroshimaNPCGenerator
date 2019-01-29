@@ -20,14 +20,12 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
       m_pTricks(new QListWidget(this)),
       m_pProgressWidget(new NPCProgressWidget(m_pSpecialization, this))
 {
-    m_pSickness->setReadOnly( true );
-
     setAttributes( DataLoader::loadJson(":/data/json/Attributes.json") );
     setSpecializations( DataLoader::loadJson(":/data/json/Specializations.json") );
     setOrigins( DataLoader::loadJson(":/data/json/Origins.json") );
     setProfessions( DataLoader::loadJson(":/data/json/Professions.json") );
     m_attributesMods = DataLoader::loadJson( ":/data/json/DifficultyLevel.json" );
-
+    m_pSickness->setReadOnly( true );
     m_pAttributesModsInfo = new NPCAttributesModsInfoWidget( m_attributesMods, this );
 
     connect( m_pName, &QLineEdit::textChanged,
@@ -93,7 +91,8 @@ void NPCCardObverse::onFeatureChanged(QComboBox *pFeature, const QJsonArray &fea
     for ( const QJsonValue &tFeature: features ) {
         const QJsonObject &feature = tFeature.toObject();
         if ( feature.value("name").toString() == pFeature->currentText() ) {
-            pFeature->setToolTip( feature.value("description").toString() );
+            pFeature->setToolTip( "<div style=\"word-wrap: break-word;\" align=\"justify\">"
+                                  +feature.value("description").toString()+"</div>");
             break;
         }
     }
