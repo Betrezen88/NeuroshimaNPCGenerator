@@ -14,7 +14,6 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
       m_pSpecialization(new QComboBox(this)),
       m_pSickness(new QLineEdit(this)),
       m_pOriginFeature(new QLineEdit(this)),
-      m_pFeature1(new QComboBox(this)),
       m_pFeature2(new QComboBox(this)),
       m_pReputation(new QSpinBox(this)),
       m_pFame(new QSpinBox(this)),
@@ -34,9 +33,6 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
              this, &NPCCardObverse::heroNameChanged );
     connect( m_pProfession,  &QComboBox::currentTextChanged,
              this, &NPCCardObverse::onProfessionChanged );
-    connect( m_pFeature1, &QComboBox::currentTextChanged, [this](){
-        onFeatureChanged( m_pFeature1, m_originFeatures );
-    } );
     connect( m_pFeature2, &QComboBox::currentTextChanged, [this](){
         onFeatureChanged( m_pFeature2, m_professionFeatures );
     } );
@@ -66,10 +62,6 @@ void NPCCardObverse::onOriginChange(const QString &name)
 
     for ( const QJsonValueRef tOrigin: m_originFeatures )
         featureNames << tOrigin.toObject().value("name").toString();
-
-    m_pFeature1->clear();
-    m_pFeature1->insertItems( 0, featureNames );
-    onFeatureChanged( m_pFeature1, m_originFeatures );
 }
 
 void NPCCardObverse::onProfessionChanged(const QString &name)
@@ -278,7 +270,7 @@ const QString NPCCardObverse::sickness() const
 
 const QString NPCCardObverse::originFeature() const
 {
-    return m_pFeature1->currentText();
+    return m_pOriginFeature->text();
 }
 
 const QString NPCCardObverse::professionFeature() const

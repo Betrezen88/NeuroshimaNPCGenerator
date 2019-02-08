@@ -87,7 +87,6 @@ private:
     QComboBox *m_pSpecialization{nullptr};
     QLineEdit *m_pSickness{nullptr};
     QLineEdit *m_pOriginFeature{nullptr};
-    QComboBox *m_pFeature1{nullptr};
     QComboBox *m_pFeature2{nullptr};
     QSpinBox *m_pReputation{nullptr};
     QSpinBox *m_pFame{nullptr};
