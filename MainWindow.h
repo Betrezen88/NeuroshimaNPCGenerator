@@ -24,6 +24,7 @@ private slots:
     void showAttributeDialog();
     void showTricksDialog();
     void showSicknessDialog();
+    void showFeatureDialog();
     void createNewCard();
     void updateTabText(const QString &text);
     void onCardClose(const int &index);
@@ -40,9 +41,10 @@ private:
     NPCTrickManagerDialog *m_pTricksDialog{nullptr};
 
     QMenu *m_pHeroMenu{nullptr};
+    QMenu *m_pChooseMenu{nullptr};
     QMenu *m_pRandomMenu{nullptr};
-    QMenu *m_pAddMenu{nullptr};
     QMenu *m_pGameMasterMenu{nullptr};
+    QMenu *m_pCreationMenu{nullptr};
 
     QAction *m_pNewCardAction{nullptr};
     QAction *m_pSaveCardAction{nullptr};
@@ -51,6 +53,8 @@ private:
     QAction *m_pRandomSicknessAction{nullptr};
     QAction *m_pTrickAction{nullptr};
     QAction *m_pExperienceAction{nullptr};
+    QAction *m_pChooseOriginAction{nullptr};
+    QAction *m_pChooseProfessionAction{nullptr};
 
 };
 

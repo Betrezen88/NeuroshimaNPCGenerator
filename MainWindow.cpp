@@ -1,6 +1,8 @@
 ﻿#include "MainWindow.h"
 #include "NPC/Utils/CardConverter.h"
+#include "NPC/Utils/DataLoader.h"
 #include "NPC/Dialogs/NPCSkicnessDialog.h"
+#include "NPC/Dialogs/NPCOriginManagerDialog.h"
 
 #include <QMenuBar>
 #include <QScrollArea>
@@ -14,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
       m_pTabWidget(new QTabWidget(this))
 {
+    setMinimumSize( 300, 200 );
     createActions();
     createMenus();
 
@@ -90,6 +93,17 @@ void MainWindow::showSicknessDialog()
              pCardObverse, &NPCCardObverse::setSickness );
 
     pSicknessDialog->show();
+}
+
+void MainWindow::showFeatureDialog()
+{
+    NPCCardObverse *pCard = m_cards.at(m_pTabWidget->currentIndex())->obverse();
+    NPCOriginManagerDialog *pBonus = new NPCOriginManagerDialog( pCard, this );
+
+    connect( pBonus, &NPCOriginManagerDialog::acceptOrigin,
+             pCard, &NPCCardObverse::setOrigin );
+
+    pBonus->show();
 }
 
 void MainWindow::createNewCard()
@@ -177,6 +191,12 @@ void MainWindow::createActions()
              this, &MainWindow::showTricksDialog );
 
     m_pExperienceAction = new QAction( "Doświadczenie", this );
+
+    m_pChooseOriginAction = new QAction( "Pochodzenie", this );
+    connect( m_pChooseOriginAction, &QAction::triggered,
+             this, &MainWindow::showFeatureDialog );
+
+    m_pChooseProfessionAction = new QAction( "Profesje", this );
 }
 
 void MainWindow::createMenus()
@@ -185,18 +205,20 @@ void MainWindow::createMenus()
     m_pRandomMenu->addAction( m_pRandomAttributesAction );
     m_pRandomMenu->addAction( m_pRandomSicknessAction );
 
-    m_pAddMenu = new QMenu( "Dodaj" );
-    m_pAddMenu->addAction( m_pTrickAction );
-
-    m_pGameMasterMenu = new QMenu( "MG" );
-    m_pGameMasterMenu->addAction( m_pExperienceAction );
+    m_pChooseMenu = new QMenu( "Wybierz" );
+    m_pChooseMenu->addAction( m_pChooseOriginAction );
+    m_pChooseMenu->addAction( m_pChooseProfessionAction );
 
     m_pHeroMenu = menuBar()->addMenu( "Postać" );
     m_pHeroMenu->addAction( m_pNewCardAction );
     m_pHeroMenu->addAction( m_pSaveCardAction );
     m_pHeroMenu->addAction( m_pLoadCardAction );
-    m_pHeroMenu->addSeparator();
-    m_pHeroMenu->addMenu( m_pRandomMenu );
-    m_pHeroMenu->addMenu( m_pAddMenu );
-    m_pHeroMenu->addMenu( m_pGameMasterMenu );
+
+    m_pCreationMenu = menuBar()->addMenu( "Tworzenie" );
+    m_pCreationMenu->addMenu( m_pChooseMenu );
+    m_pCreationMenu->addMenu( m_pRandomMenu );
+    m_pCreationMenu->addAction( m_pTrickAction );
+
+    m_pGameMasterMenu = menuBar()->addMenu( "Mistrz Gry" );
+    m_pGameMasterMenu->addAction( m_pExperienceAction );
 }
