@@ -41,8 +41,10 @@ int SkillSpinBox::minimum() const
 
 void SkillSpinBox::setValue(const int &value)
 {
-    if ( value >= m_minValue )
+    if ( value >= m_minValue ) {
         m_pValue->setText( QString::number(value) );
+        emit valueChanged();
+    }
 }
 
 int SkillSpinBox::value() const
@@ -60,7 +62,7 @@ void SkillSpinBox::onAvailableSkillPointsChanged(const int value)
 void SkillSpinBox::skillUp()
 {
     int value = m_pValue->text().toInt();
-    m_pValue->setText( QString::number(++value) );
+    setValue( ++value );
     emit skillValueChanged( m_pValue->text().toInt(), true );
 }
 
@@ -68,7 +70,7 @@ void SkillSpinBox::skillDown()
 {
     int value = m_pValue->text().toInt();
     if ( value > m_minValue ) {
-        m_pValue->setText( QString::number(--value) );
+        setValue( --value );
         emit skillValueChanged( m_pValue->text().toInt(), false );
     }
 }
