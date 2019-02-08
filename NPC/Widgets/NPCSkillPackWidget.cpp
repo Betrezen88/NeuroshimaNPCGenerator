@@ -53,7 +53,7 @@ void NPCSkillPackWidget::addSkill(const QString &name, SkillSpinBox *skillBox)
     m_pSkillLayout->addWidget( skillBox, row, 1 );
     m_skills.push_back( QPair<const QLabel *, SkillSpinBox *>{ pLabel, skillBox } );
 
-    connect( skillBox, &SkillSpinBox::skillValueChanged,
+    connect( skillBox, &SkillSpinBox::valueChanged,
              this, &NPCSkillPackWidget::enableBougthCheckbox );
 }
 
@@ -106,8 +106,10 @@ void NPCSkillPackWidget::paintEvent(QPaintEvent *)
 
 void NPCSkillPackWidget::onAvailableSkillPointsChanged(const int value)
 {
-    const int disable = (5 > value) && !m_pBougth->isChecked();
-    m_pBougth->setDisabled( disable );
+    if ( m_pBougth->isEnabled() ) {
+        const int disable = (5 > value) && !m_pBougth->isChecked();
+        m_pBougth->setDisabled( disable );
+    }
 }
 
 void NPCSkillPackWidget::onBougth(const bool &checked)
