@@ -9,10 +9,11 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
     : QWidget(parent),
       m_pPortrait(new QLabel(this)),
       m_pName(new QLineEdit(this)),
-      m_pOrigin(new QComboBox(this)),
+      m_pOrigin(new QLineEdit(this)),
       m_pProfession(new QComboBox(this)),
       m_pSpecialization(new QComboBox(this)),
       m_pSickness(new QLineEdit(this)),
+      m_pOriginFeature(new QLineEdit(this)),
       m_pFeature1(new QComboBox(this)),
       m_pFeature2(new QComboBox(this)),
       m_pReputation(new QSpinBox(this)),
@@ -22,16 +23,15 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
 {
     setAttributes( DataLoader::loadJson(":/data/json/Attributes.json") );
     setSpecializations( DataLoader::loadJson(":/data/json/Specializations.json") );
-    setOrigins( DataLoader::loadJson(":/data/json/Origins.json") );
     setProfessions( DataLoader::loadJson(":/data/json/Professions.json") );
     m_attributesMods = DataLoader::loadJson( ":/data/json/DifficultyLevel.json" );
+    m_pOrigin->setReadOnly( true );
     m_pSickness->setReadOnly( true );
+    m_pOriginFeature->setReadOnly( true );
     m_pAttributesModsInfo = new NPCAttributesModsInfoWidget( m_attributesMods, this );
 
     connect( m_pName, &QLineEdit::textChanged,
              this, &NPCCardObverse::heroNameChanged );
-    connect( m_pOrigin, &QComboBox::currentTextChanged,
-             this, &NPCCardObverse::onOriginChange );
     connect( m_pProfession,  &QComboBox::currentTextChanged,
              this, &NPCCardObverse::onProfessionChanged );
     connect( m_pFeature1, &QComboBox::currentTextChanged, [this](){
@@ -171,20 +171,16 @@ QWidget *NPCCardObverse::createPersonalSection()
     pSpecializationL->addWidget( new QLabel("Specjalizacja", pWidget) );
     pSpecializationL->addWidget( m_pSpecialization );
 
-//    m_pRandomSicknessBtn = new QPushButton( "Losuj", pWidget );
-//    m_pSickness->setReadOnly( true );
-
     QHBoxLayout *pSicknessHL = new QHBoxLayout;
     pSicknessHL->addWidget( new QLabel("Choroba", pWidget) );
-//    pSicknessHL->addWidget( m_pRandomSicknessBtn );
 
     QVBoxLayout *pSicknessL = new QVBoxLayout;
     pSicknessL->addLayout( pSicknessHL );
     pSicknessL->addWidget( m_pSickness );
 
-    QVBoxLayout *pFeature1L = new QVBoxLayout;
-    pFeature1L->addWidget( new QLabel("Cecha z pochodzenia", pWidget) );
-    pFeature1L->addWidget( m_pFeature1 );
+    QVBoxLayout *pOriginFeatureL = new QVBoxLayout;
+    pOriginFeatureL->addWidget( new QLabel("Cecha z pochodzenia", pWidget) );
+    pOriginFeatureL->addWidget( m_pOriginFeature );
 
     QVBoxLayout *pFeatrue2L = new QVBoxLayout;
     pFeatrue2L->addWidget( new QLabel("Cecha z profesji", pWidget) );
@@ -204,7 +200,7 @@ QWidget *NPCCardObverse::createPersonalSection()
     pLayout->addLayout( pProfessionL );
     pLayout->addLayout( pSpecializationL );
     pLayout->addLayout( pSicknessL );
-    pLayout->addLayout( pFeature1L );
+    pLayout->addLayout( pOriginFeatureL );
     pLayout->addLayout( pFeatrue2L );
     pLayout->addLayout( pReputationL );
     pLayout->addLayout( pFameL );
@@ -262,7 +258,7 @@ const QString NPCCardObverse::heroName() const
 
 const QString NPCCardObverse::origin() const
 {
-    return m_pOrigin->currentText();
+    return m_pOrigin->text();
 }
 
 const QString NPCCardObverse::profession() const
@@ -305,6 +301,22 @@ const QListWidget *NPCCardObverse::tricks() const
     return m_pTricks;
 }
 
+void NPCCardObverse::setOrigin(const QJsonObject &origin)
+{
+    if ( !m_origin.isEmpty() ) {
+        const QJsonObject &attribute = m_origin.value("attribute").toObject();
+        setAttributeMod( attribute.value("name").toString(), 0 );
+        undoBonus( m_origin.value("feature").toObject().value("bonus").toObject() );
+    }
+
+    m_origin = origin;
+    const QJsonObject &attribute = m_origin.value("attribute").toObject();
+
+    m_pOrigin->setText( m_origin.value("name").toString() );
+    setAttributeMod( attribute.value("name").toString(), attribute.value("value").toInt() );
+    setOriginFeature( origin.value("feature").toObject() );
+}
+
 void NPCCardObverse::setAttributes(const QJsonArray &attributes)
 {
     for ( const QJsonValue &tAttribute: attributes ) {
@@ -330,19 +342,6 @@ void NPCCardObverse::setSpecializations(const QJsonArray &specializations)
     int index = -1;
     for ( const QJsonValue &spec: specializations )
         m_pSpecialization->insertItem( ++index, spec.toString() );
-}
-
-void NPCCardObverse::setOrigins(const QJsonArray &origins)
-{
-    QStringList list;
-    for ( const QJsonValue &tOrigin: origins ) {
-        QString name = tOrigin.toObject().value("name").toString();
-        m_origins.insert( name, tOrigin.toObject() );
-        list << name;
-    }
-
-    m_pOrigin->insertItems( 0, list );
-    onOriginChange( m_pOrigin->currentText() );
 }
 
 void NPCCardObverse::setProfessions(const QJsonArray &professions)
@@ -380,6 +379,52 @@ void NPCCardObverse::setSicknessTooltip(const QJsonObject &sickness)
 
     m_pSickness->setToolTip( tooltip );
     m_pSickness->setToolTipDuration( 5 * 60 * 100 );
+}
+
+void NPCCardObverse::setAttributeMod(const QString &name, const int &value)
+{
+    m_attributes[name]->setModValue( value );
+}
+
+void NPCCardObverse::setOriginFeature(const QJsonObject &feature)
+{
+    m_pOriginFeature->setText( feature.value("name").toString() );
+    m_pOriginFeature->setToolTip( feature.value("description").toString() );
+    applyBonus( feature.value("bonus").toObject() );
+}
+
+void NPCCardObverse::applyBonus(const QJsonObject &bonus)
+{
+    const QJsonObject &object = bonus.value("object").toObject();
+    if ( "skillpack" == object.value("type").toString() ) {
+        const QString &skillpackName = object.value("name").toString();
+        for ( NPCAttributeWidget *attribute: m_attributes ) {
+            if ( attribute->skillPacks()->contains(skillpackName) ) {
+                NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(skillpackName);
+                for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
+                    skill.second->setValue( object.value("value").toInt() );
+                    skill.second->setMinimum( object.value("value").toInt() );
+                }
+            }
+        }
+    }
+}
+
+void NPCCardObverse::undoBonus(const QJsonObject &bonus)
+{
+    const QJsonObject &object = bonus.value("object").toObject();
+    if ( "skillpack" == object.value("type").toString() ) {
+        const QString &skillpackName = object.value("name").toString();
+        for ( NPCAttributeWidget *attribute: m_attributes ) {
+            if ( attribute->skillPacks()->contains(skillpackName) ) {
+                NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(skillpackName);
+                for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
+                    skill.second->setMinimum( 0 );
+                    skill.second->setValue( 0 );
+                }
+            }
+        }
+    }
 }
 
 QVBoxLayout *NPCCardObverse::column1()

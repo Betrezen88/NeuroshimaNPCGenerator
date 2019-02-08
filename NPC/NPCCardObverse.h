@@ -43,6 +43,8 @@ signals:
     void heroNameChanged(const QString &name);
 
 public slots:
+    void setOrigin(const QJsonObject &origin);
+
     void onOriginChange(const QString &name);
     void onProfessionChanged(const QString &name);
     void onFeatureChanged(QComboBox *pFeature, const QJsonArray &features);
@@ -63,9 +65,13 @@ private:
 
     void setAttributes(const QJsonArray &attributes);
     void setSpecializations(const QJsonArray &specializations);
-    void setOrigins(const QJsonArray &origins);
     void setProfessions(const QJsonArray &professions);
     void setSicknessTooltip(const QJsonObject &sickness);
+
+    void setAttributeMod(const QString &name, const int &value);
+    void setOriginFeature(const QJsonObject &feature);
+    void applyBonus(const QJsonObject &bonus);
+    void undoBonus(const QJsonObject &bonus);
 
     QVBoxLayout *column1();
     QVBoxLayout *column2();
@@ -76,10 +82,11 @@ private:
     // Personal Section Variables
     QLabel *m_pPortrait{nullptr};
     QLineEdit *m_pName{nullptr};
-    QComboBox *m_pOrigin{nullptr};
+    QLineEdit *m_pOrigin{nullptr};
     QComboBox *m_pProfession{nullptr};
     QComboBox *m_pSpecialization{nullptr};
     QLineEdit *m_pSickness{nullptr};
+    QLineEdit *m_pOriginFeature{nullptr};
     QComboBox *m_pFeature1{nullptr};
     QComboBox *m_pFeature2{nullptr};
     QSpinBox *m_pReputation{nullptr};
@@ -98,6 +105,8 @@ private:
     QJsonArray m_professionFeatures;
     QJsonArray m_attributesMods;
     QJsonObject m_sickness;
+
+    QJsonObject m_origin;
 
     // Data
     const QVector<QPair<QString, int>> m_mods{
