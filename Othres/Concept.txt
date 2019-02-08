@@ -6,6 +6,17 @@
 
 - Dodać specjalną logikę dla cechy Wszechstronność
 
+- Przenieść wydawanie skill pointów do osobnego okna
+    Karta postaci będzie jedynie reprezentacją liczbową.
+
+- Przerobić specjalizację:
+    * stworzyć osobne okno do wyboru wraz z opisem
+    * dodać do okna ze skill pointami
+
+- Stworzyć nowe okno do wyboru profesji, wraz z opisem profesji i cech
+
+- Dodać opis pochodzenia do Origins.json
+
 - cechy z pochodzenia i profesji oferują bonusy, utworzyć info o bonusie aby łatwiej
     było cofać i aktualizować zmiany, w jsonie zrobić
     "Bonus": {
