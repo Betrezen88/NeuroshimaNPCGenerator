@@ -46,7 +46,8 @@ SOURCES += \
     NPC/NPCCardTab.cpp \
     NPC/Utils/CardConverter.cpp \
     NPC/Dialogs/NPCOriginManagerDialog.cpp \
-    NPC/Dialogs/NPCCreatorDialog.cpp
+    NPC/Dialogs/NPCCreatorDialog.cpp \
+    NPC/Widgets/NPCAttributeManagerWidget.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -70,7 +71,8 @@ HEADERS += \
     NPC/NPCCardTab.h \
     NPC/Utils/CardConverter.h \
     NPC/Dialogs/NPCOriginManagerDialog.h \
-    NPC/Dialogs/NPCCreatorDialog.h
+    NPC/Dialogs/NPCCreatorDialog.h \
+    NPC/Widgets/NPCAttributeManagerWidget.h
 
 RESOURCES += \
     Resources/resources.qrc

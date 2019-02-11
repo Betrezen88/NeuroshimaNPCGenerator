@@ -1,4 +1,5 @@
 #include "NPCCreatorDialog.h"
+#include "../Utils/DataLoader.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -7,10 +8,13 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
     : QDialog (parent),
       m_pTabWidget(new QTabWidget(this)),
       m_pAccept(new QPushButton("Akceptuj", this)),
-      m_pClose(new QPushButton("Anuluj", this))
+      m_pClose(new QPushButton("Anuluj", this)),
+      m_pAttributeManager(new NPCAttributeManagerWidget(this))
 {
     setAttribute( Qt::WA_DeleteOnClose );
-    m_pTabWidget->addTab( new QWidget(), "Atrybuty" );
+    setMinimumSize( 500, 500 );
+
+    m_pTabWidget->addTab( m_pAttributeManager, "Atrybuty" );
     m_pTabWidget->addTab( new QWidget(), "Specjalizacja" );
     m_pTabWidget->addTab( new QWidget(), "Pochodzenie" );
     m_pTabWidget->addTab( new QWidget(), "Profesja" );

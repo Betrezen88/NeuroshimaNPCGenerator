@@ -5,6 +5,8 @@
 #include <QPushButton>
 #include <QTabWidget>
 
+#include "../Widgets/NPCAttributeManagerWidget.h"
+
 class NPCCreatorDialog : public QDialog
 {
 public:
@@ -14,6 +16,8 @@ private:
     QTabWidget *m_pTabWidget{nullptr};
     QPushButton *m_pAccept{nullptr};
     QPushButton *m_pClose{nullptr};
+
+    NPCAttributeManagerWidget *m_pAttributeManager{nullptr};
 };
 
 #endif // NPCCREATORDIALOG_H
