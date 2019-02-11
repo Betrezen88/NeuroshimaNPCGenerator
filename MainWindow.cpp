@@ -3,6 +3,7 @@
 #include "NPC/Utils/DataLoader.h"
 #include "NPC/Dialogs/NPCSkicnessDialog.h"
 #include "NPC/Dialogs/NPCOriginManagerDialog.h"
+#include "NPC/Dialogs/NPCCreatorDialog.h"
 
 #include <QMenuBar>
 #include <QScrollArea>
@@ -108,16 +109,20 @@ void MainWindow::showFeatureDialog()
 
 void MainWindow::createNewCard()
 {
-    NPCCardTab *pCard = new NPCCardTab( this );
-    m_cards.push_back( pCard );
+    NPCCreatorDialog *pDialog = new NPCCreatorDialog(this);
 
-    connect( pCard->obverse(), &NPCCardObverse::heroNameChanged,
-             this, &MainWindow::updateTabText );
+    pDialog->show();
 
-    QScrollArea *pScrollArea = new QScrollArea();
-    pScrollArea->setWidget( pCard );
+//    NPCCardTab *pCard = new NPCCardTab( this );
+//    m_cards.push_back( pCard );
 
-    m_pTabWidget->addTab( pScrollArea, "Nowa Postać" );
+//    connect( pCard->obverse(), &NPCCardObverse::heroNameChanged,
+//             this, &MainWindow::updateTabText );
+
+//    QScrollArea *pScrollArea = new QScrollArea();
+//    pScrollArea->setWidget( pCard );
+
+//    m_pTabWidget->addTab( pScrollArea, "Nowa Postać" );
 }
 
 void MainWindow::updateTabText(const QString &text)
