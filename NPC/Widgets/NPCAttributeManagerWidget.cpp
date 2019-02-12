@@ -2,23 +2,73 @@
 
 #include <QGridLayout>
 #include <QLabel>
+#include <QRadioButton>
+#include <QtMath>
+
+#include <QDebug>
 
 NPCAttributeManagerWidget::NPCAttributeManagerWidget(QWidget *parent)
     : QWidget(parent),
       m_pRollCount(new QSpinBox(this)),
       m_pDistributeType(new QComboBox(this)),
       m_pExtraDice(new QCheckBox(this)),
-      m_pThrowBtn(new QPushButton("Losuj", this))
+      m_pThrowBtn(new QPushButton("Losuj", this)),
+      m_pResultBox(new QGroupBox("Wyniki", this))
 {
     m_pRollCount->setRange( 1, 5 );
     m_pDistributeType->insertItems( 0, m_distributionTypes );
 
-    QGridLayout *pLayout = new QGridLayout;
-    pLayout->addWidget( optionsBox(), 0, 0, 1, 2 );
-    pLayout->addWidget( attributesBox(), 1, 0 );
-    pLayout->addWidget( resulsBox(), 1, 1 );
+    connect( m_pThrowBtn, &QPushButton::clicked,
+             this, &NPCAttributeManagerWidget::throwBtnClicked );
 
-    setLayout( pLayout );
+    m_pMainLayout = new QGridLayout;
+    m_pMainLayout->addWidget( optionsBox(), 0, 0, 1, 2 );
+    m_pMainLayout->addWidget( attributesBox(), 1, 0 );
+    m_pMainLayout->addWidget( m_pResultBox, 1, 1 );
+
+    setLayout( m_pMainLayout );
+}
+
+QWidget * NPCAttributeManagerWidget::createResultRowWidget()
+{
+    QWidget *pWidget = new QWidget;
+
+    QHBoxLayout *pResultL = new QHBoxLayout;
+    for ( int j{0}; j<5; ++j ) {
+        DragDropAreaWidget *pDrag = new DragDropAreaWidget();
+        int tRoll = roll();
+        pDrag->addLabel( QString::number((tRoll>=8)?tRoll:8));
+        pResultL->addWidget( pDrag );
+    }
+    pWidget->setLayout( pResultL );
+
+    return pWidget;
+}
+
+void NPCAttributeManagerWidget::throwBtnClicked()
+{
+    if ( nullptr != m_pResultBox )
+        delete m_pResultBox;
+
+    m_pResultBox = new QGroupBox( "Wyniki", this );
+    QVBoxLayout *pLayout = new QVBoxLayout;
+    for ( int i{0}; i<m_pRollCount->value(); ++i ) {
+        QHBoxLayout *pRowLayout = new QHBoxLayout;
+        QRadioButton *pRadioBtn = new QRadioButton(m_pResultBox);
+        QWidget *pWidget = createResultRowWidget();
+
+        connect( pRadioBtn, &QRadioButton::toggled,
+                 pWidget, &QWidget::setEnabled );
+
+        pRadioBtn->toggled( i == 0 );
+        pRadioBtn->setChecked( i == 0 );
+
+        pRowLayout->addWidget( pRadioBtn );
+        pRowLayout->addWidget( pWidget );
+        pLayout->addLayout( pRowLayout );
+    }
+    m_pResultBox->setLayout( pLayout );
+    m_pMainLayout->addWidget( m_pResultBox, 1, 1 );
 }
 
 QGroupBox *NPCAttributeManagerWidget::optionsBox()
@@ -59,9 +109,11 @@ QGroupBox *NPCAttributeManagerWidget::attributesBox()
     return pAttributeBox;
 }
 
-QGroupBox *NPCAttributeManagerWidget::resulsBox()
+int NPCAttributeManagerWidget::roll()
 {
-    QGroupBox *pResultBox = new QGroupBox( "Wyniki", this );
-
-    return pResultBox;
+    qreal result{0};
+    for ( int i{0}; i<3; ++i ) {
+        result += d20.throwValue();
+    }
+    return qCeil(result/3);
 }
