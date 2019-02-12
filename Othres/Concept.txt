@@ -9,11 +9,13 @@
 - Przenieść wydawanie skill pointów do osobnego okna
     Karta postaci będzie jedynie reprezentacją liczbową.
 
-- Przerobić specjalizację:
-    * stworzyć osobne okno do wyboru wraz z opisem
-    * dodać do okna ze skill pointami
+- Stworzyć widget wyboru specjalizacji z opisem
 
-- Stworzyć nowe okno do wyboru profesji, wraz z opisem profesji i cech
+- Stworzyć widget wyboru profesji wraz z cechami i bonusami
+
+- Stworzyć widget losowania choroby
+
+- Stworzyć widget do rozdzielania punktów umiejętności
 
 - Dodać opis pochodzenia do Origins.json
 
