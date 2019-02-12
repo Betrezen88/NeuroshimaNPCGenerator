@@ -6,6 +6,9 @@
 #include <QTabWidget>
 
 #include "../Widgets/NPCAttributeManagerWidget.h"
+#include "../Widgets/NPCSpecializationManagerWidget.h"
+
+#include "../NPCCardTab.h"
 
 class NPCCreatorDialog : public QDialog
 {
@@ -18,6 +21,8 @@ private:
     QPushButton *m_pClose{nullptr};
 
     NPCAttributeManagerWidget *m_pAttributeManager{nullptr};
+    NPCSpecializationManagerWidget *m_pSpecializationManager{nullptr};
+    NPCCardTab *m_pCard{nullptr};
 };
 
 #endif // NPCCREATORDIALOG_H
