@@ -8,6 +8,7 @@
 #include <QGroupBox>
 #include <QLabel>
 #include <QJsonArray>
+#include <QJsonObject>
 
 class NPCOriginManagerWidget : public QWidget
 {
@@ -23,6 +24,7 @@ private slots:
     void setOrigin(const QString &originName);
     void setFeature(const QJsonObject &feature);
     void setBonus(const QJsonObject &bonus);
+    void setBonusExtra(const QString &extra);
 
 private:
     QGroupBox *originDescriptionBox();
@@ -45,6 +47,7 @@ private:
     QJsonArray m_origins;
     QJsonArray m_features;
     QJsonArray m_attributes;
+    QJsonObject m_bonus;
 };
 
 #endif // NPCORIGINMANAGERWIDGET_H

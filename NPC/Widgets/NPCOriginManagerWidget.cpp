@@ -1,7 +1,6 @@
 #include "NPCOriginManagerWidget.h"
 #include "../Utils/DataLoader.h"
 
-#include <QJsonObject>
 #include <QJsonValue>
 #include <QRadioButton>
 
@@ -68,16 +67,29 @@ void NPCOriginManagerWidget::setBonus(const QJsonObject &bonus)
     pBonusDescription->setWordWrap( true );
     QVBoxLayout *pLayout = new QVBoxLayout;
     pLayout->addWidget( pBonusDescription );
-    if ( bonus.contains("select") ) {
+
+    m_bonus = QJsonObject();
+    m_bonus.insert( "text", bonus.value("text").toString() );
+    if ( bonus.contains("object") ) {
         const QJsonObject &object = bonus.value("object").toObject();
-        m_pSelect = new QComboBox(m_pBonusBox);
-        m_pSelect->insertItems( 0, selectData(object.value("type").toString(),
-                                              bonus.value("select").toArray()) );
-        pLayout->addWidget( m_pSelect );
+        m_bonus.insert( "value", object.value("value").toInt() );
+        if ( bonus.contains("select") ) {
+            m_pSelect = new QComboBox(m_pBonusBox);
+            connect( m_pSelect, &QComboBox::currentTextChanged,
+                     this, &NPCOriginManagerWidget::setBonusExtra );
+            m_pSelect->insertItems( 0, selectData(object.value("type").toString(),
+                                                  bonus.value("select").toArray()) );
+            pLayout->addWidget( m_pSelect );
+        }
     }
 
     m_pBonusBox->setLayout( pLayout );
     m_pLayout->addWidget( m_pBonusBox, 3, 1 );
+}
+
+void NPCOriginManagerWidget::setBonusExtra(const QString &extra)
+{
+    m_bonus.insert( "name", extra );
 }
 
 QGroupBox *NPCOriginManagerWidget::originDescriptionBox()
