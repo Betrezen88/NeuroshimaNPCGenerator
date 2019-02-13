@@ -48,7 +48,8 @@ SOURCES += \
     NPC/Dialogs/NPCOriginManagerDialog.cpp \
     NPC/Dialogs/NPCCreatorDialog.cpp \
     NPC/Widgets/NPCAttributeManagerWidget.cpp \
-    NPC/Widgets/NPCSpecializationManagerWidget.cpp
+    NPC/Widgets/NPCSpecializationManagerWidget.cpp \
+    NPC/Widgets/NPCOriginManagerWidget.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -74,7 +75,8 @@ HEADERS += \
     NPC/Dialogs/NPCOriginManagerDialog.h \
     NPC/Dialogs/NPCCreatorDialog.h \
     NPC/Widgets/NPCAttributeManagerWidget.h \
-    NPC/Widgets/NPCSpecializationManagerWidget.h
+    NPC/Widgets/NPCSpecializationManagerWidget.h \
+    NPC/Widgets/NPCOriginManagerWidget.h
 
 RESOURCES += \
     Resources/resources.qrc
