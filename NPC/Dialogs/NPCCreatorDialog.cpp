@@ -10,14 +10,15 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
       m_pAccept(new QPushButton("Akceptuj", this)),
       m_pClose(new QPushButton("Anuluj", this)),
       m_pAttributeManager(new NPCAttributeManagerWidget(this)),
-      m_pSpecializationManager(new NPCSpecializationManagerWidget(this))
+      m_pSpecializationManager(new NPCSpecializationManagerWidget(this)),
+      m_pOriginManager(new NPCOriginManagerWidget(this))
 {
     setAttribute( Qt::WA_DeleteOnClose );
     setMinimumSize( 500, 500 );
 
     m_pTabWidget->addTab( m_pAttributeManager, "Atrybuty" );
     m_pTabWidget->addTab( m_pSpecializationManager, "Specjalizacja" );
-    m_pTabWidget->addTab( new QWidget(), "Pochodzenie" );
+    m_pTabWidget->addTab( m_pOriginManager, "Pochodzenie" );
     m_pTabWidget->addTab( new QWidget(), "Profesja" );
     m_pTabWidget->addTab( new QWidget(), "Choroba" );
     m_pTabWidget->addTab( new QWidget(), "Umiejętności" );

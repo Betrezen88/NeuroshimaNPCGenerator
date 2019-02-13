@@ -7,6 +7,7 @@
 
 #include "../Widgets/NPCAttributeManagerWidget.h"
 #include "../Widgets/NPCSpecializationManagerWidget.h"
+#include "../Widgets/NPCOriginManagerWidget.h"
 
 #include "../NPCCardTab.h"
 
@@ -22,6 +23,7 @@ private:
 
     NPCAttributeManagerWidget *m_pAttributeManager{nullptr};
     NPCSpecializationManagerWidget *m_pSpecializationManager{nullptr};
+    NPCOriginManagerWidget *m_pOriginManager{nullptr};
     NPCCardTab *m_pCard{nullptr};
 };
 
