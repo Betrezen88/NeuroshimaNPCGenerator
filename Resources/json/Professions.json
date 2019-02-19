@@ -4,13 +4,17 @@
         "features": [
             {
                 "name": "Smakuje jak arszenik",
-                "description": "Lata babrania się w toksycznych świństwach\nzrobiły swoje. Łykasz uran jak czekoladki, popijasz\nnaftą. Nie zatrudnią cię w kopalni jako detektor gazu,\nbo jesteś odporny. Trzymujesz modyfikator -30%\nw testach Kondycji na skażenie i radiację.",
-                "bonus": {}
+                "description": "Lata babrania się w toksycznych świństwach zrobiły swoje. Łykasz uran jak czekoladki, popijasz naftą. Nie zatrudnią cię w kopalni jako detektor gazu, bo jesteś odporny. Otrzymujesz modyfikator -30% w testach Kondycji na skażenie i radiację.",
+                "bonus": {
+                    "text": "Otrzymujesz modyfikator -30% w testach Kondycji na skażenie i radiację."
+                }
             },
             {
                 "name": "Farmaceuta",
-                "description": "Jesteś Mesjaszem Nowej Ery. Potrafisz produkować\nśrodki błyskawicznego leczenia. Painkillery,\nMedpacki i DeadLine. PT testów Chemii są odpowiednio:\nPainkiller - Trudny;\nMedpack - B.Trudny:\nDeadLine - Ch.Trudny.\nMusisz dysponować labolatorium i skłanikami.\nProdukcja jednej działki zajmuje ci około 4h.",
-                "bonus": {}
+                "description": "Jesteś Mesjaszem Nowej Ery. Potrafisz produkować środki błyskawicznego leczenia. Painkillery, Medpacki i DeadLine. PT testów Chemii są odpowiednio: Painkiller - Trudny; Medpack - B.Trudny: DeadLine - Ch.Trudny. Musisz dysponować labolatorium i skłanikami. Produkcja jednej działki zajmuje ci około 4h.",
+                "bonus": {
+                    "text": "Potrafisz produkować środki błyskawicznego leczenia. Painkillery, Medpacki i DeadLine. PT testów Chemii są odpowiednio: Painkiller - Trudny; Medpack - B.Trudny: DeadLine - Ch.Trudny. Musisz dysponować labolatorium i skłanikami. Produkcja jednej działki zajmuje ci około 4h."
+                }
             }
         ]
     },
@@ -19,13 +23,21 @@
         "features": [
             {
                 "name": "Jeden z nich",
-                "description": "Posiadasz widoczny symbol przynależności do\nsiejącego grozę gangu. Nikt, kto nie ma jaj ze stali, Ci nie\npodskoczy. Byle kto nie będzie Ci pyskować, ani się\nz Tobą sprzeczać, nie odważą się spojrzeć Ci w oczy,\nbędą także bali tak po prostu Cię olać. Ale. Ale ci\nz jajami ze stali mogą przerobić cię na pasztet - za\nto tylko, że jesteś \"jednym z nich\".\n Dodatkowo 100 gambli na Znajomości w Gangach.",
-                "bonus": {}
+                "description": "Posiadasz widoczny symbol przynależności do siejącego grozę gangu. Nikt, kto nie ma jaj ze stali, Ci nie podskoczy. Byle kto nie będzie Ci pyskować, ani się z Tobą sprzeczać, nie odważą się spojrzeć Ci w oczy, będą także bali tak po prostu Cię olać. Ale. Ale ci z jajami ze stali mogą przerobić cię na pasztet - za to tylko, że jesteś \"jednym z nich\". Dodatkowo 100 gambli na Znajomości w Gangach.",
+                "bonus": {
+                    "text": "Dodatkowo 100 gambli na Znajomości w Gangach.",
+                    "object": {
+                        "type": "connections",
+                        "value": 100
+                    }
+                }
             },
             {
                 "name": "Odważny czy głupi?",
-                "description": "Nikt nie jest w stanie Cię zastraszyć, przynajmniej\ndo czasu aż Cię poważnie nie zrani. Po prostu nie\njesteś w stanie uwierzyć, że ktokolwiek\nodważyłby sie Ci podskoczyć.\n\tMasz jeden automatyczny sukces we\nwszystkich testach Zastraszania i Morale.",
-                "bonus": {}
+                "description": "Nikt nie jest w stanie Cię zastraszyć, przynajmniej do czasu aż Cię poważnie nie zrani. Po prostu nie jesteś w stanie uwierzyć, że ktokolwiek odważyłby sie Ci podskoczyć. Masz jeden automatyczny sukces we wszystkich testach Zastraszania i Morale.",
+                "bonus": {
+                    "text": "Masz jeden automatyczny sukces we wszystkich testach Zastraszania i Morale."
+                }
             }
         ]
     },
@@ -34,13 +46,17 @@
         "features": [
             {
                 "name": "Nie do zdarcia",
-                "description": "Ten fragment o pompowaniu posoki, to nie była poezja,\nmam rację? To cholerna prawda. Ciężko Cię\nwyłączyć z gry. Mówię wyłączyć z gry, bo tym, żeby\npo prostu Cię zabić nawet nie myślę. Reguła\ndotycząca zwiększania poziomu zadanych obrażeń(1 lub\n2 na kościach podczas ataku, trafienia w głowę itd.)\n nie dotyczy Cię w walce wręcz. Choćby Twój przecinik\nrzucił i trzy jedynki, to wcale nie oznacza, że\nprzebił ci serce.",
-                "bonus": {}
+                "description": "Ten fragment o pompowaniu posoki, to nie była poezja, mam rację? To cholerna prawda. Ciężko Cię wyłączyć z gry. Mówię wyłączyć z gry, bo tym, żeby po prostu Cię zabić nawet nie myślę. Reguła dotycząca zwiększania poziomu zadanych obrażeń(1 lub 2 na kościach podczas ataku, trafienia w głowę itd.) nie dotyczy Cię w walce wręcz. Choćby Twój przecinik rzucił i trzy jedynki, to wcale nie oznacza, że przebił ci serce.",
+                "bonus": {
+                    "text": "Reguły zwiększające obrażenia przez wyrzucenie 1 lub 2 na kości, nie działają na Ciebie w walce wręcz."
+                }
             },
             {
                 "name": "Łyżeczka",
-                "description": "Co gorsza z tą łyżeczką też nie przesadziłem, wiem\no tym doskonale. Gladiator to taki facet, który walczy\ntym, co wpadnie mu w łapska. Sieć, hydrant,\nrurka gazowa, siekiera strażacka. Cokolwiek\nweźmiesz w łapaka - Mistrz Gry musi traktować tak,\njakbyś miał Umiejętność walkitym czymś na\npowiomie minim 4. Nawet, jeśli to ta\nzasrana łyżeczka...\n\tTo gwarantowane minimum nie sumuje się z Umiejętnością.\n\tCecha nie dotyczy oczywiście broni palnej!",
-                "bonus": {}
+                "description": "Co gorsza z tą łyżeczką też nie przesadziłem, wiem o tym doskonale. Gladiator to taki facet, który walczy tym, co wpadnie mu w łapska. Sieć, hydrant, rurka gazowa, siekiera strażacka. Cokolwiek weźmiesz w łapaka - Mistrz Gry musi traktować tak, jakbyś miał Umiejętność walkitym czymś na poziomie minimum 4. Nawet, jeśli to ta zasrana łyżeczka... To gwarantowane minimum nie sumuje się z Umiejętnością. Cecha nie dotyczy oczywiście broni palnej!",
+                "bonus": {
+                    "text": "Gdy walczysz wręcz dowolnym przedmiotem, traktujesz jakbyś Umiejętność walki nim posiadał na poziomie 4."
+                }
             }
         ]
     },
@@ -49,13 +65,21 @@
         "features": [
             {
                 "name": "Trakt handlowy",
-                "description": "Nie jesteś jakimś tam stacjonarnym straganiarzem\nsprzedającym ogórki, bliżej Ci do twardziela pokroju\nwędrownego sprzedawcy bojlerów. Zdeptałeś kawał\nświata i poznałeś niejedno miejsce, więc wielu ludzi\nCię rozpoznaje, a na niektórych możesz nawet liczyć.\n Zaczynasz z dodatkowymi 150 gamblami na Znajomych (nie Wojowników).",
-                "bonus": {}
+                "description": "Nie jesteś jakimś tam stacjonarnym straganiarzem sprzedającym ogórki, bliżej Ci do twardziela pokroju wędrownego sprzedawcy bojlerów. Zdeptałeś kawał świata i poznałeś niejedno miejsce, więc wielu ludzi Cię rozpoznaje, a na niektórych możesz nawet liczyć. Zaczynasz z dodatkowymi 150 gamblami na Znajomych (nie Wojowników).",
+                "bonus": {
+                    "text": "Zaczynasz z dodatkowymi 150 gamblami na Znajomych (nie Wojowników).",
+                    "object": {
+                        "type": "connections",
+                        "value": 150
+                    }
+                }
             },
             {
                 "name": "Szklarz",
-                "description": "Szklarz to taki facet, co bawi się kitem. Głównie\nwciskaniem kitu. Stąd przydomek szklarz\nbo świetnie wciskasz kit. Handlując kidy próbujesz\nwcisnąć komuś jakiś kit(testy Perswazji i Blefu)\nTwój Spryt wzrasta o 2.",
-                "bonus": {}
+                "description": "Szklarz to taki facet, co bawi się kitem. Głównie wciskaniem kitu. Stąd przydomek szklarz bo świetnie wciskasz kit. Handlując kiedy próbujesz wcisnąć komuś jakiś kit(testy Perswazji i Blefu) Twój Spryt wzrasta o 2.",
+                "bonus": {
+                    "text": "Handlując kiedy próbujesz wcisnąć komuś jakiś kit(testy Perswazji i Blefu) Twój Spryt wzrasta o 2."
+                }
             }
         ]
     },
@@ -64,13 +88,17 @@
         "features": [
             {
                 "name": "Spójrz mi w oczy",
-                "description": "Kaznodzieja potrafi wyczuć kłamstwo na kilometr. To tajemnica jego władzy nad ludźmi. Zabobonni wierzą\nnawet, że potrafi czytać w myślach.\n\tW trakcie dłuższej rozmowy, Kaznodzieja\ni rozmówca wykonują Trudne testy Charakteru. Jeśli\nKaznodzieja zda test, jego rozmówca nie, lub gdy\nKaznodzieja uzyska przewagę w teście Przeciwstawnym,\nwtedy klecha odkryje kłamstwo.",
-                "bonus": {}
+                "description": "Kaznodzieja potrafi wyczuć kłamstwo na kilometr. To tajemnica jego władzy nad ludźmi. Zabobonni wierzą nawet, że potrafi czytać w myślach. W trakcie dłuższej rozmowy, Kaznodzieja i rozmówca wykonują Trudne testy Charakteru. Jeśli Kaznodzieja zda test, jego rozmówca nie, lub gdy Kaznodzieja uzyska przewagę w teście Przeciwstawnym, wtedy klecha odkryje kłamstwo.",
+                "bonus": {
+                    "text": "W trakcie dłuższej rozmowy, Kaznodzieja i rozmówca wykonują Trudne testy Charakteru. Jeśli Kaznodzieja zda test, jego rozmówca nie, lub gdy Kaznodzieja uzyska przewagę w teście Przeciwstawnym, wtedy klecha odkryje kłamstwo."
+                }
             },
             {
                 "name": "Amen",
-                "description": "Jeśli podczas testu na jednej z kości wypadnie\njedynka, liczy się ona jako dwa sukcesy(a w\nwalce zamienia inną kość na sukces\nz wynikiem 1). Jedynka to znak od tego z góry, że\njesteś na dobrej drodze. Wypatruj znaków. Możesz\ntego użyć maksymalnie 3 razy na sesję. A decydujesz już po rzucie.",
-                "bonus": {}
+                "description": "Jeśli podczas testu na jednej z kości wypadnie jedynka, liczy się ona jako dwa sukcesy (a w walce zamienia inną kość na sukces z wynikiem 1). Jedynka to znak od tego z góry, że jesteś na dobrej drodze. Wypatruj znaków. Możesz tego użyć maksymalnie 3 razy na sesję. A decydujesz już po rzucie.",
+                "bonus": {
+                    "text": "Trzy razy na sesje, jeśli podczas testu na jednej kości wypadnie jedynka, liczy się ona jako dwa sukcesy (a w walce zamienia inną kość na sukces z wynikiem 1). Decydujesz po rzucie."
+                }
             }
         ]
     },
@@ -79,13 +107,17 @@
         "features": [
             {
                 "name": "Rewolwerowiec",
-                "description": "Wyciągasz pistoler z kabury w mgnieniu oka.\n\tJeśli używasz krótkiej broni palnej, pistolet w\nkaburze traktuje się tak, jakbyś miał go już\ndobytego w dłoni.",
-                "bonus": {}
+                "description": "Wyciągasz pistolet z kabury w mgnieniu oka. Jeśli używasz krótkiej broni palnej, pistolet w kaburze traktuje się tak, jakbyś miał go już dobytego w dłoni.",
+                "bonus": {
+                    "text": "Gdy posiadasz broń krótką przypiętą w kaburze, to traktuje się ją jako dobytą."
+                }
             },
             {
                 "name": "Ostatnia kula",
-                "description": "Jeśli w Twoim rewolwerze została jeszcze tylko\njedna kula, strzał ten będzie dla Ciebie łatwiejszy 0 1\nPoziom Trudności testu.",
-                "bonus": {}
+                "description": "Jeśli w Twoim rewolwerze została jeszcze tylko jedna kula, strzał ten będzie dla Ciebie łatwiejszy o 1 Poziom Trudności testu.",
+                "bonus": {
+                    "text": "Przy ostatnim pocisku w magazynku broni krótkiej, strzał jest o 1 poziom trudności łatwiejszy."
+                }
             }
         ]
     },
@@ -94,13 +126,21 @@
         "features": [
             {
                 "name": "Znajomości",
-                "description": "Szybka bryka, czy worek granatów, nie zawsze\npomogą przejść przez terytorium zajmowane przez pięć\różnych gangów, w końcu kiedyć podwinie Ci się noga\ni staniesz z zepsutą chłodnicą w samym centrum\nziemi Brain Dogs. Wtedy przyda się znać szefa, nie\nsądzisz? Zaczynasz z dodatkowymi 150 gamblami,\n które możesz przeznaczyć na Znajomych (nie\nWojowników).",
-                "bonus": {}
+                "description": "Szybka bryka, czy worek granatów, nie zawsze pomogą przejść przez terytorium zajmowane przez pięć\różnych gangów, w końcu kiedyć podwinie Ci się noga i staniesz z zepsutą chłodnicą w samym centrum ziemi Brain Dogs. Wtedy przyda się znać szefa, nie sądzisz? Zaczynasz z dodatkowymi 150 gamblami, które możesz przeznaczyć na Znajomych (nie Wojowników).",
+                "bonus": {
+                    "text": "Zaczynasz z dodatkowymi 150 gamblami, które możesz przeznaczyć na Znajomych (nie Wojowników).",
+                    "object": {
+                        "type": "connections",
+                        "value": 150
+                    }
+                }
             },
             {
                 "name": "Skrytka",
-                "description": "Otwierasz drzwi, rzucasz okiem na wnętrze bryki,\nchwilę gmerasz i już masz swój tajny schowek.\nNawet sam właściciel tego samochodu go nie znajdzie.\nW każdym pojeździe rozmiarów minimum samochodu, Kurier w kilka minut potrafi znaleźć lub\nspreparować skrutkę, którą bardzo trudno odkryć podczas\nprzeszukiwania: rozmiarów pudełka papierosów\n(test Wypatrywania na Fart), dwa razy większe\n(Cholercnie trudny test Wypatrywania), na\npistolet (Bardzo trudny test Wypatrywania),\nmałą walizkę (Trudny test Wypatrywania).)",
-                "bonus": {}
+                "description": "Otwierasz drzwi, rzucasz okiem na wnętrze bryki, chwilę gmerasz i już masz swój tajny schowek. Nawet sam właściciel tego samochodu go nie znajdzie. W każdym pojeździe rozmiarów minimum samochodu, Kurier w kilka minut potrafi znaleźć lub spreparować skrytkę, którą bardzo trudno odkryć podczas przeszukiwania: rozmiarów pudełka papierosów (test Wypatrywania na Fart), dwa razy większe (Cholercnie trudny test Wypatrywania), na pistolet (Bardzo trudny test Wypatrywania), małą walizkę (Trudny test Wypatrywania).)",
+                "bonus": {
+                    "text": "W każdym pojeździe rozmiarów minimum samochodu, Kurier w kilka minut potrafi znaleźć lub spreparować skrytkę, którą bardzo trudno odkryć podczas przeszukiwania: rozmiarów pudełka papierosów (test Wypatrywania na Fart), dwa razy większe (Cholercnie trudny test Wypatrywania), na pistolet (Bardzo trudny test Wypatrywania), małą walizkę (Trudny test Wypatrywania).)"
+                }
             }
         ]
     },
@@ -109,13 +149,17 @@
         "features": [
             {
                 "name": "Fotograficzna pamięć",
-                "description": "Jesteś jak aprat cyfrowy podłączony do 40\ngigowego twardziela. Masz wielką bibliotekę obrazów,\nwystarczy, że wejdziesz do pomieszczenia, by jego\nobraz utkwił na zawsze w Twojej pamięci i byś potem\nmógł go w spokoju trawić i oglądać, dokładnie tak,\njak gdyby ktoś zrobił tam zdjęcie. W czasie gry masz\nprawo do wykonania Trudnego testu Percepcji za\nkażdym razem, kiedy chcesz sobie przypomnieć\nwygląd jakiegoś pomieszczenina. Zdaj test, a Mistrz Gry\nwyśpiewa wszystko jak na spowiedzi. Choćby minął miesiąc. Ba! Choćby minął rok! ALbo i dwa lata.",
-                "bonus": {}
+                "description": "Jesteś jak aprat cyfrowy podłączony do 40 gigowego twardziela. Masz wielką bibliotekę obrazów, wystarczy, że wejdziesz do pomieszczenia, by jego obraz utkwił na zawsze w Twojej pamięci i byś potem mógł go w spokoju trawić i oglądać, dokładnie tak, jak gdyby ktoś zrobił tam zdjęcie. W czasie gry masz prawo do wykonania Trudnego testu Percepcji za każdym razem, kiedy chcesz sobie przypomnieć wygląd jakiegoś pomieszczenina. Zdaj test, a Mistrz Gry wyśpiewa wszystko jak na spowiedzi. Choćby minął miesiąc. Ba! Choćby minął rok! ALbo i dwa lata.",
+                "bonus": {
+                    "text": "Po zdaniu Trudnego testu Percepcji przypominasz sobie ułożenie wcześniej odwiedzonego pomieszczenia."
+                }
             },
             {
                 "name": "Nieugięty",
-                "description": "Kiedy masz przed nosem swój\ncel, przestaje się liczyć cokolwiek inneg.\nPrzesz do przodu jak czołg, niepomny na rany,\n zmęczenie i strach. Jesteś łowcą,\nzłamany obojczyk, stado mutantów, czy trzecia nieprzespana noc\nnie mogą Ci przeszkodzić w dopadnięciu zwierzyny.\nZwiększasz swój Charakter i Budowę o 2 punkty\npodczas wszystkich testów, kiedy niepowodzenie testu oddaliłoby Cię\nod dopadnięcia celu.",
-                "bonus": {}
+                "description": "Kiedy masz przed nosem swój cel, przestaje się liczyć cokolwiek inneg. Przesz do przodu jak czołg, niepomny na rany, zmęczenie i strach. Jesteś łowcą, złamany obojczyk, stado mutantów, czy trzecia nieprzespana noc nie mogą Ci przeszkodzić w dopadnięciu zwierzyny. Zwiększasz swój Charakter i Budowę o 2 punkty podczas wszystkich testów, kiedy niepowodzenie testu oddaliłoby Cię od dopadnięcia celu.",
+                "bonus": {
+                    "text": "Zwiększasz swój Charakter i Budowę o 2 punkty podczas wszystkich testów, kiedy niepowodzenie testu oddaliłoby Cię od dopadnięcia celu."
+                }
             }
         ]
     },
@@ -124,13 +168,17 @@
         "features": [
             {
                 "name": "Bez tajemnic",
-                "description": "Znasz się na mutantach, nie da się zaprzeczyć. Gdy\nzdasz Trudny test Sprytu, MG musi zdradzić Ci słabe\npunkty napotkanego mutanta. MG może także,\npodać Ci niektóre Współczynniki mutanta.",
-                "bonus": {}
+                "description": "Znasz się na mutantach, nie da się zaprzeczyć. Gdy zdasz Trudny test Sprytu, MG musi zdradzić Ci słabe punkty napotkanego mutanta. MG może także, podać Ci niektóre Współczynniki mutanta.",
+                "bonus": {
+                    "text": "Gdy zdasz Trudny test Sprytu, MG musi zdradzić Ci słabe punkty napotkanego mutanta. MG może także, podać Ci niektóre Współczynniki mutanta."
+                }
             },
             {
                 "name": "Mutant na śniadanie",
-                "description": "Co prawda, pacyfistą w ogóle nazwać Cię nie można,\n to jednak Twoja agresja najczęściej dotyczy mutantów.\nZałatwiłeś już tony tego tałatajstwa i ciągle nie\nmasz dość. Za to doświadczenie w walce z wszelkimi\nodmieńcami ciągle rośnie. Otrzymujesz bonus -20%\nto walki z mutantami (testy Charakteru, Inicjatywy, ataku, obrony).",
-                "bonus": {}
+                "description": "Co prawda, pacyfistą w ogóle nazwać Cię nie można, to jednak Twoja agresja najczęściej dotyczy mutantów. Załatwiłeś już tony tego tałatajstwa i ciągle nie masz dość. Za to doświadczenie w walce z wszelkimi odmieńcami ciągle rośnie. Otrzymujesz bonus -20% to walki z mutantami (testy Charakteru, Inicjatywy, ataku, obrony).",
+                "bonus": {
+                    "text": "Otrzymujesz bonus -20% to walki z mutantami (testy Charakteru, Inicjatywy, ataku, obrony)."
+                }
             }
         ]
     },
@@ -139,16 +187,22 @@
         "features": [
             {
                 "name": "Bezlitosny",
-                "description": "Z ludzi, którzy Cię zawiedli żyje tylko Marc. Twoi\nludzie właśnie montują mu betonowe obuwie. To już\njego ostatnie minuty. Z ludzi, którzy staneli na twej\ndrodze, do wczoraj żył Długi Johny i Szybki Paul.\nDziś już nie masz wrogów. Z ludzi, któRzy...\nZaczynasz z jednym Punktem Sławy (złej). Reputacja kosztuje\nCię tylko 20PD i zawsze jest to zła sława.",
+                "description": "Z ludzi, którzy Cię zawiedli żyje tylko Marc. Twoi ludzie właśnie montują mu betonowe obuwie. To już jego ostatnie minuty. Z ludzi, którzy staneli na twej drodze, do wczoraj żył Długi Johny i Szybki Paul. Dziś już nie masz wrogów. Z ludzi, którzy... Zaczynasz z jednym Punktem Sławy (złej). Reputacja kosztuje Cię tylko 20PD i zawsze jest to zła sława.",
                 "bonus": {
-                    "type": "Sława",
-                    "value": 1
+                    "text": "Zaczynasz z jednym Punktem Sławy (złej). Reputacja kosztuje Cię tylko 20PD i zawsze jest to zła sława.",
+                    "object": {
+                        "type": "fame",
+                        "value": 1,
+                        "price": 20
+                    }
                 }
             },
             {
                 "name": "Klasa",
-                "description": "Trzeba mieć klasę. Nie można strzelić\nczłowiekowi w głowę, mając na nogach ubłocone\nbuty. Czy Ty chciałbyś, by ktoś stuknął\nCię rozklekotanym, nieumytym Pontiakiem?\nTrzeba mieć poziom. Trzeba szanować klientów\ni wrogów. Szczególnie dziś w tych\npodłych czasach. Trudno nie uwierzyć facetowi\ntakiemu jak Ty. Facetowi z klasą...\nMożesz przerzucić każdy test Perswazji i Zastraszania.",
-                "bonus": {}
+                "description": "Trzeba mieć klasę. Nie można strzelić człowiekowi w głowę, mając na nogach ubłocone buty. Czy Ty chciałbyś, by ktoś stuknął Cię rozklekotanym, nieumytym Pontiakiem? Trzeba mieć poziom. Trzeba szanować klientów i wrogów. Szczególnie dziś w tych podłych czasach. Trudno nie uwierzyć facetowi takiemu jak Ty. Facetowi z klasą... Możesz przerzucić każdy test Perswazji i Zastraszania.",
+                "bonus": {
+                    "text": "Możesz przerzucić każdy test Perswazji i Zastraszania."
+                }
             }
         ]
     },
@@ -157,13 +211,17 @@
         "features": [
             {
                 "name": "Reputacja",
-                "description": "Gdy wjeżdzacie do jakiejkolwiek osady, najlepiej\nzacząć gadkę od prostego stwierdzenia:\"Widzicie\ntamtego faceta? To lekarz.\" Nie trzeba nic więcej.\nWystarczy, ze zdasz Trudny test Perswazji, a miejscowi\nzaczną się wokół was uwijać, jaby co najmniej\nprzyjechali z dawna oczekiwani goście. Jeśli w osadzie\njest już lekarz, musisz zdać Bardzo Trudny test Perswazji.",
-                "bonus": {}
+                "description": "Gdy wjeżdzacie do jakiejkolwiek osady, najlepiej zacząć gadkę od prostego stwierdzenia:\"Widzicie tamtego faceta? To lekarz.\" Nie trzeba nic więcej. Wystarczy, ze zdasz Trudny test Perswazji, a miejscowi zaczną się wokół was uwijać, jaby co najmniej przyjechali z dawna oczekiwani goście. Jeśli w osadzie jest już lekarz, musisz zdać Bardzo Trudny test Perswazji.",
+                "bonus": {
+                    "text": "Zdając Trudny test Perswazji (Bardzo Trudny jeśli w osadzie jest inny lekarz) mieszkańcy osady traktują Cię lepiej."
+                }
             },
             {
                 "name": "Sanitariusz polowy",
-                "description": "Eksplozja, świszczące kule, krzyki i bieganina?\nTo dla Ciebie chleb powszedni. Że trochę\ntrzęsie? Żaden problem. Że za ciemno?\nChrzanienie. Ignorujesz wszelkie utrudnienia do testów\nleczenia , wynikające z warunków panujących w otoczeniu.",
-                "bonus": {}
+                "description": "Eksplozja, świszczące kule, krzyki i bieganina? To dla Ciebie chleb powszedni. Że trochę trzęsie? Żaden problem. Że za ciemno? Chrzanienie. Ignorujesz wszelkie utrudnienia do testów leczenia, wynikające z warunków panujących w otoczeniu.",
+                "bonus": {
+                    "text": "Ignorujesz wszelkie utrudnienia do testów leczenia, wynikające z warunków panujących w otoczeniu."
+                }
             }
         ]
     },
@@ -172,13 +230,17 @@
         "features": [
             {
                 "name": "Zapałki i agrafka",
-                "description": "Na agregat czekałeś dwa miesiące, a oniprzywieźli\nCi frezarkę z fabryki łodzi podwodnych. Nawet nie\nmrugnąłeś. Od tygodnia wszystko gra i buczy, a Ty\nmasz pewność, że jeśli wywalą Cię, albo nie dadzą\npremii, nikt prócz Ciebie nie będzie wiedział, jak \nfunkcjonuje ta walcownia blachy. Po prostu masz talent\ndo scalania najróżniejszych urządzeń w jeden\n mechanizm. Dostajesz bonus +2 do Sprytu podczas\ntestów technicznych (gdy montujesz, naprawiasz lub\nprzerabiasz urządzenie mechaniczne lub elektroniczne).\nZawsze? Nie, tylko wtedy, gdy coś montujesz...\nNo tak, czyli prawie zawsze.",
-                "bonus": {}
+                "description": "Na agregat czekałeś dwa miesiące, a oni przywieźli Ci frezarkę z fabryki łodzi podwodnych. Nawet nie mrugnąłeś. Od tygodnia wszystko gra i buczy, a Ty masz pewność, że jeśli wywalą Cię, albo nie dadzą premii, nikt prócz Ciebie nie będzie wiedział, jak funkcjonuje ta walcownia blachy. Po prostu masz talent do scalania najróżniejszych urządzeń w jeden  mechanizm. Dostajesz bonus +2 do Sprytu podczas testów technicznych (gdy montujesz, naprawiasz lub przerabiasz urządzenie mechaniczne lub elektroniczne). Zawsze? Nie, tylko wtedy, gdy coś montujesz... No tak, czyli prawie zawsze.",
+                "bonus": {
+                    "text": "Dostajesz bonus +2 do Sprytu podczas testów technicznych (gdy montujesz, naprawiasz lub przerabiasz urządzenie mechaniczne lub elektroniczne)."
+                }
             },
             {
                 "name": "Kłopotliwy nadmiar",
-                "description": "Kiedy byłeś mały, znalazłeś budzik. Rozebrałeś\ngo i złożyłeś na nowo, a skurczybyk dalej chodził.\nTobie została garść części. Potrafisz powtórzyć ten\nnumer niemal na każdej maszynie, wystarczy tylko,\nże zdasz Trudny test Mechaniki lub Elektroniki.\nZostaje Ci garść części o wartości 20% całego urządzenia.",
-                "bonus": {}
+                "description": "Kiedy byłeś mały, znalazłeś budzik. Rozebrałeś go i złożyłeś na nowo, a skurczybyk dalej chodził. Tobie została garść części. Potrafisz powtórzyć ten numer niemal na każdej maszynie, wystarczy tylko, że zdasz Trudny test Mechaniki lub Elektroniki. Zostaje Ci garść części o wartości 20% całego urządzenia.",
+                "bonus": {
+                    "text": "Po zdaniu Trudnego testu Mechaniki lub Elektroniki, rozłożysz i złożysz urządzenie i zostanie Ci części o wartości 20% wartości urządzenia."
+                }
             }
         ]
     },
@@ -187,16 +249,22 @@
         "features": [
             {
                 "name": "Reputacja",
-                "description": "Nie nawalasz. Nie wystawiasz klienta do wiatru. Nie\nwycofujesz się ze zleceń. Dlatego właśnie możesz\nzażądać więcej od dowolnego innego jełopa - a pracodawca\ni tak wybierze Ciebie. Zwiększ o 15 punktów\nReputację - już na starcie jesteś kimś znanym\nw tej branży. Ponadto Punkt Reputacji kosztuje Cię tylko 20PD.",
+                "description": "Nie nawalasz. Nie wystawiasz klienta do wiatru. Nie wycofujesz się ze zleceń. Dlatego właśnie możesz zażądać więcej od dowolnego innego jełopa - a pracodawca i tak wybierze Ciebie. Zwiększ o 15 punktów Reputację - już na starcie jesteś kimś znanym w tej branży. Ponadto Punkt Reputacji kosztuje Cię tylko 20PD.",
                 "bonus": {
-                    "type": "Reputacja",
-                    "value": 15
+                    "text": "Zaczynasz z 15 punktami reputacji, cena reputacji to 20PD.",
+                    "object": {
+                        "type": "reputation",
+                        "value": 15,
+                        "price": 20
+                    }
                 }
             },
             {
                 "name": "Maszyna do zabijania",
-                "description": "Mówisz sobie \"teraz albo nigdy\" i wchodzisz w tryb\nmaszyny do zabijania. Najemnik może tymczasowo\nzwiększyć o 2 punkty wartość dowolnego Współczynnika,\nale bonus ten wykorzystać może tylko w walce.\nMa to swoją cenę: po upływie godziny lub po wykonaniu 10-ciu\ntestów tego Współczynnika, bonus znika zaś Najemnik\notrzymuje karę +50% ze zmęczenia (zmniejszaną o 10%\nco godzinę). Cechy tej można użyć dopiero, gdy postać wypocznie\n(czyli całkowicie zniknie kara ze zmęczenia).",
-                "bonus": {}
+                "description": "Mówisz sobie \"teraz albo nigdy\" i wchodzisz w tryb maszyny do zabijania. Najemnik może tymczasowo zwiększyć o 2 punkty wartość dowolnego Współczynnika, ale bonus ten wykorzystać może tylko w walce. Ma to swoją cenę: po upływie godziny lub po wykonaniu 10-ciu testów tego Współczynnika, bonus znika zaś Najemnik otrzymuje karę +50% ze zmęczenia (zmniejszaną o 10% co godzinę). Cechy tej można użyć dopiero, gdy postać wypocznie (czyli całkowicie zniknie kara ze zmęczenia).",
+                "bonus": {
+                    "text": "Tymczasowo zwiększasz wybrany Współczynnik o 2 do użycia w walce. Po upływie godziny lub 10 testów tego współczynnika bonus znika, a Ty otrzymujesz +50% utrudnień ze zmęczenia (zmniejszaną o 10% co godzinę). Możesz ponownie użyć gdy wypoczniesz (czyli zniknie kara za zmęczenie)."
+                }
             }
         ]
     },
@@ -205,13 +273,17 @@
         "features": [
             {
                 "name": "Wyciszenie",
-                "description": "Potrafisz odciąć się od hałasu, zamieszania, błysku\nfleszów, huku muzyki i skoncentrować się tylko na\nzadaniu - ochronie klienta. Cały szum jest gdzieś w\ntle, a Ty wchodzisz w stan innego postrzegania świata,\nwyczulony na zagrożenia. Gdy chronisz swojego\nklienta, nie otrzymujesz ujemnych modyfikatoróW\nza półmrok, hałas, i inne trudne warunki podczas\ndowolnych testów Percepcji.",
-                "bonus": {}
+                "description": "Potrafisz odciąć się od hałasu, zamieszania, błysku fleszów, huku muzyki i skoncentrować się tylko na zadaniu - ochronie klienta. Cały szum jest gdzieś w tle, a Ty wchodzisz w stan innego postrzegania świata, wyczulony na zagrożenia. Gdy chronisz swojego klienta, nie otrzymujesz ujemnych modyfikatorów za półmrok, hałas, i inne trudne warunki podczas dowolnych testów Percepcji.",
+                "bonus": {
+                    "text": "Gdy chronisz swojego klienta, nie otrzymujesz ujemnych modyfikatorów za półmrok, hałas, i inne trudne warunki podczas dowolnych testów Percepcji."
+                }
             },
             {
                 "name": "Zanim on",
-                "description": "Potrafisz oddać strzał życia w sytuacji, kiedy\nżycie osoby, którą ochraniasz, jest zagrożone -\nwtedy automatycznie wygrywasz Inicjatywę i zaczynasz pierwszy.",
-                "bonus": {}
+                "description": "Potrafisz oddać strzał życia w sytuacji, kiedy życie osoby, którą ochraniasz, jest zagrożone - wtedy automatycznie wygrywasz Inicjatywę i zaczynasz pierwszy.",
+                "bonus": {
+                    "text": "Kiedy życie osoby, którą ochraniasz, jest zagrożone - wtedy automatycznie wygrywasz Inicjatywę i zaczynasz pierwszy."
+                }
             }
         ]
     },
@@ -220,13 +292,21 @@
         "features": [
             {
                 "name": "Mundur i odznaka",
-                "description": "Prawdziwego gliniarza poznasz, choćby się przebrał\nza stonogę albo Czerwonego Kapturka. Niezbyt\ngiętkie zasady, harde spojrzenie, kiepskie poczucie humoru\ni pączki. Ma to swoje plusy, bo wszystkim łachmytom\ntrochę mięknie rura. Podczas testóW Moral\n(Najpierw spójrz mi w oczy) Twoi przeciwnicy zdają\no poziom trudniejszy test niż normalnie.\n\tZa to dobrzy ludzie odnoszą się do Ciebie z większym\nszacunkiem i zaufaniem w kontaktach\nz postaciami nie nastawionymi do Ciebie wrogo, otrzymujesz\nbonus +2 do Perswazji i Zdolności przywódczych.\nNiestety, gangerzy, mutki i wszelkie ścierwo\n mniej Cię lubią.",
-                "bonus": {}
+                "description": "Prawdziwego gliniarza poznasz, choćby się przebrał za stonogę albo Czerwonego Kapturka. Niezbyt giętkie zasady, harde spojrzenie, kiepskie poczucie humoru i pączki. Ma to swoje plusy, bo wszystkim łachmytom trochę mięknie rura. Podczas testów Morali (Najpierw spójrz mi w oczy) Twoi przeciwnicy zdają o poziom trudniejszy test niż normalnie. Za to dobrzy ludzie odnoszą się do Ciebie z większym szacunkiem i zaufaniem w kontaktach z postaciami nie nastawionymi do Ciebie wrogo, otrzymujesz bonus +2 do Perswazji i Zdolności przywódczych. Niestety, gangerzy, mutki i wszelkie ścierwo mniej Cię lubią.",
+                "bonus": {
+                    "text": "Podczas testów Morali (Najpierw spójrz mi w oczy) Twoi przeciwnicy zdają o poziom trudniejszy test niż normalnie. Za to dobrzy ludzie odnoszą się do Ciebie z większym szacunkiem i zaufaniem w kontaktach z postaciami nie nastawionymi do Ciebie wrogo, otrzymujesz bonus +2 do Perswazji i Zdolności przywódczych."
+                }
             },
             {
                 "name": "Jeden z nas",
-                "description": "Nie musisz za każdym razem, gdy ustrzelisz jakiegoś\ngangera czy złodzieja, tracić czasu na dyskusję\ni przekonywanie innych stróżów prawa, ze to było\nkonieczne, a Ty też jesteś z policji. Oni od razu widzą, coś za jeden.\nDodatkowo 150 gamblii na Znajomości wśród sędziów i egzekutorów.",
-                "bonus": {}
+                "description": "Nie musisz za każdym razem, gdy ustrzelisz jakiegoś gangera czy złodzieja, tracić czasu na dyskusję i przekonywanie innych stróżów prawa, ze to było konieczne, a Ty też jesteś z policji. Oni od razu widzą, coś za jeden. Dodatkowo 150 gamblii na Znajomości wśród sędziów i egzekutorów.",
+                "bonus": {
+                    "text": "Dostajesz dodatkowe 150 gamblii na Znajomości wśród sędziów i egzekutorów.",
+                    "object": {
+                        "type": "connections",
+                        "value": 150
+                    }
+                }
             }
         ]
     },
@@ -235,13 +315,22 @@
         "features": [
             {
                 "name": "Wykształcenie",
-                "description": "W pakiecie Wiedza ogólna wszystkie Umiejętności\nposiadasz od razu na poziomie 2. Pamietaj, nie trzy\nwybrane, ale wszystkie!",
-                "bonus": {}
+                "description": "W pakiecie Wiedza ogólna wszystkie Umiejętności posiadasz od razu na poziomie 2. Pamietaj, nie trzy wybrane, ale wszystkie!",
+                "bonus": {
+                    "text": "Wszystkie umiejętności z pakietu Wiedza Ogólna posiadasz na poziomie 2.",
+                    "object": {
+                        "type": "skillpack",
+                        "name": "Wiedza Ogólna",
+                        "value": 2
+                    }
+                }
             },
             {
                 "name": "Skupienie",
-                "description": "\"Dobra zaczynam!\". Gdy zasiadasz do swojego zadania\n(czynnośi oparte na Sprycie), potrafisz odciąć\nsię od wszelkich zewnętrznych zakłóceń. Olewasz\nkary wynikające z hałasu, tłoku i zamieszania,\nkoncentrujesz się i dodatkowo jeszcze otrzymujesz\nbonus +2 do Sprytu. Jednak coś za coś.\nW tym samym momencie otrzymujesz karę +30%\ndo testów wszystkich pozostałych Współczynników.\nKara zmniejsza się o 10% co kwadrans po zakończeniu lub przerwaniu tego\nzadania, po prostu wracasz powoli na planetę Ziemia.",
-                "bonus": {}
+                "description": "\"Dobra zaczynam!\". Gdy zasiadasz do swojego zadania (czynności oparte na Sprycie), potrafisz odciąć się od wszelkich zewnętrznych zakłóceń. Olewasz kary wynikające z hałasu, tłoku i zamieszania, koncentrujesz się i dodatkowo jeszcze otrzymujesz bonus +2 do Sprytu. Jednak coś za coś. W tym samym momencie otrzymujesz karę +30% do testów wszystkich pozostałych Współczynników. Kara zmniejsza się o 10% co kwadrans po zakończeniu lub przerwaniu tego zadania, po prostu wracasz powoli na planetę Ziemia.",
+                "bonus": {
+                    "text": "Gdy skupiasz się na zadaniu (opartym na Sprycie), dostajesz bonus +2 do Sprytu i niwelujesz utrudnienia za czynniki zewnętrzne. Jednak otrzymujesz karę +30% do reszty Współczynników. Kara zmniejsza się 10% co 15 min od przerwania lub zakończenia czynności."
+                }
             }
         ]
     },
@@ -250,13 +339,27 @@
         "features": [
             {
                 "name": "Duchy przemówiły",
-                "description": "Przy pasie massz manierkę, a w niej własnoręcznie\nprzygotowany wyciąg z kaktusa. Ostatecznie może\nbyć dobry grass, bo po grzybkach masz czkawkę. To\njest Twój most do świata duchów. A duchy wiedzą\nwiele... Potrafisz odjechać w transie i MG powinien\nzdradzić Ci wtedy dodatkowe informacje dotyczące\nwybranej osoby lub miejsca. Czeka Cię jednak Trudny\ntest Budowy, albo cały dzień będziesz łaził jak\npieprznięty kolbą w łeb. I nie pomoże ci aspiryna...",
-                "bonus": {}
+                "description": "Przy pasie masz manierkę, a w niej własnoręcznie przygotowany wyciąg z kaktusa. Ostatecznie może być dobry grass, bo po grzybkach masz czkawkę. To jest Twój most do świata duchów. A duchy wiedzą wiele... Potrafisz odjechać w transie i MG powinien zdradzić Ci wtedy dodatkowe informacje dotyczące wybranej osoby lub miejsca. Czeka Cię jednak Trudny test Budowy, albo cały dzień będziesz łaził jak pieprznięty kolbą w łeb. I nie pomoże ci aspiryna...",
+                "bonus": {
+                    "text": "Potrafisz odjechać w transie i MG powinien zdradzić Ci wtedy dodatkowe informacje dotyczące wybranej osoby lub miejsca. Następnie jeśli nie zdasz Trudnego testu Budowy, będziesz chodził jak walnięty kolbą w łeb."
+                }
             },
             {
                 "name": "Totem",
-                "description": "Kiedy wszedłeś w wiek męski, prowadzić zaczął Cię\nduch. Po rytuale przejścia stopniowo zacząłeś nabierać\njego cech. Jesteś wężem, dziedźwiedziem, wiewiórką,\nwilkiem, a może zającem.\nWybierz jeden z totemów:\nBudowa: Niedźwiedź\nPercepcja: Sokół\nSpryt: Kojot\nZręczność: Kot\nCharakter: Wilk\nGdy tylko zechcesz, upodabniasz się do totemicznego\nzwierzęcia. Musisz zdać Problematyczny test\nWspółczynnika zwięzanego z totemem, a otrzymasz\ndo niego modyfikator +2. W tym czasie\nreszta Twoich Współczynników spada o 1.\nTen dziwny stan kończy się wtedy, gdy zechcesz\n(po minimum godzinie), lub podczas snu.\nWtedy otrzymujesz karę -1 do wszystkich Współczynników\nna tyle godzin ile w nim przebywałeś(jednak godziny snu nie liczą się).",
-                "bonus": {}
+                "description": "Kiedy wszedłeś w wiek męski, prowadzić zaczął Cię duch. Po rytuale przejścia stopniowo zacząłeś nabierać jego cech. Jesteś wężem, dziedźwiedziem, wiewiórką, wilkiem, a może zającem. Wybierz jeden z totemów: Budowa: Niedźwiedź Percepcja: Sokół Spryt: Kojot Zręczność: Kot Charakter: Wilk. Gdy tylko zechcesz, upodabniasz się do totemicznego zwierzęcia. Musisz zdać Problematyczny test Współczynnika zwięzanego z totemem, a otrzymasz do niego modyfikator +2. W tym czasie reszta Twoich Współczynników spada o 1. Ten dziwny stan kończy się wtedy, gdy zechcesz (po minimum godzinie), lub podczas snu. Wtedy otrzymujesz karę -1 do wszystkich Współczynników na tyle godzin ile w nim przebywałeś (jednak godziny snu nie liczą się).",
+                "bonus": {
+                    "text": "Wybierz jeden z totemów. Po zdaniu problematycznego testu tego współczynnika otrzymas bonus +2 do niego. W tym czasie reszta współczynników spada o 1. Ten stan kończy się kiedy zechcesz (minimum po godzinie), jednak dostajesz karę -1 do wszystkich współczynników na tyle godzin, ile w nim przebywałeś (nie licząc snu).",
+                    "object": {
+                        "type": "attribute"
+                    },
+                    "select": [
+                        { "name": "Niedźwiedź", "attribute": "Budowa" },
+                        { "name": "Kot", "attribute": "Zręczność" },
+                        { "name": "Wilk", "attribute": "Charakter" },
+                        { "name": "Kojot", "attribute": "Spryt" },
+                        { "name": "Sokół", "attribute": "Percepcja" }
+                    ]
+                }
             }
         ]
     },
@@ -265,13 +368,17 @@
         "features": [
             {
                 "name": "A co mi tam",
-                "description": "Wszystkie choroby i trucizny masz gdzieś. Automatycznie\nzdajesz wszystkie testy Kondycji przeciwko\ntruciznom, chorobom i radiacji(otrzymujesz\nzawsze mniejszą karę).\n\tMożesz zjeść spleśniałe mięso i konserwę z 2019\nroku i tylko się obliżesz.\n\tAle widać od razu, żeś szczur i żaden garnitur\nnigdy tego nie zamaskuje.\n\tAch, żeby nie było nieporozumień, Chorobę przewlekłą\nw Kroku 7 losujesz normalnie.",
-                "bonus": {}
+                "description": "Wszystkie choroby i trucizny masz gdzieś. Automatycznie zdajesz wszystkie testy Kondycji przeciwko truciznom, chorobom i radiacji(otrzymujesz zawsze mniejszą karę). Możesz zjeść spleśniałe mięso i konserwę z 2019 roku i tylko się obliżesz. Ale widać od razu, żeś szczur i żaden garnitur nigdy tego nie zamaskuje. Ach, żeby nie było nieporozumień, Chorobę przewlekłą w Kroku 7 losujesz normalnie.",
+                "bonus": {
+                    "text": "Automatycznie zdajesz wszystkie testy Kondycji przeciwko truciznom, chorobom i radiacji(otrzymujesz zawsze mniejszą karę)."
+                }
             },
             {
-                "name": "Szzary",
-                "description": "Szczurów jest pełno. Zebracy, włóczędzy, ludzkie\nwraki. Nikt z nimi nie gada. Oni też z nikim nie gadają.\nDzięki temu nikt nie zwraca na nich uwagi.\n\tZ czasem ludzie tak przywykli do ich widoku,\nże przestali zupełnie traktować ich jak ludzi. W ten sposób szczur stał się niczym,\n stał się \"niewidzialny\".\nJeśli Szczur zda Trudny test Sprytu, to może\n się poruszać niezauważony, ale tylko w otoczeniu pasującym do Szczura.",
-                "bonus": {}
+                "name": "Szary",
+                "description": "Szczurów jest pełno. Zebracy, włóczędzy, ludzkie wraki. Nikt z nimi nie gada. Oni też z nikim nie gadają. Dzięki temu nikt nie zwraca na nich uwagi. Z czasem ludzie tak przywykli do ich widoku, że przestali zupełnie traktować ich jak ludzi. W ten sposób szczur stał się niczym, stał się \"niewidzialny\". Jeśli Szczur zda Trudny test Sprytu, to może się poruszać niezauważony, ale tylko w otoczeniu pasującym do Szczura.",
+                "bonus": {
+                    "text": "Jeśli Szczur zda Trudny test Sprytu, to może się poruszać niezauważony, ale tylko w otoczeniu pasującym do Szczura."
+                }
             }
         ]
     },
@@ -280,13 +387,17 @@
         "features": [
             {
                 "name": "Bestia",
-                "description": "Zaczynasz grę posiadając jedną wytresowaną bestię,\nna którą zgodzi się MG. Ponadto potrafisz oswajać i\ntresować dziekie zwierzęta. Podejść do dziekiego zwierzęcia\nw taki sposób, żeby nie rzucił Ci się od razu do\ngardła. Wiesz co je drażni.\n\tTakiemu towarzyszowi możesz wydawać kilka\nrodzajów poleceń, jak np. bierz go, do nogi, cicho,\nleżeć, itp.",
-                "bonus": {}
+                "description": "Zaczynasz grę posiadając jedną wytresowaną bestię, na którą zgodzi się MG. Ponadto potrafisz oswajać i tresować dziekie zwierzęta. Podejść do dziekiego zwierzęcia w taki sposób, żeby nie rzucił Ci się od razu do gardła. Wiesz co je drażni. Takiemu towarzyszowi możesz wydawać kilka rodzajów poleceń, jak np. bierz go, do nogi, cicho, leżeć, itp.",
+                "bonus": {
+                    "text": "Posiadasz wytresowaną bestię (ustal z MG jakie). Potrafisz równierz tresować dzikie bestie."
+                }
             },
             {
                 "name": "Wilczy kieł",
-                "description": "Walcząc wręcz potrafisz gryźć i drapać jak zwierzę.\nJeśli nie używasz broni i pancerza, zadajesz o poziom\n wyższe obrażenia wyrzucając na kostce 1, 2 lub 3.",
-                "bonus": {}
+                "description": "Walcząc wręcz potrafisz gryźć i drapać jak zwierzę. Jeśli nie używasz broni i pancerza, zadajesz o poziom  wyższe obrażenia wyrzucając na kostce 1, 2 lub 3.",
+                "bonus": {
+                    "text": "Jeśli nie używasz broni i pancerza, zadajesz o poziom  wyższe obrażenia wyrzucając na kostce 1, 2 lub 3."
+                }
             }
         ]
     },
@@ -295,13 +406,17 @@
         "features": [
             {
                 "name": "Wyczulone zmysły",
-                "description": "Można nauczyć się odczytywać ślady i wyszukiwać\nukryte tropy. ALe nic nie zastąpi doskonałego wzroku,\nczułego słuchu, czy węchu. Może dlatego jesteś\ntaki dobry, że zawsze zwiększasz swoją Percepcję i 3\npodczas wszystkich testów Wypatrywania i Nasłuchiwania\nna otwartym terenie?",
-                "bonus": {}
+                "description": "Można nauczyć się odczytywać ślady i wyszukiwać ukryte tropy. Ale nic nie zastąpi doskonałego wzroku, czułego słuchu, czy węchu. Może dlatego jesteś taki dobry, że zawsze zwiększasz swoją Percepcję i 3 podczas wszystkich testów Wypatrywania i Nasłuchiwania na otwartym terenie?",
+                "bonus": {
+                    "text": "Zawsze zwiększasz swoją Percepcję i 3 podczas wszystkich testów Wypatrywania i Nasłuchiwania na otwartym terenie."
+                }
             },
             {
                 "name": "Rozpoznawanie stworzeń",
-                "description": "Wiesz, że to, co szarżuje na samochód, to piaskowy\ndiabeł. I wiesz, że należy spieprzać. Potrafisz rozróżnić\nniedźwiedzie i rozpoznasz też niedźwiedzia\nmutanta. Problem polega na tym, by dostrzec to, gdy\nbędą wystarczająco daleko. W innym wypadku Twoja\nwiedza nie przyda się nikomu. Masz bonus do wszelkich testów Łowiectwa\n i Tropienia podczas identyfikacji\nwszelakiego cholerstwa pałętającego się po okolicy.Powiedzmy,\nzawsze masz jeden automatyczny sukces, dobra?\n MG może zdradzić Ci niektóre Współczynniki zwierzęcia.",
-                "bonus": {}
+                "description": "Wiesz, że to, co szarżuje na samochód, to piaskowy diabeł. I wiesz, że należy spieprzać. Potrafisz rozróżnić niedźwiedzie i rozpoznasz też niedźwiedzia mutanta. Problem polega na tym, by dostrzec to, gdy będą wystarczająco daleko. W innym wypadku Twoja wiedza nie przyda się nikomu. Masz bonus do wszelkich testów Łowiectwa i Tropienia podczas identyfikacji wszelakiego cholerstwa pałętającego się po okolicy. Powiedzmy, zawsze masz jeden automatyczny sukces, dobra? MG może zdradzić Ci niektóre Współczynniki zwierzęcia.",
+                "bonus": {
+                    "text": "Masz bonus do wszelkich testów Łowiectwa i Tropienia podczas identyfikacji wszelakiego cholerstwa pałętającego się po okolicy. Zawsze masz jeden automatyczny sukces. MG może zdradzić Ci niektóre Współczynniki zwierzęcia."
+                }
             }
         ]
     },
@@ -310,13 +425,17 @@
         "features": [
             {
                 "name": "Drzwi w drzwi",
-                "description": "Podtrafisz używać swojej maszynki jak broni i z tej\nwłaśnie okazji w czasie walki na autostradzi, podczas\nwszystkich manewrów samochodem masz\n+2 do Zręczności.",
-                "bonus": {}
+                "description": "Podtrafisz używać swojej maszynki jak broni i z tej właśnie okazji w czasie walki na autostradzie, podczas wszystkich manewrów samochodem masz +2 do Zręczności.",
+                "bonus": {
+                    "text": "Podczas wszystkich manewrów samochodem masz +2 do Zręczności."
+                }
             },
             {
                 "name": "Osłona samochodu",
-                "description": "Wiraż, odskok, uderzenie w zderzak, zjazd na pobocze,\nprzyspieszenie. To dla Ciebie normalny styl jazdy.\n Potrafisz wykorzystać swój samochód jako osłonę przed wrogimi\natakami. Nie otrzymujesz kary do prowadzenia\nsamochodu za to, że kryjesz się i pochylasz,\n uzyskując 60% osłony. Wszyscy pasażerowie w prowadzonym przez Ciebie aucie\n otrzymują dodatkowo +20% osłony.",
-                "bonus": {}
+                "description": "Wiraż, odskok, uderzenie w zderzak, zjazd na pobocze, przyspieszenie. To dla Ciebie normalny styl jazdy. Potrafisz wykorzystać swój samochód jako osłonę przed wrogimi atakami. Nie otrzymujesz kary do prowadzenia samochodu za to, że kryjesz się i pochylasz, uzyskując 60% osłony. Wszyscy pasażerowie w prowadzonym przez Ciebie aucie otrzymują dodatkowo +20% osłony.",
+                "bonus": {
+                    "text": "Nie otrzymujesz kary do prowadzenia samochodu za to, że kryjesz się i pochylasz, uzyskując 60% osłony. Wszyscy pasażerowie w prowadzonym przez Ciebie aucie otrzymują dodatkowo +20% osłony."
+                }
             }
         ]
     },
@@ -325,13 +444,21 @@
         "features": [
             {
                 "name": "My i oni",
-                "description": "Może nie poczujesz się zbyt pewnie w Vegas, ale jeśli\nw okolicy pojawi się facet z dzidą, inni zobaczą po\nprostu frajera z dzidą. Ty będziesz wiedział, że to\nczłowiek Jastrzębi. On będzie wiedział kim jesteś Ty.\nWiesz sporo o klanach i potrafisz dogadać się z ludźmi pustyni.\nMasz jeden automatyczny sukces we wszystkich\ntestach Charakteru dotyczących czerwonoskurych\ni ludzi pustyni.",
-                "bonus": {}
+                "description": "Może nie poczujesz się zbyt pewnie w Vegas, ale jeśli w okolicy pojawi się facet z dzidą, inni zobaczą po prostu frajera z dzidą. Ty będziesz wiedział, że to człowiek Jastrzębi. On będzie wiedział kim jesteś Ty. Wiesz sporo o klanach i potrafisz dogadać się z ludźmi pustyni. Masz jeden automatyczny sukces we wszystkich testach Charakteru dotyczących czerwonoskurych i ludzi pustyni.",
+                "bonus": {
+                    "text": "Masz jeden automatyczny sukces we wszystkich testach Charakteru dotyczących czerwonoskurych i ludzi pustyni."
+                }
             },
             {
                 "name": "To mój dom",
-                "description": "Przypomnij sobie tego twardziela, który\nprzez tydzień trząśł całym Whitehorn.\nKiedy w końcu przyszli po niego, zdychał samotnie jak pies.\nTy zawsze masz gdzie wrócić. Masz kogo poprosić o radę\ni o pomoc. Jesteś członkiem grupy. Trzymujesz 150 gambli na wykupienie\nczerwonoskórych Znajomych.",
-                "bonus": {}
+                "description": "Przypomnij sobie tego twardziela, który przez tydzień trząśł całym Whitehorn. Kiedy w końcu przyszli po niego, zdychał samotnie jak pies. Ty zawsze masz gdzie wrócić. Masz kogo poprosić o radę i o pomoc. Jesteś członkiem grupy. Otrzymujesz 150 gambli na wykupienie czerwonoskórych Znajomych.",
+                "bonus": {
+                    "text": "Otrzymujesz 150 gambli na wykupienie czerwonoskórych Znajomych.",
+                    "object": {
+                        "type": "connections",
+                        "value": 150
+                    }
+                }
             }
         ]
     },
@@ -340,13 +467,17 @@
         "features": [
             {
                 "name": "Koniec zlecenia",
-                "description": "Jeśli masz swój cel (zakontraktowane zlecenie) w\nzasięgu wzroku, dodaj sobie jeden sukces do każdej\nakcji, która jest związana z zakończeniem zlecenia.\nJesteś skoncentrowany i bardzo bliski zamknięcia kontraktu.\nNie ma już miejsca na błędy...\n\tZlecenie musi pochodzić od BN-a, a nie drugiego gracza, i to MG decyduje czy uznać to za kontrakt\ngodny użycia cechy \"koniec zlecenia\".",
-                "bonus": {}
+                "description": "Jeśli masz swój cel (zakontraktowane zlecenie) w zasięgu wzroku, dodaj sobie jeden sukces do każdej akcji, która jest związana z zakończeniem zlecenia. Jesteś skoncentrowany i bardzo bliski zamknięcia kontraktu. Nie ma już miejsca na błędy... Zlecenie musi pochodzić od BN-a, a nie drugiego gracza, i to MG decyduje czy uznać to za kontrakt godny użycia cechy \"koniec zlecenia\".",
+                "bonus": {
+                    "text": "Dodaj jeden sukces do każdej akcji, gdy masz cel w zasięgu wzroku, która pomoże zakończyć zakontraktowane zlecenie. Zlecenie musi pochodzić od BN-a, MG decyduje czy można użyć tej cechy."
+                }
             },
             {
                 "name": "Jeden strzał",
-                "description": "Nie ważne, czy dobrze radzisz sobie pod gradem kul,\nczy świetnie walczysz w pojedynkach, czy podnosisz\nsię po zarobieniu kulki i idziesz dalej. Dla Ciebie ważne\njest, by dobrze przygotować się do zadania, poczekać na\nokazję i załatwić sprawę jednym ruchem. W sytuacji,\ngdy ofiara niczego się nie spodziewa, możesz lepiej przygotować się\ndo oddania pierwszego strzału, czy zadania pierwszego ciosu.\nOtrzymujesz bonus +2 do Umiejętności strzelania, rzucania albo walki\nale tylko na czas pierwszego testu, zaś obrażenia zadane\nw tym pierwszym ciosie/strzale\nsą o poziom wyższe.",
-                "bonus": {}
+                "description": "Nie ważne, czy dobrze radzisz sobie pod gradem kul, czy świetnie walczysz w pojedynkach, czy podnosisz się po zarobieniu kulki i idziesz dalej. Dla Ciebie ważne jest, by dobrze przygotować się do zadania, poczekać na okazję i załatwić sprawę jednym ruchem. W sytuacji, gdy ofiara niczego się nie spodziewa, możesz lepiej przygotować się do oddania pierwszego strzału, czy zadania pierwszego ciosu. Otrzymujesz bonus +2 do Umiejętności strzelania, rzucania albo walki ale tylko na czas pierwszego testu, zaś obrażenia zadane w tym pierwszym ciosie/strzale są o poziom wyższe.",
+                "bonus": {
+                    "text": "W sytuacji, gdy ofiara niczego się nie spodziewa, możesz lepiej przygotować się do oddania pierwszego strzału, czy zadania pierwszego ciosu. Otrzymujesz bonus +2 do Umiejętności strzelania, rzucania albo walki ale tylko na czas pierwszego testu, zaś obrażenia zadane w tym pierwszym ciosie/strzale są o poziom wyższe."
+                }
             }
         ]
     },
@@ -355,13 +486,17 @@
         "features": [
             {
                 "name": "Słaby punkt",
-                "description": "Każda maszynajest trudnym przeciwnikiem. Ale\nteż każda ma swój słaby punkt. Różnisz się tym od\ninnych ludzi, że znasz te słabe punkty.\n\tJeśli zdasz Trudny test Percepcji, MG musi Ci\nzdradzić słaby punkt danej maszyny. MG może zdradzić\nCi niektóre Współczynniki robota.",
-                "bonus": {}
+                "description": "Każda maszyna jest trudnym przeciwnikiem. Ale też każda ma swój słaby punkt. Różnisz się tym od innych ludzi, że znasz te słabe punkty. Jeśli zdasz Trudny test Percepcji, MG musi Ci zdradzić słaby punkt danej maszyny. MG może zdradzić Ci niektóre Współczynniki robota.",
+                "bonus": {
+                    "text": "Jeśli zdasz Trudny test Percepcji, MG musi Ci zdradzić słaby punkt danej maszyny. MG może zdradzić Ci niektóre Współczynniki robota."
+                }
             },
             {
                 "name": "Empityk",
-                "description": "To jest tak gdyby jakiś frajer zechciał naprawić\nsobie bojler, łatwo może wylecieć w powietrze. Gdy\nlaik zaczyna grzebać w kablach wysokiego napięcia,\npo chwili może zatańczyć breakdance, a głowa\nzaświeci mu się jak żarówka. Podobnie, gdy jacyś narwańcy\nszykują się do walki z maszyną, jedną nogą\nsą już w grobie. Ciebie to nie dotyczy.\nZnasz się na maszynach. Otrzymujesz bonus\n+30% do walki z robotami(testy Charakteru, Inicjatywy, ataku, obrony).",
-                "bonus": {}
+                "description": "To jest tak gdyby jakiś frajer zechciał naprawić sobie bojler, łatwo może wylecieć w powietrze. Gdy laik zaczyna grzebać w kablach wysokiego napięcia, po chwili może zatańczyć breakdance, a głowa zaświeci mu się jak żarówka. Podobnie, gdy jacyś narwańcy szykują się do walki z maszyną, jedną nogą są już w grobie. Ciebie to nie dotyczy. Znasz się na maszynach. Otrzymujesz bonus +30% do walki z robotami (testy Charakteru, Inicjatywy, ataku, obrony).",
+                "bonus": {
+                    "text": "Otrzymujesz bonus +30% do walki z robotami (testy Charakteru, Inicjatywy, ataku, obrony)."
+                }
             }
         ]
     },
@@ -370,13 +505,17 @@
         "features": [
             {
                 "name": "Elektronik",
-                "description": "Nie, żebyś swego czasu pracował jako spec od zabezpieczeń,\nale trzeba przyznać , że znasz te systemy.\nWiesz jak działają. Potrafisz je rozgryźć i unieszkodliwić, bez\nwzględu na to czy mamy do czynienia z\npowojenną bazą wojskową, czy z ruinami Muzeum\nWojny z Islamem. Rozbroisz je, nie ma obaw. Zawsze,\nkiedy stajesz naprzeciw elektronicznego systemu\nzabezpieczeń, zwiększ swój Spryt o 4 punkty.\nNieźle, co?",
-                "bonus": {}
+                "description": "Nie, żebyś swego czasu pracował jako spec od zabezpieczeń, ale trzeba przyznać, że znasz te systemy. Wiesz jak działają. Potrafisz je rozgryźć i unieszkodliwić, bez względu na to czy mamy do czynienia z powojenną bazą wojskową, czy z ruinami Muzeum Wojny z Islamem. Rozbroisz je, nie ma obaw. Zawsze, kiedy stajesz naprzeciw elektronicznego systemu zabezpieczeń, zwiększ swój Spryt o 4 punkty. Nieźle, co?",
+                "bonus": {
+                    "text": "Zawsze, kiedy stajesz naprzeciw elektronicznego systemu zabezpieczeń, zwiększ swój Spryt o 4 punkty."
+                }
             },
             {
                 "name": "Kot",
-                "description": "Czasy się zmieniły, mówią ludzie. Finezja nie jest\njuż w modzie. W modzie może nie jest - ale wciążk\njest skuteczna. Więc działasz jak kot. niemal\nniewyczuwalny, niemal niewidzialny. Żadnych strzelanin,\nzadnego huku - to zbędne. Tylko Ty i cel i strażnicy.\nAle oni przecież o niczym nie wiedzą, prawda? Zawsze,\ngdy będziesz się skradał, ukrywał albo coś\nmaskował, większ przeciwnikowi Poziom Trudności\ntestów Wypatrywania/Nasłuchiwania o dwa stopnie.",
-                "bonus": {}
+                "description": "Czasy się zmieniły, mówią ludzie. Finezja nie jest już w modzie. W modzie może nie jest - ale wciążk jest skuteczna. Więc działasz jak kot. niemal niewyczuwalny, niemal niewidzialny. Żadnych strzelanin, żadnego huku - to zbędne. Tylko Ty i cel i strażnicy. Ale oni przecież o niczym nie wiedzą, prawda? Zawsze, gdy będziesz się skradał, ukrywał albo coś maskował, zwiększ przeciwnikowi Poziom Trudności testów Wypatrywania/Nasłuchiwania o dwa stopnie.",
+                "bonus": {
+                    "text": "Zawsze, gdy będziesz się skradał, ukrywał albo coś maskował, zwiększ przeciwnikowi Poziom Trudności testów Wypatrywania/Nasłuchiwania o dwa stopnie."
+                }
             }
         ]
     },
@@ -385,13 +524,22 @@
         "features": [
             {
                 "name": "Wyszkolenie",
-                "description": "Wszystkie umiejętności z pakietów Broń Strzelecka\ni Pirotechnika posiadasz od razu na poziomie 1.",
-                "bonus": {}
+                "description": "Wszystkie umiejętności z pakietów Broń Strzelecka i Pirotechnika posiadasz od razu na poziomie 1.",
+                "bonus": {
+                    "text": "Umiejętności z pakietów Broń Strzelecka i Pirotechnika posiadasz od razu na poziomie 1.",
+                    "object": {
+                        "type": "skillpack",
+                        "name": ["Broń Strzelecka", "Pirotechnika"],
+                        "value": 1
+                    }
+                }
             },
             {
                 "name": "Rutyna",
-                "description": "Podczas testowania Morale poprzedzających walkę\n(reguła \"Najpierw spójrz mi w oczy\") Żołnierz\nautomatycznie zdaje test.",
-                "bonus": {}
+                "description": "Podczas testowania Morale poprzedzających walkę (reguła \"Najpierw spójrz mi w oczy\") Żołnierz automatycznie zdaje test.",
+                "bonus": {
+                    "text": "Podczas testowania Morale poprzedzających walkę (reguła \"Najpierw spójrz mi w oczy\") automatycznie zdajesz test."
+                }
             }
         ]
     }
