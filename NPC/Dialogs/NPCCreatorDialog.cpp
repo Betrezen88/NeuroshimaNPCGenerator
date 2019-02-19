@@ -12,7 +12,8 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
       m_pAttributeManager(new NPCAttributeManagerWidget(this)),
       m_pSpecializationManager(new NPCSpecializationManagerWidget(this)),
       m_pOriginManager(new NPCOriginManagerWidget(this)),
-      m_pProfessionManager(new NPCProfessionManagerWidget(this))
+      m_pProfessionManager(new NPCProfessionManagerWidget(this)),
+      m_pSicknessManager(new NPCSicknessManagerWidget(this))
 {
     setAttribute( Qt::WA_DeleteOnClose );
     setMinimumSize( 500, 500 );
@@ -21,7 +22,7 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
     m_pTabWidget->addTab( m_pSpecializationManager, "Specjalizacja" );
     m_pTabWidget->addTab( m_pOriginManager, "Pochodzenie" );
     m_pTabWidget->addTab( m_pProfessionManager, "Profesja" );
-    m_pTabWidget->addTab( new QWidget(), "Choroba" );
+    m_pTabWidget->addTab( m_pSicknessManager, "Choroba" );
     m_pTabWidget->addTab( new QWidget(), "Umiejętności" );
     m_pTabWidget->addTab( new QWidget(), "Sztuczki" );
 

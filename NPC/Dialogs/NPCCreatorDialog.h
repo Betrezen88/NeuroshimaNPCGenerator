@@ -9,6 +9,7 @@
 #include "../Widgets/NPCSpecializationManagerWidget.h"
 #include "../Widgets/NPCOriginManagerWidget.h"
 #include "../Widgets/NPCProfessionManagerWidget.h"
+#include "../Widgets/NPCSicknessManagerWidget.h"
 
 #include "../NPCCardTab.h"
 
@@ -26,6 +27,8 @@ private:
     NPCSpecializationManagerWidget *m_pSpecializationManager{nullptr};
     NPCOriginManagerWidget *m_pOriginManager{nullptr};
     NPCProfessionManagerWidget *m_pProfessionManager{nullptr};
+    NPCSicknessManagerWidget *m_pSicknessManager{nullptr};
+
     NPCCardTab *m_pCard{nullptr};
 };
 
