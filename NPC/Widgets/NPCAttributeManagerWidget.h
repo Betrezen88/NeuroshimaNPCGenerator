@@ -8,6 +8,7 @@
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QHash>
+#include <QJsonArray>
 #include <QPushButton>
 #include <QSpinBox>
 
@@ -18,10 +19,11 @@ class NPCAttributeManagerWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit NPCAttributeManagerWidget(QWidget *parent = nullptr);
+    explicit NPCAttributeManagerWidget(const QJsonArray *attributes, QWidget *parent = nullptr);
 
 signals:
     void attributesChanged(QHash<QString,int> attributes);
+    void attributeChanged(const QString &name, const int &value);
 
 public slots:
 
@@ -37,6 +39,7 @@ private:
     int roll();
 
 private:
+    const QJsonArray *m_attributes;
     QSpinBox *m_pRollCount{nullptr};
     QComboBox *m_pDistributeType{nullptr};
     QCheckBox *m_pExtraDice{nullptr};
@@ -52,14 +55,6 @@ private:
     const QStringList m_distributionTypes{
         "Dowolny",
         "Określony"
-    };
-
-    const QStringList m_attributes{
-        "Budowa",
-        "Zręczność",
-        "Charakter",
-        "Spryt",
-        "Percepcja"
     };
 };
 

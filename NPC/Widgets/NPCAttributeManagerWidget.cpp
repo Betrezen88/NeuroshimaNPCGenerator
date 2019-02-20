@@ -1,14 +1,14 @@
 #include "NPCAttributeManagerWidget.h"
 
 #include <QGridLayout>
+#include <QJsonObject>
 #include <QLabel>
 #include <QRadioButton>
 #include <QtMath>
 
-#include <QDebug>
-
-NPCAttributeManagerWidget::NPCAttributeManagerWidget(QWidget *parent)
+NPCAttributeManagerWidget::NPCAttributeManagerWidget(const QJsonArray *attributes, QWidget *parent)
     : QWidget(parent),
+      m_attributes(attributes),
       m_pRollCount(new QSpinBox(this)),
       m_pDistributeType(new QComboBox(this)),
       m_pExtraDice(new QCheckBox(this)),
@@ -95,12 +95,19 @@ QGroupBox *NPCAttributeManagerWidget::attributesBox()
     QGridLayout *pLayout = new QGridLayout;
 
     int row{0};
-    for ( const QString &attribute: m_attributes ) {
-        QLabel *pLabel = new QLabel(attribute);
+    for ( const QJsonValue tAttribute: *m_attributes ) {
+        const QJsonObject &attribute = tAttribute.toObject();
+        QLabel *pLabel = new QLabel(attribute.value("name").toString());
         DragDropAreaWidget *pDragDrop = new DragDropAreaWidget(this);
         m_results.insert( pLabel, pDragDrop );
         pLayout->addWidget( pLabel, row, 0 );
         pLayout->addWidget( pDragDrop, row, 1 );
+
+        connect( pDragDrop, &DragDropAreaWidget::hasLabelChanged,
+                 [this, pLabel, pDragDrop](){
+            emit attributeChanged(pLabel->text(), pDragDrop->value());
+        } );
+
         ++row;
     }
 
