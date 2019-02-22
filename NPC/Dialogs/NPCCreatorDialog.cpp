@@ -16,17 +16,18 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
       m_pSpecializationManager(new NPCSpecializationManagerWidget(this)),
       m_pOriginManager(new NPCOriginManagerWidget(this)),
       m_pProfessionManager(new NPCProfessionManagerWidget(this)),
-      m_pSicknessManager(new NPCSicknessManagerWidget(this))
+      m_pSicknessManager(new NPCSicknessManagerWidget(this)),
+      m_pSkillsManager(new NPCSkillsManagerWidget(&m_attributes, this))
 {
     setAttribute( Qt::WA_DeleteOnClose );
-    setMinimumSize( 500, 500 );
+    setMinimumSize( 500, 880 );
 
     m_pTabWidget->addTab( m_pAttributeManager, "Atrybuty" );
     m_pTabWidget->addTab( m_pSpecializationManager, "Specjalizacja" );
     m_pTabWidget->addTab( m_pOriginManager, "Pochodzenie" );
     m_pTabWidget->addTab( m_pProfessionManager, "Profesja" );
     m_pTabWidget->addTab( m_pSicknessManager, "Choroba" );
-    m_pTabWidget->addTab( new QWidget(), "Umiejętności" );
+    m_pTabWidget->addTab( m_pSkillsManager, "Umiejętności" );
     m_pTabWidget->addTab( new QWidget(), "Sztuczki" );
 
     m_pClose->setFixedWidth( 80 );
@@ -38,6 +39,14 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
     connect( m_pAttributeManager, &NPCAttributeManagerWidget::attributeChanged,
              m_pCard->obverse(), &NPCCardObverse::setAttribute );
 
+    connect( m_pAttributeManager, &NPCAttributeManagerWidget::attributeChanged,
+             m_pSkillsManager, &NPCSkillsManagerWidget::setAttributeValue );
+
+    connect( m_pSpecializationManager, &NPCSpecializationManagerWidget::specializationChanged,
+             m_pSkillsManager, &NPCSkillsManagerWidget::setSpecialization );
+
+    m_pSpecializationManager->specializationChanged( "Technik" );
+
     QHBoxLayout *pButtonsL = new QHBoxLayout;
     pButtonsL->addWidget( m_pClose );
     pButtonsL->addWidget( m_pAccept );
@@ -47,4 +56,5 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
     pLayout->addLayout( pButtonsL );
 
     setLayout( pLayout );
+    adjustSize();
 }

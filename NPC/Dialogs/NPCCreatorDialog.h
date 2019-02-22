@@ -10,6 +10,7 @@
 #include "../Widgets/NPCOriginManagerWidget.h"
 #include "../Widgets/NPCProfessionManagerWidget.h"
 #include "../Widgets/NPCSicknessManagerWidget.h"
+#include "../Widgets/NPCSkillsManagerWidget.h"
 
 #include "../NPCCardTab.h"
 
@@ -35,6 +36,7 @@ private:
     NPCOriginManagerWidget *m_pOriginManager{nullptr};
     NPCProfessionManagerWidget *m_pProfessionManager{nullptr};
     NPCSicknessManagerWidget *m_pSicknessManager{nullptr};
+    NPCSkillsManagerWidget *m_pSkillsManager{nullptr};
 };
 
 #endif // NPCCREATORDIALOG_H
