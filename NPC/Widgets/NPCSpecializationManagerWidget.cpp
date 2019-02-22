@@ -10,11 +10,13 @@ NPCSpecializationManagerWidget::NPCSpecializationManagerWidget(QWidget *parent)
       m_pSpecs(new QComboBox(this)),
       m_pDescriptionLabel(new QLabel(this))
 {
-    m_specializations = DataLoader::loadJson( ":/data/json/Specializations.json" );
-    m_pDescriptionLabel->setWordWrap( true );
-
     connect( m_pSpecs, &QComboBox::currentTextChanged,
              this, &NPCSpecializationManagerWidget::setSpec );
+    connect( m_pSpecs, &QComboBox::currentTextChanged,
+             this, &NPCSpecializationManagerWidget::specializationChanged );
+
+    m_specializations = DataLoader::loadJson( ":/data/json/Specializations.json" );
+    m_pDescriptionLabel->setWordWrap( true );
 
     m_pSpecs->insertItems( 0, specs() );
 

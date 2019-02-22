@@ -14,8 +14,10 @@ public:
     explicit NPCSpecializationManagerWidget(QWidget *parent = nullptr);
 
 signals:
+    void specializationChanged(const QString &spec);
 
 public slots:
+
 
 private slots:
     void setSpec(const QString &specName);
