@@ -101,6 +101,11 @@ void NPCCardObverse::onAttributeChanged(QVector<int> attributes)
     }
 }
 
+void NPCCardObverse::setAttribute(const QString &name, const int &value)
+{
+    m_attributes[name]->setValue( value );
+}
+
 void NPCCardObverse::addBougthTricks(QVector<QListWidgetItem *> tricks)
 {
     for ( QListWidgetItem *trick: tricks ) {
@@ -209,8 +214,8 @@ NPCSkillPackWidget *NPCCardObverse::createSkillPack(const QJsonObject &skillPack
 
     connect( pSkillPack, &NPCSkillPackWidget::bougth,
              m_pProgressWidget, &NPCProgressWidget::onSkillPackBougth );
-    connect( m_pProgressWidget, &NPCProgressWidget::availableSkillPointsChanged,
-             pSkillPack, &NPCSkillPackWidget::onAvailableSkillPointsChanged);
+//    connect( m_pProgressWidget, &NPCProgressWidget::availableSkillPointsChanged,
+//             pSkillPack, &NPCSkillPackWidget::onAvailableSkillPointsChanged);
     connect( pSkillPack, &NPCSkillPackWidget::refundPoints,
              m_pProgressWidget, &NPCProgressWidget::onRefundPoints );
 

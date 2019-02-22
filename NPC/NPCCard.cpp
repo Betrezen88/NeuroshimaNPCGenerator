@@ -270,8 +270,8 @@ NPCSkillPackWidget *NPCCard::createSkillPack(const QJsonObject &skillPack)
 
     connect( pSkillPack, &NPCSkillPackWidget::bougth,
              m_pProgressWidget, &NPCProgressWidget::onSkillPackBougth );
-    connect( m_pProgressWidget, &NPCProgressWidget::availableSkillPointsChanged,
-             pSkillPack, &NPCSkillPackWidget::onAvailableSkillPointsChanged);
+//    connect( m_pProgressWidget, &NPCProgressWidget::availableSkillPointsChanged,
+//             pSkillPack, &NPCSkillPackWidget::onAvailableSkillPointsChanged);
     connect( pSkillPack, &NPCSkillPackWidget::refundPoints,
              m_pProgressWidget, &NPCProgressWidget::onRefundPoints );
 
