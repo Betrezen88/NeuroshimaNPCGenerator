@@ -51,7 +51,8 @@ SOURCES += \
     NPC/Widgets/NPCSpecializationManagerWidget.cpp \
     NPC/Widgets/NPCOriginManagerWidget.cpp \
     NPC/Widgets/NPCProfessionManagerWidget.cpp \
-    NPC/Widgets/NPCSicknessManagerWidget.cpp
+    NPC/Widgets/NPCSicknessManagerWidget.cpp \
+    NPC/Widgets/NPCSkillsManagerWidget.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -80,7 +81,8 @@ HEADERS += \
     NPC/Widgets/NPCSpecializationManagerWidget.h \
     NPC/Widgets/NPCOriginManagerWidget.h \
     NPC/Widgets/NPCProfessionManagerWidget.h \
-    NPC/Widgets/NPCSicknessManagerWidget.h
+    NPC/Widgets/NPCSicknessManagerWidget.h \
+    NPC/Widgets/NPCSkillsManagerWidget.h
 
 RESOURCES += \
     Resources/resources.qrc
