@@ -34,9 +34,10 @@ signals:
     void bougth(const bool &state, const QStringList &specs);
     void refundPoints(const int value, const QStringList &specs);
     void onSpecsChanged(const QStringList &specs);
+    void skillValueChanged(const int &value, const QStringList &specs, const bool &increase);
 
 public slots:
-    void onAvailableSkillPointsChanged(const int value);
+    void onAvailableSkillPointsChanged(const int &skill, const int &specs, const QString &spec);
 
 private slots:
     void onBougth(const bool &checked);

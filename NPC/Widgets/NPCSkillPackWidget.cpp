@@ -55,6 +55,11 @@ void NPCSkillPackWidget::addSkill(const QString &name, SkillSpinBox *skillBox)
 
     connect( skillBox, &SkillSpinBox::valueChanged,
              this, &NPCSkillPackWidget::enableBougthCheckbox );
+    connect( skillBox, &SkillSpinBox::skillValueChanged,
+             [this](const int &value, const bool &increase) {
+                emit this->skillValueChanged(value, m_specs, increase);
+            }
+    );
 }
 
 bool NPCSkillPackWidget::hasSkill(const QString &name) const
@@ -104,12 +109,15 @@ void NPCSkillPackWidget::paintEvent(QPaintEvent *)
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void NPCSkillPackWidget::onAvailableSkillPointsChanged(const int value)
+void NPCSkillPackWidget::onAvailableSkillPointsChanged(const int &skill, const int &specs, const QString &spec)
 {
+    const int &value = (m_specs.contains(spec)) ? specs+skill : skill;
     if ( m_pBougth->isEnabled() ) {
         const int disable = (5 > value) && !m_pBougth->isChecked();
         m_pBougth->setDisabled( disable );
     }
+    for ( QPair<const QLabel*, SkillSpinBox*> pSkill: m_skills )
+        pSkill.second->onAvailableSkillPointsChanged( value );
 }
 
 void NPCSkillPackWidget::onBougth(const bool &checked)
