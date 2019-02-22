@@ -47,8 +47,10 @@ QWidget * NPCAttributeManagerWidget::createResultRowWidget()
 
 void NPCAttributeManagerWidget::throwBtnClicked()
 {
-    if ( nullptr != m_pResultBox )
+    if ( nullptr != m_pResultBox ) {
+        m_pMainLayout->removeWidget( m_pResultBox );
         delete m_pResultBox;
+    }
 
     m_pResultBox = new QGroupBox( "Wyniki", this );
     QVBoxLayout *pLayout = new QVBoxLayout;

@@ -19,6 +19,8 @@ NPCAttributeWidget::NPCAttributeWidget(const QString &name,
     m_pName->setFixedSize( 100, 40 );
 
     QVBoxLayout *pLayout = new QVBoxLayout;
+    pLayout->setSpacing( 1 );
+    pLayout->addStretch( 1 );
     setLayout( pLayout );
     pLayout->addWidget( createTitleBar(mods) );
 }
@@ -37,6 +39,7 @@ void NPCAttributeWidget::addSkillPack(const QString &name, NPCSkillPackWidget *s
 {
     m_skillPacks.insert( name, skillPack );
     layout()->addWidget( skillPack );
+    adjustSize();
 }
 
 const int *NPCAttributeWidget::value() const
