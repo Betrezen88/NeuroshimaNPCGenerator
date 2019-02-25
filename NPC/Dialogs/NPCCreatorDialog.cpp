@@ -1,4 +1,4 @@
-#include "NPCCreatorDialog.h"
+﻿#include "NPCCreatorDialog.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -17,7 +17,8 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
       m_pOriginManager(new NPCOriginManagerWidget(this)),
       m_pProfessionManager(new NPCProfessionManagerWidget(this)),
       m_pSicknessManager(new NPCSicknessManagerWidget(this)),
-      m_pSkillsManager(new NPCSkillsManagerWidget(&m_attributes, this))
+      m_pSkillsManager(new NPCSkillsManagerWidget(&m_attributes, this)),
+      m_pTricksManager(new NPCTrickManagerWidget(m_pCard->obverse()->attributes(), this))
 {
     setAttribute( Qt::WA_DeleteOnClose );
     setMinimumSize( 500, 880 );
@@ -28,7 +29,7 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
     m_pTabWidget->addTab( m_pProfessionManager, "Profesja" );
     m_pTabWidget->addTab( m_pSicknessManager, "Choroba" );
     m_pTabWidget->addTab( m_pSkillsManager, "Umiejętności" );
-    m_pTabWidget->addTab( new QWidget(), "Sztuczki" );
+    m_pTabWidget->addTab( m_pTricksManager, "Sztuczki" );
 
     m_pClose->setFixedWidth( 80 );
     m_pAccept->setFixedWidth( 80 );

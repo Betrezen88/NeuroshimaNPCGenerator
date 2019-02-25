@@ -1,4 +1,4 @@
-#ifndef NPCCREATORDIALOG_H
+﻿#ifndef NPCCREATORDIALOG_H
 #define NPCCREATORDIALOG_H
 
 #include <QDialog>
@@ -11,6 +11,7 @@
 #include "../Widgets/NPCProfessionManagerWidget.h"
 #include "../Widgets/NPCSicknessManagerWidget.h"
 #include "../Widgets/NPCSkillsManagerWidget.h"
+#include "../Widgets/NPCTrickManagerWidget.h"
 
 #include "../NPCCardTab.h"
 
@@ -37,6 +38,7 @@ private:
     NPCProfessionManagerWidget *m_pProfessionManager{nullptr};
     NPCSicknessManagerWidget *m_pSicknessManager{nullptr};
     NPCSkillsManagerWidget *m_pSkillsManager{nullptr};
+    NPCTrickManagerWidget *m_pTricksManager{nullptr};
 };
 
 #endif // NPCCREATORDIALOG_H
