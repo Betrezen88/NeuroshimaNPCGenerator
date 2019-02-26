@@ -25,7 +25,7 @@ public:
     explicit NPCCardObverse(QWidget *parent = nullptr);
 
     const QHash<QString, NPCAttributeWidget *> *attributes() const;
-    const NPCProgressWidget *progressWidget() const;
+//    const NPCProgressWidget *progressWidget() const;
 
     const QString heroName() const;
     const QString origin() const;
@@ -44,6 +44,8 @@ signals:
 
 public slots:
     void setOrigin(const QJsonObject &origin);
+    void setProfession(const QJsonObject &profession);
+    void setSpecialization(const QString &spec);
 
     void onOriginChange(const QString &name);
     void onProfessionChanged(const QString &name);
@@ -65,8 +67,6 @@ private:
     NPCSkillPackWidget *createSkillPack(const QJsonObject &skillPack);
 
     void setAttributes(const QJsonArray &attributes);
-    void setSpecializations(const QJsonArray &specializations);
-    void setProfessions(const QJsonArray &professions);
     void setSicknessTooltip(const QJsonObject &sickness);
 
     void setAttributeMod(const QString &name, const int &value);
@@ -84,8 +84,8 @@ private:
     QLabel *m_pPortrait{nullptr};
     QLineEdit *m_pName{nullptr};
     QLineEdit *m_pOrigin{nullptr};
-    QComboBox *m_pProfession{nullptr};
-    QComboBox *m_pSpecialization{nullptr};
+    QLineEdit *m_pProfession{nullptr};
+    QLineEdit *m_pSpecialization{nullptr};
     QLineEdit *m_pSickness{nullptr};
     QLineEdit *m_pOriginFeature{nullptr};
     QComboBox *m_pFeature2{nullptr};
@@ -94,7 +94,6 @@ private:
 
     // Others widgets
     QListWidget *m_pTricks{nullptr};
-    NPCProgressWidget *m_pProgressWidget{nullptr};
     NPCAttributesModsInfoWidget *m_pAttributesModsInfo{nullptr};
 
     // Data containers
@@ -107,6 +106,7 @@ private:
     QJsonObject m_sickness;
 
     QJsonObject m_origin;
+    QJsonObject m_profession;
 
     // Data
     const QVector<QPair<QString, int>> m_mods{
