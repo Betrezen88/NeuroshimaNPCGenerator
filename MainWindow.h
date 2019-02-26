@@ -29,6 +29,7 @@ private slots:
     void updateTabText(const QString &text);
     void onCardClose(const int &index);
     void saveCard();
+    void addCard(NPCCardTab *card);
 
 private:
     void createActions();

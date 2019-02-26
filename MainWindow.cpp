@@ -64,14 +64,14 @@ void MainWindow::showTricksDialog()
 
     m_pTricksDialog = new NPCTrickManagerDialog( pCardObverse->attributes(), this );
 
-    connect( m_pTricksDialog, &NPCTrickManagerDialog::buyTrick,
-             pCardObverse->progressWidget(), &NPCProgressWidget::onTrickBougth );
-    connect( m_pTricksDialog, &NPCTrickManagerDialog::resignTrick,
-             pCardObverse->progressWidget(), &NPCProgressWidget::onTrickResign );
-    connect( pCardObverse->progressWidget(), &NPCProgressWidget::addTrick,
-             m_pTricksDialog, &NPCTrickManagerDialog::trickBougth );
-    connect( pCardObverse->progressWidget(), &NPCProgressWidget::removeTrick,
-             m_pTricksDialog, &NPCTrickManagerDialog::trickRemove );
+//    connect( m_pTricksDialog, &NPCTrickManagerDialog::buyTrick,
+//             pCardObverse->progressWidget(), &NPCProgressWidget::onTrickBougth );
+//    connect( m_pTricksDialog, &NPCTrickManagerDialog::resignTrick,
+//             pCardObverse->progressWidget(), &NPCProgressWidget::onTrickResign );
+//    connect( pCardObverse->progressWidget(), &NPCProgressWidget::addTrick,
+//             m_pTricksDialog, &NPCTrickManagerDialog::trickBougth );
+//    connect( pCardObverse->progressWidget(), &NPCProgressWidget::removeTrick,
+//             m_pTricksDialog, &NPCTrickManagerDialog::trickRemove );
     connect( m_pTricksDialog, &NPCTrickManagerDialog::acceptTricks,
              pCardObverse, &NPCCardObverse::addBougthTricks );
 
@@ -111,18 +111,10 @@ void MainWindow::createNewCard()
 {
     NPCCreatorDialog *pDialog = new NPCCreatorDialog(this);
 
+    connect( pDialog, &NPCCreatorDialog::creationCompleted,
+             this, &MainWindow::addCard );
+
     pDialog->show();
-
-//    NPCCardTab *pCard = new NPCCardTab( this );
-//    m_cards.push_back( pCard );
-
-//    connect( pCard->obverse(), &NPCCardObverse::heroNameChanged,
-//             this, &MainWindow::updateTabText );
-
-//    QScrollArea *pScrollArea = new QScrollArea();
-//    pScrollArea->setWidget( pCard );
-
-//    m_pTabWidget->addTab( pScrollArea, "Nowa Postać" );
 }
 
 void MainWindow::updateTabText(const QString &text)
@@ -171,6 +163,14 @@ void MainWindow::saveCard()
     QJsonDocument json;
     json.setObject( converter.toJson(pCard) );
     file.write( json.toJson() );
+}
+
+void MainWindow::addCard(NPCCardTab *card)
+{
+    QScrollArea *pScrollArea = new QScrollArea();
+    pScrollArea->setWidget( card );
+
+    m_pTabWidget->addTab( pScrollArea, "Nowa Postać" );
 }
 
 void MainWindow::createActions()
