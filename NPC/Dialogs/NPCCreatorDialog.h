@@ -21,8 +21,12 @@
 
 class NPCCreatorDialog : public QDialog
 {
+    Q_OBJECT
 public:
     NPCCreatorDialog(QWidget *parent = nullptr);
+
+signals:
+    void creationCompleted(NPCCardTab *card);
 
 private:
     QJsonArray m_attributes;

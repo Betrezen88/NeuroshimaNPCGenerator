@@ -36,15 +36,17 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
 
     connect( m_pClose, &QPushButton::clicked,
              this, &NPCCreatorDialog::close );
+    connect( m_pAccept, &QPushButton::clicked,
+             [this](){ emit this->creationCompleted(m_pCard); this->close(); } );
 
     connect( m_pAttributeManager, &NPCAttributeManagerWidget::attributeChanged,
              m_pCard->obverse(), &NPCCardObverse::setAttribute );
-
     connect( m_pAttributeManager, &NPCAttributeManagerWidget::attributeChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setAttributeValue );
-
     connect( m_pSpecializationManager, &NPCSpecializationManagerWidget::specializationChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setSpecialization );
+    connect( m_pSpecializationManager, &NPCSpecializationManagerWidget::specializationChanged,
+             m_pCard->obverse(), &NPCCardObverse::setSpecialization );
 
     m_pSpecializationManager->specializationChanged( "Technik" );
 
@@ -57,5 +59,4 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
     pLayout->addLayout( pButtonsL );
 
     setLayout( pLayout );
-    adjustSize();
 }
