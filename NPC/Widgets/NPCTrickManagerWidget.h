@@ -19,6 +19,10 @@ signals:
 
 public slots:
 
+private slots:
+    void availableTrickDoubleClicked(QListWidgetItem *item);
+    void bougthTrickDoubleClicked(QListWidgetItem *item);
+
 private:
     void loadTricks(const QJsonArray &tricks);
     bool isTrickAvailable(const NPCTrickWidgetItem *pItem) const;
