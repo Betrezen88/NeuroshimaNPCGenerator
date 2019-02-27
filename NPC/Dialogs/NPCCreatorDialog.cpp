@@ -55,6 +55,8 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
              m_pCard->obverse(), &NPCCardObverse::setOriginFeature );
     connect( m_pOriginManager, &NPCOriginManagerWidget::originBonusChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setOriginBonus );
+    connect( m_pSicknessManager, &NPCSicknessManagerWidget::sicknessChanged,
+             m_pCard->obverse(), &NPCCardObverse::setSickness );
 
     m_pOriginManager->setOrigin( "Południowa Hegemonia" );
     m_pSpecializationManager->specializationChanged( "Technik" );
