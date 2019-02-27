@@ -57,9 +57,14 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
              m_pSkillsManager, &NPCSkillsManagerWidget::setOriginBonus );
     connect( m_pSicknessManager, &NPCSicknessManagerWidget::sicknessChanged,
              m_pCard->obverse(), &NPCCardObverse::setSickness );
+    connect( m_pProfessionManager, &NPCProfessionManagerWidget::professionNameChanged,
+             m_pCard->obverse(), &NPCCardObverse::setProfession );
+    connect( m_pProfessionManager, &NPCProfessionManagerWidget::professionFeatureChanged,
+             m_pCard->obverse(), &NPCCardObverse::setProfessionFeature );
 
-    m_pOriginManager->setOrigin( "Południowa Hegemonia" );
     m_pSpecializationManager->specializationChanged( "Technik" );
+    m_pOriginManager->setOrigin( "Południowa Hegemonia" );
+    m_pProfessionManager->setProfession( "Chemik" );
 
     QHBoxLayout *pButtonsL = new QHBoxLayout;
     pButtonsL->addWidget( m_pClose );
