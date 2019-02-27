@@ -25,7 +25,6 @@ public:
     explicit NPCCardObverse(QWidget *parent = nullptr);
 
     const QHash<QString, NPCAttributeWidget *> *attributes() const;
-//    const NPCProgressWidget *progressWidget() const;
 
     const QString heroName() const;
     const QString origin() const;
@@ -43,9 +42,11 @@ signals:
     void heroNameChanged(const QString &name);
 
 public slots:
-    void setOrigin(const QJsonObject &origin);
+    void setOrigin(const QString &name);
+    void setOriginFeature(const QString name, const QString description);
     void setProfession(const QJsonObject &profession);
     void setSpecialization(const QString &spec);
+    void setAttributeModValue(const QString &name, const int &value);
 
     void onOriginChange(const QString &name);
     void onProfessionChanged(const QString &name);
@@ -70,7 +71,6 @@ private:
     void setSicknessTooltip(const QJsonObject &sickness);
 
     void setAttributeMod(const QString &name, const int &value);
-    void setOriginFeature(const QJsonObject &feature);
     void applyBonus(const QJsonObject &bonus);
     void undoBonus(const QJsonObject &bonus);
 

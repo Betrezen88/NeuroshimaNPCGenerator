@@ -277,20 +277,15 @@ const QListWidget *NPCCardObverse::tricks() const
     return m_pTricks;
 }
 
-void NPCCardObverse::setOrigin(const QJsonObject &origin)
+void NPCCardObverse::setOrigin(const QString &name)
 {
-    if ( !m_origin.isEmpty() ) {
-        const QJsonObject &attribute = m_origin.value("attribute").toObject();
-        setAttributeMod( attribute.value("name").toString(), 0 );
-        undoBonus( m_origin.value("feature").toObject().value("bonus").toObject() );
-    }
+    m_pOrigin->setText( name );
+}
 
-    m_origin = origin;
-    const QJsonObject &attribute = m_origin.value("attribute").toObject();
-
-    m_pOrigin->setText( m_origin.value("name").toString() );
-    setAttributeMod( attribute.value("name").toString(), attribute.value("value").toInt() );
-    setOriginFeature( origin.value("feature").toObject() );
+void NPCCardObverse::setOriginFeature(const QString name, const QString description)
+{
+    m_pOriginFeature->setText( name );
+    m_pOriginFeature->setToolTip( description );
 }
 
 void NPCCardObverse::setProfession(const QJsonObject &profession)
@@ -304,6 +299,16 @@ void NPCCardObverse::setSpecialization(const QString &spec)
 {
     if ( spec != m_pSpecialization->text() )
         m_pSpecialization->setText( spec );
+}
+
+void NPCCardObverse::setAttributeModValue(const QString &name, const int &value)
+{
+    for ( NPCAttributeWidget *tAttribute: m_attributes )
+        if ( tAttribute->modValue() ) {
+            tAttribute->setModValue( 0 );
+            break;
+        }
+    m_attributes.value(name)->setModValue( value );
 }
 
 void NPCCardObverse::setAttributes(const QJsonArray &attributes)
@@ -353,13 +358,6 @@ void NPCCardObverse::setSicknessTooltip(const QJsonObject &sickness)
 void NPCCardObverse::setAttributeMod(const QString &name, const int &value)
 {
     m_attributes[name]->setModValue( value );
-}
-
-void NPCCardObverse::setOriginFeature(const QJsonObject &feature)
-{
-    m_pOriginFeature->setText( feature.value("name").toString() );
-    m_pOriginFeature->setToolTip( feature.value("description").toString() );
-    applyBonus( feature.value("bonus").toObject() );
 }
 
 void NPCCardObverse::applyBonus(const QJsonObject &bonus)
