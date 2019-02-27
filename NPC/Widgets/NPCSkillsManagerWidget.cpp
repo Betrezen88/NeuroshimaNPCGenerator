@@ -28,11 +28,28 @@ void NPCSkillsManagerWidget::setAttributeValue(const QString &name, const int &v
     m_attributes[name]->setValue( value );
 }
 
+void NPCSkillsManagerWidget::setAttributeModValue(const QString &name, const int &value)
+{
+    for ( NPCAttributeWidget *tAttribute: m_attributes )
+        if ( tAttribute->modValue() ) {
+            tAttribute->setModValue( 0 );
+            break;
+        }
+    m_attributes.value(name)->setModValue( value );
+}
+
 void NPCSkillsManagerWidget::setSpecialization(const QString &spec)
 {
     if ( spec != m_specialization ) {
         m_specialization = spec;
     }
+}
+
+void NPCSkillsManagerWidget::setOriginBonus(const QJsonObject &bonus)
+{
+    if ( !m_originBonus.isEmpty() )
+        removeBonus( m_originBonus );
+    addBonus( bonus );
 }
 
 void NPCSkillsManagerWidget::buySkillPack(const bool &bougth, const QStringList &specs)
@@ -73,6 +90,40 @@ void NPCSkillsManagerWidget::setAttributes(const QJsonArray &attributes)
                       this, &NPCSkillsManagerWidget::buySkill );
 
              m_attributes.value(name)->addSkillPack(skillpack.value("name").toString(), pSkillpack);
+        }
+    }
+}
+
+void NPCSkillsManagerWidget::addBonus(const QJsonObject &bonus)
+{
+    m_originBonus = bonus;
+    if ( "skillpack" == bonus.value("type").toString() ) {
+        const QString &skillpackName = bonus.value("name").toString();
+        for ( NPCAttributeWidget *attribute: m_attributes ) {
+            if ( attribute->skillPacks()->contains(skillpackName) ) {
+                NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(skillpackName);
+                for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
+                    skill.second->setValue( bonus.value("value").toInt() );
+                    skill.second->setMinimum( bonus.value("value").toInt() );
+                }
+                break;
+            }
+        }
+    }
+}
+
+void NPCSkillsManagerWidget::removeBonus(const QJsonObject &bonus)
+{
+    if ( "skillpack" == bonus.value("type").toString() ) {
+        const QString &skillpackName = bonus.value("name").toString();
+        for ( NPCAttributeWidget *attribute: m_attributes ) {
+            if ( attribute->skillPacks()->contains(skillpackName) ) {
+                NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(skillpackName);
+                for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
+                    skill.second->setMinimum( 0 );
+                    skill.second->setValue( 0 );
+                }
+            }
         }
     }
 }

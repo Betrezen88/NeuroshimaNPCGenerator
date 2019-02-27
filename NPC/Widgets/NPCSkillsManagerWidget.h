@@ -5,6 +5,7 @@
 #include <QHash>
 #include <QGroupBox>
 #include <QLabel>
+#include <QJsonObject>
 
 #include "../Widgets/NPCAttributeWidget.h"
 
@@ -20,7 +21,9 @@ signals:
 
 public slots:
     void setAttributeValue(const QString &name, const int &value);
+    void setAttributeModValue(const QString &name, const int &value);
     void setSpecialization(const QString &spec);
+    void setOriginBonus(const QJsonObject &bonus);
 
 private slots:
     void buySkillPack(const bool &bougth, const QStringList &specs);
@@ -28,6 +31,8 @@ private slots:
 
 private:
     void setAttributes(const QJsonArray &attributes);
+    void addBonus(const QJsonObject &bonus);
+    void removeBonus(const QJsonObject &bonus);
 
     QGroupBox *infoLabels();
     QVBoxLayout *columnA();
@@ -47,6 +52,8 @@ private:
     QString m_specialization;
     QPair<int, int> m_specPoints{ 35, 0 };
     QPair<int, int> m_skillPoints{ 30, 0 };
+
+    QJsonObject m_originBonus;
 
     // TO DO: replace to load from jason
     const QVector<QPair<QString, int>> m_mods{
