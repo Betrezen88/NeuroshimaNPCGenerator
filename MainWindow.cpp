@@ -101,8 +101,8 @@ void MainWindow::showFeatureDialog()
     NPCCardObverse *pCard = m_cards.at(m_pTabWidget->currentIndex())->obverse();
     NPCOriginManagerDialog *pBonus = new NPCOriginManagerDialog( pCard, this );
 
-    connect( pBonus, &NPCOriginManagerDialog::acceptOrigin,
-             pCard, &NPCCardObverse::setOrigin );
+//    connect( pBonus, &NPCOriginManagerDialog::acceptOrigin,
+//             pCard, &NPCCardObverse::setOrigin );
 
     pBonus->show();
 }
