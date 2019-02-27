@@ -47,7 +47,16 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
              m_pSkillsManager, &NPCSkillsManagerWidget::setSpecialization );
     connect( m_pSpecializationManager, &NPCSpecializationManagerWidget::specializationChanged,
              m_pCard->obverse(), &NPCCardObverse::setSpecialization );
+    connect( m_pOriginManager, &NPCOriginManagerWidget::originNameChanged,
+             m_pCard->obverse(), &NPCCardObverse::setOrigin );
+    connect( m_pOriginManager, &NPCOriginManagerWidget::attributeBonusChanged,
+             m_pCard->obverse(), &NPCCardObverse::setAttributeModValue );
+    connect( m_pOriginManager, &NPCOriginManagerWidget::originFeatureChanged,
+             m_pCard->obverse(), &NPCCardObverse::setOriginFeature );
+    connect( m_pOriginManager, &NPCOriginManagerWidget::originBonusChanged,
+             m_pSkillsManager, &NPCSkillsManagerWidget::setOriginBonus );
 
+    m_pOriginManager->setOrigin( "Południowa Hegemonia" );
     m_pSpecializationManager->specializationChanged( "Technik" );
 
     QHBoxLayout *pButtonsL = new QHBoxLayout;
