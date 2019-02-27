@@ -17,11 +17,16 @@ public:
     explicit NPCOriginManagerWidget(QWidget *parent = nullptr);
 
 signals:
+    void originDataChanged(const QJsonObject &origin);
+    void originNameChanged(const QString &name);
+    void originFeatureChanged(const QString name, const QString description);
+    void originBonusChanged(const QJsonObject &bonus);
+    void attributeBonusChanged(const QString &name, const int &value);
 
 public slots:
+    void setOrigin(const QString &originName);
 
 private slots:
-    void setOrigin(const QString &originName);
     void setFeature(const QJsonObject &feature);
     void setBonus(const QJsonObject &bonus);
     void setBonusExtra(const QString &extra);

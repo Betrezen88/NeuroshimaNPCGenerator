@@ -38,10 +38,13 @@ void NPCOriginManagerWidget::setOrigin(const QString &originName)
     for ( const QJsonValue origin: m_origins ) {
         const QJsonObject &tOrigin = origin.toObject();
         if ( originName == tOrigin.value("name").toString() ) {
+            emit originNameChanged( originName );
             const QJsonObject &attribute = tOrigin.value("attribute").toObject();
             m_pOriginDescription->setText( tOrigin.value("description").toString() );
             m_pAttributeBonus->setText( "+"+QString::number(attribute.value("value").toInt())
                                         +" "+attribute.value("name").toString() );
+            emit attributeBonusChanged( attribute.value("name").toString(),
+                                        attribute.value("value").toInt() );
             m_features = tOrigin.value("features").toArray();
             featuresBox();
             break;
@@ -51,6 +54,8 @@ void NPCOriginManagerWidget::setOrigin(const QString &originName)
 
 void NPCOriginManagerWidget::setFeature(const QJsonObject &feature)
 {
+    emit originFeatureChanged( feature.value("name").toString(),
+                               feature.value("description").toString() );
     m_pFeatureDescription->setText( feature.value("description").toString() );
     setBonus( feature.value("bonus").toObject() );
 }
@@ -73,6 +78,7 @@ void NPCOriginManagerWidget::setBonus(const QJsonObject &bonus)
     if ( bonus.contains("object") ) {
         const QJsonObject &object = bonus.value("object").toObject();
         m_bonus.insert( "value", object.value("value").toInt() );
+        m_bonus.insert( "type", object.value("type").toString() );
         if ( bonus.contains("select") ) {
             m_pSelect = new QComboBox(m_pBonusBox);
             connect( m_pSelect, &QComboBox::currentTextChanged,
@@ -81,7 +87,10 @@ void NPCOriginManagerWidget::setBonus(const QJsonObject &bonus)
                                                   bonus.value("select").toArray()) );
             pLayout->addWidget( m_pSelect );
         }
+        else if ( object.contains("name") )
+            m_bonus.insert( "name", object.value("name").toString() );
     }
+    emit originBonusChanged( m_bonus );
 
     m_pBonusBox->setLayout( pLayout );
     m_pLayout->addWidget( m_pBonusBox, 3, 1 );
@@ -90,6 +99,7 @@ void NPCOriginManagerWidget::setBonus(const QJsonObject &bonus)
 void NPCOriginManagerWidget::setBonusExtra(const QString &extra)
 {
     m_bonus.insert( "name", extra );
+    emit originBonusChanged( m_bonus );
 }
 
 QGroupBox *NPCOriginManagerWidget::originDescriptionBox()
