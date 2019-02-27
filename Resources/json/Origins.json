@@ -155,7 +155,7 @@
                 "description": "Jesteś silny jak wół, zwinny jak puma i twardy jak głaz. Kiedy idziesz po górach, powodujesz lawinę. Kiedy dosiadasz konia, to koń... Co ja ci zresztą będę opowiadał? Wybierz pakiet Umiejętności Sprawność albo Jeździectwo z wybranej grupy jest jest obniżony o jeden poziom.",
                 "bonus": {
                     "type": "Complex",
-                    "text": "Wybierz pakiet umiejętności, którego testy będa o poziom mniejsze.",
+                    "text": "Wybrany pakiet umiejętności będzie miał testy o poziom mniejsze.",
                     "object": {
                         "type": "skillpack"
                     },
