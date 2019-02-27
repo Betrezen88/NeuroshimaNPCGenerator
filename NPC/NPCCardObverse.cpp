@@ -14,7 +14,7 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
       m_pSpecialization(new QLineEdit(this)),
       m_pSickness(new QLineEdit(this)),
       m_pOriginFeature(new QLineEdit(this)),
-      m_pFeature2(new QComboBox(this)),
+      m_pProfessionFeature(new QLineEdit(this)),
       m_pReputation(new QSpinBox(this)),
       m_pFame(new QSpinBox(this)),
       m_pTricks(new QListWidget(this))
@@ -30,9 +30,6 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
 
     connect( m_pName, &QLineEdit::textChanged,
              this, &NPCCardObverse::heroNameChanged );
-    connect( m_pFeature2, &QComboBox::currentTextChanged, [this](){
-        onFeatureChanged( m_pFeature2, m_professionFeatures );
-    } );
 
     QHBoxLayout *pLayout = new QHBoxLayout;
     setLayout( pLayout );
@@ -59,20 +56,6 @@ void NPCCardObverse::onOriginChange(const QString &name)
 
     for ( const QJsonValueRef tOrigin: m_originFeatures )
         featureNames << tOrigin.toObject().value("name").toString();
-}
-
-void NPCCardObverse::onProfessionChanged(const QString &name)
-{
-    const QJsonObject profession = m_professions.value( name );
-    QStringList featureNames;
-    m_professionFeatures = profession.value("features").toArray();
-
-    for (const QJsonValueRef tProfession: m_professionFeatures)
-        featureNames << tProfession.toObject().value("name").toString();
-
-    m_pFeature2->clear();
-    m_pFeature2->insertItems( 0, featureNames );
-    onFeatureChanged( m_pFeature2, m_professionFeatures );
 }
 
 void NPCCardObverse::onFeatureChanged(QComboBox *pFeature, const QJsonArray &features)
@@ -178,7 +161,7 @@ QWidget *NPCCardObverse::createPersonalSection()
 
     QVBoxLayout *pFeatrue2L = new QVBoxLayout;
     pFeatrue2L->addWidget( new QLabel("Cecha z profesji", pWidget) );
-    pFeatrue2L->addWidget( m_pFeature2 );
+    pFeatrue2L->addWidget( m_pProfessionFeature );
 
     QHBoxLayout *pReputationL = new QHBoxLayout;
     pReputationL->addWidget( new QLabel("Reputacja", pWidget) );
@@ -259,7 +242,7 @@ const QString NPCCardObverse::originFeature() const
 
 const QString NPCCardObverse::professionFeature() const
 {
-    return m_pFeature2->currentText();
+    return m_pProfessionFeature->text();
 }
 
 int NPCCardObverse::reputation() const
@@ -288,11 +271,15 @@ void NPCCardObverse::setOriginFeature(const QString name, const QString descript
     m_pOriginFeature->setToolTip( description );
 }
 
-void NPCCardObverse::setProfession(const QJsonObject &profession)
+void NPCCardObverse::setProfession(const QString &name)
 {
-    m_profession = profession;
+    m_pProfession->setText( name );
+}
 
-    m_pProfession->setText( profession.value("name").toString() );
+void NPCCardObverse::setProfessionFeature(const QString &name, const QString &description)
+{
+    m_pProfessionFeature->setText( name );
+    m_pProfessionFeature->setToolTip( description );
 }
 
 void NPCCardObverse::setSpecialization(const QString &spec)

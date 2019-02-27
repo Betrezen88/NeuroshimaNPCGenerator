@@ -44,12 +44,12 @@ signals:
 public slots:
     void setOrigin(const QString &name);
     void setOriginFeature(const QString name, const QString description);
-    void setProfession(const QJsonObject &profession);
+    void setProfession(const QString &name);
+    void setProfessionFeature(const QString &name, const QString &description);
     void setSpecialization(const QString &spec);
     void setAttributeModValue(const QString &name, const int &value);
 
     void onOriginChange(const QString &name);
-    void onProfessionChanged(const QString &name);
     void onFeatureChanged(QComboBox *pFeature, const QJsonArray &features);
     void onAttributeChanged(QVector<int> attributes);
     void setAttribute(const QString &name, const int &value);
@@ -88,7 +88,7 @@ private:
     QLineEdit *m_pSpecialization{nullptr};
     QLineEdit *m_pSickness{nullptr};
     QLineEdit *m_pOriginFeature{nullptr};
-    QComboBox *m_pFeature2{nullptr};
+    QLineEdit *m_pProfessionFeature{nullptr};
     QSpinBox *m_pReputation{nullptr};
     QSpinBox *m_pFame{nullptr};
 
