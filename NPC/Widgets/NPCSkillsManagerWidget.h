@@ -24,6 +24,7 @@ public slots:
     void setAttributeModValue(const QString &name, const int &value);
     void setSpecialization(const QString &spec);
     void setOriginBonus(const QJsonObject &bonus);
+    void setProfessionBonus(const QJsonObject &bonus);
 
 private slots:
     void buySkillPack(const bool &bougth, const QStringList &specs);
@@ -54,6 +55,7 @@ private:
     QPair<int, int> m_skillPoints{ 30, 0 };
 
     QJsonObject m_originBonus;
+    QJsonObject m_professionBonus;
 
     // TO DO: replace to load from jason
     const QVector<QPair<QString, int>> m_mods{

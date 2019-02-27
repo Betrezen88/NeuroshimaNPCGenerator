@@ -49,6 +49,15 @@ void NPCSkillsManagerWidget::setOriginBonus(const QJsonObject &bonus)
 {
     if ( !m_originBonus.isEmpty() )
         removeBonus( m_originBonus );
+    m_originBonus = bonus;
+    addBonus( bonus );
+}
+
+void NPCSkillsManagerWidget::setProfessionBonus(const QJsonObject &bonus)
+{
+    if ( !m_professionBonus.isEmpty() )
+        removeBonus( m_professionBonus );
+    m_professionBonus = bonus;
     addBonus( bonus );
 }
 
@@ -96,17 +105,27 @@ void NPCSkillsManagerWidget::setAttributes(const QJsonArray &attributes)
 
 void NPCSkillsManagerWidget::addBonus(const QJsonObject &bonus)
 {
-    m_originBonus = bonus;
     if ( "skillpack" == bonus.value("type").toString() ) {
-        const QString &skillpackName = bonus.value("name").toString();
+        QStringList skillpacksName;
+        if ( bonus.value("name").isString() )
+            skillpacksName << bonus.value("name").toString();
+        else if ( bonus.value("name").isArray() )
+            for ( const QJsonValue name: bonus.value("name").toArray() )
+                skillpacksName << name.toString();
+
         for ( NPCAttributeWidget *attribute: m_attributes ) {
-            if ( attribute->skillPacks()->contains(skillpackName) ) {
-                NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(skillpackName);
-                for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
-                    skill.second->setValue( bonus.value("value").toInt() );
-                    skill.second->setMinimum( bonus.value("value").toInt() );
+            for ( const QString &name: skillpacksName ) {
+                if ( attribute->skillPacks()->contains(name) ) {
+                    NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(name);
+                    for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
+                        const int &value = bonus.value("value").toInt();
+                        int minimum = skill.second->minimum() + value;
+                        int tValue = skill.second->value() + value;
+                        skill.second->setValue( tValue );
+                        skill.second->setMinimum( minimum );
+                    }
+                    break;
                 }
-                break;
             }
         }
     }
@@ -115,13 +134,25 @@ void NPCSkillsManagerWidget::addBonus(const QJsonObject &bonus)
 void NPCSkillsManagerWidget::removeBonus(const QJsonObject &bonus)
 {
     if ( "skillpack" == bonus.value("type").toString() ) {
-        const QString &skillpackName = bonus.value("name").toString();
+        QStringList skillpacksName;
+        if ( bonus.value("name").isString() )
+            skillpacksName << bonus.value("name").toString();
+        else if ( bonus.value("name").isArray() )
+            for ( const QJsonValue name: bonus.value("name").toArray() )
+                skillpacksName << name.toString();
+
         for ( NPCAttributeWidget *attribute: m_attributes ) {
-            if ( attribute->skillPacks()->contains(skillpackName) ) {
-                NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(skillpackName);
-                for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
-                    skill.second->setMinimum( 0 );
-                    skill.second->setValue( 0 );
+            for ( const QString &name: skillpacksName ) {
+                if ( attribute->skillPacks()->contains(name) ) {
+                    NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(name);
+                    for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
+                        const int &value = bonus.value("value").toInt();
+                        int minimum = skill.second->minimum() - value;
+                        int tValue = skill.second->value() - value;
+                        skill.second->setMinimum( minimum );
+                        skill.second->setValue( tValue );
+                    }
+                    break;
                 }
             }
         }
