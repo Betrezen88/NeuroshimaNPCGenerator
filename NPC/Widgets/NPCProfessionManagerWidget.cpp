@@ -69,9 +69,9 @@ void NPCProfessionManagerWidget::setBonus(const QJsonObject &bonus)
         const QJsonObject &object = bonus.value("object").toObject();
         m_bonus.insert( "type", object.value("type").toString() );
         m_bonus.insert( "value", object.value("value").toInt() );
-        if ( bonus.contains("name") )
-            m_bonus.insert( "name", object.value("name").toString() );
-        if ( bonus.contains("price") )
+        if ( object.contains("name") )
+            m_bonus.insert( "name", object.value("name").toArray() );
+        if ( object.contains("price") )
             m_bonus.insert( "price", object.value("price").toInt() );
     }
     emit professionBonusChanged( m_bonus );
