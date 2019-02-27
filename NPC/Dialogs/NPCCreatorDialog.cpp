@@ -61,6 +61,8 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
              m_pCard->obverse(), &NPCCardObverse::setProfession );
     connect( m_pProfessionManager, &NPCProfessionManagerWidget::professionFeatureChanged,
              m_pCard->obverse(), &NPCCardObverse::setProfessionFeature );
+    connect( m_pProfessionManager, &NPCProfessionManagerWidget::professionBonusChanged,
+             m_pSkillsManager, &NPCSkillsManagerWidget::setProfessionBonus );
 
     m_pSpecializationManager->specializationChanged( "Technik" );
     m_pOriginManager->setOrigin( "Południowa Hegemonia" );
