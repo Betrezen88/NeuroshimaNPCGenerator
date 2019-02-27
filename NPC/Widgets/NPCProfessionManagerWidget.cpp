@@ -33,6 +33,7 @@ void NPCProfessionManagerWidget::setProfession(const QString &professionName)
     for ( const QJsonValue profession: m_professions ) {
         const QJsonObject &tProfession = profession.toObject();
         if ( professionName == tProfession.value("name").toString() ) {
+            emit professionNameChanged( professionName );
             m_pProfessionDescription->setText( tProfession.value("description").toString() );
             m_features = tProfession.value("features").toArray();
             featureBox();
@@ -43,6 +44,8 @@ void NPCProfessionManagerWidget::setProfession(const QString &professionName)
 
 void NPCProfessionManagerWidget::setFeature(const QJsonObject &feature)
 {
+    emit professionFeatureChanged( feature.value("name").toString(),
+                                   feature.value("description").toString() );
     m_pFeatureDescription->setText( feature.value("description").toString() );
     setBonus( feature.value("bonus").toObject() );
 }
@@ -71,6 +74,7 @@ void NPCProfessionManagerWidget::setBonus(const QJsonObject &bonus)
         if ( bonus.contains("price") )
             m_bonus.insert( "price", object.value("price").toInt() );
     }
+    emit professionBonusChanged( m_bonus );
 
     m_pBonusBox->setLayout( pLayout );
     m_pLayout->addWidget( m_pBonusBox, 2, 1 );

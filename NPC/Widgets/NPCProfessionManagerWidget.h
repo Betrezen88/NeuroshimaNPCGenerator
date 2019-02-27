@@ -17,11 +17,14 @@ public:
     explicit NPCProfessionManagerWidget(QWidget *parent = nullptr);
 
 signals:
+    void professionBonusChanged(const QJsonObject &bonus);
+    void professionNameChanged(const QString &name);
+    void professionFeatureChanged(const QString &feature, const QString &description);
 
 public slots:
+    void setProfession(const QString &professionName);
 
 private slots:
-    void setProfession(const QString &professionName);
     void setFeature(const QJsonObject &feature);
     void setBonus(const QJsonObject &bonus);
 
