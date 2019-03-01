@@ -17,7 +17,6 @@ public:
     explicit NPCProfessionManagerWidget(QWidget *parent = nullptr);
 
 signals:
-    void professionBonusChanged(const QJsonObject &bonus);
     void professionNameChanged(const QString &name);
     void professionFeatureChanged(const QString &feature, const QString &description);
     void bonusSkillChanged(const QStringList &names, const int &value);
