@@ -1,4 +1,4 @@
-#ifndef NPCSKILLSMANAGERWIDGET_H
+﻿#ifndef NPCSKILLSMANAGERWIDGET_H
 #define NPCSKILLSMANAGERWIDGET_H
 
 #include <QWidget>
@@ -23,8 +23,8 @@ public slots:
     void setAttributeValue(const QString &name, const int &value);
     void setAttributeModValue(const QString &name, const int &value);
     void setSpecialization(const QString &spec);
-    void setOriginBonus(const QJsonObject &bonus);
     void setProfessionBonus(const QJsonObject &bonus);
+    void setBonusSkills(const QString &name, const int &value);
 
 private slots:
     void buySkillPack(const bool &bougth, const QStringList &specs);
@@ -54,7 +54,6 @@ private:
     QPair<int, int> m_specPoints{ 35, 0 };
     QPair<int, int> m_skillPoints{ 30, 0 };
 
-    QJsonObject m_originBonus;
     QJsonObject m_professionBonus;
 
     // TO DO: replace to load from jason

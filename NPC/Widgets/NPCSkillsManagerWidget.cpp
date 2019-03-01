@@ -1,4 +1,4 @@
-#include "NPCSkillsManagerWidget.h"
+﻿#include "NPCSkillsManagerWidget.h"
 #include "../Utils/DataLoader.h"
 
 #include <QJsonValue>
@@ -45,20 +45,30 @@ void NPCSkillsManagerWidget::setSpecialization(const QString &spec)
     }
 }
 
-void NPCSkillsManagerWidget::setOriginBonus(const QJsonObject &bonus)
-{
-    if ( !m_originBonus.isEmpty() )
-        removeBonus( m_originBonus );
-    m_originBonus = bonus;
-    addBonus( bonus );
-}
-
 void NPCSkillsManagerWidget::setProfessionBonus(const QJsonObject &bonus)
 {
     if ( !m_professionBonus.isEmpty() )
         removeBonus( m_professionBonus );
     m_professionBonus = bonus;
     addBonus( bonus );
+}
+
+void NPCSkillsManagerWidget::setBonusSkills(const QString &name, const int &value)
+{
+    for ( NPCAttributeWidget *attribute: m_attributes ) {
+        if ( attribute->skillPacks()->contains(name) ) {
+            NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(name);
+            for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
+                int minimum = skill.second->minimum() + value;
+                int tValue = skill.second->value() + value;
+                if ( 0 <= minimum ) {
+                    skill.second->setMinimum( minimum );
+                    skill.second->setValue( tValue );
+                }
+            }
+            return;
+        }
+    }
 }
 
 void NPCSkillsManagerWidget::buySkillPack(const bool &bougth, const QStringList &specs)
