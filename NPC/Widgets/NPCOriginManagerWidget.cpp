@@ -1,8 +1,10 @@
-#include "NPCOriginManagerWidget.h"
+﻿#include "NPCOriginManagerWidget.h"
 #include "../Utils/DataLoader.h"
 
 #include <QJsonValue>
 #include <QRadioButton>
+
+#include <QDebug>
 
 NPCOriginManagerWidget::NPCOriginManagerWidget(QWidget *parent)
     : QWidget(parent),
@@ -66,40 +68,21 @@ void NPCOriginManagerWidget::setBonus(const QJsonObject &bonus)
         m_pLayout->removeWidget( m_pBonusBox );
         delete m_pBonusBox;
     }
+    if ( !m_bonus.isEmpty() )
+        removeBonus( m_bonus );
 
     m_pBonusBox = new QGroupBox( "Bonus", this );
-    QLabel *pBonusDescription = new QLabel( bonus.value("text").toString(), m_pBonusBox );
-    pBonusDescription->setWordWrap( true );
-    QVBoxLayout *pLayout = new QVBoxLayout;
-    pLayout->addWidget( pBonusDescription );
+    m_pBonusDescription = new QLabel( bonus.value("text").toString(), m_pBonusBox );
+    m_pBonusDescription->setWordWrap( true );
+    m_pBonusLayout = new QVBoxLayout;
+    m_pBonusLayout->addWidget( m_pBonusDescription );
 
-    m_bonus = QJsonObject();
-    m_bonus.insert( "text", bonus.value("text").toString() );
-    if ( bonus.contains("object") ) {
-        const QJsonObject &object = bonus.value("object").toObject();
-        m_bonus.insert( "value", object.value("value").toInt() );
-        m_bonus.insert( "type", object.value("type").toString() );
-        if ( bonus.contains("select") ) {
-            m_pSelect = new QComboBox(m_pBonusBox);
-            connect( m_pSelect, &QComboBox::currentTextChanged,
-                     this, &NPCOriginManagerWidget::setBonusExtra );
-            m_pSelect->insertItems( 0, selectData(object.value("type").toString(),
-                                                  bonus.value("select").toArray()) );
-            pLayout->addWidget( m_pSelect );
-        }
-        else if ( object.contains("name") )
-            m_bonus.insert( "name", object.value("name").toString() );
-    }
-    emit originBonusChanged( m_bonus );
+    m_bonus = bonus;
+    if ( m_bonus.contains("select") )
+        bonusLogic( m_bonus );
 
-    m_pBonusBox->setLayout( pLayout );
+    m_pBonusBox->setLayout( m_pBonusLayout );
     m_pLayout->addWidget( m_pBonusBox, 3, 1 );
-}
-
-void NPCOriginManagerWidget::setBonusExtra(const QString &extra)
-{
-    m_bonus.insert( "name", extra );
-    emit originBonusChanged( m_bonus );
 }
 
 QGroupBox *NPCOriginManagerWidget::originDescriptionBox()
@@ -181,4 +164,32 @@ QStringList NPCOriginManagerWidget::selectData(const QString &type, const QJsonA
     }
 
     return data;
+}
+
+void NPCOriginManagerWidget::bonusLogic(QJsonObject &bonus)
+{
+    m_pSelect = new QComboBox(m_pBonusBox);
+    connect( m_pSelect, &QComboBox::currentTextChanged,
+             [this](const QString &name) {
+                const int &value = m_bonus.value("value").toInt();
+                if ( m_bonus.contains("name") ) {
+                    emit bonusSkillChanged( m_bonus.take("name").toString(),
+                                            -value );
+                }
+                m_bonus.insert( "name", name );
+                emit bonusSkillChanged( name, value );
+            }
+    );
+    m_pSelect->insertItems( 0, selectData(bonus.value("type").toString(),
+                                          bonus.value("select").toArray()) );
+    m_pBonusLayout->addWidget( m_pSelect );
+}
+
+void NPCOriginManagerWidget::removeBonus(const QJsonObject &bonus)
+{
+    const QString &type = bonus.value("type").toString();
+    if ( "skillpack" == type ) {
+        emit bonusSkillChanged( bonus.value("name").toString(),
+                                -bonus.value("value").toInt() );
+    }
 }
