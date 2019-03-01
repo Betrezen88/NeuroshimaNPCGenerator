@@ -23,7 +23,6 @@ public slots:
     void setAttributeValue(const QString &name, const int &value);
     void setAttributeModValue(const QString &name, const int &value);
     void setSpecialization(const QString &spec);
-    void setProfessionBonus(const QJsonObject &bonus);
     void setBonusSkills(const QStringList &names, const int &value);
 
 private slots:
@@ -32,8 +31,6 @@ private slots:
 
 private:
     void setAttributes(const QJsonArray &attributes);
-    void addBonus(const QJsonObject &bonus);
-    void removeBonus(const QJsonObject &bonus);
 
     QGroupBox *infoLabels();
     QVBoxLayout *columnA();

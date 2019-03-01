@@ -45,14 +45,6 @@ void NPCSkillsManagerWidget::setSpecialization(const QString &spec)
     }
 }
 
-void NPCSkillsManagerWidget::setProfessionBonus(const QJsonObject &bonus)
-{
-    if ( !m_professionBonus.isEmpty() )
-        removeBonus( m_professionBonus );
-    m_professionBonus = bonus;
-    addBonus( bonus );
-}
-
 void NPCSkillsManagerWidget::setBonusSkills(const QStringList &names, const int &value)
 {
     for ( NPCAttributeWidget *attribute: m_attributes ) {
@@ -111,62 +103,6 @@ void NPCSkillsManagerWidget::setAttributes(const QJsonArray &attributes)
                       this, &NPCSkillsManagerWidget::buySkill );
 
              m_attributes.value(name)->addSkillPack(skillpack.value("name").toString(), pSkillpack);
-        }
-    }
-}
-
-void NPCSkillsManagerWidget::addBonus(const QJsonObject &bonus)
-{
-    if ( "skillpack" == bonus.value("type").toString() ) {
-        QStringList skillpacksName;
-        if ( bonus.value("name").isString() )
-            skillpacksName << bonus.value("name").toString();
-        else if ( bonus.value("name").isArray() )
-            for ( const QJsonValue name: bonus.value("name").toArray() )
-                skillpacksName << name.toString();
-
-        for ( NPCAttributeWidget *attribute: m_attributes ) {
-            for ( const QString &name: skillpacksName ) {
-                if ( attribute->skillPacks()->contains(name) ) {
-                    NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(name);
-                    for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
-                        const int &value = bonus.value("value").toInt();
-                        int minimum = skill.second->minimum() + value;
-                        int tValue = skill.second->value() + value;
-                        skill.second->setValue( tValue );
-                        skill.second->setMinimum( minimum );
-                    }
-                    break;
-                }
-            }
-        }
-    }
-}
-
-void NPCSkillsManagerWidget::removeBonus(const QJsonObject &bonus)
-{
-    if ( "skillpack" == bonus.value("type").toString() ) {
-        QStringList skillpacksName;
-        if ( bonus.value("name").isString() )
-            skillpacksName << bonus.value("name").toString();
-        else if ( bonus.value("name").isArray() )
-            for ( const QJsonValue name: bonus.value("name").toArray() )
-                skillpacksName << name.toString();
-
-        for ( NPCAttributeWidget *attribute: m_attributes ) {
-            for ( const QString &name: skillpacksName ) {
-                if ( attribute->skillPacks()->contains(name) ) {
-                    NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(name);
-                    for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
-                        const int &value = bonus.value("value").toInt();
-                        int minimum = skill.second->minimum() - value;
-                        int tValue = skill.second->value() - value;
-                        skill.second->setMinimum( minimum );
-                        skill.second->setValue( tValue );
-                    }
-                    break;
-                }
-            }
         }
     }
 }
