@@ -26,10 +26,8 @@
                 "description": "Posiadasz widoczny symbol przynależności do siejącego grozę gangu. Nikt, kto nie ma jaj ze stali, Ci nie podskoczy. Byle kto nie będzie Ci pyskować, ani się z Tobą sprzeczać, nie odważą się spojrzeć Ci w oczy, będą także bali tak po prostu Cię olać. Ale. Ale ci z jajami ze stali mogą przerobić cię na pasztet - za to tylko, że jesteś \"jednym z nich\". Dodatkowo 100 gambli na Znajomości w Gangach.",
                 "bonus": {
                     "text": "Dodatkowo 100 gambli na Znajomości w Gangach.",
-                    "object": {
-                        "type": "connections",
-                        "value": 100
-                    }
+                    "type": "connections",
+                    "value": 100
                 }
             },
             {
@@ -68,10 +66,8 @@
                 "description": "Nie jesteś jakimś tam stacjonarnym straganiarzem sprzedającym ogórki, bliżej Ci do twardziela pokroju wędrownego sprzedawcy bojlerów. Zdeptałeś kawał świata i poznałeś niejedno miejsce, więc wielu ludzi Cię rozpoznaje, a na niektórych możesz nawet liczyć. Zaczynasz z dodatkowymi 150 gamblami na Znajomych (nie Wojowników).",
                 "bonus": {
                     "text": "Zaczynasz z dodatkowymi 150 gamblami na Znajomych (nie Wojowników).",
-                    "object": {
-                        "type": "connections",
-                        "value": 150
-                    }
+                    "type": "connections",
+                    "value": 150
                 }
             },
             {
@@ -129,10 +125,8 @@
                 "description": "Szybka bryka, czy worek granatów, nie zawsze pomogą przejść przez terytorium zajmowane przez pięć\różnych gangów, w końcu kiedyć podwinie Ci się noga i staniesz z zepsutą chłodnicą w samym centrum ziemi Brain Dogs. Wtedy przyda się znać szefa, nie sądzisz? Zaczynasz z dodatkowymi 150 gamblami, które możesz przeznaczyć na Znajomych (nie Wojowników).",
                 "bonus": {
                     "text": "Zaczynasz z dodatkowymi 150 gamblami, które możesz przeznaczyć na Znajomych (nie Wojowników).",
-                    "object": {
-                        "type": "connections",
-                        "value": 150
-                    }
+                    "type": "connections",
+                    "value": 150
                 }
             },
             {
@@ -190,11 +184,9 @@
                 "description": "Z ludzi, którzy Cię zawiedli żyje tylko Marc. Twoi ludzie właśnie montują mu betonowe obuwie. To już jego ostatnie minuty. Z ludzi, którzy staneli na twej drodze, do wczoraj żył Długi Johny i Szybki Paul. Dziś już nie masz wrogów. Z ludzi, którzy... Zaczynasz z jednym Punktem Sławy (złej). Reputacja kosztuje Cię tylko 20PD i zawsze jest to zła sława.",
                 "bonus": {
                     "text": "Zaczynasz z jednym Punktem Sławy (złej). Reputacja kosztuje Cię tylko 20PD i zawsze jest to zła sława.",
-                    "object": {
-                        "type": "fame",
-                        "value": 1,
-                        "price": 20
-                    }
+                    "type": "fame",
+                    "value": 1,
+                    "price": 20
                 }
             },
             {
@@ -252,11 +244,9 @@
                 "description": "Nie nawalasz. Nie wystawiasz klienta do wiatru. Nie wycofujesz się ze zleceń. Dlatego właśnie możesz zażądać więcej od dowolnego innego jełopa - a pracodawca i tak wybierze Ciebie. Zwiększ o 15 punktów Reputację - już na starcie jesteś kimś znanym w tej branży. Ponadto Punkt Reputacji kosztuje Cię tylko 20PD.",
                 "bonus": {
                     "text": "Zaczynasz z 15 punktami reputacji, cena reputacji to 20PD.",
-                    "object": {
-                        "type": "reputation",
-                        "value": 15,
-                        "price": 20
-                    }
+                    "type": "reputation",
+                    "value": 15,
+                    "price": 20
                 }
             },
             {
@@ -302,10 +292,8 @@
                 "description": "Nie musisz za każdym razem, gdy ustrzelisz jakiegoś gangera czy złodzieja, tracić czasu na dyskusję i przekonywanie innych stróżów prawa, ze to było konieczne, a Ty też jesteś z policji. Oni od razu widzą, coś za jeden. Dodatkowo 150 gamblii na Znajomości wśród sędziów i egzekutorów.",
                 "bonus": {
                     "text": "Dostajesz dodatkowe 150 gamblii na Znajomości wśród sędziów i egzekutorów.",
-                    "object": {
-                        "type": "connections",
-                        "value": 150
-                    }
+                    "type": "connections",
+                    "value": 150
                 }
             }
         ]
@@ -318,11 +306,9 @@
                 "description": "W pakiecie Wiedza ogólna wszystkie Umiejętności posiadasz od razu na poziomie 2. Pamietaj, nie trzy wybrane, ale wszystkie!",
                 "bonus": {
                     "text": "Wszystkie umiejętności z pakietu Wiedza Ogólna posiadasz na poziomie 2.",
-                    "object": {
-                        "type": "skillpack",
-                        "name": "Wiedza Ogólna",
-                        "value": 2
-                    }
+                    "type": "skillpack",
+                    "name": "Wiedza Ogólna",
+                    "value": 2
                 }
             },
             {
@@ -349,9 +335,7 @@
                 "description": "Kiedy wszedłeś w wiek męski, prowadzić zaczął Cię duch. Po rytuale przejścia stopniowo zacząłeś nabierać jego cech. Jesteś wężem, dziedźwiedziem, wiewiórką, wilkiem, a może zającem. Wybierz jeden z totemów: Budowa: Niedźwiedź Percepcja: Sokół Spryt: Kojot Zręczność: Kot Charakter: Wilk. Gdy tylko zechcesz, upodabniasz się do totemicznego zwierzęcia. Musisz zdać Problematyczny test Współczynnika zwięzanego z totemem, a otrzymasz do niego modyfikator +2. W tym czasie reszta Twoich Współczynników spada o 1. Ten dziwny stan kończy się wtedy, gdy zechcesz (po minimum godzinie), lub podczas snu. Wtedy otrzymujesz karę -1 do wszystkich Współczynników na tyle godzin ile w nim przebywałeś (jednak godziny snu nie liczą się).",
                 "bonus": {
                     "text": "Wybierz jeden z totemów. Po zdaniu problematycznego testu tego współczynnika otrzymas bonus +2 do niego. W tym czasie reszta współczynników spada o 1. Ten stan kończy się kiedy zechcesz (minimum po godzinie), jednak dostajesz karę -1 do wszystkich współczynników na tyle godzin, ile w nim przebywałeś (nie licząc snu).",
-                    "object": {
-                        "type": "attribute"
-                    },
+                    "type": "totem",
                     "select": [
                         { "name": "Niedźwiedź", "attribute": "Budowa" },
                         { "name": "Kot", "attribute": "Zręczność" },
@@ -454,10 +438,8 @@
                 "description": "Przypomnij sobie tego twardziela, który przez tydzień trząśł całym Whitehorn. Kiedy w końcu przyszli po niego, zdychał samotnie jak pies. Ty zawsze masz gdzie wrócić. Masz kogo poprosić o radę i o pomoc. Jesteś członkiem grupy. Otrzymujesz 150 gambli na wykupienie czerwonoskórych Znajomych.",
                 "bonus": {
                     "text": "Otrzymujesz 150 gambli na wykupienie czerwonoskórych Znajomych.",
-                    "object": {
-                        "type": "connections",
-                        "value": 150
-                    }
+                    "type": "connections",
+                    "value": 150
                 }
             }
         ]
@@ -527,11 +509,9 @@
                 "description": "Wszystkie umiejętności z pakietów Broń Strzelecka i Pirotechnika posiadasz od razu na poziomie 1.",
                 "bonus": {
                     "text": "Umiejętności z pakietów Broń Strzelecka i Pirotechnika posiadasz od razu na poziomie 1.",
-                    "object": {
-                        "type": "skillpack",
-                        "name": ["Broń Strzelecka", "Pirotechnika"],
-                        "value": 1
-                    }
+                    "type": "skillpack",
+                    "name": ["Broń Strzelecka", "Pirotechnika"],
+                    "value": 1
                 }
             },
             {
