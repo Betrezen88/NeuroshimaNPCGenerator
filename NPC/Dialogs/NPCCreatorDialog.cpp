@@ -53,8 +53,8 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
              m_pCard->obverse(), &NPCCardObverse::setAttributeModValue );
     connect( m_pOriginManager, &NPCOriginManagerWidget::originFeatureChanged,
              m_pCard->obverse(), &NPCCardObverse::setOriginFeature );
-    connect( m_pOriginManager, &NPCOriginManagerWidget::originBonusChanged,
-             m_pSkillsManager, &NPCSkillsManagerWidget::setOriginBonus );
+    connect( m_pOriginManager, &NPCOriginManagerWidget::bonusSkillChanged,
+             m_pSkillsManager, &NPCSkillsManagerWidget::setBonusSkills );
     connect( m_pSicknessManager, &NPCSicknessManagerWidget::sicknessChanged,
              m_pCard->obverse(), &NPCCardObverse::setSickness );
     connect( m_pProfessionManager, &NPCProfessionManagerWidget::professionNameChanged,
