@@ -1,4 +1,4 @@
-#include "NPCProfessionManagerWidget.h"
+﻿#include "NPCProfessionManagerWidget.h"
 #include "../Utils/DataLoader.h"
 
 #include <QJsonValue>
@@ -57,26 +57,19 @@ void NPCProfessionManagerWidget::setBonus(const QJsonObject &bonus)
         delete m_pBonusBox;
     }
 
+    if ( !m_bonus.isEmpty() )
+        removeBonus( m_bonus );
+
     m_pBonusBox = new QGroupBox( "Bonus", this );
-    QLabel *pBonusDescription = new QLabel( bonus.value("text").toString(), m_pBonusBox );
-    pBonusDescription->setWordWrap( true );
-    QVBoxLayout *pLayout = new QVBoxLayout;
-    pLayout->addWidget( pBonusDescription );
+    m_pBonusDescription = new QLabel( bonus.value("text").toString(), m_pBonusBox );
+    m_pBonusDescription->setWordWrap( true );
+    m_pBonusLayout = new QVBoxLayout;
+    m_pBonusLayout->addWidget( m_pBonusDescription );
 
-    m_bonus = QJsonObject();
-    m_bonus.insert( "text", bonus.value("text").toString() );
-    if ( bonus.contains("object") ) {
-        const QJsonObject &object = bonus.value("object").toObject();
-        m_bonus.insert( "type", object.value("type").toString() );
-        m_bonus.insert( "value", object.value("value").toInt() );
-        if ( object.contains("name") )
-            m_bonus.insert( "name", object.value("name").toArray() );
-        if ( object.contains("price") )
-            m_bonus.insert( "price", object.value("price").toInt() );
-    }
-    emit professionBonusChanged( m_bonus );
+    m_bonus = bonus;
+    bonusLogic( m_bonus );
 
-    m_pBonusBox->setLayout( pLayout );
+    m_pBonusBox->setLayout( m_pBonusLayout );
     m_pLayout->addWidget( m_pBonusBox, 2, 1 );
 }
 
@@ -134,4 +127,26 @@ QGroupBox *NPCProfessionManagerWidget::featureDescriptionBox()
     pLayout->addWidget( m_pFeatureDescription );
     pFeatureDescriptionBox->setLayout( pLayout );
     return pFeatureDescriptionBox;
+}
+
+void NPCProfessionManagerWidget::bonusLogic(QJsonObject &bonus)
+{
+    const QString &type = bonus.value("type").toString();
+    if ( "skillpack" == type ) {
+        QStringList names;
+        for ( const QJsonValue name: bonus.value("name").toArray() )
+            names << name.toString();
+        emit bonusSkillChanged( names, m_bonus.value("value").toInt() );
+    }
+}
+
+void NPCProfessionManagerWidget::removeBonus(const QJsonObject &bonus)
+{
+    const QString &type = bonus.value("type").toString();
+    if ( "skillpack" == type ) {
+        QStringList names;
+        for ( const QJsonValue name: bonus.value("name").toArray() )
+            names << name.toString();
+        emit bonusSkillChanged( names, -m_bonus.value("value").toInt() );
+    }
 }
