@@ -173,11 +173,11 @@ void NPCOriginManagerWidget::bonusLogic(QJsonObject &bonus)
              [this](const QString &name) {
                 const int &value = m_bonus.value("value").toInt();
                 if ( m_bonus.contains("name") ) {
-                    emit bonusSkillChanged( m_bonus.take("name").toString(),
+                    emit bonusSkillChanged( QStringList(m_bonus.take("name").toString()),
                                             -value );
                 }
                 m_bonus.insert( "name", name );
-                emit bonusSkillChanged( name, value );
+                emit bonusSkillChanged( QStringList(name), value );
             }
     );
     m_pSelect->insertItems( 0, selectData(bonus.value("type").toString(),
@@ -189,7 +189,7 @@ void NPCOriginManagerWidget::removeBonus(const QJsonObject &bonus)
 {
     const QString &type = bonus.value("type").toString();
     if ( "skillpack" == type ) {
-        emit bonusSkillChanged( bonus.value("name").toString(),
+        emit bonusSkillChanged( QStringList(bonus.value("name").toString()),
                                 -bonus.value("value").toInt() );
     }
 }

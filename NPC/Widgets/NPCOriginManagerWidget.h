@@ -22,7 +22,7 @@ signals:
     void originFeatureChanged(const QString name, const QString description);
     void originBonusChanged(const QJsonObject &bonus);
     void attributeBonusChanged(const QString &name, const int &value);
-    void bonusSkillChanged(const QString &name, const int &value);
+    void bonusSkillChanged(const QStringList &names, const int &value);
 
 public slots:
     void setOrigin(const QString &originName);
