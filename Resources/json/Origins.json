@@ -10,12 +10,9 @@
                 "name": "Urodzony Morderca",
                 "description": "Wyrzuciliby cię z Areny za szczególne bestialstwo. Wybierz sobie dowolny pakiet Umiejętności Wojownika. Wszystkie Umiejętności z paczki posiadasz na poziomie +2.",
                 "bonus": {
-                    "type": "Complex",
                     "text": "Wybierz pakiet umiejętności, których wartość będzie +2.",
-                    "object": {
-                        "type": "skillpack",
-                        "value": 2
-                    },
+                    "type": "skillpack",
+                    "value": 2,
                     "select": [ "specialization", "Wojownik" ]
                 }
             },
@@ -23,7 +20,6 @@
                 "name": "Wiesz, zjadłem własnego psa",
                 "description": "Budzisz grozę. Twój widok paraliżuje. Jeżeli udało ci się kogoś zastraszyć (test Morale przed walką), w walce z nim automatycznie wygrywasz Inicjatywę.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Jeśli udało Ci się zastraszyć przeciwnika przed walką, automatycznie wygrywasz z nim Inicjatywę."
                 }
             },
@@ -31,7 +27,6 @@
                 "name": "Zawzięty sukinkot",
                 "description": "Mówią o tobie, że pociągniesz do grobu swojego zabójcę. To prawda. Jesteś uparty, twardy i nie popuszczasz. Raz w ciągu sesji, podczas wykonywania testu Umiejętności, zamiast wymaganego Współczynnika możesz użyć Charakteru.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Raz w ciągu sesji, przy teście umiejętności, możesz użyć Charakteru, zamiast wymaganego współczynnika."
                 }
             }
@@ -48,7 +43,6 @@
                 "name": "Fart",
                 "description": "No i czego się cieszysz? Myślisz, że masz farta i właśnie dlatego jesteś bezpieczny, jak jajeczko szczęście? Popatrz, załaduję jedną kulkę i zagramy w rosyjską ruletkę, chcesz? Co, tak... Poważnie chcesz? Jesteś chory. Wiesz, zróbmy tak, że trzyktornie podczas sesji możesz powtórzyć jeden nieudany rzut na dowolnej z trzech kości.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Trzykrotnie w czasie sesji możesz powtórzyć jeden nieudany rzut na dowolnej z trzech kości."
                 }
             },
@@ -56,20 +50,16 @@
                 "name": "Hazardzista",
                 "description": "Zwinne paluszki to bogactwo naturalne. Znasz tysiąc oszustw. Miałeś kiedyś okazję wyćwiczyć swoje dłonie i manupulujesz nimi lepiej niż japoński robot. Zaczynasz grę posiadając (gratisowo) wszystkie Umiejętności z pakietu Zdolności manualne na poziomie +2.",
                 "bonus": {
-                    "type": "Simple",
                     "text": "Pakiet umiejętności Zdolności Manualne zaczyna na poziomie +2.",
-                    "object": {
-                        "type": "skillpack",
-                        "name": "Zdolności Manualne",
-                        "value": 2
-                    }
+                    "type": "skillpack",
+                    "name": "Zdolności Manualne",
+                    "value": 2
                 }
             },
             {
                 "name": "Telepata",
                 "description": "A ty telepata jesteś? Skąd wiesz, że on blefuje? Co znaczy, że on nas nie zabije? Masz to gdzieś na piśmie? Chyba nie myślisz, że ci uwierzę! Poziom trudności wszystkich testów Blefu, Perswazji i Zastraszania w stosunku do ciebie jest większany o jeden w górę.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Poziom trudności wszystkich testów Blefu, Perswazji i Zastraszania w stosunku do ciebie jest większany o jeden w górę."
                 }
             }
@@ -86,7 +76,6 @@
                 "name": "Towarzysz",
                 "description": "Ten skorpion to też twój przyjaciel? Wiesz, psa bym zrozumiał, może jakiegoś ptaka, czy coś. Ale skorpion? Wybierz sobie inne. Możesz wybrać  jedno zwierzę, które będzie twoim kompanem, będzie cie służył, ale musisz je kochać. Zwierzęciem może być dowolny ssak, ptak, gad lub inne stworzenie za pozwoleniem MG. Od tej pory jest was dwóch. Gdybyś na przykład miał tandem, moglibyście sobie pojeździć po pustynie, he, he... Takiemu towarzyszowi możesz wydawać kilka rodzajów poleceń np, \"bierz go\", \"do nogi\", \"cicho\", \"leżeć\", itp.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Wybierz jedno zwierze, które będzie Twoim kompanem. Zwierzęciem może być dowolny ssak, ptak, gad lub inne stworzenie za pozwoleniem MG. Takiemu towarzyszowi możesz wydawać kilka rodzajów poleceń np, \"bierz go\", \"do nogi\", \"cicho\", \"leżeć\", itp."
                 }
             },
@@ -94,7 +83,6 @@
                 "name": "Jestem duchem pustyni",
                 "description": "Nauczyłeś się przydatnej sztuczki, W trudnych warunkach (wysoka temperatura lub brak pożywienia i wody), potrafisz pogrążyć się w katalepsji i przeżyć. W stanie uśpienia leżysz nieruchomo i nie odbierasz żadnych bodźców zewnętrznych do czasu, aż warunki staną się bardziej sprzyjające. W ten sposób możesz przetrwać trzy miesiące.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Możesz wprowadzić się w stan kataplesji i przeżyć. W stanie uśpienia leżysz nieruchomo i nie odbierasz żadnych bodźców zewnętrznych do czasu, aż warunki staną się bardziej sprzyjające. W ten sposób możesz przetrwać trzy miesiące."
                 }
             },
@@ -102,7 +90,6 @@
                 "name": "Polegam tylko na sobie",
                 "description": "Jeżeli posługujesz się bronią własnej roboty (nie dotyczy broni palnej) lub jakimkolwiek innym wykonanym przez siebie narzędziem w każdym teście z jego wykorzystaniem możesz odjąć dwa oczka od rzutu na jednej z kostek.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Posługując się bronią własnej roboty (po za bronią palną) lub narzędziem, możesz odjąć 2 oczka od rzutu na jednej z kostek."
                 }
             }
@@ -119,7 +106,6 @@
                 "name": "Zalety klasycznego wykształcenia",
                 "description": "Miałeś bardzo dobrych nauczycieli. Jeżeli na dalszym etapie tworzenia postaci wybierzesz jako specjalizację Technika, otrzymujesz dodatkowe 10 punktów do wydania na umiejętności oparte o Spryt.",
                 "bonus": {
-                    "type": "Simple",
                     "text": "Jeśli wybierzesz specjalizację Technika, otrzymasz dodatkowe 10 punktów umiejętności.",
                     "specialization": "Technik",
                     "value": 10
@@ -129,7 +115,6 @@
                 "name": "Wizja",
                 "description": "Wiele lat odbudowywania NJ nauczyło cię, jak pracować w ruinach. Teraz możesz wjechać nawet do największej dziury, ale nie dostrzeżesz ruin i syf, lecz plac budowlany. Taki optymizm przydaje się w wielu sytuacjach. Jesteś w jakiejś zapadłej wiosce, którą w ciągu ośmiu godzin trzeba na twierdzę? Inni by płakali, Ty zabierasz się do roboty. MG jest zobowiązany podpowiedzieć ci, jak najlepiej odbudować lub przebudować daną lokację - według potrzeb (nocleg, dom, twierdza, itp.).",
                 "bonus": {
-                    "type": "Info",
                     "text": "MG jest zobowiązany podpowiedzieć ci, jak najlepiej odbudować lub przebudować daną lokację - według potrzeb (nocleg, dom, twierdza, itp.)."
                 }
             },
@@ -137,7 +122,6 @@
                 "name": "Czas patriotów",
                 "description": "Heroizm to twoje drugie imię. Raz na sesję wykonując test Cholernie trudny możesz dodać wartość swojego Charakteru do testowanej Umiejętności. Krótko mówiąc, raz na sesje zdajesz automatycznie test, mam rację?",
                 "bonus": {
-                    "type": "Info",
                     "text": "Raz na sesje wykonując test Cholernie trudny możesz dodać wartość swojego Charakteru do testowanej Umiejętności. Raz na sesje automatycznie zdajesz test."
                 }
             }
@@ -154,11 +138,8 @@
                 "name": "Człowiek zwany koniem",
                 "description": "Jesteś silny jak wół, zwinny jak puma i twardy jak głaz. Kiedy idziesz po górach, powodujesz lawinę. Kiedy dosiadasz konia, to koń... Co ja ci zresztą będę opowiadał? Wybierz pakiet Umiejętności Sprawność albo Jeździectwo z wybranej grupy jest jest obniżony o jeden poziom.",
                 "bonus": {
-                    "type": "Complex",
                     "text": "Wybrany pakiet umiejętności będzie miał testy o poziom mniejsze.",
-                    "object": {
-                        "type": "skillpack"
-                    },
+                    "type": "skillpack",
                     "select": [ "attribute", "Budowa" ]
                 }
             },
@@ -166,20 +147,16 @@
                 "name": "Doktor Quinn",
                 "description": "Nigdy nie słyszałeś o doktor Qiunn? Żona \"człowieka obrusa\", najsłynniejsza felczerka z Teksasu. Jeździ i leczy. Zresztą nie tylko ona! Każda kobieta pochodząca z Teksasu posiada wszystkie Umiejętności z pakietu Medycyna na poziomie +4, Każdą, dasz wiarę?",
                 "bonus": {
-                    "type": "Simple",
                     "text": "Umiejętności z pakietu Medycyna posiadasz o wartości 4.",
-                    "object": {
-                        "type": "skillpack",
-                        "name": "Medycyna",
-                        "value": 4
-                    }
+                    "type": "skillpack",
+                    "name": "Medycyna",
+                    "value": 4
                 }
             },
             {
                 "name": "Zdrowa okolica",
                 "description": "Wychowałeś się w zdrowej, nieskażonej okolicy. Jesteś dobrze odżywiony i nie zostałeś napromieniowany. Na etapie tworzenia postaci nie musisz wykonywać rzutu określającego choroby, jakich się nabawiłeś. I jak? Teraz zastanów się, po co ci żona felczerka, panie Quinn...",
                 "bonus": {
-                    "type": "Info",
                     "text": "Jesteś zdrowy."
                 }
             }
@@ -196,12 +173,9 @@
                 "name": "Szlachetnie urodzony",
                 "description": "Urodziłeś się, by panować nad innymi. Wiesz jak traktować ludzi. Wybierz sobie jeden pakiet Umiejętności opartych o Charakter. Każdą z Umiejętności w pakiecie posiadasz na poziomie +2.",
                 "bonus": {
-                    "type": "Complex",
                     "text": "Wybierz pakiet umiejętności opartych o Charakter. Każda z nich posiadasz na poziomie +2.",
-                    "object": {
-                        "type": "skillpack",
-                        "value": 2
-                    },
+                    "type": "skillpack",
+                    "value": 2,
                     "select": [ "attribute", "Charakter" ]
                 }
             },
@@ -209,7 +183,6 @@
                 "name": "Pojedynkowicz",
                 "description": "Nigdy nie przepuściłeś okazji, by zmierzyć się z przeciwnikiem. Dawałeś wrogom nauczkę i sam się czegoś nauczyłeś. Najwazniejsza nauka jaką wyciągnąłeś, to ta, iż każdego można pokonać. Podczas walki sam na sam ignorujesz pierwszą Lekką ranę lub Draśnięcia. Żaden przeciwnik nie zdoła cię przerazić i dlatego właśnie jestes twardzielem.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Podczas walki sam na sam ignorujesz pierwszą Lekką ranę lub Draśnięcia."
                 }
             },
@@ -217,7 +190,6 @@
                 "name": "Wychuchana spluwa",
                 "description": "Wybierz jedną z broni palnych, które nosisz przy sobie. Każdego wieczoru czyścisz ją, chuchasz, dmuchasz i w efekcie możesz dla niej zawsze powtórzyć rzut na efekt zacięcia broni.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Wybierz posiadaną broń palną, możesz dla niej powtórzyć rzut na efekt zacięcia broni."
                 }
             }
@@ -234,7 +206,6 @@
                 "name": "Człowiek-aligator",
                 "description": "Połowę życia spędziłeś w wodzie na trzęsawiskach lub w tropiku. W czasie każdej walki, w której wykorzystujesz do ukrycia zbiornik wodny lub bagno (gdy jesteś zanurzony), osłona maskuje cię o dwa poziomy lepiej. Dodatkowo, w przypadku błyskawicznego ataku z zaskoczenia na terenie wodnym lub bagiennym, twoi przeciwnicy sa automatycznie zaskoczeni.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Zbiorniki wodne lub bagna (gdy jesteś zanurzony) maskują Cię o dwa poziomy lepiej. Przeciwnicy są automatycznie zaskoczeni przez Ciebie na terenie wodnym lub bagiennym."
                 }
             },
@@ -242,7 +213,6 @@
                 "name": "Ja już swoje odchorowałem",
                 "description": "Żyłeś w niezdrowej okolicy Miami i uodporniłeś się na  wiele chorób i jadów. Możesz powtórzyć każdy rzut odpornościowy przeciw chorobom i truciznom pochodzenia organicznego.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Możesz powtórzyć każdy rzut odpornościowy przeciw chorobm i truciznom pochodzenia organicznego."
                 }
             },
@@ -250,12 +220,9 @@
                 "name": "Walkabout",
                 "description": "Siedzisz sobie w knajpie i nagle postanawiasz iść na mały walkabout. Wychodzisz i przez miesiąc włóczysz się po okolicy. Wracasz do knajpy, patrzysz, a twoje ziółka na stole wystygły. Myślisz sobie - nie będę pił zimnych. I idziesz odwiedzić kumpla z Vegas. Możesz powtórzyć każdy test Kondycji. Zaczynasz ze Sztuczką \"Dom na plecach\".",
                 "bonus": {
-                    "type": "Simple",
                     "text": "Zaczynasz grę ze sztuczką Dom na plecach.",
-                    "object": {
-                        "type": "trick",
-                        "name": "Dom na plecach"
-                    }
+                    "type": "trick",
+                    "name": "Dom na plecach"
                 }
             }
         ]
@@ -271,30 +238,17 @@
                 "name": "Wszechstronność",
                 "description": "Złaziłeś już spory kawał świata. Aby przetrwać uczyłeś się wszystkiego po trochu. Wszystkie Umiejętności oparte na najwyższej z twoich cech, a których nie wykupiłeś, mają wartość 1. Znasz się na wszystkim. I tak naprawdę gówno umiesz, ot, moja opinia.",
                 "bonus": {
-                    "type": "Complex",
+                    "type": "attribute",
                     "text": "Niewykupione umiejętności oparte na najwyższym współczynniku rosną o 1.",
-                    "bonus": {
-                        "pick": "Attribute",
-                        "from": {
-                            "what": "Attribute"
-                        },
-                        "increase": {
-                            "what": "Skills",
-                            "value": 1
-                        }
-                    }
+                    "value": 1
                 }
             },
             {
                 "name": "Wszchstronność do kwadratu",
                 "description": "Możesz wybrać dowolną z cech innych nacji. Dowolną. No jeśli jesteś facetem, to umówmy się, że zapomnisz o \"doktor Quinn\", OK?",
                 "bonus": {
-                    "type": "Complex",
                     "text": "Wybierz dowolną cechę.",
-                    "pick": "Feature",
-                    "from": {
-                        "what": "features"
-                    }
+                    "type": "feature"
                 }
             }
         ]
@@ -310,7 +264,6 @@
                 "name": "Cholerny kaznodzieja",
                 "description": "Potrafisz walnąć taki monolog, że słuchacze nie wiedzą, co ze sobą zrobić. Jeśli próbujesz przekonać kogoś do racji, w które sam wierzysz (sprawy wiary), w testach Perswazji odrzucasz kostkę, która najmniej ci odpowiada i mówisz, że wypadło na niej tyle co na innej. Trochę to skomplikowane, nie? Ale wiesz, sprawy wiary to trudny temat.",
                 "bonus": {
-                    "type": "Info",
                     "text": "W testach Perswazji odrzucasz jedną kostkę i mówisz, że wypadło na niej tyle co na innej."
                 }
             },
@@ -318,7 +271,6 @@
                 "name": "Wierzę",
                 "description": "Chłopie, nie będę lazł pięćset metrów do tej głupiej stacji tylko dlatego, że przez lornetkę widzisz tam automat z Colą. On nie działa, to nie ma sensu... Co? Co znaczy, że wierzysz, że działa? I co, chcesz bym teraz tam poszedł? Bo ty wierzysz? No bez jaj. To że raz w ciągu sesji, w sytuacji zagrożenia, możesz powiedzieć MG \"wierzę\" i wtedy MG powinien dać ci szansę wykaraskania się z sytuacji, nie oznacza, że da nam teraz tę Colę! Zrozum! Tylko w sytuacji zagrożenia! I w dodatku  ostateczna decyzja należy do MG! A przecież wiesz, że on jest złośliwy!Nie da nam tej Coli, mówię ci...",
                 "bonus": {
-                    "type": "Info",
                     "text": "Raz w ciągu sesji mówisz \"wierzę\", a MG musi dać Ci szanse na wykaraskanie się z sytuacji zagrożenia."
                 }
             },
@@ -326,7 +278,6 @@
                 "name": "Przed wojną wszystko było lepsze",
                 "description": "Przysłuchiwałeś się opowieściom doświadczonych wojowników i mądrych starców. Chłonołeś historię o czasach sprzed wojny. Wszystkie testy Sprytu związane z wiedzą o czasach sprzed Apokalipsą mogą być dla ciebie co najwyżej Trudne. Co najwyżej, łapiesz? Mistrz Gry może sobie bełkotać o Bardzo Trudnym, o Cholernie Trudnym... Wiesz co? Pokaż mi ten podręcznik, otwórz na tej stronie i daj mu to przeczytać \"Mistrzu Gry do ciebie mówię. Ten facet, co dał ci teraz podręcznik, wie o czasach sprzed wojny wszystko. Łapiesz to? Więc nie smuć o Bardzo Trudnym teście.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Wszystkie testy Sprytu związane z wiedzą o czasach sprzed Apokalipsą mogą być dla ciebie co najwyżej Trudne."
                 }
             }
@@ -343,7 +294,6 @@
                 "name": "Coś mi tu śmierdzi",
                 "description": "Dorastałeś na terenach opanowanych przez mutków. Wyczuwasz ich inność, choćby nie wiem jak się maskowali. Za każdym razem, gdy stajesz wobec osoby dotniętej niewidocznymi mutacjami, MG powinien wykonać sekretny rzut na Percepcję (Trudny) i w razie powodzenia testu, poinformować cię, że czujesz się nieswojo. Rączki świerzbią, nie? Spluwa się gotuje...",
                 "bonus": {
-                    "type": "Info",
                     "text": "MG powinien wykonać sekretny rzut na Percepcję (Trudny) i w razie powodzenia testu, poinformować Cię, że wyczuwasz mutanta."
                 }
             },
@@ -351,7 +301,6 @@
                 "name": "Chodźmy, na pewno już utonął",
                 "description": "Masz płuca jak miechy. Jesteś w stanie wytrzymać pod wodą dwa razy dłużej, niż przeciętny człowiek. To znaczy ile? Pół minuty za każde 4 punkty Budowy. Właśnie tyle.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Wtrzymujesz oddech na Budowa/4 minut."
                 }
             },
@@ -359,7 +308,6 @@
                 "name": "Kwas w żyłach, chlor w płucach",
                 "description": "Urodziłeś się i mieszkałeś przy Wielkiej Rzece. Jesteś tak przesiąknięty płynącą w niej trucizną, że żadna nowa franca już w ciebie nie wejdzie. Możesz powtórzyć każdy rzut odpornościowy przecziw trującym chemikaliom i substancjom żrącym.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Możesz powtórzyć każdy rzut odpornościowy przecziw trującym chemikaliom i substancjom żrącym."
                 }
             }
@@ -376,7 +324,6 @@
                 "name": "Na symulatorze działało...",
                 "description": "Jak to spokojnie! Jak grałeś w to?! W co grałeś? Symulator?! O czym ty człowieku pieprzysz, strzelają do nas, nie rozumiesz?! Ja też przeszedłem służbę wojskową, w dodatku na froncie i jakoś nie jestem taki spokojny! Miałeś dostęp do komputerowych symulatorów pojazdów i pola walki? No popatrz, to po prostu wspaniale. Grałeś sobie w Quake, kiedy do mnie strzelali na froncie, tak? I każesz mi być spokojnym?! I co, trochę się z nich nauczyłeś? Możesz przerzucić jedną kostkę w testach Wozów bojowych, Maszyn Ciężkich i Komputerów? Super. To lepiej przerzucaj, bo mamy kłopoty!",
                 "bonus": {
-                    "type": "Info",
                     "text": "Możesz przerzucić jedną kostkę w testach Wozów bojowych, Maszyn Ciężkich i Komputerów."
                 }
             },
@@ -384,7 +331,6 @@
                 "name": "Hi-Tech",
                 "description": "Od maleńkości rosłes w otoczeniu wytworów zaawansowanej technologii. Mikser do pomarańczy, czasem suszarka do włosów. Co więcej, było i radio, a nawet jakiś wykrywacz ruchu... No dobra, koniec jaj. Posterunek to najlepiej wyposażony w sprzęt elektroniczny przyczółek ludzkości. W każdym teście związanym z obsługą urządzenia elektronicznego możesz przerzucić jedną z kostek, właśnie dlatego, ze dawno temu za grzechotkę robił ci słoik z porcesorami, a za łopatkę płyta główna.",
                 "bonus": {
-                    "type": "Info",
                     "text": "W każdym teście związanym z obsługą urządzenia elektronicznego możesz przerzucić jedną z kostek."
                 }
             },
@@ -392,7 +338,6 @@
                 "name": "Moloch? Coś o nim słyszałem",
                 "description": "Miałeś kontakt z Molochem i jego tworami. Znasz slangowe nazwy określajace maszyny, potrafisz rozpoznawać je i wiesz czego możesz się spodziewać po każdym z tworów Bestii. Każdy test związany z maszynami Molocha może być dla ciebie co najwyżej Bardzo Trudny.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Każdy test związany z maszynami Molocha może być dla ciebie co najwyżej Bardzo Trudny."
                 }
             }
@@ -409,7 +354,6 @@
                 "name": "Jeśli ma silnik to ruszy",
                 "description": "W czasie nie dłuższym niż 30 sekund jesteś w stanie uruchomić dowolny pojazd z silnikiem spalinowym, pod warunkiem, że jest on zdatny do jazdy. I o ile ma, paliwo. Jeśli MG uważa, że wóz może jeździć, ty go uruchomisz. Tak to działa.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Jesteś w stanie uruchomić dowolny pojazd z silnikiem spalinowym, pod warunkiem że jest on zdatny do jazdy."
                 }
             },
@@ -417,7 +361,6 @@
                 "name": "Siódme poty",
                 "description": "Jeżeli prowadzisz dowolny pojazd z silnikiem spalinowym, jesteś w stanie wycisnąć z niego 25% ponad maksymalną prędkość, balansując na granicy zatarcia silnika, a nawet rozpadnięcia się całej konstrukcji maszyny. Kiedy pojazd zatrzyma się, nie ruszy ponownie, aż do momentu naprawienia uszkodzeń (Bardzo Trudny test Mechaniki).",
                 "bonus": {
-                    "type": "Info",
                     "text": "Z dowolnego silnika spalinowego jesteś w stanie wycisnąć 25% ponad maksymalna prędkość. Jednak po zatrzymaniu nie ruszu dopóki go nie naprawisz (Bardzo Trudny test Mechaniki)."
                 }
             },
@@ -425,7 +368,6 @@
                 "name": "Ale jazda!",
                 "description": "Lata spędzone na ulicach Detroit zrobiły swoje. Jeżeli strzelasz w ruchu - z pędzącego pojazdu, wierzchowca, spadając itp. - nie doliczasz sobie żadnych utrudnień za strzał w ruchu.",
                 "bonus": {
-                    "type": "Info",
                     "text": "Jeżeli strzelasz w ruchu - z pędzącego pojazdu, wierzchowca, spadając itp. - nie doliczasz sobie żadnych utrudnień za strzał w ruchu."
                 }
             }
