@@ -53,20 +53,22 @@ void NPCSkillsManagerWidget::setProfessionBonus(const QJsonObject &bonus)
     addBonus( bonus );
 }
 
-void NPCSkillsManagerWidget::setBonusSkills(const QString &name, const int &value)
+void NPCSkillsManagerWidget::setBonusSkills(const QStringList &names, const int &value)
 {
     for ( NPCAttributeWidget *attribute: m_attributes ) {
-        if ( attribute->skillPacks()->contains(name) ) {
-            NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(name);
-            for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
-                int minimum = skill.second->minimum() + value;
-                int tValue = skill.second->value() + value;
-                if ( 0 <= minimum ) {
-                    skill.second->setMinimum( minimum );
-                    skill.second->setValue( tValue );
+        for ( const QString &name: names ) {
+            if ( attribute->skillPacks()->contains(name) ) {
+                NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(name);
+                for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
+                    int minimum = skill.second->minimum() + value;
+                    int tValue = skill.second->value() + value;
+                    if ( 0 <= minimum ) {
+                        skill.second->setMinimum( minimum );
+                        skill.second->setValue( tValue );
+                    }
                 }
+                break;
             }
-            return;
         }
     }
 }
