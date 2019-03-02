@@ -231,7 +231,7 @@
     {
         "name": "Człowiek z... nie twój zasrany interes",
         "attribute": {
-            "name": "dowolny",
+            "name": ["Budowa", "Zręczność", "Charakter", "Spryt", "Percepcja"],
             "value": 1
         },
         "features": [
