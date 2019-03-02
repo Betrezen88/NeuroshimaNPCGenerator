@@ -74,6 +74,8 @@ void NPCOriginManagerWidget::setBonus(const QJsonObject &bonus)
 
     if ( m_bonus.contains("select") )
         bonusLogic( m_bonus );
+    if ( "trick" == m_bonus.value("type").toString() )
+        emit addBonusTrick( m_bonus.value("name").toString() );
 }
 
 QGroupBox *NPCOriginManagerWidget::originDescriptionBox()
@@ -199,5 +201,8 @@ void NPCOriginManagerWidget::removeBonus(const QJsonObject &bonus)
     if ( "skillpack" == type ) {
         emit bonusSkillChanged( QStringList(bonus.value("name").toString()),
                                 -bonus.value("value").toInt() );
+    }
+    else if ( "trick" == type ) {
+        emit removeBonusTrick( bonus.value("name").toString() );
     }
 }

@@ -23,6 +23,8 @@ signals:
     void originBonusChanged(const QJsonObject &bonus);
     void attributeBonusChanged(const QString &name, const int &value);
     void bonusSkillChanged(const QStringList &names, const int &value);
+    void addBonusTrick(const QString &name);
+    void removeBonusTrick(const QString &name);
 
 public slots:
     void setOrigin(const QString &originName);
