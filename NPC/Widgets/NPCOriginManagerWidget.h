@@ -36,6 +36,7 @@ private slots:
 
 private:
     QGroupBox *originDescriptionBox();
+    void attributeBonus(const QJsonObject &attribute);
     void featuresBox();
     QGroupBox *featureDescriptionBox();
     void bonusBox();
@@ -46,7 +47,6 @@ private:
 
 private:
     QComboBox *m_pOrigin{nullptr};
-    QLabel *m_pAttributeBonus{nullptr};
     QLabel *m_pOriginDescription{nullptr};
     QLabel *m_pFeatureDescription{nullptr};
     QLabel *m_pBonusDescription{nullptr};
@@ -56,6 +56,7 @@ private:
 
     QGridLayout *m_pLayout{nullptr};
     QVBoxLayout *m_pBonusLayout{nullptr};
+    QWidget *m_pAttributeBonus{nullptr};
 
     QJsonArray m_origins;
     QJsonArray m_features;

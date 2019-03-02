@@ -9,7 +9,6 @@
 NPCOriginManagerWidget::NPCOriginManagerWidget(QWidget *parent)
     : QWidget(parent),
       m_pOrigin(new QComboBox(this)),
-      m_pAttributeBonus(new QLabel("+0 Atrybut", this)),
       m_pOriginDescription(new QLabel(this)),
       m_pFeatureDescription(new QLabel(this)),
       m_pLayout(new QGridLayout())
@@ -26,8 +25,6 @@ NPCOriginManagerWidget::NPCOriginManagerWidget(QWidget *parent)
 
     m_pLayout->addWidget( new QLabel("Pochodzenie", this), 0, 0 );
     m_pLayout->addWidget( m_pOrigin, 0, 1 );
-    m_pLayout->addWidget( new QLabel("Bonus do atrybutu", this), 1, 0 );
-    m_pLayout->addWidget( m_pAttributeBonus, 1, 1 );
     m_pLayout->addWidget( originDescriptionBox(), 2, 0, 1, 2 );
     m_pLayout->addWidget( featureDescriptionBox(), 4, 0, 1, 2 );
     m_pLayout->setSpacing( 1 );
@@ -41,15 +38,11 @@ void NPCOriginManagerWidget::setOrigin(const QString &originName)
         const QJsonObject &tOrigin = origin.toObject();
         if ( originName == tOrigin.value("name").toString() ) {
             emit originNameChanged( originName );
-            const QJsonObject &attribute = tOrigin.value("attribute").toObject();
+            attributeBonus( tOrigin.value("attribute").toObject() );
             m_pOriginDescription->setText( tOrigin.value("description").toString() );
-            m_pAttributeBonus->setText( "+"+QString::number(attribute.value("value").toInt())
-                                        +" "+attribute.value("name").toString() );
-            emit attributeBonusChanged( attribute.value("name").toString(),
-                                        attribute.value("value").toInt() );
             m_features = tOrigin.value("features").toArray();
             featuresBox();
-            break;
+            return;
         }
     }
 }
@@ -90,6 +83,32 @@ QGroupBox *NPCOriginManagerWidget::originDescriptionBox()
     pLayout->addWidget( m_pOriginDescription );
     pOriginDescriptionBox->setLayout( pLayout );
     return pOriginDescriptionBox;
+}
+
+void NPCOriginManagerWidget::attributeBonus(const QJsonObject &attribute)
+{
+    if ( nullptr != m_pAttributeBonus ) {
+        m_pLayout->removeWidget( m_pAttributeBonus );
+        delete m_pAttributeBonus;
+    }
+
+    QStringList names;
+    if ( attribute.value("name").isArray() )
+        for ( const QJsonValue name: attribute.value("name").toArray() )
+            names << name.toString();
+    else
+        names << attribute.value("name").toString();
+    const int &value = attribute.value("value").toInt();
+
+    m_pAttributeBonus = new QWidget( this );
+    QHBoxLayout *pAttributeBonusLayout = new QHBoxLayout;
+    pAttributeBonusLayout->addWidget( new QLabel("Bonus do atrybutu: +"
+                                                   +QString::number(value)) );
+    pAttributeBonusLayout->addWidget( new QLabel(names.first()) );
+    m_pAttributeBonus->setLayout( pAttributeBonusLayout );
+    m_pLayout->addWidget( m_pAttributeBonus, 1, 0, 1, 2 );
+
+    emit attributeBonusChanged( names.first(), value );
 }
 
 void NPCOriginManagerWidget::featuresBox()
