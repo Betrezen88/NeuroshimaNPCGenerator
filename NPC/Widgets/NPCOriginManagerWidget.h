@@ -25,6 +25,7 @@ signals:
     void bonusSkillChanged(const QStringList &names, const int &value);
     void addBonusTrick(const QString &name);
     void removeBonusTrick(const QString &name);
+    void bonusSkillpointsChanged(const QString &name, const int &value);
 
 public slots:
     void setOrigin(const QString &originName);
