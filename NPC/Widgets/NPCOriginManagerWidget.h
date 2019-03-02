@@ -35,6 +35,7 @@ private:
     QGroupBox *originDescriptionBox();
     void featuresBox();
     QGroupBox *featureDescriptionBox();
+    void bonusBox();
     QStringList origins();
     QStringList selectData(const QString &type, const QJsonArray &select);
     void bonusLogic(QJsonObject &bonus);

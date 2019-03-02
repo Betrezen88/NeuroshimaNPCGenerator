@@ -64,25 +64,16 @@ void NPCOriginManagerWidget::setFeature(const QJsonObject &feature)
 
 void NPCOriginManagerWidget::setBonus(const QJsonObject &bonus)
 {
-    if ( nullptr != m_pBonusBox ) {
-        m_pLayout->removeWidget( m_pBonusBox );
-        delete m_pBonusBox;
-    }
+    bonusBox();
+
     if ( !m_bonus.isEmpty() )
         removeBonus( m_bonus );
-
-    m_pBonusBox = new QGroupBox( "Bonus", this );
-    m_pBonusDescription = new QLabel( bonus.value("text").toString(), m_pBonusBox );
-    m_pBonusDescription->setWordWrap( true );
-    m_pBonusLayout = new QVBoxLayout;
-    m_pBonusLayout->addWidget( m_pBonusDescription );
-
     m_bonus = bonus;
+
+    m_pBonusDescription->setText( m_bonus.value("text").toString() );
+
     if ( m_bonus.contains("select") )
         bonusLogic( m_bonus );
-
-    m_pBonusBox->setLayout( m_pBonusLayout );
-    m_pLayout->addWidget( m_pBonusBox, 3, 1 );
 }
 
 QGroupBox *NPCOriginManagerWidget::originDescriptionBox()
@@ -131,6 +122,23 @@ QGroupBox *NPCOriginManagerWidget::featureDescriptionBox()
     pLayout->addWidget( m_pFeatureDescription );
     pFeatureDescriptionBox->setLayout( pLayout );
     return pFeatureDescriptionBox;
+}
+
+void NPCOriginManagerWidget::bonusBox()
+{
+    if ( nullptr != m_pBonusBox ) {
+        m_pLayout->removeWidget( m_pBonusBox );
+        delete m_pBonusBox;
+    }
+
+    m_pBonusBox = new QGroupBox( "Bonus", this );
+    m_pBonusDescription = new QLabel( m_pBonusBox );
+    m_pBonusDescription->setWordWrap( true );
+    m_pBonusLayout = new QVBoxLayout;
+    m_pBonusLayout->addWidget( m_pBonusDescription );
+
+    m_pBonusBox->setLayout( m_pBonusLayout );
+    m_pLayout->addWidget( m_pBonusBox, 3, 1 );
 }
 
 QStringList NPCOriginManagerWidget::origins()
