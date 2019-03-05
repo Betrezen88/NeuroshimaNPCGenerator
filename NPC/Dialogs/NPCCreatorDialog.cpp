@@ -51,6 +51,8 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
              m_pCard->obverse(), &NPCCardObverse::setOrigin );
     connect( m_pOriginManager, &NPCOriginManagerWidget::attributeBonusChanged,
              m_pCard->obverse(), &NPCCardObverse::setAttributeModValue );
+    connect( m_pOriginManager, &NPCOriginManagerWidget::attributeBonusChanged,
+             m_pSkillsManager, &NPCSkillsManagerWidget::setAttributeModValue );
     connect( m_pOriginManager, &NPCOriginManagerWidget::originFeatureChanged,
              m_pCard->obverse(), &NPCCardObverse::setOriginFeature );
     connect( m_pOriginManager, &NPCOriginManagerWidget::bonusSkillChanged,
