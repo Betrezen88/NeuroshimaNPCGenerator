@@ -82,7 +82,9 @@ void NPCSkillsManagerWidget::setAttributes(const QJsonArray &attributes)
     for ( const QJsonValue tAttribute: attributes ) {
         const QJsonObject &attribute = tAttribute.toObject();
         const QString &name = attribute.value("name").toString();
-        m_attributes.insert( name, new NPCAttributeWidget(name, m_mods, this) );
+        NPCAttributeWidget *pAttribute = new NPCAttributeWidget(name, m_mods, this);
+        pAttribute->setValue( 0 );
+        m_attributes.insert( name, pAttribute );
 
         for ( const QJsonValue tSkillpack: attribute.value("skillPacks").toArray() ) {
              const QJsonObject &skillpack = tSkillpack.toObject();
