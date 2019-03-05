@@ -25,8 +25,8 @@
 - dodać do karty zakładkę z formularzem postaci oraz opisami, historią itp.
 
 In progress:
-- Stworzyć widget do rozdzielania punktów umiejętności
-
+- poprawić logikę wydawania punktów (wydając specPointy uzwględniamy również skillPointy)
+- dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
@@ -96,3 +96,4 @@ Done:
 + Stworzyć widget wyboru specjalizacji z opisem
 + Stworzyć widget wyboru profesji wraz z cechami i bonusami
 + Stworzyć widget losowania choroby
++ Stworzyć widget do rozdzielania punktów umiejętności
