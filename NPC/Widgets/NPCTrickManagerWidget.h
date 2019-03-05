@@ -18,6 +18,8 @@ public:
 signals:
 
 public slots:
+    void setBonusTrick(const QString &name);
+    void removeBonusTrick(const QString &name);
 
 private slots:
     void availableTrickDoubleClicked(QListWidgetItem *item);

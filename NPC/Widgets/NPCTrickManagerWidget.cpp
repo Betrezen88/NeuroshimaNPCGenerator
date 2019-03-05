@@ -33,6 +33,25 @@ NPCTrickManagerWidget::NPCTrickManagerWidget(
     setLayout( pLayout );
 }
 
+void NPCTrickManagerWidget::setBonusTrick(const QString &name)
+{
+    QListWidget *pListWidget = (!m_pAvailable->findItems(name, Qt::MatchCaseSensitive).isEmpty())
+                                ? m_pAvailable : m_pUnavailable;
+    QListWidgetItem* trick = pListWidget->findItems(name, Qt::MatchCaseSensitive).first();
+
+    m_pBougth->addItem( pListWidget->takeItem(pListWidget->row(trick)) );
+    m_pBougth->sortItems();
+}
+
+void NPCTrickManagerWidget::removeBonusTrick(const QString &name)
+{
+    QListWidgetItem *trick = m_pBougth->findItems( name, Qt::MatchCaseSensitive ).first();
+    QListWidget *pListWidget = ( isTrickAvailable(static_cast<NPCTrickWidgetItem*>(trick)) )
+                                ? m_pAvailable : m_pUnavailable;
+    pListWidget->addItem( m_pBougth->takeItem(m_pBougth->row(trick)) );
+    pListWidget->sortItems();
+}
+
 void NPCTrickManagerWidget::availableTrickDoubleClicked(QListWidgetItem *item)
 {
     item->setData( 0x0100, "new" );
