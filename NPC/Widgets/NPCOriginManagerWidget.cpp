@@ -103,12 +103,22 @@ void NPCOriginManagerWidget::attributeBonus(const QJsonObject &attribute)
     m_pAttributeBonus = new QWidget( this );
     QHBoxLayout *pAttributeBonusLayout = new QHBoxLayout;
     pAttributeBonusLayout->addWidget( new QLabel("Bonus do atrybutu: +"
-                                                   +QString::number(value)) );
-    pAttributeBonusLayout->addWidget( new QLabel(names.first()) );
+                                                +QString::number(value)) );
+    if ( 1 == names.count() ) {
+        pAttributeBonusLayout->addWidget( new QLabel(names.first()) );
+        emit attributeBonusChanged( names.first(), value );
+    }
+    else {
+        QComboBox *pSelect = new QComboBox( m_pAttributeBonus );
+        connect( pSelect, &QComboBox::currentTextChanged,
+                 [this](const QString &name){
+                    emit this->attributeBonusChanged( name, 1 );
+        } );
+        pSelect->insertItems( 0, names );
+        pAttributeBonusLayout->addWidget( pSelect );
+    }
     m_pAttributeBonus->setLayout( pAttributeBonusLayout );
     m_pLayout->addWidget( m_pAttributeBonus, 1, 0, 1, 2 );
-
-    emit attributeBonusChanged( names.first(), value );
 }
 
 void NPCOriginManagerWidget::featuresBox()
