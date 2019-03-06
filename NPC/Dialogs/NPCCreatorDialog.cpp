@@ -34,6 +34,11 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
     m_pClose->setFixedWidth( 80 );
     m_pAccept->setFixedWidth( 80 );
 
+    connect( m_pTabWidget, &QTabWidget::tabBarClicked,
+             [this](int index){
+                if ( 6 == index )
+                    m_pTricksManager->loadTricks();
+    } );
     connect( m_pClose, &QPushButton::clicked,
              this, &NPCCreatorDialog::close );
     connect( m_pAccept, &QPushButton::clicked,
@@ -45,20 +50,14 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
              m_pSkillsManager, &NPCSkillsManagerWidget::setAttributeValue );
     connect( m_pSpecializationManager, &NPCSpecializationManagerWidget::specializationChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setSpecialization );
-    connect( m_pSpecializationManager, &NPCSpecializationManagerWidget::specializationChanged,
-             m_pCard->obverse(), &NPCCardObverse::setSpecialization );
-    connect( m_pOriginManager, &NPCOriginManagerWidget::originNameChanged,
-             m_pCard->obverse(), &NPCCardObverse::setOrigin );
     connect( m_pOriginManager, &NPCOriginManagerWidget::attributeBonusChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setAttributeModValue );
     connect( m_pOriginManager, &NPCOriginManagerWidget::bonusSkillChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setBonusSkills );
-    connect( m_pSicknessManager, &NPCSicknessManagerWidget::sicknessChanged,
-             m_pCard->obverse(), &NPCCardObverse::setSickness );
-    connect( m_pProfessionManager, &NPCProfessionManagerWidget::professionNameChanged,
-             m_pCard->obverse(), &NPCCardObverse::setProfession );
-    connect( m_pProfessionManager, &NPCProfessionManagerWidget::professionFeatureChanged,
-             m_pCard->obverse(), &NPCCardObverse::setProfessionFeature );
+    connect( m_pOriginManager, &NPCOriginManagerWidget::addBonusTrick,
+             m_pTricksManager, &NPCTrickManagerWidget::setBonusTrick );
+    connect( m_pOriginManager, &NPCOriginManagerWidget::removeBonusTrick,
+             m_pTricksManager, &NPCTrickManagerWidget::removeBonusTrick );
     connect( m_pProfessionManager, &NPCProfessionManagerWidget::bonusSkillChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setBonusSkills );
 
