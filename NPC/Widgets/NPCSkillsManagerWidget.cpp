@@ -163,10 +163,23 @@ void NPCSkillsManagerWidget::updateInfoLabels()
 
 void NPCSkillsManagerWidget::spendPoints(const int &value, const QStringList &specs)
 {
-    if ( specs.contains(m_specialization) )
-        m_specPoints.second += value;
-    else
+    if ( specs.contains(m_specialization) ) {
+        if ( (0 < value) && (m_specPoints.first < m_specPoints.second+value) ) {
+            const int costLeft = (m_specPoints.second + value) - m_specPoints.first;
+            m_specPoints.second += value-costLeft;
+            m_skillPoints.second += costLeft;
+        }
+        else if ( (0 > value) && (0 > m_specPoints.second + value) ) {
+            const int pointsLeft = m_specPoints.second + value;
+            m_specPoints.second += value-pointsLeft;
+            m_skillPoints.second += pointsLeft;
+        }
+        else
+            m_specPoints.second += value;
+    }
+    else {
         m_skillPoints.second += value;
+    }
     emit availableSkillpointsValueChanged( m_skillPoints.first - m_skillPoints.second,
                                            m_specPoints.first - m_specPoints.second,
                                            m_specialization );
