@@ -15,6 +15,8 @@ class NPCSkillsManagerWidget : public QWidget
 public:
     explicit NPCSkillsManagerWidget(const QJsonArray *attributes, QWidget *parent = nullptr);
 
+    const QHash<const QString, NPCAttributeWidget*> *attributes() const;
+
 signals:
     void skillPointsValueChanged(const int &value);
     void availableSkillpointsValueChanged(const int &skill, const int &specs, const QString &spec);

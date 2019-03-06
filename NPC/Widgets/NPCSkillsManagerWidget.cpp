@@ -23,6 +23,11 @@ NPCSkillsManagerWidget::NPCSkillsManagerWidget(const QJsonArray *attributes, QWi
     setLayout( pLayout );
 }
 
+const QHash<const QString, NPCAttributeWidget *> *NPCSkillsManagerWidget::attributes() const
+{
+    return &m_attributes;
+}
+
 void NPCSkillsManagerWidget::setAttributeValue(const QString &name, const int &value)
 {
     m_attributes[name]->setValue( value );
@@ -103,6 +108,8 @@ void NPCSkillsManagerWidget::setAttributes(const QJsonArray &attributes)
                       pSkillpack, &NPCSkillPackWidget::onAvailableSkillPointsChanged );
              connect( pSkillpack, &NPCSkillPackWidget::skillValueChanged,
                       this, &NPCSkillsManagerWidget::buySkill );
+             connect( pSkillpack, &NPCSkillPackWidget::skillValueChanged,
+                      this, &NPCSkillsManagerWidget::skillValueChanged );
 
              m_attributes.value(name)->addSkillPack(skillpack.value("name").toString(), pSkillpack);
         }
