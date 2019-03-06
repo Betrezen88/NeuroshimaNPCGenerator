@@ -26,6 +26,7 @@ public slots:
     void setAttributeModValue(const QString &name, const int &value);
     void setSpecialization(const QString &spec);
     void setBonusSkills(const QStringList &names, const int &value);
+    void setBonusSpecPoints(const int &value);
 
 private slots:
     void buySkillPack(const bool &bougth, const QStringList &specs);
@@ -52,6 +53,7 @@ private:
     QString m_specialization;
     QPair<int, int> m_specPoints{ 35, 0 };
     QPair<int, int> m_skillPoints{ 30, 0 };
+    int m_bonusSpecPoints{0};
 
     QJsonObject m_professionBonus;
 

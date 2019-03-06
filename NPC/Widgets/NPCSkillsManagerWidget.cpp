@@ -36,7 +36,7 @@ void NPCSkillsManagerWidget::setAttributeValue(const QString &name, const int &v
 void NPCSkillsManagerWidget::setAttributeModValue(const QString &name, const int &value)
 {
     for ( NPCAttributeWidget *tAttribute: m_attributes )
-        if ( tAttribute->modValue() ) {
+        if ( *tAttribute->modValue() ) {
             tAttribute->setModValue( 0 );
             break;
         }
@@ -45,9 +45,8 @@ void NPCSkillsManagerWidget::setAttributeModValue(const QString &name, const int
 
 void NPCSkillsManagerWidget::setSpecialization(const QString &spec)
 {
-    if ( spec != m_specialization ) {
+    if ( spec != m_specialization )
         m_specialization = spec;
-    }
 }
 
 void NPCSkillsManagerWidget::setBonusSkills(const QStringList &names, const int &value)
@@ -68,6 +67,12 @@ void NPCSkillsManagerWidget::setBonusSkills(const QStringList &names, const int 
             }
         }
     }
+}
+
+void NPCSkillsManagerWidget::setBonusSpecPoints(const int &value)
+{
+    m_specPoints.first += value;
+    updateInfoLabels();
 }
 
 void NPCSkillsManagerWidget::buySkillPack(const bool &bougth, const QStringList &specs)
