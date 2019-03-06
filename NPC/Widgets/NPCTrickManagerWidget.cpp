@@ -7,8 +7,9 @@
 #include <QJsonValue>
 #include <QJsonObject>
 
-NPCTrickManagerWidget::NPCTrickManagerWidget(
-        const QHash<QString, NPCAttributeWidget*> *attributes,
+#include <QDebug>
+
+NPCTrickManagerWidget::NPCTrickManagerWidget(const QHash<const QString, NPCAttributeWidget *> *attributes,
         QWidget *parent)
     : QWidget(parent),
       m_pAttributes(attributes),
@@ -21,7 +22,7 @@ NPCTrickManagerWidget::NPCTrickManagerWidget(
     connect( m_pBougth, &QListWidget::itemDoubleClicked,
              this, &NPCTrickManagerWidget::bougthTrickDoubleClicked );
 
-    loadTricks( DataLoader::loadJson(":/data/json/Tricks.json") );
+    loadTricks();
 
     QGridLayout *pLayout = new QGridLayout;
     pLayout->addWidget( new QLabel("Dostępne"), 0, 0 );
@@ -68,11 +69,18 @@ void NPCTrickManagerWidget::bougthTrickDoubleClicked(QListWidgetItem *item)
     }
 }
 
-void NPCTrickManagerWidget::loadTricks(const QJsonArray &tricks)
+void NPCTrickManagerWidget::loadTricks()
 {
+    const QJsonArray &tricks = DataLoader::loadJson( ":/data/json/Tricks.json" );
+    m_pAvailable->clear();
+    m_pUnavailable->clear();
     for ( const QJsonValue tTrick: tricks ) {
         const QJsonObject &trick = tTrick.toObject();
         const QString &name = trick.value("name").toString();
+
+        if ( !m_pBougth->findItems(name, Qt::MatchCaseSensitive).isEmpty() )
+            break;
+
         const QString &description = trick.value("description").toString();
         const QString &action = trick.value("action").toString();
         const QJsonObject &requirements = trick.value("requirements").toObject();
@@ -121,21 +129,22 @@ bool NPCTrickManagerWidget::isTrickAvailable(const NPCTrickWidgetItem *pItem) co
     const QHash<QString, int> *attributes = pItem->attributes();
     const QHash<QString, int> *skills = pItem->skills();
     const QHash<QString, int> *orSkills = pItem->orSkills();
+    QStringList tAttributes{ "Budowa", "Zręczność", "Charakter", "Percepcja", "Spryt" };
 
     if ( !attributes->isEmpty() ) {
         for ( const QString &name: attributes->keys() ) {
             if ( !name.isEmpty() )
-            if ( attributes->value(name) > *m_pAttributes->value(name)->value() ) {
-                attr = false;
-                break;
-            }
+                if ( attributes->value(name) > *m_pAttributes->value(name)->value() ) {
+                    attr = false;
+                    break;
+                }
         }
     }
 
     if ( !skills->empty() ) {
         for ( const QString &name: skills->keys() ) {
             if ( !name.isEmpty() )
-                for ( const QString &attribute: m_pAttributes->keys() ) {
+                for ( const QString &attribute: tAttributes ) {
                     const QList<NPCSkillPackWidget*> &skillPacks =
                             m_pAttributes->value(attribute)->skillPacks()->values();
                     for ( const NPCSkillPackWidget *skillPack: skillPacks ) {
@@ -153,7 +162,7 @@ bool NPCTrickManagerWidget::isTrickAvailable(const NPCTrickWidgetItem *pItem) co
     if ( !orSkills->empty() ) {
         for ( const QString &name: orSkills->keys() ) {
             if ( !name.isEmpty() )
-                for ( const QString &attribute: m_pAttributes->keys() ) {
+                for ( const QString &attribute: tAttributes ) {
                     const QList<NPCSkillPackWidget*> &skillPacks =
                             m_pAttributes->value(attribute)->skillPacks()->values();
                     for ( const NPCSkillPackWidget *skillPack: skillPacks ) {
