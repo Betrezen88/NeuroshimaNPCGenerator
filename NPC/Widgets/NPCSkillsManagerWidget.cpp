@@ -108,8 +108,6 @@ void NPCSkillsManagerWidget::setAttributes(const QJsonArray &attributes)
                       pSkillpack, &NPCSkillPackWidget::onAvailableSkillPointsChanged );
              connect( pSkillpack, &NPCSkillPackWidget::skillValueChanged,
                       this, &NPCSkillsManagerWidget::buySkill );
-             connect( pSkillpack, &NPCSkillPackWidget::skillValueChanged,
-                      this, &NPCSkillsManagerWidget::skillValueChanged );
 
              m_attributes.value(name)->addSkillPack(skillpack.value("name").toString(), pSkillpack);
         }
