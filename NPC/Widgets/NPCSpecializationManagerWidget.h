@@ -13,6 +13,8 @@ class NPCSpecializationManagerWidget : public QWidget
 public:
     explicit NPCSpecializationManagerWidget(QWidget *parent = nullptr);
 
+    QString specialization() const;
+
 signals:
     void specializationChanged(const QString &spec);
 

@@ -28,6 +28,11 @@ NPCSpecializationManagerWidget::NPCSpecializationManagerWidget(QWidget *parent)
     setLayout( pLayout );
 }
 
+QString NPCSpecializationManagerWidget::specialization() const
+{
+    return m_pSpecs->currentText();
+}
+
 void NPCSpecializationManagerWidget::setSpec(const QString &specName)
 {
     for ( const QJsonValue tSpec: m_specializations ) {
