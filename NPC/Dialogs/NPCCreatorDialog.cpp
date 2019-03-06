@@ -18,7 +18,7 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
       m_pProfessionManager(new NPCProfessionManagerWidget(this)),
       m_pSicknessManager(new NPCSicknessManagerWidget(this)),
       m_pSkillsManager(new NPCSkillsManagerWidget(&m_attributes, this)),
-      m_pTricksManager(new NPCTrickManagerWidget(m_pCard->obverse()->attributes(), this))
+      m_pTricksManager(new NPCTrickManagerWidget(m_pSkillsManager->attributes(), this))
 {
     setAttribute( Qt::WA_DeleteOnClose );
     setMinimumSize( 500, 880 );
@@ -50,11 +50,7 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
     connect( m_pOriginManager, &NPCOriginManagerWidget::originNameChanged,
              m_pCard->obverse(), &NPCCardObverse::setOrigin );
     connect( m_pOriginManager, &NPCOriginManagerWidget::attributeBonusChanged,
-             m_pCard->obverse(), &NPCCardObverse::setAttributeModValue );
-    connect( m_pOriginManager, &NPCOriginManagerWidget::attributeBonusChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setAttributeModValue );
-    connect( m_pOriginManager, &NPCOriginManagerWidget::originFeatureChanged,
-             m_pCard->obverse(), &NPCCardObverse::setOriginFeature );
     connect( m_pOriginManager, &NPCOriginManagerWidget::bonusSkillChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setBonusSkills );
     connect( m_pSicknessManager, &NPCSicknessManagerWidget::sicknessChanged,
