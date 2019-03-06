@@ -14,7 +14,7 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
       m_pCard(new NPCCardTab()),
       m_pAttributeManager(new NPCAttributeManagerWidget(&m_attributes, this)),
       m_pSpecializationManager(new NPCSpecializationManagerWidget(this)),
-      m_pOriginManager(new NPCOriginManagerWidget(this)),
+      m_pOriginManager(new NPCOriginManagerWidget(m_pSpecializationManager, this)),
       m_pProfessionManager(new NPCProfessionManagerWidget(this)),
       m_pSicknessManager(new NPCSicknessManagerWidget(this)),
       m_pSkillsManager(new NPCSkillsManagerWidget(&m_attributes, this)),
@@ -45,8 +45,6 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
              [this](){ emit this->creationCompleted(m_pCard); this->close(); } );
 
     connect( m_pAttributeManager, &NPCAttributeManagerWidget::attributeChanged,
-             m_pCard->obverse(), &NPCCardObverse::setAttribute );
-    connect( m_pAttributeManager, &NPCAttributeManagerWidget::attributeChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setAttributeValue );
     connect( m_pSpecializationManager, &NPCSpecializationManagerWidget::specializationChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setSpecialization );
@@ -58,6 +56,10 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
              m_pTricksManager, &NPCTrickManagerWidget::setBonusTrick );
     connect( m_pOriginManager, &NPCOriginManagerWidget::removeBonusTrick,
              m_pTricksManager, &NPCTrickManagerWidget::removeBonusTrick );
+
+    connect( m_pOriginManager, &NPCOriginManagerWidget::bonusSkillpointsChanged,
+             m_pSkillsManager, &NPCSkillsManagerWidget::setBonusSpecPoints );
+
     connect( m_pProfessionManager, &NPCProfessionManagerWidget::bonusSkillChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setBonusSkills );
 
