@@ -18,6 +18,8 @@
         "name": "Trick name //skillPackName, skills array with values ?
     }
 
+- dodać slot resetPoints() do NPCSkillsManagerWidget, używać przy zmianie bonusowych skillpontów
+
 - poprawić literówki pliku Sickness.json
 
 - dodać do karty zakładkę z ekwipunkiem
@@ -25,7 +27,6 @@
 - dodać do karty zakładkę z formularzem postaci oraz opisami, historią itp.
 
 In progress:
-- poprawić logikę wydawania punktów (wydając specPointy uzwględniamy również skillPointy)
 - dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
 
 Done:
@@ -97,3 +98,4 @@ Done:
 + Stworzyć widget wyboru profesji wraz z cechami i bonusami
 + Stworzyć widget losowania choroby
 + Stworzyć widget do rozdzielania punktów umiejętności
++ poprawić logikę wydawania punktów (wydając specPointy uzwględniamy również skillPointy)
