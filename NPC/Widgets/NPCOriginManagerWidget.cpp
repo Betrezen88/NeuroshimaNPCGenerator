@@ -6,8 +6,10 @@
 
 #include <QDebug>
 
-NPCOriginManagerWidget::NPCOriginManagerWidget(QWidget *parent)
+NPCOriginManagerWidget::NPCOriginManagerWidget(const NPCSpecializationManagerWidget *pSpecManager,
+                                               QWidget *parent)
     : QWidget(parent),
+      m_pSpecManager(pSpecManager),
       m_pOrigin(new QComboBox(this)),
       m_pOriginDescription(new QLabel(this)),
       m_pFeatureDescription(new QLabel(this)),
@@ -71,9 +73,19 @@ void NPCOriginManagerWidget::setBonus(const QJsonObject &bonus)
     if ( "trick" == type )
         emit addBonusTrick( m_bonus.value("name").toString() );
     else if ( "specialization" == type ) {
-        emit bonusSkillpointsChanged( m_bonus.value("name").toString(),
-                                      m_bonus.value("value").toInt() );
+        qDebug() << "specialization bonus";
+        setSpecBonusLogic( m_pSpecManager->specialization() );
+        connect( m_pSpecManager, &NPCSpecializationManagerWidget::specializationChanged,
+                 this, &NPCOriginManagerWidget::setSpecBonusLogic );
     }
+}
+
+void NPCOriginManagerWidget::setSpecBonusLogic(const QString &name)
+{
+    if ( name == m_bonus.value("name").toString() )
+        emit bonusSkillpointsChanged( m_bonus.value("value").toInt() );
+    else
+        emit bonusSkillpointsChanged( -m_bonus.value("value").toInt() );
 }
 
 QGroupBox *NPCOriginManagerWidget::originDescriptionBox()
@@ -141,10 +153,7 @@ void NPCOriginManagerWidget::featuresBox()
             if ( checked ) setFeature( tFeature );
         } );
 
-        if ( m_features.first() == tFeature ) {
-            pRadioBtn->setChecked( true );
-            pRadioBtn->toggled( true );
-        }
+        pRadioBtn->setChecked( m_features.first() == tFeature );
     }
 
     m_pFeatureBox->setLayout( pLayout );
@@ -240,7 +249,8 @@ void NPCOriginManagerWidget::removeBonus(const QJsonObject &bonus)
         emit removeBonusTrick( bonus.value("name").toString() );
     }
     else if ( "specialization" == type ) {
-        emit bonusSkillpointsChanged( bonus.value("name").toString(),
-                                      -bonus.value("value").toInt() );
+        disconnect( m_pSpecManager, &NPCSpecializationManagerWidget::specializationChanged,
+                    this, &NPCOriginManagerWidget::setSpecBonusLogic );
+        emit bonusSkillpointsChanged( -m_bonus.value("value").toInt() );
     }
 }

@@ -10,11 +10,14 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
+#include "NPCSpecializationManagerWidget.h"
+
 class NPCOriginManagerWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit NPCOriginManagerWidget(QWidget *parent = nullptr);
+    explicit NPCOriginManagerWidget(const NPCSpecializationManagerWidget *pSpecManager,
+                                    QWidget *parent = nullptr);
 
 signals:
     void originDataChanged(const QJsonObject &origin);
@@ -25,7 +28,7 @@ signals:
     void bonusSkillChanged(const QStringList &names, const int &value);
     void addBonusTrick(const QString &name);
     void removeBonusTrick(const QString &name);
-    void bonusSkillpointsChanged(const QString &name, const int &value);
+    void bonusSkillpointsChanged(const int &value);
 
 public slots:
     void setOrigin(const QString &originName);
@@ -33,6 +36,7 @@ public slots:
 private slots:
     void setFeature(const QJsonObject &feature);
     void setBonus(const QJsonObject &bonus);
+    void setSpecBonusLogic(const QString &name);
 
 private:
     QGroupBox *originDescriptionBox();
@@ -46,6 +50,7 @@ private:
     void removeBonus(const QJsonObject &bonus);
 
 private:
+    const NPCSpecializationManagerWidget *m_pSpecManager;
     QComboBox *m_pOrigin{nullptr};
     QLabel *m_pOriginDescription{nullptr};
     QLabel *m_pFeatureDescription{nullptr};
