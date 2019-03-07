@@ -6,9 +6,6 @@
 
 - Dodać specjalną logikę dla cechy Wszechstronność
 
-- Przenieść wydawanie skill pointów do osobnego okna
-    Karta postaci będzie jedynie reprezentacją liczbową.
-
 - Dodać opis pochodzenia do Origins.json
 
 - cechy z pochodzenia i profesji oferują bonusy, utworzyć info o bonusie aby łatwiej
@@ -25,6 +22,11 @@
 - dodać do karty zakładkę z ekwipunkiem
 
 - dodać do karty zakładkę z formularzem postaci oraz opisami, historią itp.
+
+- dodać metodę updateBougthTricks(), aby po zmianie wartości skilli sprawdzał czy postać może go
+  jeszcze mieć
+
+- stworzyć wizualizację karty postaci
 
 In progress:
 - dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
@@ -99,3 +101,5 @@ Done:
 + Stworzyć widget losowania choroby
 + Stworzyć widget do rozdzielania punktów umiejętności
 + poprawić logikę wydawania punktów (wydając specPointy uzwględniamy również skillPointy)
++ Przenieść wydawanie skill pointów do osobnego okna
+    Karta postaci będzie jedynie reprezentacją liczbową.
