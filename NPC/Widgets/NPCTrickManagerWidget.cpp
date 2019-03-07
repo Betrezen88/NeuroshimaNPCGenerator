@@ -55,17 +55,21 @@ void NPCTrickManagerWidget::removeBonusTrick(const QString &name)
 
 void NPCTrickManagerWidget::availableTrickDoubleClicked(QListWidgetItem *item)
 {
-    item->setData( 0x0100, "new" );
-    m_pBougth->addItem( m_pAvailable->takeItem(m_pAvailable->row(item)) );
-    m_pBougth->sortItems( Qt::AscendingOrder );
+    if ( m_freeTricks == 0 ) {
+        item->setData( 0x0100, "new" );
+        m_pBougth->addItem( m_pAvailable->takeItem(m_pAvailable->row(item)) );
+        m_pBougth->sortItems( Qt::AscendingOrder );
+        ++m_freeTricks;
+    }
 }
 
 void NPCTrickManagerWidget::bougthTrickDoubleClicked(QListWidgetItem *item)
 {
-    if ( "new" == item->data(0x0100).toString() ) {
+    if ( "new" == item->data(0x0100).toString() && m_freeTricks > 0 ) {
         item->setData( 0x0100, "" );
         m_pAvailable->addItem( m_pBougth->takeItem(m_pBougth->row(item)) );
         m_pAvailable->sortItems( Qt::AscendingOrder );
+        --m_freeTricks;
     }
 }
 

@@ -34,6 +34,8 @@ private:
     QListWidget *m_pAvailable{nullptr};
     QListWidget *m_pUnavailable{nullptr};
     QListWidget *m_pBougth{nullptr};
+
+    int m_freeTricks{0};
 };
 
 #endif // NPCTRICKMANAGERWIDGET_H
