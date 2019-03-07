@@ -73,7 +73,6 @@ void NPCOriginManagerWidget::setBonus(const QJsonObject &bonus)
     if ( "trick" == type )
         emit addBonusTrick( m_bonus.value("name").toString() );
     else if ( "specialization" == type ) {
-        qDebug() << "specialization bonus";
         setSpecBonusLogic( m_pSpecManager->specialization() );
         connect( m_pSpecManager, &NPCSpecializationManagerWidget::specializationChanged,
                  this, &NPCOriginManagerWidget::setSpecBonusLogic );
@@ -86,6 +85,17 @@ void NPCOriginManagerWidget::setSpecBonusLogic(const QString &name)
         emit bonusSkillpointsChanged( m_bonus.value("value").toInt() );
     else
         emit bonusSkillpointsChanged( -m_bonus.value("value").toInt() );
+}
+
+void NPCOriginManagerWidget::setBonusSkillPacks(const QString &name)
+{
+    const int &value = m_bonus.value("value").toInt();
+    if ( m_bonus.contains("name") ) {
+        emit bonusSkillChanged( QStringList(m_bonus.take("name").toString()),
+                                -value );
+    }
+    m_bonus.insert( "name", name );
+    emit bonusSkillChanged( QStringList(name), value );
 }
 
 QGroupBox *NPCOriginManagerWidget::originDescriptionBox()
@@ -223,16 +233,7 @@ void NPCOriginManagerWidget::bonusLogic(QJsonObject &bonus)
 {
     m_pSelect = new QComboBox(m_pBonusBox);
     connect( m_pSelect, &QComboBox::currentTextChanged,
-             [this](const QString &name) {
-                const int &value = m_bonus.value("value").toInt();
-                if ( m_bonus.contains("name") ) {
-                    emit bonusSkillChanged( QStringList(m_bonus.take("name").toString()),
-                                            -value );
-                }
-                m_bonus.insert( "name", name );
-                emit bonusSkillChanged( QStringList(name), value );
-            }
-    );
+             this, &NPCOriginManagerWidget::setBonusSkillPacks );
     m_pSelect->insertItems( 0, selectData(bonus.value("type").toString(),
                                           bonus.value("select").toArray()) );
     m_pBonusLayout->addWidget( m_pSelect );
@@ -242,6 +243,8 @@ void NPCOriginManagerWidget::removeBonus(const QJsonObject &bonus)
 {
     const QString &type = bonus.value("type").toString();
     if ( "skillpack" == type ) {
+        disconnect( m_pSelect, &QComboBox::currentTextChanged,
+                 this, &NPCOriginManagerWidget::setBonusSkillPacks );
         emit bonusSkillChanged( QStringList(bonus.value("name").toString()),
                                 -bonus.value("value").toInt() );
     }

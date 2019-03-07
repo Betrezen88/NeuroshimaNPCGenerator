@@ -37,6 +37,7 @@ private slots:
     void setFeature(const QJsonObject &feature);
     void setBonus(const QJsonObject &bonus);
     void setSpecBonusLogic(const QString &name);
+    void setBonusSkillPacks(const QString &name);
 
 private:
     QGroupBox *originDescriptionBox();
