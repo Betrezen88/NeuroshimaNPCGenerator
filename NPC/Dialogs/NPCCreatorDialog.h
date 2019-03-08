@@ -12,6 +12,7 @@
 #include "../Widgets/NPCSicknessManagerWidget.h"
 #include "../Widgets/NPCSkillsManagerWidget.h"
 #include "../Widgets/NPCTrickManagerWidget.h"
+#include "../Widgets/NPCBioManagerWidget.h"
 
 #include "../NPCCardTab.h"
 
@@ -43,6 +44,7 @@ private:
     NPCSicknessManagerWidget *m_pSicknessManager{nullptr};
     NPCSkillsManagerWidget *m_pSkillsManager{nullptr};
     NPCTrickManagerWidget *m_pTricksManager{nullptr};
+    NPCBioManagerWidget *m_pBioManager{nullptr};
 };
 
 #endif // NPCCREATORDIALOG_H
