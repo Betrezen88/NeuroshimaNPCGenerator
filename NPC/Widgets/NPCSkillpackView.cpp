@@ -39,7 +39,7 @@ void NPCSkillpackView::addSkill(const QString &name)
     QLabel *pSkillValue = new QLabel("0", this);
     pSkillValue->setObjectName( "Value" );
     pSkillValue->setStyleSheet( m_valueStyle );
-    m_skills.insert( pSkillName, pSkillValue );
+    m_skills.insert( pSkillName->text(), pSkillValue );
     int row = m_skills.count();
     m_pLayout->addWidget( pSkillName, row, 0, Qt::AlignLeft );
     m_pLayout->addWidget( pSkillValue, row, 1, Qt::AlignRight );
@@ -48,6 +48,12 @@ void NPCSkillpackView::addSkill(const QString &name)
 const QString NPCSkillpackView::name() const
 {
     return m_pName->text();
+}
+
+void NPCSkillpackView::setSkillValue(const QString &name, const int &value)
+{
+    if ( m_skills.contains(name) )
+        m_skills.value(name)->setText( QString::number(value) );
 }
 
 void NPCSkillpackView::paintEvent(QPaintEvent *)

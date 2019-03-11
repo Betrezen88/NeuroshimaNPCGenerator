@@ -22,6 +22,7 @@ signals:
     void specsChanged();
 
 public slots:
+    void setSkillValue(const QString &name, const int &value);
 
 protected:
     void paintEvent(QPaintEvent *);
@@ -36,7 +37,7 @@ private:
     QGridLayout *m_pLayout{nullptr};
 
     QStringList m_specializations;
-    QHash<QLabel*, QLabel*> m_skills;
+    QHash<const QString&, QLabel*> m_skills;
 
     const QString m_titleStyle{
         "QLabel#Title{"
