@@ -54,7 +54,9 @@ SOURCES += \
     NPC/Widgets/NPCProfessionManagerWidget.cpp \
     NPC/Widgets/NPCSicknessManagerWidget.cpp \
     NPC/Widgets/NPCSkillsManagerWidget.cpp \
-    NPC/Widgets/NPCBioManagerWidget.cpp
+    NPC/Widgets/NPCBioManagerWidget.cpp \
+    NPC/Widgets/NPCAttributeView.cpp \
+    NPC/Widgets/NPCSkillpackView.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -86,7 +88,9 @@ HEADERS += \
     NPC/Widgets/NPCProfessionManagerWidget.h \
     NPC/Widgets/NPCSicknessManagerWidget.h \
     NPC/Widgets/NPCSkillsManagerWidget.h \
-    NPC/Widgets/NPCBioManagerWidget.h
+    NPC/Widgets/NPCBioManagerWidget.h \
+    NPC/Widgets/NPCAttributeView.h \
+    NPC/Widgets/NPCSkillpackView.h
 
 RESOURCES += \
     Resources/resources.qrc

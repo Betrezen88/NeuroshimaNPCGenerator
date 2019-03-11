@@ -14,6 +14,7 @@
 #include <QSpinBox>
 #include <QVBoxLayout>
 
+#include "Widgets/NPCAttributeView.h"
 #include "Widgets/NPCAttributeWidget.h"
 #include "Widgets/NPCAttributesModsInfoWidget.h"
 #include "Widgets/NPCProgressWidget.h"
@@ -49,8 +50,6 @@ public slots:
     void setSpecialization(const QString &spec);
     void setAttributeModValue(const QString &name, const int &value);
 
-    void onOriginChange(const QString &name);
-    void onFeatureChanged(QComboBox *pFeature, const QJsonArray &features);
     void onAttributeChanged(QVector<int> attributes);
     void setAttribute(const QString &name, const int &value);
     void addBougthTricks(QVector<QListWidgetItem*> tricks);
@@ -65,14 +64,12 @@ private:
                                Qt::Alignment aligment = Qt::AlignHCenter);
     QWidget *createPersonalSection();
 
-    NPCSkillPackWidget *createSkillPack(const QJsonObject &skillPack);
+    NPCSkillpackView *createSkillPack(const QJsonObject &skillPack);
 
     void setAttributes(const QJsonArray &attributes);
     void setSicknessTooltip(const QJsonObject &sickness);
 
     void setAttributeMod(const QString &name, const int &value);
-    void applyBonus(const QJsonObject &bonus);
-    void undoBonus(const QJsonObject &bonus);
 
     QVBoxLayout *column1();
     QVBoxLayout *column2();
@@ -97,7 +94,8 @@ private:
     NPCAttributesModsInfoWidget *m_pAttributesModsInfo{nullptr};
 
     // Data containers
-    QHash<QString, NPCAttributeWidget*> m_attributes{};
+//    QHash<QString, NPCAttributeWidget*> m_attributes{};
+    QHash<QString, NPCAttributeView*> m_attributes{};
     QHash<QString, QJsonObject> m_origins;
     QJsonArray m_originFeatures;
     QHash<QString, QJsonObject> m_professions;
