@@ -104,4 +104,5 @@ DISTFILES += \
     json/Sickness.json \
     json/Tricks.json \
     json/DifficultyLevel.json \
-    json/Questions.json
+    json/Questions.json \
+    json/Reputation.json

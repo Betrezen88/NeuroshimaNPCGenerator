@@ -8,6 +8,7 @@
         <file>json/Specializations.json</file>
         <file>json/Tricks.json</file>
         <file>json/Questions.json</file>
+        <file>json/Reputation.json</file>
     </qresource>
     <qresource prefix="/images">
         <file>icons/Neuroshima_icon.png</file>
