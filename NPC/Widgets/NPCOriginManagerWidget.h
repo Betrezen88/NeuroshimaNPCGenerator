@@ -7,6 +7,7 @@
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QLabel>
+#include <QRadioButton>
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -44,6 +45,7 @@ private:
     void attributeBonus(const QJsonObject &attribute);
     void featuresBox();
     QGroupBox *featureDescriptionBox();
+    void featureSelector(const QRadioButton *pRadioBtn);
     void bonusBox();
     QStringList origins();
     QStringList selectData(const QString &type, const QJsonArray &select);
@@ -59,6 +61,7 @@ private:
     QGroupBox *m_pFeatureBox{nullptr};
     QGroupBox *m_pBonusBox{nullptr};
     QComboBox *m_pSelect{nullptr};
+    QComboBox *m_pFeature{nullptr};
 
     QGridLayout *m_pLayout{nullptr};
     QVBoxLayout *m_pBonusLayout{nullptr};

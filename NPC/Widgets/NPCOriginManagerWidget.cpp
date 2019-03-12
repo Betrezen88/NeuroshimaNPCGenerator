@@ -2,7 +2,6 @@
 #include "../Utils/DataLoader.h"
 
 #include <QJsonValue>
-#include <QRadioButton>
 
 #include <QDebug>
 
@@ -152,6 +151,7 @@ void NPCOriginManagerWidget::featuresBox()
 
     m_pFeatureBox = new QGroupBox( "Cechy z pochodzenia", this );
     QVBoxLayout *pLayout = new QVBoxLayout;
+    m_pFeatureBox->setLayout( pLayout );
 
     for ( const QJsonValue feature: m_features ) {
         const QJsonObject &tFeature = feature.toObject();
@@ -163,10 +163,11 @@ void NPCOriginManagerWidget::featuresBox()
             if ( checked ) setFeature( tFeature );
         } );
 
+        if ( "Wszchstronność do kwadratu" == tFeature.value("name").toString() )
+            featureSelector( pRadioBtn );
         pRadioBtn->setChecked( m_features.first() == tFeature );
     }
 
-    m_pFeatureBox->setLayout( pLayout );
     m_pLayout->addWidget( m_pFeatureBox, 3, 0 );
 }
 
@@ -177,6 +178,38 @@ QGroupBox *NPCOriginManagerWidget::featureDescriptionBox()
     pLayout->addWidget( m_pFeatureDescription );
     pFeatureDescriptionBox->setLayout( pLayout );
     return pFeatureDescriptionBox;
+}
+
+void NPCOriginManagerWidget::featureSelector(const QRadioButton *pRadioBtn)
+{
+    m_pFeature = new QComboBox( m_pFeatureBox );
+    connect( pRadioBtn, &QRadioButton::toggled,
+             [this](const bool &checked){
+        if ( checked )
+            m_pFeature->currentTextChanged( m_pFeature->currentText() );
+        m_pFeature->setEnabled( checked );
+    } );
+
+    for ( const QJsonValue tOrigin: m_origins )
+        if ( "Człowiek z... nie twój zasrany interes"
+             != tOrigin.toObject().value("name").toString() )
+            for ( const QJsonValue tFeature: tOrigin.toObject().value("features").toArray() )
+                m_pFeature->addItem( tFeature.toObject().value("name").toString() );
+
+    connect( m_pFeature, &QComboBox::currentTextChanged,
+             [this](const QString &text){
+        for ( const QJsonValue tOrigin: m_origins )
+            if ( "Człowiek z... nie twój zasrany interes"
+                 != tOrigin.toObject().value("name").toString() )
+                for ( const QJsonValue tFeature: tOrigin.toObject().value("features").toArray() )
+                    if ( text == tFeature.toObject().value("name").toString() ) {
+                        this->setFeature( tFeature.toObject() );
+                        return;
+                    }
+    } );
+
+    m_pFeature->setEnabled( pRadioBtn->isChecked() );
+    m_pFeatureBox->layout()->addWidget( m_pFeature );
 }
 
 void NPCOriginManagerWidget::bonusBox()
