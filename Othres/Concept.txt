@@ -1,19 +1,7 @@
 ﻿To Do:
 - Dodanie wczytania postaci z pliku json
 
-- Dodać specjalną logikę dla pochodzenia "Człowiek z... nie twój zasrany interes"
-    Osobne okno z wyborem atrybutu ?
-
-- Dodać specjalną logikę dla cechy Wszechstronność
-
 - Dodać opis pochodzenia do Origins.json
-
-- cechy z pochodzenia i profesji oferują bonusy, utworzyć info o bonusie aby łatwiej
-    było cofać i aktualizować zmiany, w jsonie zrobić
-    "Bonus": {
-        "type": "Trick", //skill pack, skill(s)
-        "name": "Trick name //skillPackName, skills array with values ?
-    }
 
 - dodać slot resetPoints() do NPCSkillsManagerWidget, używać przy zmianie bonusowych skillpontów
 
@@ -26,10 +14,12 @@
 - dodać metodę updateBougthTricks(), aby po zmianie wartości skilli sprawdzał czy postać może go
   jeszcze mieć
 
-- stworzyć wizualizację karty postaci
+- stworzyć logikę przenoszącą dane z klasy NPCCreatorDialog do NPCCardTab
 
 In progress:
 - dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
+- stworzyć wizualizację karty postaci
+- Dodać specjalną logikę dla cechy Wszechstronność
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
@@ -103,3 +93,10 @@ Done:
 + poprawić logikę wydawania punktów (wydając specPointy uzwględniamy również skillPointy)
 + Przenieść wydawanie skill pointów do osobnego okna
     Karta postaci będzie jedynie reprezentacją liczbową.
++ Dodać specjalną logikę dla pochodzenia "Człowiek z... nie twój zasrany interes"
++ cechy z pochodzenia i profesji oferują bonusy, utworzyć info o bonusie aby łatwiej
+    było cofać i aktualizować zmiany, w jsonie zrobić
+    "Bonus": {
+        "type": "Trick", //skill pack, skill(s)
+        "name": "Trick name //skillPackName, skills array with values ?
+    }
