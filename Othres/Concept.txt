@@ -103,3 +103,4 @@ Done:
         "name": "Trick name //skillPackName, skills array with values ?
     }
 + Dodać specjalną logikę dla cechy Wszechstronność do kwadratu
++ dodać plik Reputation.json z miejscami podziału reputacji.

@@ -19,7 +19,8 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
       m_pSicknessManager(new NPCSicknessManagerWidget(this)),
       m_pSkillsManager(new NPCSkillsManagerWidget(&m_attributes, this)),
       m_pTricksManager(new NPCTrickManagerWidget(m_pSkillsManager->attributes(), this)),
-      m_pBioManager(new NPCBioManagerWidget(this))
+      m_pBioManager(new NPCBioManagerWidget(this)),
+      m_pReputationManager(new NPCReputationManagerWidget(this))
 {
     setAttribute( Qt::WA_DeleteOnClose );
     setMinimumSize( 500, 880 );
@@ -31,6 +32,7 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
     m_pTabWidget->addTab( m_pSicknessManager, "Choroba" );
     m_pTabWidget->addTab( m_pSkillsManager, "Umiejętności" );
     m_pTabWidget->addTab( m_pTricksManager, "Sztuczki" );
+    m_pTabWidget->addTab( m_pReputationManager, "Reputacja" );
     m_pTabWidget->addTab( m_pBioManager, "Personalia" );
 
     m_pClose->setFixedWidth( 80 );
@@ -50,6 +52,8 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
              m_pSkillsManager, &NPCSkillsManagerWidget::setAttributeValue );
     connect( m_pSpecializationManager, &NPCSpecializationManagerWidget::specializationChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setSpecialization );
+    connect( m_pOriginManager, &NPCOriginManagerWidget::originNameChanged,
+             m_pReputationManager, &NPCReputationManagerWidget::setPlaceReputation );
     connect( m_pOriginManager, &NPCOriginManagerWidget::attributeBonusChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setAttributeModValue );
     connect( m_pOriginManager, &NPCOriginManagerWidget::bonusSkillChanged,

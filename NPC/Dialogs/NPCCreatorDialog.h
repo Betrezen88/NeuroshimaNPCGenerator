@@ -13,6 +13,7 @@
 #include "../Widgets/NPCSkillsManagerWidget.h"
 #include "../Widgets/NPCTrickManagerWidget.h"
 #include "../Widgets/NPCBioManagerWidget.h"
+#include "../Widgets/NPCReputationManagerWidget.h"
 
 #include "../NPCCardTab.h"
 
@@ -45,6 +46,7 @@ private:
     NPCSkillsManagerWidget *m_pSkillsManager{nullptr};
     NPCTrickManagerWidget *m_pTricksManager{nullptr};
     NPCBioManagerWidget *m_pBioManager{nullptr};
+    NPCReputationManagerWidget *m_pReputationManager{nullptr};
 };
 
 #endif // NPCCREATORDIALOG_H

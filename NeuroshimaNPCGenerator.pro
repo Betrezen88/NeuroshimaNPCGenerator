@@ -56,7 +56,9 @@ SOURCES += \
     NPC/Widgets/NPCSkillsManagerWidget.cpp \
     NPC/Widgets/NPCBioManagerWidget.cpp \
     NPC/Widgets/NPCAttributeView.cpp \
-    NPC/Widgets/NPCSkillpackView.cpp
+    NPC/Widgets/NPCSkillpackView.cpp \
+    NPC/Widgets/NPCReputationManagerWidget.cpp \
+    NPC/Widgets/ReputationValueBox.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -90,7 +92,9 @@ HEADERS += \
     NPC/Widgets/NPCSkillsManagerWidget.h \
     NPC/Widgets/NPCBioManagerWidget.h \
     NPC/Widgets/NPCAttributeView.h \
-    NPC/Widgets/NPCSkillpackView.h
+    NPC/Widgets/NPCSkillpackView.h \
+    NPC/Widgets/NPCReputationManagerWidget.h \
+    NPC/Widgets/ReputationValueBox.h
 
 RESOURCES += \
     Resources/resources.qrc
