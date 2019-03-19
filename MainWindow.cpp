@@ -34,79 +34,6 @@ MainWindow::~MainWindow()
 
 }
 
-void MainWindow::showAttributeDialog()
-{
-    if ( m_cards.isEmpty() ) {
-        QMessageBox::warning(this, "Błąd losowania atrybutów",
-                             "Brak istniejących postaci do losowania atrybutów!",
-                             QMessageBox::Ok);
-        return;
-    }
-
-    NPCCardObverse *pCardObverse = m_cards.at(m_pTabWidget->currentIndex())->obverse();
-    m_pAttributeDialog = new NPCAttributeManagerDialog( this );
-
-    connect( m_pAttributeDialog, &NPCAttributeManagerDialog::acceptAttributes,
-             pCardObverse, &NPCCardObverse::onAttributeChanged );
-
-    m_pAttributeDialog->show();
-}
-
-void MainWindow::showTricksDialog()
-{
-    if ( m_cards.isEmpty() ) {
-        QMessageBox::warning(this, "Błąd sztuczek",
-                             "Brak istniejących postaci do nabycia sztuczek!",
-                             QMessageBox::Ok);
-        return;
-    }
-    NPCCardObverse *pCardObverse = m_cards.at(m_pTabWidget->currentIndex())->obverse();
-
-    m_pTricksDialog = new NPCTrickManagerDialog( pCardObverse->attributes(), this );
-
-//    connect( m_pTricksDialog, &NPCTrickManagerDialog::buyTrick,
-//             pCardObverse->progressWidget(), &NPCProgressWidget::onTrickBougth );
-//    connect( m_pTricksDialog, &NPCTrickManagerDialog::resignTrick,
-//             pCardObverse->progressWidget(), &NPCProgressWidget::onTrickResign );
-//    connect( pCardObverse->progressWidget(), &NPCProgressWidget::addTrick,
-//             m_pTricksDialog, &NPCTrickManagerDialog::trickBougth );
-//    connect( pCardObverse->progressWidget(), &NPCProgressWidget::removeTrick,
-//             m_pTricksDialog, &NPCTrickManagerDialog::trickRemove );
-    connect( m_pTricksDialog, &NPCTrickManagerDialog::acceptTricks,
-             pCardObverse, &NPCCardObverse::addBougthTricks );
-
-    m_pTricksDialog->show();
-}
-
-void MainWindow::showSicknessDialog()
-{
-    if ( m_cards.isEmpty() ) {
-        QMessageBox::warning(this, "Brak postaci",
-                             "Brak istniejących postaci do nabycia choroby!",
-                             QMessageBox::Ok);
-        return;
-    }
-    NPCCardObverse *pCardObverse = m_cards.at(m_pTabWidget->currentIndex())->obverse();
-
-    NPCSkicnessDialog *pSicknessDialog = new NPCSkicnessDialog(this);
-
-    connect( pSicknessDialog, &NPCSkicnessDialog::acceptSickness,
-             pCardObverse, &NPCCardObverse::setSickness );
-
-    pSicknessDialog->show();
-}
-
-void MainWindow::showFeatureDialog()
-{
-    NPCCardObverse *pCard = m_cards.at(m_pTabWidget->currentIndex())->obverse();
-    NPCOriginManagerDialog *pBonus = new NPCOriginManagerDialog( pCard, this );
-
-//    connect( pBonus, &NPCOriginManagerDialog::acceptOrigin,
-//             pCard, &NPCCardObverse::setOrigin );
-
-    pBonus->show();
-}
-
 void MainWindow::createNewCard()
 {
     NPCCreatorDialog *pDialog = new NPCCreatorDialog(this);
@@ -184,22 +111,14 @@ void MainWindow::createActions()
     m_pLoadCardAction = new QAction( "Wczytaj", this );
 
     m_pRandomAttributesAction = new QAction( "Atrybuty" );
-    connect( m_pRandomAttributesAction, &QAction::triggered,
-             this, &MainWindow::showAttributeDialog );
 
     m_pRandomSicknessAction = new QAction( "Choroba", this );
-    connect( m_pRandomSicknessAction, &QAction::triggered,
-             this, &MainWindow::showSicknessDialog );
 
     m_pTrickAction = new QAction( "Sztuczka", this );
-    connect( m_pTrickAction, &QAction::triggered,
-             this, &MainWindow::showTricksDialog );
 
     m_pExperienceAction = new QAction( "Doświadczenie", this );
 
     m_pChooseOriginAction = new QAction( "Pochodzenie", this );
-    connect( m_pChooseOriginAction, &QAction::triggered,
-             this, &MainWindow::showFeatureDialog );
 
     m_pChooseProfessionAction = new QAction( "Profesje", this );
 }
