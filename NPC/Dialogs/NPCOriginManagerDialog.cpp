@@ -234,12 +234,12 @@ QStringList NPCOriginManagerDialog::skillpacksBySpec(const QString &spec)
 {
     QStringList list;
 
-    for ( const NPCAttributeWidget *attribute: *m_pCard->attributes() ) {
-        for ( NPCSkillPackWidget *skillpack: *attribute->skillPacks() ) {
-            if ( skillpack->specializations().contains(spec) )
-                list << attribute->skillPacks()->key(skillpack);
-        }
-    }
+//    for ( const NPCAttributeWidget *attribute: *m_pCard->attributes() ) {
+//        for ( NPCSkillPackWidget *skillpack: *attribute->skillPacks() ) {
+//            if ( skillpack->specializations().contains(spec) )
+//                list << attribute->skillPacks()->key(skillpack);
+//        }
+//    }
 
     return list;
 }
@@ -248,9 +248,9 @@ QStringList NPCOriginManagerDialog::skillpacksByAttribute(const QString &attribu
 {
     QStringList list;
 
-    const NPCAttributeWidget *tAttribute = m_pCard->attributes()->value(attribute);
-    for ( NPCSkillPackWidget *skillpack: *tAttribute->skillPacks() )
-        list << tAttribute->skillPacks()->key( skillpack );
+//    const NPCAttributeWidget *tAttribute = m_pCard->attributes()->value(attribute);
+//    for ( NPCSkillPackWidget *skillpack: *tAttribute->skillPacks() )
+//        list << tAttribute->skillPacks()->key( skillpack );
 
     return list;
 }
