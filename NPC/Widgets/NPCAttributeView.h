@@ -20,7 +20,14 @@ public:
 
     void addSkillpack(NPCSkillpackView *skillpack);
 
+    void setValue(const int &value);
+    int value() const;
+
+    void setModValue(const int &value);
+    int modValue() const;
+
 signals:
+    void currentValueChanged(const int &value);
 
 public slots:
 

@@ -42,6 +42,28 @@ void NPCAttributeView::addSkillpack(NPCSkillpackView *skillpack)
     m_pSkillsLayout->addWidget( skillpack, Qt::AlignTop );
 }
 
+void NPCAttributeView::setValue(const int &value)
+{
+    m_value = value;
+    emit currentValueChanged( m_value + m_modValue );
+}
+
+int NPCAttributeView::value() const
+{
+    return m_value;
+}
+
+void NPCAttributeView::setModValue(const int &value)
+{
+    m_modValue = value;
+    emit currentValueChanged( m_value + m_modValue );
+}
+
+int NPCAttributeView::modValue() const
+{
+    return m_modValue;
+}
+
 QVBoxLayout *NPCAttributeView::pointsView()
 {
     QVBoxLayout *pLayout = new QVBoxLayout;
@@ -52,6 +74,8 @@ QVBoxLayout *NPCAttributeView::pointsView()
         NPCAttributeValueWidget *pValue = new NPCAttributeValueWidget( mod.value("short").toString(),
                                                                        mod.value("value").toInt(),
                                                                        this );
+        connect( this, &NPCAttributeView::currentValueChanged,
+                 pValue, &NPCAttributeValueWidget::updateValueLabel );
         pLayout->addWidget( pValue );
     }
     pLayout->setSpacing( 1 );
