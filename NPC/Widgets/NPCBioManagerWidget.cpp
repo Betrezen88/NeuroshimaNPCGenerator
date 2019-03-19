@@ -23,8 +23,25 @@ NPCBioManagerWidget::NPCBioManagerWidget(QWidget *parent)
     m_pSurname->setPlaceholderText( "Nazwisko" );
     m_pNickname->setPlaceholderText( "Ksywa" );
 
+    connect( m_pName, &QLineEdit::textChanged,
+             this, &NPCBioManagerWidget::setHeroName );
+    connect( m_pNickname, &QLineEdit::textChanged,
+             this, &NPCBioManagerWidget::setHeroName );
+    connect( m_pSurname, &QLineEdit::textChanged,
+             this, &NPCBioManagerWidget::setHeroName );
+
     pLayout->addWidget( personalBox(), 0, 0, 1, 4 );
     pLayout->addWidget( formBox(), 1, 0, 1, 4 );
+}
+
+void NPCBioManagerWidget::setHeroName()
+{
+    QString name = m_pName->text();
+    if ( !m_pNickname->text().isEmpty() )
+        name = name + " '" + m_pNickname->text()+"'";
+    if ( !m_pSurname->text().isEmpty() )
+        name = name + " " +m_pSurname->text();
+    emit nameChanged( name );
 }
 
 QGroupBox *NPCBioManagerWidget::personalBox()

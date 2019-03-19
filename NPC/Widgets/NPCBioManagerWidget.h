@@ -15,8 +15,12 @@ public:
     explicit NPCBioManagerWidget(QWidget *parent = nullptr);
 
 signals:
+    void nameChanged(const QString name);
 
 public slots:
+
+private slots:
+    void setHeroName();
 
 private:
     QGroupBox *personalBox();
