@@ -37,7 +37,7 @@ private:
     QGridLayout *m_pLayout{nullptr};
 
     QStringList m_specializations;
-    QHash<const QString&, QLabel*> m_skills;
+    QHash<QString, QLabel*> m_skills;
 
     const QString m_titleStyle{
         "QLabel#Title{"
