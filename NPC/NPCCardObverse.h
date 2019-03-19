@@ -25,7 +25,7 @@ class NPCCardObverse : public QWidget
 public:
     explicit NPCCardObverse(QWidget *parent = nullptr);
 
-    const QHash<QString, NPCAttributeWidget *> *attributes() const;
+    const QHash<QString, NPCAttributeView *> *attributes() const;
 
     const QString heroName() const;
     const QString origin() const;
@@ -39,21 +39,21 @@ public:
 
     const QListWidget *tricks() const;
 
-signals:
-    void heroNameChanged(const QString &name);
-
 public slots:
+    void setName(const QString &name);
     void setOrigin(const QString &name);
-    void setOriginFeature(const QString name, const QString description);
+    void setOriginFeature(const QString &name, const QString &description);
     void setProfession(const QString &name);
     void setProfessionFeature(const QString &name, const QString &description);
     void setSpecialization(const QString &spec);
     void setAttributeModValue(const QString &name, const int &value);
-
-    void onAttributeChanged(QVector<int> attributes);
     void setAttribute(const QString &name, const int &value);
-    void addBougthTricks(QVector<QListWidgetItem*> tricks);
-    void setSickness(const QJsonObject &sickness);
+    void setTricks(QVector<QListWidgetItem*> tricks);
+    void setSickness(const QString &name, const QString &description);
+    void setSkill(const QString &attribute,
+                  const QString &skillpack,
+                  const QString &skill,
+                  const int &value);
 
 private:
     QLabel *createSpecialLabel(const QString &text,
@@ -67,9 +67,6 @@ private:
     NPCSkillpackView *createSkillPack(const QJsonObject &skillPack);
 
     void setAttributes(const QJsonArray &attributes);
-    void setSicknessTooltip(const QJsonObject &sickness);
-
-    void setAttributeMod(const QString &name, const int &value);
 
     QVBoxLayout *column1();
     QVBoxLayout *column2();
@@ -94,17 +91,8 @@ private:
     NPCAttributesModsInfoWidget *m_pAttributesModsInfo{nullptr};
 
     // Data containers
-//    QHash<QString, NPCAttributeWidget*> m_attributes{};
     QHash<QString, NPCAttributeView*> m_attributes{};
-    QHash<QString, QJsonObject> m_origins;
-    QJsonArray m_originFeatures;
-    QHash<QString, QJsonObject> m_professions;
-    QJsonArray m_professionFeatures;
     QJsonArray m_attributesMods;
-    QJsonObject m_sickness;
-
-    QJsonObject m_origin;
-    QJsonObject m_profession;
 
     // Data
     const QVector<QPair<QString, int>> m_mods{

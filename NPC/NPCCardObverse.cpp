@@ -31,36 +31,20 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
     m_pOriginFeature->setReadOnly( true );
 //    m_pAttributesModsInfo = new NPCAttributesModsInfoWidget( m_attributesMods, this );
 
-    connect( m_pName, &QLineEdit::textChanged,
-             this, &NPCCardObverse::heroNameChanged );
-
     QHBoxLayout *pLayout = new QHBoxLayout;
     setLayout( pLayout );
     pLayout->addLayout( column1() );
     pLayout->addLayout( column2() );
     pLayout->addLayout( column3() );
     pLayout->addLayout( column4() );
-
-    m_pName->setText( "Nowa Postać" );
-}
-
-void NPCCardObverse::onAttributeChanged(QVector<int> attributes)
-{
-    QStringList names = m_attributes.keys();
-
-    int index = 0;
-//    for ( const QString &tName: names ) {
-//        m_attributes.value( tName )->setValue( attributes.at(index) );
-//        ++index;
-//    }
 }
 
 void NPCCardObverse::setAttribute(const QString &name, const int &value)
 {
-//    m_attributes[name]->setValue( value );
+    m_attributes[name]->setValue( value );
 }
 
-void NPCCardObverse::addBougthTricks(QVector<QListWidgetItem *> tricks)
+void NPCCardObverse::setTricks(QVector<QListWidgetItem *> tricks)
 {
     for ( QListWidgetItem *trick: tricks ) {
         trick->setFlags( Qt::ItemIsEnabled );
@@ -68,11 +52,19 @@ void NPCCardObverse::addBougthTricks(QVector<QListWidgetItem *> tricks)
     }
 }
 
-void NPCCardObverse::setSickness(const QJsonObject &sickness)
+void NPCCardObverse::setSickness(const QString &name, const QString &description)
 {
-    m_sickness = sickness;
-    m_pSickness->setText( m_sickness.value("name").toString() );
-    setSicknessTooltip( m_sickness );
+    m_pSickness->setText( name );
+    m_pSickness->setToolTip( description );
+    m_pSickness->setToolTipDuration( 5 * 60 * 100 );
+}
+
+void NPCCardObverse::setSkill(const QString &attribute,
+                              const QString &skillpack,
+                              const QString &skill,
+                              const int &value)
+{
+    m_attributes.value(attribute)->setSkillValue(skillpack, skill, value);
 }
 
 QLabel *NPCCardObverse::createSpecialLabel(
@@ -164,28 +156,23 @@ QWidget *NPCCardObverse::createPersonalSection()
 
 NPCSkillpackView *NPCCardObverse::createSkillPack(const QJsonObject &skillPack)
 {
-//    NPCSkillPackWidget* pSkillPack = new NPCSkillPackWidget( skillPack.value("name").toString() );
     NPCSkillpackView *pSkillpack = new NPCSkillpackView( skillPack.value("name").toString() );
 
     const QJsonArray &specs = skillPack.value("Specialization").toArray();
     for ( const QJsonValue &tSpec: specs )
         pSkillpack->addSpecialization( tSpec.toString() );
-//        pSkillPack->addSpecialization( tSpec.toString() );
 
     const QJsonArray &skills = skillPack.value("skills").toArray();
     for ( const QJsonValue &tSkill: skills ) {
-//        SkillSpinBox *pSkillBox = new SkillSpinBox( pSkillPack );
-//        pSkillPack->addSkill(tSkill.toString(), pSkillBox );
         pSkillpack->addSkill( tSkill.toString() );
     }
 
-//    return pSkillPack;
     return pSkillpack;
 }
 
-const QHash<QString, NPCAttributeWidget *> *NPCCardObverse::attributes() const
+const QHash<QString, NPCAttributeView *> *NPCCardObverse::attributes() const
 {
-//    return &m_attributes;
+    return &m_attributes;
 }
 
 const QString NPCCardObverse::heroName() const
@@ -238,12 +225,17 @@ const QListWidget *NPCCardObverse::tricks() const
     return m_pTricks;
 }
 
+void NPCCardObverse::setName(const QString &name)
+{
+    m_pName->setText( name );
+}
+
 void NPCCardObverse::setOrigin(const QString &name)
 {
     m_pOrigin->setText( name );
 }
 
-void NPCCardObverse::setOriginFeature(const QString name, const QString description)
+void NPCCardObverse::setOriginFeature(const QString &name, const QString &description)
 {
     m_pOriginFeature->setText( name );
     m_pOriginFeature->setToolTip( description );
@@ -268,12 +260,12 @@ void NPCCardObverse::setSpecialization(const QString &spec)
 
 void NPCCardObverse::setAttributeModValue(const QString &name, const int &value)
 {
-//    for ( NPCAttributeWidget *tAttribute: m_attributes )
-//        if ( tAttribute->modValue() ) {
-//            tAttribute->setModValue( 0 );
-//            break;
-//        }
-//    m_attributes.value(name)->setModValue( value );
+    for ( NPCAttributeView *tAttribute: m_attributes )
+        if ( tAttribute->modValue() ) {
+            tAttribute->setModValue( 0 );
+            break;
+        }
+    m_attributes.value(name)->setModValue( value );
 }
 
 void NPCCardObverse::setAttributes(const QJsonArray &attributes)
@@ -283,15 +275,11 @@ void NPCCardObverse::setAttributes(const QJsonArray &attributes)
         const QString &name = object.value("name").toString();
 
         NPCAttributeView *pAttribute = new NPCAttributeView(name, 0, 0);
-
-//        NPCAttributeWidget *pAttribute = new NPCAttributeWidget(name, m_mods, this);
-//        pAttribute->setValue( 0 );
+        pAttribute->setValue( 0 );
 
         const QJsonArray &skillPacks = object.value("skillPacks").toArray();
         for ( const QJsonValue &tSkillPack: skillPacks ) {
             const QJsonObject &skillPack = tSkillPack.toObject();
-//            NPCSkillPackWidget *pSkillPack = createSkillPack( skillPack );
-//            pAttribute->addSkillPack( skillPack.value("name").toString(), pSkillPack );
             NPCSkillpackView *pSkillpack = new NPCSkillpackView(skillPack.value("name").toString());
             const QJsonArray &specs = skillPack.value("Specialization").toArray();
             for ( const QJsonValue &tSpec: specs )
@@ -305,35 +293,6 @@ void NPCCardObverse::setAttributes(const QJsonArray &attributes)
 
         m_attributes.insert( name, pAttribute );
     }
-}
-
-void NPCCardObverse::setSicknessTooltip(const QJsonObject &sickness)
-{
-    QString tooltip;
-    const QJsonObject &symptoms = sickness.value("symptoms").toObject();
-
-    tooltip = "<b>Nazwa:</b> " + sickness.value("name").toString()
-            + "<br><br><b>Opis:</b> " + sickness.value("description").toString()
-            + "<br><br><b>Lekarstwo:</b> " + sickness.value("cure").toString()
-            + "<br><br><b>Symptomy</b>:"
-            + "<ul>"
-            + "<li><b>Pierwsze symptomy:</b> " + symptoms.value("1").toObject().value("description").toString()
-            + "<br><b>Kary:</b>" + symptoms.value("1").toObject().value("penalties").toString() + "</li>"
-            + "<li><b>Stan ostry:</b> " + symptoms.value("2").toObject().value("description").toString()
-            + "<br><b>Kary:</b>" + symptoms.value("2").toObject().value("penalties").toString() + "</li>"
-            + "<li><b>Stan krytyczny:</b> " + symptoms.value("3").toObject().value("description").toString()
-            + "<br><b>Kary:</b>" + symptoms.value("3").toObject().value("penalties").toString() + "</li>"
-            + "<li><b>Stan terminalny:</b> " + symptoms.value("4").toObject().value("description").toString()
-            + "<br><b>Kary:</b>" + symptoms.value("4").toObject().value("penalties").toString() + "</li>"
-            + "</ul>";
-
-    m_pSickness->setToolTip( tooltip );
-    m_pSickness->setToolTipDuration( 5 * 60 * 100 );
-}
-
-void NPCCardObverse::setAttributeMod(const QString &name, const int &value)
-{
-//    m_attributes[name]->setModValue( value );
 }
 
 QVBoxLayout *NPCCardObverse::column1()
