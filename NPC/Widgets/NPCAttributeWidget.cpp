@@ -25,12 +25,12 @@ NPCAttributeWidget::NPCAttributeWidget(const QString &name,
     pLayout->addWidget( createTitleBar(mods) );
 }
 
-QHash<const QString, NPCSkillPackWidget *> *NPCAttributeWidget::skillPacks()
+QHash<QString, NPCSkillPackWidget *> *NPCAttributeWidget::skillPacks()
 {
     return &m_skillPacks;
 }
 
-const QHash<const QString, NPCSkillPackWidget *> *NPCAttributeWidget::skillPacks() const
+const QHash<QString, NPCSkillPackWidget *> *NPCAttributeWidget::skillPacks() const
 {
     return &m_skillPacks;
 }

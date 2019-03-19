@@ -19,8 +19,8 @@ public:
                                 const QVector<QPair<QString, int>> &mods,
                                 QWidget *parent = nullptr);
 
-    QHash<const QString, NPCSkillPackWidget *> *skillPacks();
-    const QHash<const QString, NPCSkillPackWidget *> *skillPacks() const;
+    QHash<QString, NPCSkillPackWidget *> *skillPacks();
+    const QHash<QString, NPCSkillPackWidget *> *skillPacks() const;
     void addSkillPack(const QString &name, NPCSkillPackWidget *skillPack);
     const int *value() const;
     const int *modValue() const;
@@ -41,7 +41,7 @@ private:
 private:
     QLabel* m_pName{nullptr};
     const QVector<QPair<QString, int>> &m_mods;
-    QHash<const QString, NPCSkillPackWidget*> m_skillPacks;
+    QHash<QString, NPCSkillPackWidget*> m_skillPacks;
 
     int m_value{0};
     int m_modValue{0};
