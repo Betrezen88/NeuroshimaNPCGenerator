@@ -64,6 +64,11 @@ int NPCAttributeView::modValue() const
     return m_modValue;
 }
 
+void NPCAttributeView::setSkillValue(const QString &skillpack, const QString &skill, const int &value)
+{
+    m_skillpacks.value(skillpack)->setSkillValue(skill, value);
+}
+
 QVBoxLayout *NPCAttributeView::pointsView()
 {
     QVBoxLayout *pLayout = new QVBoxLayout;

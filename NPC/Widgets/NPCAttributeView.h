@@ -30,6 +30,7 @@ signals:
     void currentValueChanged(const int &value);
 
 public slots:
+    void setSkillValue(const QString &skillpack, const QString &skill, const int &value);
 
 private:
     QVBoxLayout *pointsView();
@@ -42,7 +43,7 @@ private:
     QHBoxLayout *m_pLayout{nullptr};
     QVBoxLayout *m_pSkillsLayout{nullptr};
 
-    QHash<const QString&, NPCSkillpackView*> m_skillpacks;
+    QHash<QString, NPCSkillpackView*> m_skillpacks;
 
     const QString m_titleStyle{
         "QLabel#Title{"
