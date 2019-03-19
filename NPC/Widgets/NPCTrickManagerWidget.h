@@ -15,6 +15,8 @@ public:
     explicit NPCTrickManagerWidget(const QHash<const QString, NPCAttributeWidget*> *attributes,
                                    QWidget *parent = nullptr);
 
+    QVector<QListWidgetItem*> tricks() const;
+
 signals:
 
 public slots:

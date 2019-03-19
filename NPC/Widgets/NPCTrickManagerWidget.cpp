@@ -34,6 +34,16 @@ NPCTrickManagerWidget::NPCTrickManagerWidget(const QHash<const QString, NPCAttri
     setLayout( pLayout );
 }
 
+QVector<QListWidgetItem *> NPCTrickManagerWidget::tricks() const
+{
+    QVector<QListWidgetItem*> tTricks;
+
+    for ( int i{0}; i<m_pBougth->count(); ++i )
+        tTricks.push_back( m_pBougth->takeItem(i) );
+
+    return tTricks;
+}
+
 void NPCTrickManagerWidget::setBonusTrick(const QString &name)
 {
     QListWidget *pListWidget = (!m_pAvailable->findItems(name, Qt::MatchCaseSensitive).isEmpty())
