@@ -13,7 +13,7 @@ const QJsonObject CardConverter::toJson(const NPCCardTab *card) const
 
     cardJson.insert( "personal", personalJson(card->obverse()) );
     cardJson.insert( "tricks", tricksJson(card->obverse()->tricks()) );
-    cardJson.insert( "stats", attributesJson(card->obverse()->attributes()) );
+//    cardJson.insert( "stats", attributesJson(card->obverse()->attributes()) );
 
     return cardJson;
 }
@@ -63,7 +63,7 @@ const QJsonArray CardConverter::attributesJson(const QHash<QString, NPCAttribute
     return attributesObj;
 }
 
-const QJsonArray CardConverter::packetsJson(const QHash<const QString, NPCSkillPackWidget *> &skillPacks) const
+const QJsonArray CardConverter::packetsJson(QHash<QString, NPCSkillPackWidget *> &skillPacks) const
 {
     QJsonArray packetsArray;
 
