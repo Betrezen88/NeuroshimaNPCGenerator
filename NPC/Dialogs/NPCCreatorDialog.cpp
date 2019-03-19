@@ -1,4 +1,4 @@
-﻿#include "NPCCreatorDialog.h"
+#include "NPCCreatorDialog.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -46,7 +46,22 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
     connect( m_pClose, &QPushButton::clicked,
              this, &NPCCreatorDialog::close );
     connect( m_pAccept, &QPushButton::clicked,
-             [this](){ emit this->creationCompleted(m_pCard); this->close(); } );
+             [this](){
+        for ( NPCAttributeWidget *tAttribute: *m_pSkillsManager->attributes() ) {
+            const QString &attribute = m_pSkillsManager->attributes()->key( tAttribute );
+            for ( NPCSkillPackWidget *tSkillpack: *tAttribute->skillPacks() ) {
+                const QString &skillpack = tAttribute->skillPacks()->key( tSkillpack );
+                for ( QPair<const QLabel*, SkillSpinBox*> tSkill: tSkillpack->skills() )
+                    m_pCard->obverse()->setSkill( attribute,
+                                                  skillpack,
+                                                  tSkill.first->text(),
+                                                  tSkill.second->value() );
+            }
+        }
+
+        m_pCard->obverse()->setTricks( m_pTricksManager->tricks() );
+        emit this->creationCompleted(m_pCard); this->close();
+    } );
 
     connect( m_pAttributeManager, &NPCAttributeManagerWidget::attributeChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setAttributeValue );
@@ -68,6 +83,30 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
 
     connect( m_pProfessionManager, &NPCProfessionManagerWidget::bonusSkillChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setBonusSkills );
+
+    connect( m_pAttributeManager, &NPCAttributeManagerWidget::attributeChanged,
+             m_pCard->obverse(), &NPCCardObverse::setAttribute );
+
+    connect( m_pOriginManager, &NPCOriginManagerWidget::originNameChanged,
+             m_pCard->obverse(), &NPCCardObverse::setOrigin );
+    connect( m_pOriginManager, &NPCOriginManagerWidget::originFeatureChanged,
+             m_pCard->obverse(), &NPCCardObverse::setOriginFeature );
+    connect( m_pOriginManager, &NPCOriginManagerWidget::attributeBonusChanged,
+             m_pCard->obverse(), &NPCCardObverse::setAttributeModValue );
+
+    connect( m_pProfessionManager, &NPCProfessionManagerWidget::professionNameChanged,
+             m_pCard->obverse(), &NPCCardObverse::setProfession );
+    connect( m_pProfessionManager, &NPCProfessionManagerWidget::professionFeatureChanged,
+             m_pCard->obverse(), &NPCCardObverse::setProfessionFeature );
+
+    connect( m_pSpecializationManager, &NPCSpecializationManagerWidget::specializationChanged,
+             m_pCard->obverse(), &NPCCardObverse::setSpecialization );
+
+    connect( m_pBioManager, &NPCBioManagerWidget::nameChanged,
+             m_pCard->obverse(), &NPCCardObverse::setName );
+
+    connect( m_pSicknessManager, &NPCSicknessManagerWidget::sicknessChanged,
+             m_pCard->obverse(), &NPCCardObverse::setSickness );
 
     m_pSpecializationManager->specializationChanged( "Technik" );
     m_pOriginManager->setOrigin( "Południowa Hegemonia" );
