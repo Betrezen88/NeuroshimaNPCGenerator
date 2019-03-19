@@ -61,7 +61,11 @@ void NPCSicknessManagerWidget::updateResults()
         pLayout->addWidget( pRadioBtn );
 
         connect( pRadioBtn, &QRadioButton::toggled,
-                 [this, sickness](bool checked){ if ( checked ) sicknessChanged(sickness); } );
+                 [this, pRadioBtn](bool checked){
+            if ( checked )
+                sicknessChanged( pRadioBtn->text(),
+                                 pRadioBtn->toolTip() );
+        } );
 
         if ( tSickness == m_sickness.first() ) {
             pRadioBtn->setChecked( true );

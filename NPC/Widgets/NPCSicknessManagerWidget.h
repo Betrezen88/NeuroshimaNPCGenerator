@@ -18,7 +18,7 @@ public:
     explicit NPCSicknessManagerWidget(QWidget *parent = nullptr);
 
 signals:
-    void sicknessChanged(const QJsonObject &sickness);
+    void sicknessChanged(const QString &name, const QString &description);
 
 public slots:
 
