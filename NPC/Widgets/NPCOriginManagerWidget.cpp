@@ -97,6 +97,7 @@ void NPCOriginManagerWidget::setBonusSkillPacks(const QString &name)
     }
     m_bonus.insert( "name", name );
     emit bonusSkillChanged( QStringList(name), value );
+    emit originBonusChanged( m_bonus.value("text").toString()+" ("+name+")" );
 }
 
 QGroupBox *NPCOriginManagerWidget::originDescriptionBox()
