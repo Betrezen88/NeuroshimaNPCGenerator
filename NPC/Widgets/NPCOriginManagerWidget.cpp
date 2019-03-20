@@ -279,8 +279,6 @@ void NPCOriginManagerWidget::removeBonus(const QJsonObject &bonus)
 {
     const QString &type = bonus.value("type").toString();
     if ( "skillpack" == type ) {
-        disconnect( m_pSelect, &QComboBox::currentTextChanged,
-                 this, &NPCOriginManagerWidget::setBonusSkillPacks );
         emit bonusSkillChanged( QStringList(bonus.value("name").toString()),
                                 -bonus.value("value").toInt() );
     }
@@ -288,8 +286,6 @@ void NPCOriginManagerWidget::removeBonus(const QJsonObject &bonus)
         emit removeBonusTrick( bonus.value("name").toString() );
     }
     else if ( "specialization" == type ) {
-        disconnect( m_pSpecManager, &NPCSpecializationManagerWidget::specializationChanged,
-                    this, &NPCOriginManagerWidget::setSpecBonusLogic );
         emit bonusSkillpointsChanged( -m_bonus.value("value").toInt() );
     }
 }
