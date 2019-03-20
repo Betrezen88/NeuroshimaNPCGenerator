@@ -253,7 +253,8 @@ void NPCCardObverse::setOrigin(const QString &name)
 void NPCCardObverse::setOriginFeature(const QString &name, const QString &description)
 {
     m_pOriginFeature->setText( name );
-    m_pOriginFeature->setToolTip( description );
+    m_pOriginFeature->setToolTip( "<div style=\"width: 250px;\">"
+                                  +description+"</div>" );
 }
 
 void NPCCardObverse::setProfession(const QString &name)
@@ -264,7 +265,8 @@ void NPCCardObverse::setProfession(const QString &name)
 void NPCCardObverse::setProfessionFeature(const QString &name, const QString &description)
 {
     m_pProfessionFeature->setText( name );
-    m_pProfessionFeature->setToolTip( description );
+    m_pProfessionFeature->setToolTip( "<div style=\"width: 250px;\">"
+                                      +description+"</div>" );
 }
 
 void NPCCardObverse::setSpecialization(const QString &spec)
