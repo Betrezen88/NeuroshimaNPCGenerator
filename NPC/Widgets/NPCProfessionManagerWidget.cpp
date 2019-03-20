@@ -67,6 +67,7 @@ void NPCProfessionManagerWidget::setBonus(const QJsonObject &bonus)
     m_pBonusLayout->addWidget( m_pBonusDescription );
 
     m_bonus = bonus;
+    emit professionBonusChanged( m_bonus.value("text").toString() );
     bonusLogic( m_bonus );
 
     m_pBonusBox->setLayout( m_pBonusLayout );

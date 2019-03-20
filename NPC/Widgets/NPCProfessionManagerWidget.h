@@ -19,6 +19,7 @@ public:
 signals:
     void professionNameChanged(const QString &name);
     void professionFeatureChanged(const QString &feature, const QString &description);
+    void professionBonusChanged(const QString &bonus);
     void bonusSkillChanged(const QStringList &names, const int &value);
 
 public slots:
