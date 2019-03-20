@@ -20,6 +20,7 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
       m_pProfessionFeature(new QLineEdit(this)),
       m_pReputation(new QSpinBox(this)),
       m_pFame(new QSpinBox(this)),
+      m_pBonus(new QLabel(this)),
       m_pTricks(new QListWidget(this))
 {
     setAttributes( DataLoader::loadJson(":/data/json/Attributes.json") );
@@ -29,7 +30,9 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
     m_pSpecialization->setReadOnly( true );
     m_pSickness->setReadOnly( true );
     m_pOriginFeature->setReadOnly( true );
-//    m_pAttributesModsInfo = new NPCAttributesModsInfoWidget( m_attributesMods, this );
+    m_pBonus->setWordWrap( true );
+    m_pBonus->setObjectName( "Bonus" );
+    m_pBonus->setStyleSheet( m_bonusLabel );
 
     QHBoxLayout *pLayout = new QHBoxLayout;
     setLayout( pLayout );
@@ -70,11 +73,13 @@ void NPCCardObverse::setSkill(const QString &attribute,
 void NPCCardObverse::setOriginBonus(const QString &bonus)
 {
     m_originBonus = bonus;
+    updateBonusLabel();
 }
 
 void NPCCardObverse::setProfessionBonus(const QString &bonus)
 {
     m_professionBonus = bonus;
+    updateBonusLabel();
 }
 
 QLabel *NPCCardObverse::createSpecialLabel(
@@ -305,10 +310,20 @@ void NPCCardObverse::setAttributes(const QJsonArray &attributes)
     }
 }
 
+void NPCCardObverse::updateBonusLabel()
+{
+    m_pBonus->setText( m_originBonus + "\n\n" + m_professionBonus );
+}
+
 QVBoxLayout *NPCCardObverse::column1()
 {
     QVBoxLayout *pLayout = new QVBoxLayout;
     pLayout->addWidget( createPersonalSection() );
+    pLayout->addWidget( createSpecialLabel("Bonusy",
+                                           "Title",
+                                           m_titleStyle,
+                                           0, 40) );
+    pLayout->addWidget( m_pBonus );
     pLayout->addWidget( createSpecialLabel("Sztuczki",
                                            "Title",
                                            m_titleStyle,
@@ -357,12 +372,6 @@ QVBoxLayout *NPCCardObverse::column4()
     QVBoxLayout *pLayout = new QVBoxLayout;
 
     pLayout->addWidget( m_attributes.value("Spryt") );
-//    pLayout->addWidget( createSpecialLabel("Rany", "Title", m_titleStyle, 0, 40) );
-//    pLayout->addWidget( createWoundsSection() );
-//    pLayout->addWidget( createSpecialLabel("Modyfikatory", "Title", m_titleStyle, 0, 40) );
-//    pLayout->addWidget( createWoundsModificatorsSection() );
-//    pLayout->addWidget( createSpecialLabel("Punkty Rozwoju", "Title", m_titleStyle, 0, 40) );
-//    pLayout->addWidget( m_pProgressWidget );
 
     pLayout->addStretch();
     pLayout->setMargin( 0 );

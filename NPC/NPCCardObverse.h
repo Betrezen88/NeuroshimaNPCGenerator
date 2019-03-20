@@ -70,6 +70,8 @@ private:
 
     void setAttributes(const QJsonArray &attributes);
 
+    void updateBonusLabel();
+
     QVBoxLayout *column1();
     QVBoxLayout *column2();
     QVBoxLayout *column3();
@@ -87,6 +89,7 @@ private:
     QLineEdit *m_pProfessionFeature{nullptr};
     QSpinBox *m_pReputation{nullptr};
     QSpinBox *m_pFame{nullptr};
+    QLabel *m_pBonus{nullptr};
 
     QString m_originBonus;
     QString m_professionBonus;
@@ -118,6 +121,14 @@ private:
         " color: white;"
         " border-radius: 5px;"
         " font: 20px;"
+        "}"
+    };
+
+    const QString m_bonusLabel {
+        "QLabel#Bonus{"
+        " border: 1px solid black;"
+        " border-radius: 5px;"
+        " padding: 5px;"
         "}"
     };
 };
