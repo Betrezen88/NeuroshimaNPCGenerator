@@ -24,7 +24,7 @@ signals:
     void originDataChanged(const QJsonObject &origin);
     void originNameChanged(const QString &name);
     void originFeatureChanged(const QString name, const QString description);
-    void originBonusChanged(const QJsonObject &bonus);
+    void originBonusChanged(const QString &bonus);
     void attributeBonusChanged(const QString &name, const int &value);
     void bonusSkillChanged(const QStringList &names, const int &value);
     void addBonusTrick(const QString &name);

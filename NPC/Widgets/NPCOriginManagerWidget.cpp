@@ -64,7 +64,9 @@ void NPCOriginManagerWidget::setBonus(const QJsonObject &bonus)
         removeBonus( m_bonus );
     m_bonus = bonus;
 
-    m_pBonusDescription->setText( m_bonus.value("text").toString() );
+    const QString &text = m_bonus.value("text").toString();
+    m_pBonusDescription->setText( text );
+    emit originBonusChanged( text );
 
     if ( m_bonus.contains("select") )
         bonusLogic( m_bonus );
