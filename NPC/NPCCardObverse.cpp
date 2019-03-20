@@ -67,6 +67,16 @@ void NPCCardObverse::setSkill(const QString &attribute,
     m_attributes.value(attribute)->setSkillValue(skillpack, skill, value);
 }
 
+void NPCCardObverse::setOriginBonus(const QString &bonus)
+{
+    m_originBonus = bonus;
+}
+
+void NPCCardObverse::setProfessionBonus(const QString &bonus)
+{
+    m_professionBonus = bonus;
+}
+
 QLabel *NPCCardObverse::createSpecialLabel(
         const QString &text,
         const QString &objName,

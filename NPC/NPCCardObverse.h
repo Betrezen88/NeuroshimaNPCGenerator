@@ -54,6 +54,8 @@ public slots:
                   const QString &skillpack,
                   const QString &skill,
                   const int &value);
+    void setOriginBonus(const QString &bonus);
+    void setProfessionBonus(const QString &bonus);
 
 private:
     QLabel *createSpecialLabel(const QString &text,
@@ -85,6 +87,9 @@ private:
     QLineEdit *m_pProfessionFeature{nullptr};
     QSpinBox *m_pReputation{nullptr};
     QSpinBox *m_pFame{nullptr};
+
+    QString m_originBonus;
+    QString m_professionBonus;
 
     // Others widgets
     QListWidget *m_pTricks{nullptr};
