@@ -93,11 +93,15 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
              m_pCard->obverse(), &NPCCardObverse::setOriginFeature );
     connect( m_pOriginManager, &NPCOriginManagerWidget::attributeBonusChanged,
              m_pCard->obverse(), &NPCCardObverse::setAttributeModValue );
+    connect( m_pOriginManager, &NPCOriginManagerWidget::originBonusChanged,
+             m_pCard->obverse(), &NPCCardObverse::setOriginBonus );
 
     connect( m_pProfessionManager, &NPCProfessionManagerWidget::professionNameChanged,
              m_pCard->obverse(), &NPCCardObverse::setProfession );
     connect( m_pProfessionManager, &NPCProfessionManagerWidget::professionFeatureChanged,
              m_pCard->obverse(), &NPCCardObverse::setProfessionFeature );
+    connect( m_pProfessionManager, &NPCProfessionManagerWidget::professionBonusChanged,
+             m_pCard->obverse(), &NPCCardObverse::setProfessionBonus );
 
     connect( m_pSpecializationManager, &NPCSpecializationManagerWidget::specializationChanged,
              m_pCard->obverse(), &NPCCardObverse::setSpecialization );
