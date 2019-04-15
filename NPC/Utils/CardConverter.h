@@ -15,9 +15,9 @@ public:
 private:
     const QJsonObject personalJson(const NPCCardObverse *obverse) const;
     const QJsonArray tricksJson(const QListWidget *tricks) const;
-    const QJsonArray attributesJson(const QHash<QString, NPCAttributeWidget*> *attributes) const;
-    const QJsonArray packetsJson(QHash<QString, NPCSkillPackWidget *> &skillPacks) const;
-    const QJsonArray skillsJson(const QVector<QPair<const QLabel*, SkillSpinBox*>> &skills) const;
+    const QJsonArray attributesJson(const QHash<QString, NPCAttributeView *> *attributes) const;
+    const QJsonArray packetsJson(const QHash<QString, NPCSkillpackView *> &skillPacks) const;
+    const QJsonArray skillsJson(const QHash<QString, QLabel *> &skills) const;
 };
 
 #endif // CARDCONVERTER_H
