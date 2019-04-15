@@ -45,6 +45,11 @@ void NPCSkillpackView::addSkill(const QString &name)
     m_pLayout->addWidget( pSkillValue, row, 1, Qt::AlignRight );
 }
 
+QHash<QString, QLabel *> NPCSkillpackView::skills() const
+{
+    return m_skills;
+}
+
 const QString NPCSkillpackView::name() const
 {
     return m_pName->text();

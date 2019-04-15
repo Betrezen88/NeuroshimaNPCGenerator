@@ -16,6 +16,8 @@ public:
     void addSpecialization(const QString &name);
     void addSkill(const QString &name);
 
+    QHash<QString, QLabel*> skills() const;
+
     const QString name() const;
 
 signals:
