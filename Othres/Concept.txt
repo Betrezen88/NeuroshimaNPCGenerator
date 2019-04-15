@@ -21,7 +21,7 @@
 In progress:
 - dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
 - stworzyć wizualizację karty postaci
-- Dodać specjalną logikę dla cechy Wszechstronność
+
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
@@ -104,3 +104,4 @@ Done:
     }
 + Dodać specjalną logikę dla cechy Wszechstronność do kwadratu
 + dodać plik Reputation.json z miejscami podziału reputacji.
++ Dodać specjalną logikę dla cechy Wszechstronność
