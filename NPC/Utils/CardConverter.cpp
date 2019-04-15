@@ -24,9 +24,9 @@ const QJsonObject CardConverter::personalJson(const NPCCardObverse *obverse) con
 
     personalObj.insert( "name", obverse->heroName() );
     personalObj.insert( "origin", obverse->origin() );
-    personalObj.insert( "profession", obverse->origin() );
-    personalObj.insert( "specialization", obverse->origin() );
-    personalObj.insert( "sickness", obverse->origin() );
+    personalObj.insert( "profession", obverse->profession() );
+    personalObj.insert( "specialization", obverse->specialization() );
+    personalObj.insert( "sickness", obverse->sickness() );
     personalObj.insert( "reputation", obverse->reputation() );
     personalObj.insert( "fame", obverse->fame() );
 
