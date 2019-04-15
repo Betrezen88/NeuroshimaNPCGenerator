@@ -19,6 +19,7 @@ public:
                               QWidget *parent = nullptr);
 
     void addSkillpack(NPCSkillpackView *skillpack);
+    QHash<QString, NPCSkillpackView*> skillpacks() const;
 
     void setValue(const int &value);
     int value() const;

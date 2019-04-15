@@ -42,6 +42,11 @@ void NPCAttributeView::addSkillpack(NPCSkillpackView *skillpack)
     m_pSkillsLayout->addWidget( skillpack, Qt::AlignTop );
 }
 
+QHash<QString, NPCSkillpackView *> NPCAttributeView::skillpacks() const
+{
+    return m_skillpacks;
+}
+
 void NPCAttributeView::setValue(const int &value)
 {
     m_value = value;
