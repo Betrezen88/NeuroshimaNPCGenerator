@@ -18,6 +18,8 @@ private:
     const QJsonArray attributesJson(const QHash<QString, NPCAttributeView *> *attributes) const;
     const QJsonArray packetsJson(const QHash<QString, NPCSkillpackView *> &skillPacks) const;
     const QJsonArray skillsJson(const QHash<QString, QLabel *> &skills) const;
+
+    void personal(NPCCardTab *card, const QJsonObject &object);
 };
 
 #endif // CARDCONVERTER_H

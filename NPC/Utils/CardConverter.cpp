@@ -90,3 +90,19 @@ const QJsonArray CardConverter::skillsJson(const QHash<QString, QLabel *> &skill
 
     return skillsArray;
 }
+
+void CardConverter::personal(NPCCardTab *card, const QJsonObject &object)
+{
+    NPCCardObverse *pObverse = card->obverse();
+    pObverse->setName( object.value("name").toString() );
+    pObverse->setOrigin( object.value("origin").toString() );
+    pObverse->setProfession( object.value("profession").toString() );
+    pObverse->setSickness( object.value("sickness").toString(), "" );
+    pObverse->setSpecialization( object.value("specialization").toString() );
+
+    const QJsonObject &features = object.value("features").toObject();
+
+    pObverse->setOriginFeature( features.value("origin").toString(), "" );
+    pObverse->setProfessionFeature( features.value("profession").toString(), "" );
+}
+
