@@ -1,6 +1,4 @@
 ﻿To Do:
-- Dodanie wczytania postaci z pliku json
-
 - Dodać opis pochodzenia do Origins.json
 
 - dodać slot resetPoints() do NPCSkillsManagerWidget, używać przy zmianie bonusowych skillpontów
@@ -21,7 +19,6 @@
 In progress:
 - dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
 - stworzyć wizualizację karty postaci
-
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
@@ -105,3 +102,4 @@ Done:
 + Dodać specjalną logikę dla cechy Wszechstronność do kwadratu
 + dodać plik Reputation.json z miejscami podziału reputacji.
 + Dodać specjalną logikę dla cechy Wszechstronność
++ Dodanie wczytania postaci z pliku json
