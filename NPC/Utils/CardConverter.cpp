@@ -18,6 +18,17 @@ const QJsonObject CardConverter::toJson(const NPCCardTab *card) const
     return cardJson;
 }
 
+NPCCardTab* CardConverter::toCard(const QJsonObject &object)
+{
+    NPCCardTab *pCard = new NPCCardTab();
+
+    personal( pCard, object.value("personal").toObject() );
+    stats( pCard, object.value("stats").toArray() );
+    tricks( pCard, object.value("tricks").toArray() );
+
+    return pCard;
+}
+
 const QJsonObject CardConverter::personalJson(const NPCCardObverse *obverse) const
 {
     QJsonObject personalObj;

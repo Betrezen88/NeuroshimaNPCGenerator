@@ -11,6 +11,7 @@ public:
     CardConverter();
 
     const QJsonObject toJson(const NPCCardTab *card) const;
+    NPCCardTab *toCard(const QJsonObject &object);
 
 private:
     const QJsonObject personalJson(const NPCCardObverse *obverse) const;
