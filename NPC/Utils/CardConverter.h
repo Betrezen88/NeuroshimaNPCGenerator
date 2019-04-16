@@ -20,6 +20,7 @@ private:
     const QJsonArray skillsJson(const QHash<QString, QLabel *> &skills) const;
 
     void personal(NPCCardTab *card, const QJsonObject &object);
+    void stats(NPCCardTab *card, const QJsonArray &stats);
 };
 
 #endif // CARDCONVERTER_H

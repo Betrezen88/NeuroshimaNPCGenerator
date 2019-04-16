@@ -106,3 +106,27 @@ void CardConverter::personal(NPCCardTab *card, const QJsonObject &object)
     pObverse->setProfessionFeature( features.value("profession").toString(), "" );
 }
 
+void CardConverter::stats(NPCCardTab *card, const QJsonArray &stats)
+{
+    NPCCardObverse *pObverse = card->obverse();
+
+    for ( const QJsonValue attribute: stats ) {
+        const QJsonObject &tAttribute = attribute.toObject();
+        NPCAttributeView *pAttribute =
+                pObverse->attributes()->value(tAttribute.value("name").toString());
+        pAttribute->setValue( tAttribute.value("value").toInt() );
+        pAttribute->setModValue( tAttribute.value("mod").toInt() );
+
+        for ( const QJsonValue skillpack: tAttribute.value("skillPacks").toArray() ) {
+            const QJsonObject &tSkillpack = skillpack.toObject();
+            NPCSkillpackView *pSkillpack =
+                    pAttribute->skillpacks().value( tSkillpack.value("name").toString() );
+            for ( const QJsonValue skill: tSkillpack.value("skills").toArray() ) {
+                const QJsonObject &tSkill = skill.toObject();
+                pSkillpack->setSkillValue( tSkill.value("name").toString(),
+                                           tSkill.value("value").toInt() );
+            }
+        }
+    }
+}
+
