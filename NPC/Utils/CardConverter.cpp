@@ -130,3 +130,11 @@ void CardConverter::stats(NPCCardTab *card, const QJsonArray &stats)
     }
 }
 
+void CardConverter::tricks(NPCCardTab *card, const QJsonArray &tricks)
+{
+    QVector<QListWidgetItem*> tTricks;
+    NPCCardObverse *pObverse = card->obverse();
+    for ( const QJsonValue trick: tricks )
+        tTricks.push_back( new QListWidgetItem(trick.toString()) );
+    pObverse->setTricks( tTricks );
+}

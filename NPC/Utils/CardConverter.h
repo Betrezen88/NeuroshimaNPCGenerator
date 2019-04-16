@@ -21,6 +21,7 @@ private:
 
     void personal(NPCCardTab *card, const QJsonObject &object);
     void stats(NPCCardTab *card, const QJsonArray &stats);
+    void tricks(NPCCardTab *card, const QJsonArray &tricks);
 };
 
 #endif // CARDCONVERTER_H
