@@ -103,6 +103,31 @@ void MainWindow::addCard(NPCCardTab *card)
     pScrollArea->setWidget( card );
 
     m_pTabWidget->addTab( pScrollArea, "Nowa Postać" );
+    m_cards.push_back( card );
+}
+
+void MainWindow::loadCard()
+{
+    QString cardFile = QFileDialog::getOpenFileName( this,
+                                                     "Wczytaj postać",
+                                                     QDir::homePath(),
+                                                     "*.json" );
+    if ( !cardFile.isEmpty() ) {
+        QFile file( cardFile );
+        if ( !file.open(QIODevice::ReadOnly) ) {
+            qDebug() << "File open failed !";
+            return;
+        }
+
+        CardConverter converter;
+        QJsonParseError error;
+        QJsonDocument json = QJsonDocument::fromJson( file.readAll(), &error );
+        if ( error.error != QJsonParseError::NoError ) {
+            qDebug() << "Parsing json error: " << error.errorString();
+            return;
+        }
+        addCard( converter.toCard(json.object()) );
+    }
 }
 
 void MainWindow::createActions()
@@ -114,6 +139,8 @@ void MainWindow::createActions()
     m_pSaveCardAction = new QAction( "Zapisz", this );
 
     m_pLoadCardAction = new QAction( "Wczytaj", this );
+    connect( m_pLoadCardAction, &QAction::triggered,
+             this, &MainWindow::loadCard );
 
     m_pRandomAttributesAction = new QAction( "Atrybuty" );
 

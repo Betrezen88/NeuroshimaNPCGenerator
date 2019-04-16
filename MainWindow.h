@@ -22,6 +22,7 @@ private slots:
     void onCardClose(const int &index);
     void saveCard();
     void addCard(NPCCardTab *card);
+    void loadCard();
     void createNewCard();
 
 private:
