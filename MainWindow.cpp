@@ -71,25 +71,30 @@ void MainWindow::onCardClose(const int &index)
 
 void MainWindow::saveCard()
 {
-    NPCCardTab *pCard = m_cards.at( m_pTabWidget->currentIndex() );
-    QString filePath = QFileDialog::getSaveFileName( this,
-                                                     "Zapisz postać",
-                                                     QDir::homePath() + "/"
-                                                     + pCard->obverse()->heroName() + ".json",
-                                                     "(*.json)" );
-    if ( filePath.isEmpty() )
-        return;
+    if ( m_cards.count() > 0 ) {
+        NPCCardTab *pCard = m_cards.at( m_pTabWidget->currentIndex() );
+        QString filePath = QFileDialog::getSaveFileName( this,
+                                                         "Zapisz postać",
+                                                         QDir::homePath() + "/"
+                                                         + pCard->obverse()->heroName() + ".json",
+                                                         "(*.json)" );
+        if ( filePath.isEmpty() )
+            return;
 
-    QFile file( filePath );
-    if ( !file.open(QIODevice::WriteOnly) ) {
-        qDebug() << "File open failed !";
-        return;
+        QFile file( filePath );
+        if ( !file.open(QIODevice::WriteOnly) ) {
+            qDebug() << "File open failed !";
+            return;
+        }
+
+        CardConverter converter;
+        QJsonDocument json;
+        json.setObject( converter.toJson(pCard) );
+        file.write( json.toJson() );
     }
-
-    CardConverter converter;
-    QJsonDocument json;
-    json.setObject( converter.toJson(pCard) );
-    file.write( json.toJson() );
+    else {
+        qDebug() << "Brak kart do zapisania !";
+    }
 }
 
 void MainWindow::addCard(NPCCardTab *card)
