@@ -61,8 +61,43 @@ const QJsonObject CardConverter::personalJson(const NPCCardObverse *obverse) con
 const QJsonArray CardConverter::tricksJson(const QListWidget *tricks) const
 {
     QJsonArray tricksObj;
-    for ( int i=0; i<tricks->count(); ++i )
-        tricksObj.push_back( tricks->item(i)->text() );
+    for ( int i=0; i<tricks->count(); ++i ) {
+        NPCTrickWidgetItem *pTrick = dynamic_cast<NPCTrickWidgetItem*>(tricks->item(i));
+        QJsonObject trick;
+        trick.insert( "name", pTrick->text() );
+        trick.insert( "description", pTrick->description() );
+        trick.insert( "action", pTrick->action() );
+
+        QJsonArray attributes;
+        for ( const QString &attribute: pTrick->attributes()->keys() ) {
+            QJsonObject tAttribute;
+            tAttribute.insert( "name", attribute );
+            tAttribute.insert( "value", pTrick->attributes()->value(attribute) );
+            attributes.push_back( tAttribute );
+        }
+        if ( !attributes.isEmpty() ) trick.insert( "attributes", attributes );
+
+        QJsonArray skills;
+        for ( const QString &skill: pTrick->skills()->keys() ) {
+            QJsonObject tSkill;
+            tSkill.insert( "name", skill );
+            tSkill.insert( "value", pTrick->skills()->value(skill) );
+            skills.push_back( tSkill );
+        }
+        if ( !skills.isEmpty() ) trick.insert( "skills", skills );
+
+        QJsonArray orSkills;
+        for ( const QString &orSkill: pTrick->orSkills()->keys() ) {
+            QJsonObject tOrSkill;
+            tOrSkill.insert( "name", orSkill );
+            tOrSkill.insert( "value", pTrick->orSkills()->value(orSkill) );
+            orSkills.push_back( tOrSkill );
+        }
+        if ( !orSkills.isEmpty() ) trick.insert( "orSkill", orSkills );
+
+        tricksObj.push_back( trick );
+
+    }
     return tricksObj;
 }
 
