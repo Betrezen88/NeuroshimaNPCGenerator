@@ -34,6 +34,7 @@ public:
     const QString sickness() const;
     const QString originFeature() const;
     const QString professionFeature() const;
+    const QString originFeatureDescription() const;
     int reputation() const;
     int fame() const;
 
@@ -94,6 +95,7 @@ private:
     QString m_originBonus;
     QString m_professionBonus;
 
+    QString m_originFeatureDescription;
     // Others widgets
     QListWidget *m_pTricks{nullptr};
     NPCAttributesModsInfoWidget *m_pAttributesModsInfo{nullptr};
