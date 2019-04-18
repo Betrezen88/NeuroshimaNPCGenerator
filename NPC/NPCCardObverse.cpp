@@ -230,6 +230,11 @@ const QString NPCCardObverse::originFeatureDescription() const
     return m_originFeatureDescription;
 }
 
+const QString NPCCardObverse::professionFeatureDescription() const
+{
+    return m_professionFeaturesDescription;
+}
+
 int NPCCardObverse::reputation() const
 {
     return m_pReputation->value();
@@ -270,6 +275,7 @@ void NPCCardObverse::setProfession(const QString &name)
 
 void NPCCardObverse::setProfessionFeature(const QString &name, const QString &description)
 {
+    m_professionFeaturesDescription = description;
     m_pProfessionFeature->setText( name );
     m_pProfessionFeature->setToolTip( "<div style=\"width: 250px;\">"
                                       +description+"</div>" );
