@@ -6,7 +6,7 @@
         "requirements": {
             "skills": [
                 { "name": "Mechanika", "value": 3 },
-                { "name": "Materiały wybuchowe", "value": 3 }
+                { "name": "Materiały Wybuchowe", "value": 3 }
             ]
         }
     },
@@ -66,7 +66,7 @@
                 { "name": "Budowa", "value": 12 }
             ],
             "skills": [
-                { "name": "Odporność na ból", "value": 6 }
+                { "name": "Odporność na Ból", "value": 6 }
             ]
         }
     },
@@ -203,8 +203,8 @@
                 { "name": "Opieka nad Zwierzętami", "value": 2 }
             ],
             "orSkill": [
-                { "name": "Wozy bojowe", "value": 3 },
-                { "name": "Maszyny ciężkie", "value": 3 }
+                { "name": "Wozy Bojowe", "value": 3 },
+                { "name": "Maszyny Ciężkie", "value": 3 }
             ]
         }
     },
@@ -217,7 +217,7 @@
                 { "name": "Percepcja", "value": 14 }
             ],
             "skills": [
-                { "name": "Broń maszynowa", "value": 4 }
+                { "name": "Broń Maszynowa", "value": 4 }
             ]
         }
     },
@@ -277,7 +277,7 @@
             ],
             "orSkills": [
                 { "name": "Pistolety", "value": 5 },
-                { "name": "Broń ręczna", "value": 5 }
+                { "name": "Broń Ręczna", "value": 5 }
             ]
         }
     },
@@ -532,7 +532,7 @@
         "action": "Ukrywając się w lesie, wśród zarośli i drzew, Bohater może dodać do Umiejętności Ukrywania się Łowiectwo.",
         "requirements": {
             "skills": [
-                { "name": "Ukrywanie Się", "value": 5 },
+                { "name": "Ukrywanie się", "value": 5 },
                 { "name": "Łowiectwo", "value": 2 }
             ]
         }
