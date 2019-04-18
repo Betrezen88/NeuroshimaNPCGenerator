@@ -58,6 +58,11 @@ const QHash<QString, int> *NPCTrickWidgetItem::orSkills() const
     return &m_orSkills;
 }
 
+const QString NPCTrickWidgetItem::description() const
+{
+    return m_description;
+}
+
 void NPCTrickWidgetItem::addAttribute(const QString &name, const int &value)
 {
     m_attributes.insert( name, value );
