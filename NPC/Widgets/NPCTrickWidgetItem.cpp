@@ -63,6 +63,11 @@ const QString NPCTrickWidgetItem::description() const
     return m_description;
 }
 
+const QString NPCTrickWidgetItem::action() const
+{
+    return m_action;
+}
+
 void NPCTrickWidgetItem::addAttribute(const QString &name, const int &value)
 {
     m_attributes.insert( name, value );

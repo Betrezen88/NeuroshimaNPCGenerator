@@ -23,6 +23,7 @@ public:
     const QHash<QString, int> *skills() const;
     const QHash<QString, int> *orSkills() const;
     const QString description() const;
+    const QString action() const;
 
     void addAttribute(const QString &name, const int &value);
     void addSkill(const QString &name, const int &value);
