@@ -41,9 +41,17 @@ const QJsonObject CardConverter::personalJson(const NPCCardObverse *obverse) con
     personalObj.insert( "reputation", obverse->reputation() );
     personalObj.insert( "fame", obverse->fame() );
 
+    QJsonObject origin;
+    origin.insert( "name", obverse->originFeature() );
+    origin.insert( "description", obverse->originFeatureDescription() );
+
+    QJsonObject profession;
+    profession.insert( "name", obverse->professionFeature() );
+    profession.insert( "description", obverse->professionFeatureDescription() );
+
     QJsonObject featuresObj;
-    featuresObj.insert( "origin", obverse->originFeature() );
-    featuresObj.insert( "profession", obverse->professionFeature() );
+    featuresObj.insert( "origin", origin );
+    featuresObj.insert( "profession", profession );
 
     personalObj.insert( "features", featuresObj );
 
@@ -111,10 +119,13 @@ void CardConverter::personal(NPCCardTab *card, const QJsonObject &object)
     pObverse->setSickness( object.value("sickness").toString(), "" );
     pObverse->setSpecialization( object.value("specialization").toString() );
 
-    const QJsonObject &features = object.value("features").toObject();
+    const QJsonObject &origin = object.value("features").toObject().value("origin").toObject();
+    const QJsonObject &profession = object.value("features").toObject().value("profession").toObject();
 
-    pObverse->setOriginFeature( features.value("origin").toString(), "" );
-    pObverse->setProfessionFeature( features.value("profession").toString(), "" );
+    pObverse->setOriginFeature( origin.value("name").toString(),
+                                origin.value("description").toString() );
+    pObverse->setProfessionFeature( profession.value("name").toString(),
+                                    profession.value("description").toString() );
 }
 
 void CardConverter::stats(NPCCardTab *card, const QJsonArray &stats)
