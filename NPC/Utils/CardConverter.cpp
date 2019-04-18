@@ -191,7 +191,16 @@ void CardConverter::tricks(NPCCardTab *card, const QJsonArray &tricks)
 {
     QVector<QListWidgetItem*> tTricks;
     NPCCardObverse *pObverse = card->obverse();
-    for ( const QJsonValue trick: tricks )
-        tTricks.push_back( new QListWidgetItem(trick.toString()) );
+    for ( const QJsonValue trick: tricks ) {
+        const QJsonObject &tTrick = trick.toObject();
+        NPCTrickWidgetItem *pTrick = new NPCTrickWidgetItem( tTrick.value("name").toString(),
+                                                             tTrick.value("description").toString(),
+                                                             tTrick.value("action").toString(),
+                                                             tTrick.value("attributes").toArray(),
+                                                             tTrick.value("skills").toArray(),
+                                                             tTrick.value("orSkill").toArray() );
+
+        tTricks.push_back( dynamic_cast<QListWidgetItem*>(pTrick) );
+    }
     pObverse->setTricks( tTricks );
 }
