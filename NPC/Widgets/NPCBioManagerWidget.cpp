@@ -15,7 +15,11 @@ NPCBioManagerWidget::NPCBioManagerWidget(QWidget *parent)
       m_pSurname(new QLineEdit(this)),
       m_pNickname(new QLineEdit(this))
 {
-    m_pPortrait->setMinimumSize( 140, 200 );
+    QPixmap portait( ":/images/icons/Hero_portrait_icon.png" );
+    portait.scaled( 140, 200, Qt::KeepAspectRatio );
+
+    m_pPortrait->setMaximumSize( 140, 200 );
+    m_pPortrait->setPixmap( portait );
     QGridLayout *pLayout = new QGridLayout;
     setLayout( pLayout );
 
