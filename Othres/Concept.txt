@@ -1,4 +1,6 @@
 ﻿To Do:
+- Dodać możliwość wyboru portretu postaci
+
 - Dodać opis pochodzenia do Origins.json
 
 - dodać slot resetPoints() do NPCSkillsManagerWidget, używać przy zmianie bonusowych skillpontów
@@ -13,6 +15,12 @@
   jeszcze mieć
 
 - dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
+
+- dodać zakładkę z wyborem znajomych oraz rozdysponowaniem gambli na nich
+
+BUGS:
+- wielokrotne wciśnięcie przycisku losuj w zakładce Choroba nie odświerza listy wylosowanych chorób,
+  nie znikają wcześniej wylosowane choroby
 
 In progress:
 
