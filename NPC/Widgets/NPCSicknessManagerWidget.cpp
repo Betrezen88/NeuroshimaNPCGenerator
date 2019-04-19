@@ -2,7 +2,6 @@
 #include "../Utils/DataLoader.h"
 #include "../Utils/Dice.h"
 
-#include <QLabel>
 #include <QJsonObject>
 #include <QJsonValue>
 
