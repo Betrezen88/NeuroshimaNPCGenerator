@@ -16,6 +16,8 @@
 
 - stworzyć logikę przenoszącą dane z klasy NPCCreatorDialog do NPCCardTab
 
+- dodać informację o chorobie w klasie NPCSicknessManagerWidget
+
 In progress:
 - dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
 - stworzyć wizualizację karty postaci
