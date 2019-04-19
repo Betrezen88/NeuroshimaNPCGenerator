@@ -93,13 +93,13 @@ QString NPCSicknessManagerWidget::createTooltip(const QJsonObject &object)
             + "<br><br><b>Symptomy</b>:"
             + "<ul>"
             + "<li><b>Pierwsze symptomy:</b> " + symptoms.value("1").toObject().value("description").toString()
-            + "<br><b>Kary:</b>" + symptoms.value("1").toObject().value("penalties").toString() + "</li>"
-            + "<li><b>Stan ostry:</b> " + symptoms.value("2").toObject().value("description").toString()
-            + "<br><b>Kary:</b>" + symptoms.value("2").toObject().value("penalties").toString() + "</li>"
+            + "<br><b>Kary:</b> " + symptoms.value("1").toObject().value("penalties").toString() + "</li>"
+            + "<li><b>Stan ostry: </b> " + symptoms.value("2").toObject().value("description").toString()
+            + "<br><b>Kary:</b> " + symptoms.value("2").toObject().value("penalties").toString() + "</li>"
             + "<li><b>Stan krytyczny:</b> " + symptoms.value("3").toObject().value("description").toString()
-            + "<br><b>Kary:</b>" + symptoms.value("3").toObject().value("penalties").toString() + "</li>"
+            + "<br><b>Kary:</b> " + symptoms.value("3").toObject().value("penalties").toString() + "</li>"
             + "<li><b>Stan terminalny:</b> " + symptoms.value("4").toObject().value("description").toString()
-            + "<br><b>Kary:</b>" + symptoms.value("4").toObject().value("penalties").toString() + "</li>"
+            + "<br><b>Kary:</b> " + symptoms.value("4").toObject().value("penalties").toString() + "</li>"
             + "</ul>";
 
     return tooltip;
