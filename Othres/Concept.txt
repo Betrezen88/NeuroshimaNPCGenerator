@@ -15,7 +15,7 @@
 - dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
 
 In progress:
-- dodać informację o chorobie w klasie NPCSicknessManagerWidget
+
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
@@ -103,3 +103,4 @@ Done:
 + stworzyć wizualizację karty postaci
 + dodać widget odpowiedzialy za reputację i sławę bohatera
 + stworzyć logikę przenoszącą dane z klasy NPCCreatorDialog do NPCCardTab
++ dodać informację o chorobie w klasie NPCSicknessManagerWidget
