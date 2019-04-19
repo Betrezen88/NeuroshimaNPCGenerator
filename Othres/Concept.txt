@@ -5,8 +5,6 @@
 
 - poprawić literówki pliku Sickness.json
 
-- dodać widget odpowiedzialy za reputację i sławę bohatera
-
 - dodać do karty zakładkę z ekwipunkiem
 
 - dodać do karty zakładkę z formularzem postaci oraz opisami, historią itp.
@@ -14,13 +12,10 @@
 - dodać metodę updateBougthTricks(), aby po zmianie wartości skilli sprawdzał czy postać może go
   jeszcze mieć
 
-- stworzyć logikę przenoszącą dane z klasy NPCCreatorDialog do NPCCardTab
-
-- dodać informację o chorobie w klasie NPCSicknessManagerWidget
+- dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
 
 In progress:
-- dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
-- stworzyć wizualizację karty postaci
+- dodać informację o chorobie w klasie NPCSicknessManagerWidget
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
@@ -105,3 +100,6 @@ Done:
 + dodać plik Reputation.json z miejscami podziału reputacji.
 + Dodać specjalną logikę dla cechy Wszechstronność
 + Dodanie wczytania postaci z pliku json
++ stworzyć wizualizację karty postaci
++ dodać widget odpowiedzialy za reputację i sławę bohatera
++ stworzyć logikę przenoszącą dane z klasy NPCCreatorDialog do NPCCardTab
