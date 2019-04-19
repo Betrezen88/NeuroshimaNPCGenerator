@@ -11,17 +11,21 @@ NPCSicknessManagerWidget::NPCSicknessManagerWidget(QWidget *parent)
       m_pThrows(new QSpinBox(this)),
       m_pThrow(new QPushButton("Losuj", this)),
       m_pResultBox(new QGroupBox("Wylosowane Choroby", this)),
+      m_pDescription(new QLabel(this)),
       m_pLayout(new QGridLayout())
 {
     connect( m_pThrow, &QPushButton::clicked,
              this, &NPCSicknessManagerWidget::throwClicked );
 
     m_pThrows->setRange( 1, 3 );
+    m_pResultBox->setMinimumHeight( 50 );
+    m_pDescription->setWordWrap( true );
 
     m_pLayout->addWidget( new QLabel("Ilość rzutów", this), 0, 0 );
     m_pLayout->addWidget( m_pThrows, 0, 1 );
-    m_pLayout->addWidget( m_pResultBox, 1, 0, 1, 2 );
-    m_pLayout->addWidget( m_pThrow, 2, 1 );
+    m_pLayout->addWidget( m_pThrow, 0, 2 );
+    m_pLayout->addWidget( m_pResultBox, 1, 0, 1, 3 );
+    m_pLayout->addWidget( sicknessDescriptionBox(), 2, 0, 1, 3 );
 
     setLayout( m_pLayout );
 }
@@ -62,9 +66,11 @@ void NPCSicknessManagerWidget::updateResults()
 
         connect( pRadioBtn, &QRadioButton::toggled,
                  [this, pRadioBtn](bool checked){
-            if ( checked )
+            if ( checked ) {
                 sicknessChanged( pRadioBtn->text(),
                                  pRadioBtn->toolTip() );
+                m_pDescription->setText( pRadioBtn->toolTip() );
+            }
         } );
 
         if ( tSickness == m_sickness.first() ) {
@@ -73,7 +79,7 @@ void NPCSicknessManagerWidget::updateResults()
         }
     }
     m_pResultBox->setLayout( pLayout );
-    m_pLayout->addWidget( m_pResultBox, 1, 0, 1, 2 );
+    m_pLayout->addWidget( m_pResultBox, 1, 0, 1, 3 );
 }
 
 QString NPCSicknessManagerWidget::createTooltip(const QJsonObject &object)
@@ -97,4 +103,14 @@ QString NPCSicknessManagerWidget::createTooltip(const QJsonObject &object)
             + "</ul>";
 
     return tooltip;
+}
+
+QGroupBox *NPCSicknessManagerWidget::sicknessDescriptionBox()
+{
+    QGroupBox *pGroupBox = new QGroupBox( "Opis choroby", this );
+    QVBoxLayout *pLayout = new QVBoxLayout;
+    pLayout->addWidget( m_pDescription );
+    pLayout->addStretch();
+    pGroupBox->setLayout( pLayout );
+    return pGroupBox;
 }

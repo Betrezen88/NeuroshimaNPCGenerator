@@ -10,6 +10,7 @@
 #include <QPushButton>
 #include <QRadioButton>
 #include <QSpinBox>
+#include <QLabel>
 
 class NPCSicknessManagerWidget : public QWidget
 {
@@ -28,11 +29,13 @@ private slots:
 private:
     void updateResults();
     QString createTooltip(const QJsonObject &object);
+    QGroupBox *sicknessDescriptionBox();
 
 private:
     QSpinBox *m_pThrows{nullptr};
     QPushButton *m_pThrow{nullptr};
     QGroupBox *m_pResultBox{nullptr};
+    QLabel *m_pDescription{nullptr};
     QGridLayout *m_pLayout{nullptr};
 
     QJsonArray m_sickness;
