@@ -19,8 +19,6 @@
 BUGS:
 - wielokrotne wciśnięcie przycisku losuj w zakładce Choroba nie odświerza listy wylosowanych chorób,
   nie znikają wcześniej wylosowane choroby
-- gdy punkty umiejętności z danej grupy się skończą się, pakietu nie można kupić, po cofnięciu
-  wydanych punktów pakietów dalej nie można kupić przez zablokowanie checkboxa
 
 In progress:
 
@@ -116,3 +114,5 @@ Done:
 
 FIXED:
 + punkty umiejętności 35, punkty na specjalizację 30
++ gdy punkty umiejętności z danej grupy się skończą się, pakietu nie można kupić, po cofnięciu
+  wydanych punktów pakietów dalej nie można kupić przez zablokowanie checkboxa

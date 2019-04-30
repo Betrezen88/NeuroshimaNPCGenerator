@@ -113,8 +113,12 @@ void NPCSkillPackWidget::onAvailableSkillPointsChanged(const int &skill, const i
 {
     const int &value = (m_specs.contains(spec)) ? specs+skill : skill;
     if ( m_pBougth->isEnabled() ) {
-        const int disable = (5 > value) && !m_pBougth->isChecked();
+        const bool disable = (5 > value) && !m_pBougth->isChecked();
         m_pBougth->setDisabled( disable );
+    }
+    else {
+        const bool enable = (value >= 5) && !m_pBougth->isEnabled();
+        m_pBougth->setEnabled( enable );
     }
     for ( QPair<const QLabel*, SkillSpinBox*> pSkill: m_skills )
         pSkill.second->onAvailableSkillPointsChanged( value );
