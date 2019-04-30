@@ -27,6 +27,7 @@ public:
 
     const QHash<QString, NPCAttributeView *> *attributes() const;
 
+    QPixmap portrait() const;
     const QString heroName() const;
     const QString origin() const;
     const QString profession() const;

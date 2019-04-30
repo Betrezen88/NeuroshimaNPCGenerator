@@ -192,6 +192,11 @@ const QHash<QString, NPCAttributeView *> *NPCCardObverse::attributes() const
     return &m_attributes;
 }
 
+QPixmap NPCCardObverse::portrait() const
+{
+    return *m_pPortrait->pixmap();
+}
+
 const QString NPCCardObverse::heroName() const
 {
     return m_pName->text();
