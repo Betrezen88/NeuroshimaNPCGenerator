@@ -17,6 +17,7 @@ public:
 
 signals:
     void nameChanged(const QString name);
+    void portraitChanged(const QPixmap potrait);
 
 public slots:
 
