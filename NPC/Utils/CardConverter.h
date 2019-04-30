@@ -10,11 +10,11 @@ class CardConverter
 public:
     CardConverter();
 
-    const QJsonObject toJson(const NPCCardTab *card) const;
+    const QJsonObject toJson(const NPCCardTab *card, QString filePath) const;
     NPCCardTab *toCard(const QJsonObject &object);
 
 private:
-    const QJsonObject personalJson(const NPCCardObverse *obverse) const;
+    const QJsonObject personalJson(const NPCCardObverse *obverse, QString filePath) const;
     const QJsonArray tricksJson(const QListWidget *tricks) const;
     const QJsonArray attributesJson(const QHash<QString, NPCAttributeView *> *attributes) const;
     const QJsonArray packetsJson(const QHash<QString, NPCSkillpackView *> &skillPacks) const;

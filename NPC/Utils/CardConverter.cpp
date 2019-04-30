@@ -7,11 +7,11 @@ CardConverter::CardConverter()
 
 }
 
-const QJsonObject CardConverter::toJson(const NPCCardTab *card) const
+const QJsonObject CardConverter::toJson(const NPCCardTab *card, QString filePath) const
 {
     QJsonObject cardJson;
 
-    cardJson.insert( "personal", personalJson(card->obverse()) );
+    cardJson.insert( "personal", personalJson(card->obverse(), filePath) );
     cardJson.insert( "tricks", tricksJson(card->obverse()->tricks()) );
     cardJson.insert( "stats", attributesJson(card->obverse()->attributes()) );
 
@@ -29,7 +29,7 @@ NPCCardTab* CardConverter::toCard(const QJsonObject &object)
     return pCard;
 }
 
-const QJsonObject CardConverter::personalJson(const NPCCardObverse *obverse) const
+const QJsonObject CardConverter::personalJson(const NPCCardObverse *obverse, QString filePath) const
 {
     QJsonObject personalObj;
 
@@ -40,6 +40,7 @@ const QJsonObject CardConverter::personalJson(const NPCCardObverse *obverse) con
     personalObj.insert( "sickness", obverse->sickness() );
     personalObj.insert( "reputation", obverse->reputation() );
     personalObj.insert( "fame", obverse->fame() );
+    personalObj.insert( "portrait", filePath );
 
     QJsonObject origin;
     origin.insert( "name", obverse->originFeature() );
@@ -161,6 +162,7 @@ void CardConverter::personal(NPCCardTab *card, const QJsonObject &object)
                                 origin.value("description").toString() );
     pObverse->setProfessionFeature( profession.value("name").toString(),
                                     profession.value("description").toString() );
+    pObverse->setPortrait( QPixmap(object.value("portrait").toString()) );
 }
 
 void CardConverter::stats(NPCCardTab *card, const QJsonArray &stats)

@@ -87,9 +87,11 @@ void MainWindow::saveCard()
             return;
         }
 
+        const QString portraitPath = filePath.replace(QRegExp("json"), "png");
         CardConverter converter;
         QJsonDocument json;
-        json.setObject( converter.toJson(pCard) );
+        json.setObject( converter.toJson(pCard, portraitPath) );
+        pCard->obverse()->portrait().save(portraitPath);
         file.write( json.toJson() );
     }
     else {
