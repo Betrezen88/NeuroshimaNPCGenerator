@@ -51,8 +51,8 @@ private:
     QHash<const QString, NPCAttributeWidget*> m_attributes;
 
     QString m_specialization;
-    QPair<int, int> m_specPoints{ 35, 0 };
-    QPair<int, int> m_skillPoints{ 30, 0 };
+    QPair<int, int> m_specPoints{ 30, 0 };
+    QPair<int, int> m_skillPoints{ 35, 0 };
     int m_bonusSpecPoints{0};
 
     QJsonObject m_professionBonus;
