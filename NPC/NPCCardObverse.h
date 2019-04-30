@@ -43,6 +43,7 @@ public:
 
 public slots:
     void setName(const QString &name);
+    void setPortrait(const QPixmap portrait);
     void setOrigin(const QString &name);
     void setOriginFeature(const QString &name, const QString &description);
     void setProfession(const QString &name);
