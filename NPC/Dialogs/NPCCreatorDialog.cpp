@@ -108,6 +108,8 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
 
     connect( m_pBioManager, &NPCBioManagerWidget::nameChanged,
              m_pCard->obverse(), &NPCCardObverse::setName );
+    connect( m_pBioManager, &NPCBioManagerWidget::portraitChanged,
+             m_pCard->obverse(), &NPCCardObverse::setPortrait );
 
     connect( m_pSicknessManager, &NPCSicknessManagerWidget::sicknessChanged,
              m_pCard->obverse(), &NPCCardObverse::setSickness );
