@@ -2,6 +2,7 @@
 #define NPCBIOMANAGERWIDGET_H
 
 #include <QWidget>
+#include <QMouseEvent>
 #include <QLabel>
 #include <QLineEdit>
 #include <QTextEdit>
@@ -18,6 +19,9 @@ signals:
     void nameChanged(const QString name);
 
 public slots:
+
+protected:
+    void mousePressEvent(QMouseEvent *event);
 
 private slots:
     void setHeroName();

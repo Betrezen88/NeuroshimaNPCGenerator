@@ -2,6 +2,7 @@
 
 #include "../Utils/DataLoader.h"
 
+#include <QFileDialog>
 #include <QGroupBox>
 #include <QGridLayout>
 #include <QJsonArray>
@@ -36,6 +37,23 @@ NPCBioManagerWidget::NPCBioManagerWidget(QWidget *parent)
 
     pLayout->addWidget( personalBox(), 0, 0, 1, 4 );
     pLayout->addWidget( formBox(), 1, 0, 1, 4 );
+}
+
+void NPCBioManagerWidget::mousePressEvent(QMouseEvent *event)
+{
+    if ( childAt(event->pos()) == m_pPortrait ) {
+        QString fileName = QFileDialog::getOpenFileName( this,
+                                                         "Wybierz portret",
+                                                         QDir::homePath(),
+                                                         "*.img, *.png, *.jpg" );
+        if ( !fileName.isEmpty() ) {
+            QPixmap portrait(fileName);
+            portrait.scaled( 140, 200, Qt::KeepAspectRatio );
+            m_pPortrait->setScaledContents( true );
+            m_pPortrait->setPixmap( portrait );
+            portraitChanged( portrait );
+        }
+    }
 }
 
 void NPCBioManagerWidget::setHeroName()
