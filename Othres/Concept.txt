@@ -113,3 +113,6 @@ Done:
 + stworzyć logikę przenoszącą dane z klasy NPCCreatorDialog do NPCCardTab
 + dodać informację o chorobie w klasie NPCSicknessManagerWidget
 + Dodać możliwość wyboru portretu postaci
+
+FIXED:
++ punkty umiejętności 35, punkty na specjalizację 30
