@@ -97,24 +97,24 @@ void NPCSkillsManagerWidget::setAttributes(const QJsonArray &attributes)
         m_attributes.insert( name, pAttribute );
 
         for ( const QJsonValue tSkillpack: attribute.value("skillPacks").toArray() ) {
-             const QJsonObject &skillpack = tSkillpack.toObject();
-             NPCSkillPackWidget *pSkillpack = new NPCSkillPackWidget(skillpack.value("name").toString(),
-                                                                     this);
-             pSkillpack->setFixedHeight( 90 );
-             for ( const QJsonValue tSpec: skillpack.value("Specialization").toArray() )
-                 pSkillpack->addSpecialization( tSpec.toString() );
+            const QJsonObject &skillpack = tSkillpack.toObject();
+            NPCSkillPackWidget *pSkillpack = new NPCSkillPackWidget(skillpack.value("name").toString(),
+                                                                 this);
+            pSkillpack->setFixedHeight( 90 );
+            for ( const QJsonValue tSpec: skillpack.value("Specialization").toArray() )
+                pSkillpack->addSpecialization( tSpec.toString() );
 
-             for ( const QJsonValue tSkill: skillpack.value("skills").toArray() )
-                 pSkillpack->addSkill( tSkill.toString(), new SkillSpinBox(this) );
+            for ( const QJsonValue tSkill: skillpack.value("skills").toArray() )
+                pSkillpack->addSkill( tSkill.toString(), new SkillSpinBox(this) );
 
-             connect( pSkillpack, &NPCSkillPackWidget::bougth,
-                      this, &NPCSkillsManagerWidget::buySkillPack );
-             connect( this, &NPCSkillsManagerWidget::availableSkillpointsValueChanged,
-                      pSkillpack, &NPCSkillPackWidget::onAvailableSkillPointsChanged );
-             connect( pSkillpack, &NPCSkillPackWidget::skillValueChanged,
-                      this, &NPCSkillsManagerWidget::buySkill );
+            connect( pSkillpack, &NPCSkillPackWidget::bougth,
+                  this, &NPCSkillsManagerWidget::buySkillPack );
+            connect( this, &NPCSkillsManagerWidget::availableSkillpointsValueChanged,
+                  pSkillpack, &NPCSkillPackWidget::onAvailableSkillPointsChanged );
+            connect( pSkillpack, &NPCSkillPackWidget::skillValueChanged,
+                  this, &NPCSkillsManagerWidget::buySkill );
 
-             m_attributes.value(name)->addSkillPack(skillpack.value("name").toString(), pSkillpack);
+            m_attributes.value(name)->addSkillPack(skillpack.value("name").toString(), pSkillpack);
         }
     }
 }
