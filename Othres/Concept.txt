@@ -16,15 +16,13 @@
 
 - dodać zakładkę z wyborem znajomych oraz rozdysponowaniem gambli na nich
 
-- dodać specjalną klasę NPCSkillPackWidget dla pakietu "Wiedza ogólna", gdzie będzie można wybrać
-  umiejętności
-
 BUGS:
 - wielokrotne wciśnięcie przycisku losuj w zakładce Choroba nie odświerza listy wylosowanych chorób,
   nie znikają wcześniej wylosowane choroby
 
 In progress:
-
+- dodać specjalną klasę NPCSkillPackWidget dla pakietu "Wiedza ogólna", gdzie będzie można wybrać
+  umiejętności
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
