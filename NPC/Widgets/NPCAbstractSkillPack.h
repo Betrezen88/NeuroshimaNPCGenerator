@@ -23,6 +23,7 @@ public:
     bool isBougth() const;
 
     SkillSpinBox *skill(const QString &name) const;
+    QVector<SkillSpinBox*> *skillsValues();
 
     virtual void addSkills(const QStringList &skills) = 0;
     virtual bool hasSkill(const QString &name) const = 0;

@@ -56,6 +56,9 @@ SkillSpinBox *NPCAbstractSkillPack::skill(const QString &name) const
     return m_skillValues.at( skillIndex(name) );
 }
 
+QVector<SkillSpinBox *> *NPCAbstractSkillPack::skillsValues()
+{
+    return &m_skillValues;
 }
 
 void NPCAbstractSkillPack::onAvailableSkillPointsChanged(const int &skill, const int &specs, const QString &spec)
