@@ -7,9 +7,38 @@ NPCAbstractSkillPack::NPCAbstractSkillPack(const QString &name,
       m_name(name),
       m_specs(specs),
       m_pName(new QLabel(this)),
-      m_pBougth(new QCheckBox(this))
+      m_pBougth(new QCheckBox("Pakiet", this))
 {
+    connect( m_pBougth, &QCheckBox::toggled,
+             [this](const bool &checked){
+                emit bougth(checked, m_specs);
+    } );
+    connect( m_pBougth, &QCheckBox::toggled,
+             this, &NPCAbstractSkillPack::onBougth);
+
+    setObjectName( "SkillPack" );
+    setStyleSheet( m_skillPackWidgetStyle );
+
+    m_pName->setObjectName( "SkillPackTitle" );
+    m_pName->setStyleSheet( m_skillPackTitleStyle );
+
+    m_pSkillsLayout = new QGridLayout;
+    m_pSkillsLayout->setColumnStretch( 0, 1 );
+    m_pSkillsLayout->setColumnStretch( 1, 1 );
+
     createTitleLabel( m_name, m_specs );
+
+    QHBoxLayout *pTitleLayout = new QHBoxLayout;
+    pTitleLayout->addWidget( m_pName, 0, Qt::AlignLeft );
+    pTitleLayout->addWidget( m_pBougth, 0, Qt::AlignRight );
+
+    QVBoxLayout *pLayout = new QVBoxLayout;
+    pLayout->setMargin( 5 );
+    pLayout->setSpacing( 1 );
+    pLayout->addLayout( pTitleLayout );
+    pLayout->addLayout( m_pSkillsLayout );
+
+    setLayout( pLayout );
 }
 
 QStringList NPCAbstractSkillPack::specializations() const

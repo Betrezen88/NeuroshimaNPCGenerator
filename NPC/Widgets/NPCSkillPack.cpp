@@ -3,17 +3,7 @@
 NPCSkillPack::NPCSkillPack(const QString &name,const QStringList &specs, QWidget *parent)
     : NPCAbstractSkillPack (name, specs, parent)
 {
-    QHBoxLayout *pTitleLayout = new QHBoxLayout;
-    pTitleLayout->addWidget( m_pName );
-    pTitleLayout->addWidget( m_pBougth );
 
-    m_pSkillsLayout = new QGridLayout;
-
-    QVBoxLayout *pLayout = new QVBoxLayout;
-    pLayout->addLayout( pTitleLayout );
-    pLayout->addLayout( m_pSkillsLayout );
-
-    setLayout( pLayout );
 }
 
 void NPCSkillPack::addSkills(const QStringList &skills)
