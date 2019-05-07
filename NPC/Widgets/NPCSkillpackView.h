@@ -6,7 +6,9 @@
 
 #include <QGridLayout>
 
-class NPCSkillpackView : public QWidget
+#include "NPCCustomWidget.h"
+
+class NPCSkillpackView : public NPCCustomWidget
 {
     Q_OBJECT
 public:
@@ -25,9 +27,6 @@ signals:
 
 public slots:
     void setSkillValue(const QString &name, const int &value);
-
-protected:
-    void paintEvent(QPaintEvent *);
 
 private slots:
     void updateSpecLabel();

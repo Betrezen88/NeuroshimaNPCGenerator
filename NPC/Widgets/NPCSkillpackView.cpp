@@ -1,11 +1,8 @@
 #include "NPCSkillpackView.h"
 
-#include <QStyleOption>
-#include <QPainter>
-
 NPCSkillpackView::NPCSkillpackView(const QString &name,
                                    QWidget *parent)
-    : QWidget(parent),
+    : NPCCustomWidget(parent),
       m_pName(new QLabel(name, this)),
       m_pSpecs(new QLabel(this)),
       m_pLayout(new QGridLayout)
@@ -59,14 +56,6 @@ void NPCSkillpackView::setSkillValue(const QString &name, const int &value)
 {
     if ( m_skills.contains(name) )
         m_skills.value(name)->setText( QString::number(value) );
-}
-
-void NPCSkillpackView::paintEvent(QPaintEvent *)
-{
-    QStyleOption opt;
-    opt.init(this);
-    QPainter p(this);
-    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
 void NPCSkillpackView::updateSpecLabel()
