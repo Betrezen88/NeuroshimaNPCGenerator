@@ -27,7 +27,6 @@ SOURCES += \
     NPC/Widgets/NPCTrickManagerWidget.cpp \
         main.cpp \
         MainWindow.cpp \
-    NPC/NPCCard.cpp \
     NPC/Widgets/NPCAttributesModsInfoWidget.cpp \
     NPC/Widgets/NPCAttributeWidget.cpp \
     NPC/Widgets/NPCAttributeValueWidget.cpp \
@@ -39,14 +38,10 @@ SOURCES += \
     NPC/Widgets/DragDropAreaWidget.cpp \
     NPC/Utils/DataLoader.cpp \
     NPC/Utils/Dice.cpp \
-    NPC/Dialogs/NPCTrickManagerDialog.cpp \
-    NPC/Dialogs/NPCAttributeManagerDialog.cpp \
-    NPC/Dialogs/NPCSkicnessDialog.cpp \
     NPC/NPCCardObverse.cpp \
     NPC/NPCCardReverse.cpp \
     NPC/NPCCardTab.cpp \
     NPC/Utils/CardConverter.cpp \
-    NPC/Dialogs/NPCOriginManagerDialog.cpp \
     NPC/Dialogs/NPCCreatorDialog.cpp \
     NPC/Widgets/NPCAttributeManagerWidget.cpp \
     NPC/Widgets/NPCSpecializationManagerWidget.cpp \
@@ -65,7 +60,6 @@ SOURCES += \
 
 HEADERS += \
         MainWindow.h \
-    NPC/NPCCard.h \
     NPC/Widgets/NPCAttributesModsInfoWidget.h \
     NPC/Widgets/NPCAttributeWidget.h \
     NPC/Widgets/NPCAttributeValueWidget.h \
@@ -78,14 +72,10 @@ HEADERS += \
     NPC/Widgets/DragDropAreaWidget.h \
     NPC/Utils/DataLoader.h \
     NPC/Utils/Dice.h \
-    NPC/Dialogs/NPCTrickManagerDialog.h \
-    NPC/Dialogs/NPCAttributeManagerDialog.h \
-    NPC/Dialogs/NPCSkicnessDialog.h \
     NPC/NPCCardObverse.h \
     NPC/NPCCardReverse.h \
     NPC/NPCCardTab.h \
     NPC/Utils/CardConverter.h \
-    NPC/Dialogs/NPCOriginManagerDialog.h \
     NPC/Dialogs/NPCCreatorDialog.h \
     NPC/Widgets/NPCAttributeManagerWidget.h \
     NPC/Widgets/NPCSpecializationManagerWidget.h \

@@ -6,7 +6,7 @@
 #include <QAction>
 #include <QMenu>
 
-#include "NPC/NPCCard.h"
+//#include "NPC/NPCCard.h"
 #include "NPC/NPCCardTab.h"
 
 class MainWindow : public QMainWindow

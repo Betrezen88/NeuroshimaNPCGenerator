@@ -1,8 +1,8 @@
 ﻿#include "MainWindow.h"
 #include "NPC/Utils/CardConverter.h"
 #include "NPC/Utils/DataLoader.h"
-#include "NPC/Dialogs/NPCSkicnessDialog.h"
-#include "NPC/Dialogs/NPCOriginManagerDialog.h"
+//#include "NPC/Dialogs/NPCSkicnessDialog.h"
+//#include "NPC/Dialogs/NPCOriginManagerDialog.h"
 #include "NPC/Dialogs/NPCCreatorDialog.h"
 
 #include <QMenuBar>
