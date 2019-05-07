@@ -21,8 +21,7 @@ BUGS:
   nie znikają wcześniej wylosowane choroby
 
 In progress:
-- dodać specjalną klasę NPCSkillPackWidget dla pakietu "Wiedza ogólna", gdzie będzie można wybrać
-  umiejętności
+
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
@@ -117,3 +116,5 @@ FIXED:
 + punkty umiejętności 35, punkty na specjalizację 30
 + gdy punkty umiejętności z danej grupy się skończą się, pakietu nie można kupić, po cofnięciu
   wydanych punktów pakietów dalej nie można kupić przez zablokowanie checkboxa
++ dodać specjalną klasę NPCSkillPackWidget dla pakietu "Wiedza ogólna", gdzie będzie można wybrać
+  umiejętności
