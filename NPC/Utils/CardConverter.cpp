@@ -132,13 +132,13 @@ const QJsonArray CardConverter::packetsJson(const QHash<QString, NPCSkillpackVie
     return packetsArray;
 }
 
-const QJsonArray CardConverter::skillsJson(const QHash<QString, QLabel *> &skills) const
+const QJsonArray CardConverter::skillsJson(const QHash<QLabel*, QLabel *> &skills) const
 {
     QJsonArray skillsArray;
 
     for ( QLabel *skill: skills ) {
         QJsonObject skillObj;
-        skillObj.insert( "name", skills.key(skill) );
+        skillObj.insert( "name", skills.key(skill)->text() );
         skillObj.insert( "value", skill->text().toInt() );
         skillsArray.push_back( skillObj );
     }

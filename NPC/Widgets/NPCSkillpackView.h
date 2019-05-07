@@ -18,7 +18,7 @@ public:
     void addSpecialization(const QString &name);
     void addSkill(const QString &name);
 
-    QHash<QString, QLabel*> skills() const;
+    QHash<QLabel *, QLabel *> skills() const;
 
     const QString name() const;
 
@@ -38,7 +38,7 @@ private:
     QGridLayout *m_pLayout{nullptr};
 
     QStringList m_specializations;
-    QHash<QString, QLabel*> m_skills;
+    QHash<QLabel*, QLabel*> m_skills;
 
     const QString m_titleStyle{
         "QLabel#Title{"
