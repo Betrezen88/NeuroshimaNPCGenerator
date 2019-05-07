@@ -20,6 +20,8 @@
 - dodać klasę odpowiedzialną za inne umiejętności, użytkownik wybiera z przykładowych lub dodaje własne,
   każda z nich musi mieć info o atrybucie na którym się opiera
 
+- zmienić NPCSkillPack na szablon ?
+
 BUGS:
 - wielokrotne wciśnięcie przycisku losuj w zakładce Choroba nie odświerza listy wylosowanych chorób,
   nie znikają wcześniej wylosowane choroby
