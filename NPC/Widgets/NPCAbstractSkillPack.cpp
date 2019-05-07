@@ -69,7 +69,7 @@ void NPCAbstractSkillPack::onAvailableSkillPointsChanged(const int &skill, const
         m_pBougth->setDisabled( disable );
     }
     else {
-        const bool enable = (value >= 5) && !m_pBougth->isEnabled();
+        const bool enable = (value >= 5) && !m_pBougth->isEnabled() && m_pBougth->isChecked();
         m_pBougth->setEnabled( enable );
     }
     for ( SkillSpinBox *pSkill: m_skillValues )
