@@ -20,6 +20,14 @@ void NPCCustomSkillPack::addSkills(const QStringList &skills)
         m_pSkillsLayout->addWidget( pSpinBox );
         m_skillNames.push_back( pComboBox );
         m_skillValues.push_back( pSpinBox );
+
+        connect( pSpinBox, &SkillSpinBox::valueChanged,
+                 this, &NPCCustomSkillPack::enableBougthCheckbox );
+        connect( pSpinBox, &SkillSpinBox::skillValueChanged,
+                 [this](const int &value, const bool &increase) {
+                    emit this->skillValueChanged(value, m_specs, increase);
+                }
+        );
     }
 }
 
