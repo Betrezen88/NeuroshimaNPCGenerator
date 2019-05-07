@@ -49,6 +49,7 @@ protected:
     QLabel *m_pName{nullptr};
     QCheckBox *m_pBougth{nullptr};
     QGridLayout *m_pSkillsLayout{nullptr};
+    QVector<QWidget*> m_skillNames;
     QVector<SkillSpinBox*> m_skillValues;
 
     const QString m_skillPackWidgetStyle{ "QWidget#SkillPack{"

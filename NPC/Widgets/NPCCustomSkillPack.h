@@ -20,7 +20,6 @@ private slots:
     void enableBougthCheckbox();
 
 private:
-    QVector<QComboBox*> m_skillNames;
 };
 
 #endif // NPCCUSTOMSKILLPACK_H

@@ -16,7 +16,6 @@ private slots:
     void enableBougthCheckbox();
 
 private:
-    QVector<QLabel*> m_skillNames;
 };
 
 #endif // NPCSKILLPACK_H
