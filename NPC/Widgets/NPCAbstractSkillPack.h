@@ -43,6 +43,7 @@ protected slots:
 
 protected:
     void createTitleLabel(const QString &name, const QStringList &specs);
+    virtual int skillIndex(const QString &name) const = 0;
 
 protected:
     QString m_name;

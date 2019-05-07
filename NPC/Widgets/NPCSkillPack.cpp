@@ -57,3 +57,16 @@ void NPCSkillPack::enableBougthCheckbox()
     bool enable = (0 == sum) || (m_pBougth->isChecked());
     m_pBougth->setEnabled( enable );
 }
+
+int NPCSkillPack::skillIndex(const QString &name) const
+{
+    int index{0};
+    for ( QWidget *pSkill: m_skillNames ) {
+        QLabel *pLabel = qobject_cast<QLabel*>(pSkill);
+        if ( pLabel->text() == name ) {
+            index = m_skillNames.indexOf( pSkill );
+            break;
+        }
+    }
+    return index;
+}

@@ -64,3 +64,16 @@ void NPCCustomSkillPack::enableBougthCheckbox()
 
     m_pBougth->setEnabled( enable );
 }
+
+int NPCCustomSkillPack::skillIndex(const QString &name) const
+{
+    int index{0};
+    for ( QWidget *pSkill: m_skillNames ) {
+        QComboBox *pCombo = qobject_cast<QComboBox*>(pSkill);
+        if ( pCombo->currentText() == name ) {
+            index = m_skillNames.indexOf( pSkill );
+            break;
+        }
+    }
+    return index;
+}

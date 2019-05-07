@@ -16,6 +16,7 @@ private slots:
     void enableBougthCheckbox();
 
 private:
+    int skillIndex(const QString &name) const;
 };
 
 #endif // NPCSKILLPACK_H
