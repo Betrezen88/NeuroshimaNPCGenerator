@@ -1,16 +1,16 @@
 #ifndef NPCABSTRACTSKILLPACK_H
 #define NPCABSTRACTSKILLPACK_H
 
-#include <QWidget>
 
 #include <QCheckBox>
 #include <QGridLayout>
 #include <QLabel>
 #include <QVector>
 
+#include "NPCCustomWidget.h"
 #include "SkillSpinBox.h"
 
-class NPCAbstractSkillPack : public QWidget
+class NPCAbstractSkillPack : public NPCCustomWidget
 {
     Q_OBJECT
 public:

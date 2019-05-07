@@ -3,7 +3,7 @@
 NPCAbstractSkillPack::NPCAbstractSkillPack(const QString &name,
                                            const QStringList &specs,
                                            QWidget *parent)
-    : QWidget (parent),
+    : NPCCustomWidget (parent),
       m_name(name),
       m_specs(specs),
       m_pName(new QLabel(this)),
