@@ -53,6 +53,8 @@ bool NPCAbstractSkillPack::isBougth() const
 
 SkillSpinBox *NPCAbstractSkillPack::skill(const QString &name) const
 {
+    return m_skillValues.at( skillIndex(name) );
+}
 
 }
 
