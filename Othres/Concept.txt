@@ -1,6 +1,8 @@
 ﻿To Do:
 - Dodać opis pochodzenia do Origins.json
 
+- dodać możlwiość wpisania wartości atrybutów przy typie dowolny w NPCAttributeManagerWidget
+
 - dodać slot resetPoints() do NPCSkillsManagerWidget, używać przy zmianie bonusowych skillpontów
 
 - poprawić literówki pliku Sickness.json
@@ -8,9 +10,6 @@
 - dodać do karty zakładkę z ekwipunkiem
 
 - dodać do karty zakładkę z formularzem postaci oraz opisami, historią itp.
-
-- dodać metodę updateBougthTricks(), aby po zmianie wartości skilli sprawdzał czy postać może go
-  jeszcze mieć
 
 - dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
 
