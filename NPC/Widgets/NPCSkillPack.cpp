@@ -28,6 +28,19 @@ bool NPCSkillPack::hasSkill(const QString &name) const
     return false;
 }
 
+QVector<QPair<QString, int> > NPCSkillPack::skills()
+{
+    QVector<QPair<QString, int>> result;
+
+    for ( QWidget *pName: m_skillNames ) {
+        QLabel *pLabel = qobject_cast<QLabel*>(pName);
+        const QString name = pLabel->text();
+        result.push_back( QPair<QString, int>(name, m_skillValues.at(skillIndex(name))->value()) );
+    }
+
+    return result;
+}
+
 void NPCSkillPack::onBougth(const bool &checked)
 {
     int value = (checked) ? 1 : 0;

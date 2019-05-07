@@ -5,6 +5,7 @@
 #include <QCheckBox>
 #include <QGridLayout>
 #include <QLabel>
+#include <QPair>
 #include <QVector>
 
 #include "NPCCustomWidget.h"
@@ -27,6 +28,7 @@ public:
 
     virtual void addSkills(const QStringList &skills) = 0;
     virtual bool hasSkill(const QString &name) const = 0;
+    virtual QVector<QPair<QString, int>> skills() = 0;
 
 signals:
     void bougth(const bool &state, const QStringList &specs);

@@ -33,6 +33,19 @@ bool NPCCustomSkillPack::hasSkill(const QString &name) const
     return false;
 }
 
+QVector<QPair<QString, int> > NPCCustomSkillPack::skills()
+{
+    QVector<QPair<QString, int>> result;
+
+    for ( QWidget *pName: m_skillNames ) {
+        QComboBox *pCombo = qobject_cast<QComboBox*>(pName);
+        const QString name = pCombo->currentText();
+        result.push_back( QPair<QString, int>(name, m_skillValues.at(skillIndex(name))->value()) );
+    }
+
+    return result;
+}
+
 void NPCCustomSkillPack::onBougth(const bool &checked)
 {
     int value = (checked) ? 1 : 0;

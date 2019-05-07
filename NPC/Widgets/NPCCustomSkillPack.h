@@ -14,6 +14,7 @@ public:
 
     void addSkills(const QStringList &skills);
     bool hasSkill(const QString &name) const;
+    QVector<QPair<QString, int>> skills();
 
 private slots:
     void onBougth(const bool &checked);
