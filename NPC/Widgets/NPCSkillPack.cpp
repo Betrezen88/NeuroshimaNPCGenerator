@@ -20,9 +20,11 @@ void NPCSkillPack::addSkills(const QStringList &skills)
 
 bool NPCSkillPack::hasSkill(const QString &name) const
 {
-    for ( const QLabel *pSkill: m_skillNames )
-        if ( pSkill->text() == name )
+    for ( const QWidget *pSkill: m_skillNames ) {
+        const QLabel *pLabel = qobject_cast<const QLabel*>(pSkill);
+        if ( pLabel->text() == name )
             return true;
+    }
     return false;
 }
 

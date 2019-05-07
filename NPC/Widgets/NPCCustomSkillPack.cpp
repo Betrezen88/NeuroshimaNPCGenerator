@@ -25,9 +25,11 @@ void NPCCustomSkillPack::addSkills(const QStringList &skills)
 
 bool NPCCustomSkillPack::hasSkill(const QString &name) const
 {
-    for ( const QComboBox *pSkill: m_skillNames )
-        if ( name == pSkill->currentText() )
+    for ( const QWidget *pSkill: m_skillNames ) {
+        const QComboBox *pCombo = qobject_cast<const QComboBox*>(pSkill);
+        if ( pCombo->currentText() == name )
             return true;
+    }
     return false;
 }
 
