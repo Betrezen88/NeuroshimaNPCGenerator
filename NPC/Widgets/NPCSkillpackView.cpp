@@ -1,5 +1,7 @@
 #include "NPCSkillpackView.h"
 
+#include <QDebug>
+
 NPCSkillpackView::NPCSkillpackView(const QString &name,
                                    QWidget *parent)
     : NPCCustomWidget(parent),
@@ -37,15 +39,11 @@ void NPCSkillpackView::addSkill(const QString &name)
     pSkillValue->setObjectName( "Value" );
     pSkillValue->setStyleSheet( m_valueStyle );
     m_skills.insert( pSkillName, pSkillValue );
-    if ( m_skills.count() < 4 ) {
-        int row = m_skills.count();
-        m_pLayout->addWidget( pSkillName, row, 0, Qt::AlignLeft );
-        m_pLayout->addWidget( pSkillValue, row, 1, Qt::AlignRight );
-    }
-    else {
-        pSkillName->setHidden( true );
-        pSkillValue->setHidden( true );
-    }
+    int row = m_skills.count();
+    m_pLayout->addWidget( pSkillName, row, 0, Qt::AlignLeft );
+    m_pLayout->addWidget( pSkillValue, row, 1, Qt::AlignRight );
+    pSkillName->setHidden( true );
+    pSkillValue->setHidden( true );
 }
 
 QHash<QLabel*, QLabel *> NPCSkillpackView::skills() const
@@ -60,18 +58,12 @@ const QString NPCSkillpackView::name() const
 
 void NPCSkillpackView::setSkillValue(const QString &name, const int &value)
 {
-    for ( QLabel *pName: m_skills )
+    for ( QLabel *pName: m_skills.keys() ) {
         if ( pName->text() == name ) {
             m_skills.value(pName)->setText( QString::number(value) );
+            m_skills.value(pName)->setVisible( true );
+            pName->setVisible( true );
             break;
-        }
-
-    if ( m_skills.count() > 4 ) {
-        for ( QLabel *pName: m_skills ) {
-            if ( m_skills.value(pName)->text().toInt() > 0 ) {
-                pName->setVisible( true );
-                m_skills.value(pName)->setVisible( true );
-            }
         }
     }
 }
