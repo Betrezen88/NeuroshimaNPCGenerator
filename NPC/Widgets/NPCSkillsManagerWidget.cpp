@@ -1,6 +1,9 @@
 ﻿#include "NPCSkillsManagerWidget.h"
 #include "../Utils/DataLoader.h"
 
+#include "NPCSkillPack.h"
+#include "NPCCustomSkillPack.h"
+
 #include <QJsonValue>
 #include <QJsonObject>
 #include <QVBoxLayout>
@@ -54,13 +57,13 @@ void NPCSkillsManagerWidget::setBonusSkills(const QStringList &names, const int 
     for ( NPCAttributeWidget *attribute: m_attributes ) {
         for ( const QString &name: names ) {
             if ( attribute->skillPacks()->contains(name) ) {
-                NPCSkillPackWidget *skillpack = attribute->skillPacks()->value(name);
-                for ( QPair<const QLabel*, SkillSpinBox*> skill: skillpack->skills() ) {
-                    int minimum = skill.second->minimum() + value;
-                    int tValue = skill.second->value() + value;
+                NPCAbstractSkillPack *skillpack = attribute->skillPacks()->value(name);
+                for ( SkillSpinBox* skill: *skillpack->skillsValues() ) {
+                    int minimum = skill->minimum() + value;
+                    int tValue = skill->value() + value;
                     if ( 0 <= minimum ) {
-                        skill.second->setMinimum( minimum );
-                        skill.second->setValue( tValue );
+                        skill->setMinimum( minimum );
+                        skill->setValue( tValue );
                     }
                 }
                 break;
@@ -98,20 +101,28 @@ void NPCSkillsManagerWidget::setAttributes(const QJsonArray &attributes)
 
         for ( const QJsonValue tSkillpack: attribute.value("skillPacks").toArray() ) {
             const QJsonObject &skillpack = tSkillpack.toObject();
-            NPCSkillPackWidget *pSkillpack = new NPCSkillPackWidget(skillpack.value("name").toString(),
-                                                                 this);
+
+            QStringList skills;
+            for ( const QJsonValue skillName: skillpack.value("skills").toArray() )
+                skills << skillName.toString();
+
+            QStringList specs;
+            for ( const QJsonValue specName: skillpack.value("Specialization").toArray() )
+                specs << specName.toString();
+
+            NPCAbstractSkillPack *pSkillpack;
+            if ( skills.count() == 3 )
+                pSkillpack = new NPCSkillPack(skillpack.value("name").toString(), specs, this);
+            else
+                pSkillpack = new NPCCustomSkillPack(skillpack.value("name").toString(), specs, this);
             pSkillpack->setFixedHeight( 90 );
-            for ( const QJsonValue tSpec: skillpack.value("Specialization").toArray() )
-                pSkillpack->addSpecialization( tSpec.toString() );
+            pSkillpack->addSkills( skills );
 
-            for ( const QJsonValue tSkill: skillpack.value("skills").toArray() )
-                pSkillpack->addSkill( tSkill.toString(), new SkillSpinBox(this) );
-
-            connect( pSkillpack, &NPCSkillPackWidget::bougth,
+            connect( pSkillpack, &NPCAbstractSkillPack::bougth,
                   this, &NPCSkillsManagerWidget::buySkillPack );
             connect( this, &NPCSkillsManagerWidget::availableSkillpointsValueChanged,
-                  pSkillpack, &NPCSkillPackWidget::onAvailableSkillPointsChanged );
-            connect( pSkillpack, &NPCSkillPackWidget::skillValueChanged,
+                  pSkillpack, &NPCAbstractSkillPack::onAvailableSkillPointsChanged );
+            connect( pSkillpack, &NPCAbstractSkillPack::skillValueChanged,
                   this, &NPCSkillsManagerWidget::buySkill );
 
             m_attributes.value(name)->addSkillPack(skillpack.value("name").toString(), pSkillpack);

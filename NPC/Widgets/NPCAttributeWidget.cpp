@@ -25,17 +25,17 @@ NPCAttributeWidget::NPCAttributeWidget(const QString &name,
     pLayout->addWidget( createTitleBar(mods) );
 }
 
-QHash<QString, NPCSkillPackWidget *> *NPCAttributeWidget::skillPacks()
+QHash<QString, NPCAbstractSkillPack *> *NPCAttributeWidget::skillPacks()
 {
     return &m_skillPacks;
 }
 
-const QHash<QString, NPCSkillPackWidget *> *NPCAttributeWidget::skillPacks() const
+const QHash<QString, NPCAbstractSkillPack *> *NPCAttributeWidget::skillPacks() const
 {
     return &m_skillPacks;
 }
 
-void NPCAttributeWidget::addSkillPack(const QString &name, NPCSkillPackWidget *skillPack)
+void NPCAttributeWidget::addSkillPack(const QString &name, NPCAbstractSkillPack *skillPack)
 {
     m_skillPacks.insert( name, skillPack );
     layout()->addWidget( skillPack );

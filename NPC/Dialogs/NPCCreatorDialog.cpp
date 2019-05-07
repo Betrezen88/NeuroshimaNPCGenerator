@@ -49,13 +49,13 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
              [this](){
         for ( NPCAttributeWidget *tAttribute: *m_pSkillsManager->attributes() ) {
             const QString &attribute = m_pSkillsManager->attributes()->key( tAttribute );
-            for ( NPCSkillPackWidget *tSkillpack: *tAttribute->skillPacks() ) {
+            for ( NPCAbstractSkillPack *tSkillpack: *tAttribute->skillPacks() ) {
                 const QString &skillpack = tAttribute->skillPacks()->key( tSkillpack );
-                for ( QPair<const QLabel*, SkillSpinBox*> tSkill: tSkillpack->skills() )
+                for ( QPair<QString, int> tSkill: tSkillpack->skills() )
                     m_pCard->obverse()->setSkill( attribute,
                                                   skillpack,
-                                                  tSkill.first->text(),
-                                                  tSkill.second->value() );
+                                                  tSkill.first,
+                                                  tSkill.second );
             }
         }
 

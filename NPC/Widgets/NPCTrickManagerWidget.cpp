@@ -159,9 +159,9 @@ bool NPCTrickManagerWidget::isTrickAvailable(const NPCTrickWidgetItem *pItem) co
         for ( const QString &name: skills->keys() ) {
             if ( !name.isEmpty() )
                 for ( const QString &attribute: tAttributes ) {
-                    const QList<NPCSkillPackWidget*> &skillPacks =
+                    const QList<NPCAbstractSkillPack*> &skillPacks =
                             m_pAttributes->value(attribute)->skillPacks()->values();
-                    for ( const NPCSkillPackWidget *skillPack: skillPacks ) {
+                    for ( const NPCAbstractSkillPack *skillPack: skillPacks ) {
                         if ( skillPack->hasSkill(name) ) {
                             if ( skills->value(name) > skillPack->skill(name)->value() ) {
                                 skill = false;
@@ -177,9 +177,9 @@ bool NPCTrickManagerWidget::isTrickAvailable(const NPCTrickWidgetItem *pItem) co
         for ( const QString &name: orSkills->keys() ) {
             if ( !name.isEmpty() )
                 for ( const QString &attribute: tAttributes ) {
-                    const QList<NPCSkillPackWidget*> &skillPacks =
+                    const QList<NPCAbstractSkillPack*> &skillPacks =
                             m_pAttributes->value(attribute)->skillPacks()->values();
-                    for ( const NPCSkillPackWidget *skillPack: skillPacks ) {
+                    for ( const NPCAbstractSkillPack *skillPack: skillPacks ) {
                         if ( skillPack->hasSkill(name) ) {
                             if ( orSkills->value(name) > skillPack->skill(name)->value() ) {
                                 orSkill = false;
