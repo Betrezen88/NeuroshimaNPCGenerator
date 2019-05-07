@@ -8,7 +8,6 @@
 #include <QJsonArray>
 #include <QHash>
 
-//#include "NPCSkillPackWidget.h"
 #include "NPCAbstractSkillPack.h"
 #include "NPCAttributeValueWidget.h"
 

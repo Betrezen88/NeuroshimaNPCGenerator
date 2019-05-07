@@ -30,7 +30,6 @@ SOURCES += \
     NPC/Widgets/NPCAttributesModsInfoWidget.cpp \
     NPC/Widgets/NPCAttributeWidget.cpp \
     NPC/Widgets/NPCAttributeValueWidget.cpp \
-    NPC/Widgets/NPCSkillPackWidget.cpp \
     NPC/Widgets/NPCProgressWidget.cpp \
     NPC/Widgets/NPCTrickWidgetItem.cpp \
     NPC/Widgets/NPCTricksWidget.cpp \
@@ -63,7 +62,6 @@ HEADERS += \
     NPC/Widgets/NPCAttributesModsInfoWidget.h \
     NPC/Widgets/NPCAttributeWidget.h \
     NPC/Widgets/NPCAttributeValueWidget.h \
-    NPC/Widgets/NPCSkillPackWidget.h \
     NPC/Widgets/NPCProgressWidget.h \
     NPC/Widgets/NPCTrickManagerWidget.h \
     NPC/Widgets/NPCTricksWidget.h \
