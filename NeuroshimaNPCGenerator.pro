@@ -90,7 +90,8 @@ HEADERS += \
     NPC/Widgets/ReputationValueBox.h \
     NPC/Widgets/NPCCustomSkillPack.h \
     NPC/Widgets/NPCAbstractSkillPack.h \
-    NPC/Widgets/NPCSkillPack.h
+    NPC/Widgets/NPCSkillPack.h \
+    NPC/Widgets/NPCCustomWidget.h
 
 RESOURCES += \
     Resources/resources.qrc
