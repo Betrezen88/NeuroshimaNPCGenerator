@@ -3,6 +3,12 @@
 
 - dodać możlwiość wpisania wartości atrybutów przy typie dowolny w NPCAttributeManagerWidget
 
+- dodać opcję dodatkowej kostki przy losowaniu atrybutów
+
+- dodać logikę blokującą wybór wylosowanych atrybutów po pobraniu wartości z jednej grupy
+
+- dodać logikę odpowiedzialną za przydzielanie atrybutów automatycznie
+
 - dodać slot resetPoints() do NPCSkillsManagerWidget, używać przy zmianie bonusowych skillpontów
 
 - poprawić literówki pliku Sickness.json
@@ -20,12 +26,14 @@
 
 - zmienić NPCSkillPack na szablon ?
 
+- dodać logikę weryfikującą ukończenie procesu tworzenia postaci
+
 BUGS:
 - wielokrotne wciśnięcie przycisku losuj w zakładce Choroba nie odświerza listy wylosowanych chorób,
   nie znikają wcześniej wylosowane choroby
 
 In progress:
-
+- dodać opcję dodatkowej kostki przy losowaniu atrybutów
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
