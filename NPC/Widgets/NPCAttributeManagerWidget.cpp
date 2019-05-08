@@ -31,10 +31,11 @@ NPCAttributeManagerWidget::NPCAttributeManagerWidget(const QJsonArray *attribute
 
 QWidget * NPCAttributeManagerWidget::createResultRowWidget()
 {
+    int throws = (m_pExtraDice->isChecked()) ? 6 : 5;
     QWidget *pWidget = new QWidget;
 
     QHBoxLayout *pResultL = new QHBoxLayout;
-    for ( int j{0}; j<5; ++j ) {
+    for ( int j{0}; j<throws; ++j ) {
         DragDropAreaWidget *pDrag = new DragDropAreaWidget();
         int tRoll = roll();
         pDrag->addLabel( QString::number((tRoll>=8)?tRoll:8));
