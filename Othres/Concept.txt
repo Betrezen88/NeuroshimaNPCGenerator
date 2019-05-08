@@ -3,11 +3,7 @@
 
 - dodać możlwiość wpisania wartości atrybutów przy typie dowolny w NPCAttributeManagerWidget
 
-- dodać opcję dodatkowej kostki przy losowaniu atrybutów
-
 - dodać logikę blokującą wybór wylosowanych atrybutów po pobraniu wartości z jednej grupy
-
-- dodać logikę odpowiedzialną za przydzielanie atrybutów automatycznie
 
 - dodać slot resetPoints() do NPCSkillsManagerWidget, używać przy zmianie bonusowych skillpontów
 
@@ -33,7 +29,8 @@ BUGS:
   nie znikają wcześniej wylosowane choroby
 
 In progress:
-
+- dodać logikę odpowiedzialną za przydzielanie atrybutów automatycznie
+  * stworzyć nowy widget na wyniki rzutów za atrybut
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
