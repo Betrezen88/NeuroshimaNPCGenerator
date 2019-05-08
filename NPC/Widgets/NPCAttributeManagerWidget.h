@@ -29,14 +29,11 @@ public slots:
 
 private slots:
     void throwBtnClicked();
+    void distributeResults();
 
 private:
     QGroupBox *optionsBox();
     QGroupBox *attributesBox();
-
-    QWidget *createResultRowWidget();
-
-    int roll();
 
 private:
     const QJsonArray *m_attributes;
@@ -49,8 +46,6 @@ private:
     QGridLayout *m_pMainLayout{nullptr};
 
     QHash<QLabel*, DragDropAreaWidget*> m_results;
-
-    Dice d20{20};
 
     const QStringList m_distributionTypes{
         "Dowolny",

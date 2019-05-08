@@ -55,7 +55,8 @@ SOURCES += \
     NPC/Widgets/ReputationValueBox.cpp \
     NPC/Widgets/NPCCustomSkillPack.cpp \
     NPC/Widgets/NPCAbstractSkillPack.cpp \
-    NPC/Widgets/NPCSkillPack.cpp
+    NPC/Widgets/NPCSkillPack.cpp \
+    NPC/Widgets/NPCAttributeResultsRow.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -89,7 +90,8 @@ HEADERS += \
     NPC/Widgets/NPCCustomSkillPack.h \
     NPC/Widgets/NPCAbstractSkillPack.h \
     NPC/Widgets/NPCSkillPack.h \
-    NPC/Widgets/NPCCustomWidget.h
+    NPC/Widgets/NPCCustomWidget.h \
+    NPC/Widgets/NPCAttributeResultsRow.h
 
 RESOURCES += \
     Resources/resources.qrc

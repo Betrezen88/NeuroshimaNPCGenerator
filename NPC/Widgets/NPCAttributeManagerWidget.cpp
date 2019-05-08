@@ -1,4 +1,5 @@
 #include "NPCAttributeManagerWidget.h"
+#include "NPCAttributeResultsRow.h"
 
 #include <QGridLayout>
 #include <QJsonObject>
@@ -29,23 +30,6 @@ NPCAttributeManagerWidget::NPCAttributeManagerWidget(const QJsonArray *attribute
     setLayout( m_pMainLayout );
 }
 
-QWidget * NPCAttributeManagerWidget::createResultRowWidget()
-{
-    int throws = (m_pExtraDice->isChecked()) ? 6 : 5;
-    QWidget *pWidget = new QWidget;
-
-    QHBoxLayout *pResultL = new QHBoxLayout;
-    for ( int j{0}; j<throws; ++j ) {
-        DragDropAreaWidget *pDrag = new DragDropAreaWidget();
-        int tRoll = roll();
-        pDrag->addLabel( QString::number((tRoll>=8)?tRoll:8));
-        pResultL->addWidget( pDrag );
-    }
-    pWidget->setLayout( pResultL );
-
-    return pWidget;
-}
-
 void NPCAttributeManagerWidget::throwBtnClicked()
 {
     if ( nullptr != m_pResultBox ) {
@@ -53,25 +37,36 @@ void NPCAttributeManagerWidget::throwBtnClicked()
         delete m_pResultBox;
     }
 
+    int throws = (m_pExtraDice->isChecked()) ? 6 : 5;
     m_pResultBox = new QGroupBox( "Wyniki", this );
     QVBoxLayout *pLayout = new QVBoxLayout;
     for ( int i{0}; i<m_pRollCount->value(); ++i ) {
         QHBoxLayout *pRowLayout = new QHBoxLayout;
         QRadioButton *pRadioBtn = new QRadioButton(m_pResultBox);
-        QWidget *pWidget = createResultRowWidget();
+
+        NPCAttributeResultsRow *pRow = new NPCAttributeResultsRow( throws, this );
 
         connect( pRadioBtn, &QRadioButton::toggled,
-                 pWidget, &QWidget::setEnabled );
+                 pRow, &QWidget::setEnabled );
+        connect( pRadioBtn, &QRadioButton::toggled,
+                 this, &NPCAttributeManagerWidget::distributeResults );
 
         pRadioBtn->toggled( i == 0 );
         pRadioBtn->setChecked( i == 0 );
 
         pRowLayout->addWidget( pRadioBtn );
-        pRowLayout->addWidget( pWidget );
+        pRowLayout->addWidget( pRow );
         pLayout->addLayout( pRowLayout );
     }
     m_pResultBox->setLayout( pLayout );
     m_pMainLayout->addWidget( m_pResultBox, 1, 1 );
+}
+
+void NPCAttributeManagerWidget::distributeResults()
+{
+//    if ( m_distributionTypes[1] == m_pDistributeType->currentText() ) {
+
+//    }
 }
 
 QGroupBox *NPCAttributeManagerWidget::optionsBox()
@@ -117,13 +112,4 @@ QGroupBox *NPCAttributeManagerWidget::attributesBox()
     pAttributeBox->setLayout( pLayout );
 
     return pAttributeBox;
-}
-
-int NPCAttributeManagerWidget::roll()
-{
-    qreal result{0};
-    for ( int i{0}; i<3; ++i ) {
-        result += d20.throwValue();
-    }
-    return qCeil(result/3);
 }
