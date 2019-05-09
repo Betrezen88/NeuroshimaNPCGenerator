@@ -29,7 +29,7 @@ BUGS:
   nie znikają wcześniej wylosowane choroby
 
 In progress:
-- dodać logikę przydzielającą punkty atrybutów w trybie określonym i przy dodatkowej kości
+
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
@@ -129,3 +129,4 @@ FIXED:
 + dodać opcję dodatkowej kostki przy losowaniu atrybutów
 + dodać logikę odpowiedzialną za przydzielanie atrybutów automatycznie
   * stworzyć nowy widget na wyniki rzutów za atrybut
++ dodać logikę przydzielającą punkty atrybutów w trybie określonym i przy dodatkowej kości
