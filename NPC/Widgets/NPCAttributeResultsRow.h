@@ -13,6 +13,8 @@ class NPCAttributeResultsRow : public QWidget
 public:
     NPCAttributeResultsRow(const int &throws, QWidget *parent = nullptr);
 
+    QVector<DragDropAreaWidget*> results() const;
+
 private:
     void createRow();
     int roll();

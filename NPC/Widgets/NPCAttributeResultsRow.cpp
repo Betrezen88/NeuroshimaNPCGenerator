@@ -10,6 +10,11 @@ NPCAttributeResultsRow::NPCAttributeResultsRow(const int &throws, QWidget *paren
     createRow();
 }
 
+QVector<DragDropAreaWidget *> NPCAttributeResultsRow::results() const
+{
+    return m_results;
+}
+
 void NPCAttributeResultsRow::createRow()
 {
     for ( int i{0}; i<m_throws; ++i ) {
