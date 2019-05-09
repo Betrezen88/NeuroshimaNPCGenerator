@@ -1,11 +1,7 @@
 #include "NPCAttributeManagerWidget.h"
-#include "NPCAttributeResultsRow.h"
 
 #include <QGridLayout>
 #include <QJsonObject>
-#include <QLabel>
-#include <QRadioButton>
-#include <QtMath>
 
 NPCAttributeManagerWidget::NPCAttributeManagerWidget(const QJsonArray *attributes, QWidget *parent)
     : QWidget(parent),
@@ -57,6 +53,9 @@ void NPCAttributeManagerWidget::throwBtnClicked()
         pRowLayout->addWidget( pRadioBtn );
         pRowLayout->addWidget( pRow );
         pLayout->addLayout( pRowLayout );
+//        m_rows.insert( pRadioBtn, pRow );
+        m_radioBtn.push_back( pRadioBtn );
+        m_resultRows.push_back( pRow );
     }
     m_pResultBox->setLayout( pLayout );
     m_pMainLayout->addWidget( m_pResultBox, 1, 1 );
@@ -97,7 +96,9 @@ QGroupBox *NPCAttributeManagerWidget::attributesBox()
         const QJsonObject &attribute = tAttribute.toObject();
         QLabel *pLabel = new QLabel(attribute.value("name").toString());
         DragDropAreaWidget *pDragDrop = new DragDropAreaWidget(this);
-        m_results.insert( pLabel, pDragDrop );
+        m_attributesNames.push_back( pLabel );
+        m_attributesValues.push_back( pDragDrop );
+
         pLayout->addWidget( pLabel, row, 0 );
         pLayout->addWidget( pDragDrop, row, 1 );
 

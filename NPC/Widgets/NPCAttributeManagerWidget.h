@@ -7,13 +7,14 @@
 #include <QComboBox>
 #include <QGridLayout>
 #include <QGroupBox>
-#include <QHash>
 #include <QJsonArray>
 #include <QPushButton>
 #include <QSpinBox>
+#include <QLabel>
+#include <QRadioButton>
 
 #include "../Utils/Dice.h"
-#include "../Widgets/DragDropAreaWidget.h"
+#include "NPCAttributeResultsRow.h"
 
 class NPCAttributeManagerWidget : public QWidget
 {
@@ -45,7 +46,11 @@ private:
 
     QGridLayout *m_pMainLayout{nullptr};
 
-    QHash<QLabel*, DragDropAreaWidget*> m_results;
+    QVector<QLabel*> m_attributesNames;
+    QVector<DragDropAreaWidget*> m_attributesValues;
+
+    QVector<QRadioButton*> m_radioBtn;
+    QVector<NPCAttributeResultsRow*> m_resultRows;
 
     const QStringList m_distributionTypes{
         "Dowolny",
