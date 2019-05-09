@@ -63,9 +63,19 @@ void NPCAttributeManagerWidget::throwBtnClicked()
 
 void NPCAttributeManagerWidget::distributeResults()
 {
-//    if ( m_distributionTypes[1] == m_pDistributeType->currentText() ) {
-
-//    }
+    if ( m_distributionTypes[1] == m_pDistributeType->currentText() ) {
+        for ( QRadioButton *pRadioBtn: m_radioBtn ) {
+            if ( pRadioBtn->isChecked() ) {
+                int index{0};
+                for ( DragDropAreaWidget *pDrag:
+                      m_resultRows.at(m_radioBtn.indexOf(pRadioBtn))->results() ) {
+                    m_attributesValues.at(index)->addLabel( QString::number(pDrag->value()) );
+                    ++index;
+                }
+                break;
+            }
+        }
+    }
 }
 
 QGroupBox *NPCAttributeManagerWidget::optionsBox()
