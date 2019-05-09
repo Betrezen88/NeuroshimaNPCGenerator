@@ -23,7 +23,6 @@ public:
     explicit NPCAttributeManagerWidget(const QJsonArray *attributes, QWidget *parent = nullptr);
 
 signals:
-    void attributesChanged(QHash<QString,int> attributes);
     void attributeChanged(const QString &name, const int &value);
 
 public slots:
