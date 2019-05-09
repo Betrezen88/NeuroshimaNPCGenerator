@@ -17,6 +17,9 @@ DragDropAreaWidget::DragDropAreaWidget(QWidget *parent) : QWidget(parent)
 
 void DragDropAreaWidget::addLabel(const QString &text)
 {
+    if ( m_pLabel != nullptr )
+        m_pLabel->deleteLater();
+
     m_pLabel = new QLabel( text, this );
     changeHasLabel( true );
 
