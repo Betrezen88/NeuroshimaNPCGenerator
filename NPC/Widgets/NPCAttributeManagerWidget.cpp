@@ -53,7 +53,7 @@ void NPCAttributeManagerWidget::throwBtnClicked()
         pRowLayout->addWidget( pRadioBtn );
         pRowLayout->addWidget( pRow );
         pLayout->addLayout( pRowLayout );
-//        m_rows.insert( pRadioBtn, pRow );
+
         m_radioBtn.push_back( pRadioBtn );
         m_resultRows.push_back( pRow );
     }
@@ -67,10 +67,20 @@ void NPCAttributeManagerWidget::distributeResults()
         for ( QRadioButton *pRadioBtn: m_radioBtn ) {
             if ( pRadioBtn->isChecked() ) {
                 int index{0};
-                for ( DragDropAreaWidget *pDrag:
-                      m_resultRows.at(m_radioBtn.indexOf(pRadioBtn))->results() ) {
-                    m_attributesValues.at(index)->addLabel( QString::number(pDrag->value()) );
+                QVector<DragDropAreaWidget*> values =
+                        m_resultRows.at(m_radioBtn.indexOf(pRadioBtn))->results();
+                DragDropAreaWidget *pMin = values.first();
+                for ( DragDropAreaWidget *pAttribute: m_attributesValues ) {
+                    pAttribute->addLabel( QString::number(values.at(index)->value()) );
+                    if ( pMin->value() > pAttribute->value() )
+                        pMin = pAttribute;
                     ++index;
+                }
+                if ( m_pExtraDice->isChecked() ) {
+                    const int value = values.at(index)->value();
+
+                    if ( pMin->value() < value )
+                        pMin->addLabel( QString::number(value) );
                 }
                 break;
             }
