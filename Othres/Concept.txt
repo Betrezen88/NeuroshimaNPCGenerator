@@ -17,9 +17,6 @@
 
 - dodać zakładkę z wyborem znajomych oraz rozdysponowaniem gambli na nich
 
-- dodać klasę odpowiedzialną za inne umiejętności, użytkownik wybiera z przykładowych lub dodaje własne,
-  każda z nich musi mieć info o atrybucie na którym się opiera
-
 - zmienić NPCSkillPack na szablon ?
 
 - dodać logikę weryfikującą ukończenie procesu tworzenia postaci
@@ -29,7 +26,8 @@ BUGS:
   nie znikają wcześniej wylosowane choroby
 
 In progress:
-
+- dodać klasę odpowiedzialną za inne umiejętności, użytkownik wybiera z przykładowych lub dodaje własne,
+  każda z nich musi mieć info o atrybucie na którym się opiera
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
