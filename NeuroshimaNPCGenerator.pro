@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     NPC/Widgets/NPCOtherSkills.cpp \
+    NPC/Widgets/NPCSkillChoose.cpp \
     NPC/Widgets/NPCTrickManagerWidget.cpp \
         main.cpp \
         MainWindow.cpp \
@@ -66,6 +67,7 @@ HEADERS += \
     NPC/Widgets/NPCAttributeValueWidget.h \
     NPC/Widgets/NPCOtherSkills.h \
     NPC/Widgets/NPCProgressWidget.h \
+    NPC/Widgets/NPCSkillChoose.h \
     NPC/Widgets/NPCTrickManagerWidget.h \
     NPC/Widgets/NPCTricksWidget.h \
     NPC/Widgets/NPCTrickWidgetItem.h \
