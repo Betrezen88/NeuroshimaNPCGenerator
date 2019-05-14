@@ -75,12 +75,20 @@ void NPCOtherSkills::addSkill(const QString name, const QString attribute)
     QListWidgetItem *pItem = new QListWidgetItem();
 
     QWidget *pWidget = new QWidget();
+    QPushButton *pRemoveBtn = new QPushButton("X");
+    pRemoveBtn->setMaximumWidth( 30 );
     QHBoxLayout *pLayout = new QHBoxLayout;
     pLayout->addWidget( m_skillNames.last() );
     pLayout->addWidget( m_attributeNames.last() );
     pLayout->addWidget( pSkillBox );
+    pLayout->addWidget( pRemoveBtn );
     pWidget->setLayout( pLayout );
     pItem->setSizeHint( pWidget->sizeHint() );
+
+    connect( pRemoveBtn, &QPushButton::clicked,
+             [this, pItem, pSkillBox](){
+        emit this->removeSkill(pItem, m_skillValues.indexOf(pSkillBox));
+    } );
 
     m_pSkills->addItem( pItem );
     m_pSkills->setItemWidget( pItem, pWidget );
@@ -98,6 +106,14 @@ void NPCOtherSkills::showSkillChooseDialog()
              pDialog, &QDialog::close );
 
     pDialog->show();
+}
+
+void NPCOtherSkills::removeSkill(QListWidgetItem *row, int index)
+{
+    m_skillNames.removeAt(index);
+    m_skillValues.removeAt(index);
+    m_attributeNames.removeAt(index);
+    delete m_pSkills->takeItem( m_pSkills->row(row) );
 }
 
 bool NPCOtherSkills::isSkillOnList(const QString &name)

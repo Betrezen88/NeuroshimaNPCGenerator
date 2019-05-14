@@ -27,6 +27,7 @@ public slots:
 private slots:
     void addSkill(const QString name, const QString attribute);
     void showSkillChooseDialog();
+    void removeSkill(QListWidgetItem *row, int index);
 
 private:
     bool isSkillOnList(const QString &name);
