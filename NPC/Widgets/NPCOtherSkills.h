@@ -29,6 +29,9 @@ private slots:
     void showSkillChooseDialog();
 
 private:
+    bool isSkillOnList(const QString &name);
+
+private:
     QLabel *m_pName{nullptr};
     QPushButton *m_pAddBtn{nullptr};
     QListWidget *m_pSkills{nullptr};

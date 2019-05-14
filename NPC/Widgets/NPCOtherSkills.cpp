@@ -6,6 +6,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QMessageBox>
 
 NPCOtherSkills::NPCOtherSkills(QWidget *parent)
     : NPCCustomWidget (parent),
@@ -51,6 +52,14 @@ QVector<QStringList> NPCOtherSkills::skills() const
 
 void NPCOtherSkills::addSkill(const QString name, const QString attribute)
 {
+    if ( isSkillOnList(name) ) {
+        QMessageBox::information(this,
+                                 "Zdublowana umiejętność",
+                                 "Umiejętność \""+name+"\" została już dodana wcześniej.",
+                                 QMessageBox::Ok);
+        return;
+    }
+
     SkillSpinBox *pSkillBox = new SkillSpinBox(this);
     pSkillBox->setMaximumWidth( 100 );
 
@@ -89,6 +98,14 @@ void NPCOtherSkills::showSkillChooseDialog()
              pDialog, &QDialog::close );
 
     pDialog->show();
+}
+
+bool NPCOtherSkills::isSkillOnList(const QString &name)
+{
+    for ( QLabel *pName: m_skillNames )
+        if ( name == pName->text() )
+            return true;
+    return false;
 }
 
 void NPCOtherSkills::onAvailableSkillpointsChanged(const int &skill)
