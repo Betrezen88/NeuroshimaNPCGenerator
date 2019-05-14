@@ -16,6 +16,8 @@ NPCOtherSkills::NPCOtherSkills(QWidget *parent)
     setObjectName( "OtherSkills" );
     setStyleSheet( m_style );
 
+    m_pName->setObjectName( "Title" );
+    m_pName->setStyleSheet( m_title );
     m_pAddBtn->setMaximumWidth( 50 );
 
     connect( m_pAddBtn, &QPushButton::clicked,

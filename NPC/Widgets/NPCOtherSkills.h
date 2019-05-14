@@ -44,6 +44,13 @@ private:
         " padding: 5px;"
         "}"
     };
+
+    const QString m_title {
+        "QLabel#Title{"
+        " padding-left: 5px;"
+        " font: 12 bold;"
+        "}"
+    };
 };
 
 #endif // NPCOTHERSKILLS_H
