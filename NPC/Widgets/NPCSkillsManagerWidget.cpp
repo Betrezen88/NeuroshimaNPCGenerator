@@ -13,10 +13,19 @@
 NPCSkillsManagerWidget::NPCSkillsManagerWidget(const QJsonArray *attributes, QWidget *parent)
     : QWidget(parent),
       m_pSkillPointsLabel(new QLabel(this)),
-      m_pSpecPointsLabel(new QLabel(this))
+      m_pSpecPointsLabel(new QLabel(this)),
+      m_pOtherSkills(new NPCOtherSkills(this))
 {
     setAttributes( *attributes );
     updateInfoLabels();
+
+    connect( m_pOtherSkills, &NPCOtherSkills::skillValueChanged,
+             this, &NPCSkillsManagerWidget::buySkill );
+    connect( this, &NPCSkillsManagerWidget::availableSkillpointsValueChanged,
+             [this](const int &skill, const int &specs, const QString &spec){
+                Q_UNUSED(specs); Q_UNUSED(spec);
+                this->m_pOtherSkills->onAvailableSkillpointsChanged(skill);
+    } );
 
     QHBoxLayout *pLayout = new QHBoxLayout;
     pLayout->addLayout( columnA() );
@@ -167,6 +176,7 @@ QVBoxLayout *NPCSkillsManagerWidget::columnC()
     QVBoxLayout *pLayout = new QVBoxLayout;
     pLayout->addWidget( infoLabels() );
     pLayout->addWidget( m_attributes.value("Spryt") );
+    pLayout->addWidget( m_pOtherSkills );
     pLayout->setSpacing( 1 );
     return pLayout;
 }

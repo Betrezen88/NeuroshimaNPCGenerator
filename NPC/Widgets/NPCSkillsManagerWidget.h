@@ -8,6 +8,7 @@
 #include <QJsonObject>
 
 #include "../Widgets/NPCAttributeWidget.h"
+#include "NPCOtherSkills.h"
 
 class NPCSkillsManagerWidget : public QWidget
 {
@@ -16,6 +17,7 @@ public:
     explicit NPCSkillsManagerWidget(const QJsonArray *attributes, QWidget *parent = nullptr);
 
     const QHash<const QString, NPCAttributeWidget*> *attributes() const;
+    NPCOtherSkills otherSkills() const;
 
 signals:
     void skillPointsValueChanged(const int &value);
@@ -47,6 +49,7 @@ private:
 private:
     QLabel *m_pSkillPointsLabel{nullptr};
     QLabel *m_pSpecPointsLabel{nullptr};
+    NPCOtherSkills *m_pOtherSkills{nullptr};
 
     QHash<const QString, NPCAttributeWidget*> m_attributes;
 
