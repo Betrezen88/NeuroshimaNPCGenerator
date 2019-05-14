@@ -9,6 +9,7 @@
         <file>json/Tricks.json</file>
         <file>json/Questions.json</file>
         <file>json/Reputation.json</file>
+        <file>json/OtherSkills.json</file>
     </qresource>
     <qresource prefix="/images">
         <file>icons/Neuroshima_icon.png</file>

@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Bumerang",
+        "attribute": "Zręczność"
+    },
+    {
+        "name": "Pilotowanie samolotu",
+        "attribute": "Spryt"
+    },
+    {
+        "name": "Lotnie",
+        "attribute": "Zręczność"
+    },
+    {
+        "name": "Pilotowanie motorówek",
+        "attribute": "Zręczność"
+    },
+    {
+        "name": "Gra na instrumencie",
+        "attribute": "Percepcja"
+    },
+    {
+        "name": "Malowanie",
+        "attribute": "Percepcja"
+    }
+]

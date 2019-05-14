@@ -100,6 +100,7 @@ RESOURCES += \
 
 DISTFILES += \
     Othres/Concept.txt \
+    Resources/json/OtherSkills.json \
     json/Origins.json \
     json/Attributes.json \
     json/Specializations.json \
