@@ -26,6 +26,7 @@ public slots:
 
 private slots:
     void addSkill(const QString name, const QString attribute);
+    void showSkillChooseDialog();
 
 private:
     QLabel *m_pName{nullptr};

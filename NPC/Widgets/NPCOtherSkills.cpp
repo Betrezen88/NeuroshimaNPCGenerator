@@ -1,5 +1,7 @@
 #include "NPCOtherSkills.h"
+#include "NPCSkillChoose.h"
 
+#include <QDialog>
 #include <QHBoxLayout>
 #include <QJsonArray>
 #include <QJsonObject>
@@ -73,6 +75,19 @@ void NPCOtherSkills::addSkill(const QString name, const QString attribute)
     m_pSkills->setItemWidget( pItem, pWidget );
 }
 
+void NPCOtherSkills::showSkillChooseDialog()
+{
+    QDialog *pDialog = new QDialog(this);
+    pDialog->setAttribute( Qt::WA_DeleteOnClose );
+    NPCSkillChoose *pSkillChoose = new NPCSkillChoose(pDialog);
+
+    connect( pSkillChoose, &NPCSkillChoose::otherSkillChoosed,
+             this, &NPCOtherSkills::addSkill );
+    connect( pSkillChoose, &NPCSkillChoose::closeWidget,
+             pDialog, &QDialog::close );
+
+    pDialog->show();
+}
 
 void NPCOtherSkills::onAvailableSkillpointsChanged(const int &skill)
 {
