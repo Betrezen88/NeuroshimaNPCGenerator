@@ -74,6 +74,11 @@ void NPCCardObverse::setSkill(const QString &attribute,
     m_attributes.value(attribute)->setSkillValue(skillpack, skill, value);
 }
 
+void NPCCardObverse::setOtherSkill(const QString &name, const QString &attribute, const int &value)
+{
+    m_pOtherSkills->addSkill( name, attribute, value );
+}
+
 void NPCCardObverse::setOriginBonus(const QString &bonus)
 {
     m_originBonus = bonus;

@@ -60,6 +60,9 @@ public slots:
                   const QString &skillpack,
                   const QString &skill,
                   const int &value);
+    void setOtherSkill(const QString &name,
+                       const QString &attribute,
+                       const int &value);
     void setOriginBonus(const QString &bonus);
     void setProfessionBonus(const QString &bonus);
 
