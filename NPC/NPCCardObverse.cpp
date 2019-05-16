@@ -376,14 +376,8 @@ QVBoxLayout *NPCCardObverse::column2()
 {
     QVBoxLayout *pLayout = new QVBoxLayout;
 
-//    pLayout->addWidget( createSpecialLabel(
-//                            "Współczynniki i umiejętności",
-//                            "Title",
-//                            m_titleStyle,
-//                            0, 40) );
     pLayout->addWidget( m_attributes.value("Budowa") );
     pLayout->addWidget( m_attributes.value("Zręczność") );
-//    pLayout->addWidget( m_pAttributesModsInfo );
 
     pLayout->addStretch();
     pLayout->setMargin( 0 );
@@ -397,7 +391,6 @@ QVBoxLayout *NPCCardObverse::column3()
 
     pLayout->addWidget( m_attributes.value("Charakter") );
     pLayout->addWidget( m_attributes.value("Percepcja") );
-//    pLayout->addWidget( createSpecialLabel("Punkty Rozwoju", "Title", m_titleStyle, 0, 40) );
 
     pLayout->addStretch();
     pLayout->setMargin( 0 );
