@@ -1,5 +1,7 @@
 #include "NPCCreatorDialog.h"
 
+#include "../Widgets/NPCOtherSkillsView.h"
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
@@ -57,6 +59,13 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
                                                   tSkill.first,
                                                   tSkill.second );
             }
+        }
+        for ( QLabel *pName: m_pSkillsManager->otherSkills()->skills().keys() ) {
+            QPair<QLabel*, SkillSpinBox*> pair =
+                    m_pSkillsManager->otherSkills()->skills().value(pName);
+            m_pCard->obverse()->otherSkills()->addSkill( pName->text(),
+                                                         pair.first->text(),
+                                                         pair.second->value() );
         }
 
         m_pCard->obverse()->setTricks( m_pTricksManager->tricks() );
