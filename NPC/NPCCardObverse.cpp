@@ -4,6 +4,7 @@
 
 #include "Widgets/NPCAttributeView.h"
 #include "Widgets/NPCSkillpackView.h"
+#include "Widgets/NPCOtherSkillsView.h"
 
 #include <QHBoxLayout>
 #include <QDebug>
@@ -21,7 +22,8 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
       m_pReputation(new QSpinBox(this)),
       m_pFame(new QSpinBox(this)),
       m_pBonus(new QLabel(this)),
-      m_pTricks(new QListWidget(this))
+      m_pTricks(new QListWidget(this)),
+      m_pOtherSkills(new NPCOtherSkillsView("Inne Umiejętności", this))
 {
     setAttributes( DataLoader::loadJson(":/data/json/Attributes.json") );
     m_attributesMods = DataLoader::loadJson( ":/data/json/DifficultyLevel.json" );
@@ -395,9 +397,14 @@ QVBoxLayout *NPCCardObverse::column3()
 
 QVBoxLayout *NPCCardObverse::column4()
 {
+    QHBoxLayout *pOtherLayout = new QHBoxLayout;
+    pOtherLayout->addWidget( m_pOtherSkills, 0, Qt::AlignRight );
+    pOtherLayout->addSpacing( 9 );
+
     QVBoxLayout *pLayout = new QVBoxLayout;
 
     pLayout->addWidget( m_attributes.value("Spryt") );
+    pLayout->addLayout( pOtherLayout );
 
     pLayout->addStretch();
     pLayout->setMargin( 0 );

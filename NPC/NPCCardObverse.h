@@ -19,6 +19,8 @@
 #include "Widgets/NPCAttributesModsInfoWidget.h"
 #include "Widgets/NPCProgressWidget.h"
 
+class NPCOtherSkillsView;
+
 class NPCCardObverse : public QWidget
 {
     Q_OBJECT
@@ -104,6 +106,7 @@ private:
     // Others widgets
     QListWidget *m_pTricks{nullptr};
     NPCAttributesModsInfoWidget *m_pAttributesModsInfo{nullptr};
+    NPCOtherSkillsView *m_pOtherSkills{nullptr};
 
     // Data containers
     QHash<QString, NPCAttributeView*> m_attributes{};
