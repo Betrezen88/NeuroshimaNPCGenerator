@@ -40,6 +40,11 @@ const QHash<const QString, NPCAttributeWidget *> *NPCSkillsManagerWidget::attrib
     return &m_attributes;
 }
 
+NPCOtherSkills *NPCSkillsManagerWidget::otherSkills() const
+{
+    return m_pOtherSkills;
+}
+
 void NPCSkillsManagerWidget::setAttributeValue(const QString &name, const int &value)
 {
     m_attributes[name]->setValue( value );

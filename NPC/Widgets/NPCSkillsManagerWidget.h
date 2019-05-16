@@ -17,7 +17,7 @@ public:
     explicit NPCSkillsManagerWidget(const QJsonArray *attributes, QWidget *parent = nullptr);
 
     const QHash<const QString, NPCAttributeWidget*> *attributes() const;
-    NPCOtherSkills otherSkills() const;
+    NPCOtherSkills *otherSkills() const;
 
 signals:
     void skillPointsValueChanged(const int &value);
