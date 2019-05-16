@@ -26,8 +26,7 @@ BUGS:
   nie znikają wcześniej wylosowane choroby
 
 In progress:
-- dodać klasę odpowiedzialną za inne umiejętności, użytkownik wybiera z przykładowych lub dodaje własne,
-  każda z nich musi mieć info o atrybucie na którym się opiera
+
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
@@ -128,3 +127,6 @@ FIXED:
 + dodać logikę odpowiedzialną za przydzielanie atrybutów automatycznie
   * stworzyć nowy widget na wyniki rzutów za atrybut
 + dodać logikę przydzielającą punkty atrybutów w trybie określonym i przy dodatkowej kości
++ dodać klasę odpowiedzialną za inne umiejętności, użytkownik wybiera z przykładowych lub dodaje własne,
+  każda z nich musi mieć info o atrybucie na którym się opiera
++ dodać widget prezentujący inne umiejętności na karcie
