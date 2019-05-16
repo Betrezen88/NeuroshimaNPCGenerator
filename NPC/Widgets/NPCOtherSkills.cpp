@@ -35,19 +35,9 @@ NPCOtherSkills::NPCOtherSkills(QWidget *parent)
     setLayout( pLayout );
 }
 
-QVector<QStringList> NPCOtherSkills::skills() const
+QHash<QLabel *, QPair<QLabel *, SkillSpinBox *> > NPCOtherSkills::skills() const
 {
-    QVector<QStringList> values;
-
-    for ( int i=0; i<m_skillNames.count(); ++i ) {
-        QStringList row;
-        row << m_skillNames.at(i)->text()
-            << m_attributeNames.at(i)->text()
-            << QString::number(m_skillValues.at(i)->value());
-        values.push_back( row );
-    }
-
-    return values;
+    return m_skills;
 }
 
 void NPCOtherSkills::addSkill(const QString name, const QString attribute)
@@ -60,6 +50,8 @@ void NPCOtherSkills::addSkill(const QString name, const QString attribute)
         return;
     }
 
+    QLabel *pName = new QLabel(name);
+    QLabel *pAttribute = new QLabel(attribute);
     SkillSpinBox *pSkillBox = new SkillSpinBox(this);
     pSkillBox->setMaximumWidth( 100 );
 
@@ -68,9 +60,7 @@ void NPCOtherSkills::addSkill(const QString name, const QString attribute)
         emit this->skillValueChanged( value, QStringList(), increase );
     } );
 
-    m_skillNames.push_back( new QLabel(name) );
-    m_attributeNames.push_back( new QLabel(attribute) );
-    m_skillValues.push_back( pSkillBox );
+    m_skills.insert( pName, QPair<QLabel*, SkillSpinBox*>(pAttribute, pSkillBox) );
 
     QListWidgetItem *pItem = new QListWidgetItem();
 
@@ -78,16 +68,16 @@ void NPCOtherSkills::addSkill(const QString name, const QString attribute)
     QPushButton *pRemoveBtn = new QPushButton("X");
     pRemoveBtn->setMaximumWidth( 30 );
     QHBoxLayout *pLayout = new QHBoxLayout;
-    pLayout->addWidget( m_skillNames.last() );
-    pLayout->addWidget( m_attributeNames.last() );
+    pLayout->addWidget( pName );
+    pLayout->addWidget( pAttribute );
     pLayout->addWidget( pSkillBox );
     pLayout->addWidget( pRemoveBtn );
     pWidget->setLayout( pLayout );
     pItem->setSizeHint( pWidget->sizeHint() );
 
     connect( pRemoveBtn, &QPushButton::clicked,
-             [this, pItem, pSkillBox](){
-        emit this->removeSkill(pItem, m_skillValues.indexOf(pSkillBox));
+             [this, pItem, pName](){
+        emit this->removeSkill(pItem, pName);
     } );
 
     m_pSkills->addItem( pItem );
@@ -108,17 +98,15 @@ void NPCOtherSkills::showSkillChooseDialog()
     pDialog->show();
 }
 
-void NPCOtherSkills::removeSkill(QListWidgetItem *row, int index)
+void NPCOtherSkills::removeSkill(QListWidgetItem *row, QLabel *name)
 {
-    m_skillNames.removeAt(index);
-    m_skillValues.removeAt(index);
-    m_attributeNames.removeAt(index);
+    m_skills.remove(name);
     delete m_pSkills->takeItem( m_pSkills->row(row) );
 }
 
 bool NPCOtherSkills::isSkillOnList(const QString &name)
 {
-    for ( QLabel *pName: m_skillNames )
+    for ( QLabel *pName: m_skills.keys() )
         if ( name == pName->text() )
             return true;
     return false;
@@ -126,6 +114,6 @@ bool NPCOtherSkills::isSkillOnList(const QString &name)
 
 void NPCOtherSkills::onAvailableSkillpointsChanged(const int &skill)
 {
-    for ( SkillSpinBox *pSkill: m_skillValues )
-        pSkill->onAvailableSkillPointsChanged( skill );
+    for ( QPair<QLabel*, SkillSpinBox*> pair: m_skills )
+        pair.second->onAvailableSkillPointsChanged( skill );
 }

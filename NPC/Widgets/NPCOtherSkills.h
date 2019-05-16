@@ -16,7 +16,7 @@ class NPCOtherSkills : public NPCCustomWidget
 public:
     NPCOtherSkills(QWidget *parent = nullptr);
 
-    QVector<QStringList> skills() const;
+    QHash<QLabel*, QPair<QLabel*, SkillSpinBox*>> skills() const;
 
 signals:
     void skillValueChanged(const int &value, const QStringList &specs, const bool &increase);
@@ -27,7 +27,7 @@ public slots:
 private slots:
     void addSkill(const QString name, const QString attribute);
     void showSkillChooseDialog();
-    void removeSkill(QListWidgetItem *row, int index);
+    void removeSkill(QListWidgetItem *row, QLabel *name);
 
 private:
     bool isSkillOnList(const QString &name);
@@ -37,9 +37,7 @@ private:
     QPushButton *m_pAddBtn{nullptr};
     QListWidget *m_pSkills{nullptr};
 
-    QVector<QLabel*> m_skillNames;
-    QVector<QLabel*> m_attributeNames;
-    QVector<SkillSpinBox*> m_skillValues;
+    QHash<QLabel*, QPair<QLabel*, SkillSpinBox*>> m_skills;
 
     const QString m_style {
         "QWidget#OtherSkills{"
