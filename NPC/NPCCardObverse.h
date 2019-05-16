@@ -43,6 +43,7 @@ public:
     int fame() const;
 
     const QListWidget *tricks() const;
+    NPCOtherSkillsView *otherSkills();
 
 public slots:
     void setName(const QString &name);

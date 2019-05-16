@@ -264,6 +264,11 @@ const QListWidget *NPCCardObverse::tricks() const
     return m_pTricks;
 }
 
+NPCOtherSkillsView *NPCCardObverse::otherSkills()
+{
+    return m_pOtherSkills;
+}
+
 void NPCCardObverse::setName(const QString &name)
 {
     m_pName->setText( name );
