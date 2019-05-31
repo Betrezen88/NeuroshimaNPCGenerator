@@ -21,6 +21,8 @@
 
 #include <QJsonArray>
 
+class NPCShop;
+
 class NPCCreatorDialog : public QDialog
 {
     Q_OBJECT
@@ -47,6 +49,7 @@ private:
     NPCTrickManagerWidget *m_pTricksManager{nullptr};
     NPCBioManagerWidget *m_pBioManager{nullptr};
     NPCReputationManagerWidget *m_pReputationManager{nullptr};
+    NPCShop *m_pShop{nullptr};
 };
 
 #endif // NPCCREATORDIALOG_H
