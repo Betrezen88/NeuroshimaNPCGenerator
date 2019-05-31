@@ -1,0 +1,1029 @@
+[
+    {
+        "category": "Broń",
+        "subcategories": [
+            {
+                "name": "Broń biała",
+                "items": [
+                    {
+                        "name": "Kastet",
+                        "type": "Broń biała",
+                        "availability": 80,
+                        "price": 5,
+                        "damage": [
+                            "Bd: 10  (D/L/L)",
+                            "Bd: 14  (L/L/C)",
+                            "Bd: 18  (L/C/C)",
+                            "Bd: 19+ (L/C/K)"
+                        ],
+                        "description": "Kawał metalu z otworami na palce, rękawice, które na kłykciach maja wzmocnienia, pokrętło starego zaworu, wygodne do trzymania. Tak, tą bronią naprawdę można wybić komuś zęby. A poza tym, jest mała, zwykle nie rzuca się za bardzo w oczy i mozna ją wnosić tam, gdzie zabierają Ci nawet ukryty nóż."
+                    },
+                    {
+                        "name": "Nóż",
+                        "type": "Broń biała",
+                        "availability": 100,
+                        "price": 10,
+                        "bonus": [ "Atak +1", "Obrona +1" ],
+                        "damage":[
+                            "Bd: 10  (D/L/L)",
+                            "Bd: 14  (L/L/C)",
+                            "Bd: 15+ (L/C/C)"
+                        ],
+                        "description": "Zwyczajny nóż, kuchenny tasak, scyzoryk albo bagnet. Nic specjalnego, ale zawsze warto mieć go pod ręką. Albo nawet dwa. Otworzysz tym puszkę, poćwiartujesz upolowanego karibu, a przede wszystkim wbijesz go w bebech każdemu skurwielowi, który będzie próbował coś Ci podwędzić. Takie już jest to życie w dzisiejszych czasach."
+                    },
+                    {
+                        "name": "Lekka pałka",
+                        "type": "Broń biała",
+                        "availability": 100,
+                        "price": 1,
+                        "bonus": [ "Atak +2", "Obrona +1" ],
+                        "damage":[
+                            "Bd: 10  (D/L/L)",
+                            "Bd: 14  (L/L/C)",
+                            "Bd: 15+ (L/C/C)"
+                        ],
+                        "description": "Pewien szalony profesor dawno temu powiedział, że nie wie, jaką bronią będą się ludzie posługiwać podczas III wojny światowej, ale w czwartej powrócimy do pałek i kamieni. I popatrz, miał dziadek rację. Dobra pała nie jest zła i jest to chyba najczęściej spotykana obecnie broń. Drewniana laga, gazrurka, policyjna czarna pała, bejzbol. Dobrze mieć coś takiego przy sobie - nie popsuje się, nie może się zaciąć, nie ma do tego zbędnej amunicji. A przylać tym można, że hej!"
+                    },
+                    {
+                        "name": "Ciężka pała",
+                        "type": "Broń biała",
+                        "availability": 100,
+                        "price": 5,
+                        "bonus": [ "Atak +2", "Obrona +1" ],
+                        "requirements": "Budowa 10",
+                        "special": [ "2-ręczna" ],
+                        "damage":[
+                            "Bd: 10  (D/L/L)",
+                            "Bd: 14  (L/L/C)",
+                            "Bd: 18  (L/C/C)",
+                            "Bd: 19+ (L/C/K)"
+                        ],
+                        "description": "Pewien szalony profesor dawno temu powiedział, że nie wie, jaką bronią będą się ludzie posługiwać podczas III wojny światowej, ale w czwartej powrócimy do pałek i kamieni. I popatrz, miał dziadek rację. Dobra pała nie jest zła i jest to chyba najczęściej spotykana obecnie broń. Drewniana laga, gazrurka, policyjna czarna pała, bejzbol. Dobrze mieć coś takiego przy sobie - nie popsuje się, nie może się zaciąć, nie ma do tego zbędnej amunicji. A przylać tym można, że hej!"
+                    },
+                    {
+                        "name": "Miecz",
+                        "type": "Broń biała",
+                        "availability": 20,
+                        "price": 20,
+                        "bonus": [ "Atak +1", "Obrona +1", "Walka z grupą +1" ],
+                        "requirements": "Budowa 12",
+                        "special": [ "2-ręczna" ],
+                        "damage": "(L/C/K)",
+                        "description": "No i co? Myślałeś, że kiedyś w świecie przyszłości będziemy łazić z karabinem i mieczem? A tak właśnie jest. W rękach wiernych kałasz, na plecach kawał ostrza, tylko trzeba uważać, jak się wyciąga, żeby sobie mieczem białych włosów związanych w kócyk nie odciąć. Dlaczego białych? A taki żart, mały i tak nie zrozumiesz. W każdym razie miecze, szable czy inne katany wróciły do łask. Już nawet nie mowię o tych maniakach z Federacji Appalachów, z których każdy jeden z szpadą czy rapierem przy pasie chodzi, ale o normalnych, białych trzeźwo myślących Amerykaninach, którzy i do tego się przekonali. W końcu - są one tanie i wytrzymałe, a dobrze naostrzonym mieczem można przeciąć wzdłuż nawet cholernego mutanta."
+                    },
+                    {
+                        "name": "Katana",
+                        "type": "Broń biała",
+                        "availability": 20,
+                        "price": 20,
+                        "bonus": [ "Atak +2", "Obrona +1", "Walka z grupą +1" ],
+                        "special": [ "2-ręczna" ],
+                        "damage": "(L/C/K)",
+                        "description": "No i co? Myślałeś, że kiedyś w świecie przyszłości będziemy łazić z karabinem i mieczem? A tak właśnie jest. W rękach wiernych kałasz, na plecach kawał ostrza, tylko trzeba uważać, jak się wyciąga, żeby sobie mieczem białych włosów związanych w kócyk nie odciąć. Dlaczego białych? A taki żart, mały i tak nie zrozumiesz. W każdym razie miecze, szable czy inne katany wróciły do łask. Już nawet nie mowię o tych maniakach z Federacji Appalachów, z których każdy jeden z szpadą czy rapierem przy pasie chodzi, ale o normalnych, białych trzeźwo myślących Amerykaninach, którzy i do tego się przekonali. W końcu - są one tanie i wytrzymałe, a dobrze naostrzonym mieczem można przeciąć wzdłuż nawet cholernego mutanta."
+                    },
+                    {
+                        "name": "Łańcuch",
+                        "type": "Broń biała",
+                        "availability": 50,
+                        "price": 10,
+                        "bonus": [ "Atak +1", "Walka z grupą +2" ],
+                        "requirements": "Budowa 10",
+                        "special": [ "Łańcuch" ],
+                        "damage": "(D/L/L)",
+                        "description": "Popatrz tylko, świat umarł, wszystko to, co znaliśmy przed wojną, znikneło, a zakapiory z całej Ziemi nadal używają swojej ulubionej zabaweczki. Kawał łańcucha wprawiony w ruch obrotowy, może zada.. co sie tak dziwnie patrzysz. Nie wiesz co to jest ruch obrotowy? Oj stary - powiem to prościej - wywijasz nim i w łeb, i w łeb, a jak leży, to jeszcze raz. Czujesz klimat? No. Najprostrza ze wszystkich broni, wystarczy znaleźć kawał dobrego łańcucha i już. A jak jeszcze dodasz coś na końcu, na przukład hak znaleziony przy wraku jeepa, to lepiej, aby ludzie schodzi Ci z drogi, bo jak przygrzmocisz, to nie będzie co zbierać."
+                    },
+                    {
+                        "name": "Topór",
+                        "type": "Broń biała",
+                        "availability": 80,
+                        "price": 20,
+                        "bonus": [ "Atak +3", "Obrona +1", "Walka z grupą +1" ],
+                        "penetration": 1,
+                        "requirements": "Budowa 13",
+                        "special": [ "2-ręczna" ],
+                        "damage": "(L/C/K)",
+                        "description": "Tak, to jest cholerny topór rzeźniczy. Mam tylko coś takiego, ale uwierz mi na słowo, są tacy szaleńcy, którzy chodzą po świecie z toporami posiadającymi dwa ostrza i to tak wielkie, że mógłbyś cały się w nich przejrzeć. Nikt nie powiedział, że goście z Żelaznego Gangu są normalni, prawda?"
+                    },
+                    {
+                        "name": "Młot",
+                        "type": "Broń biała",
+                        "availability": 40,
+                        "price": 10,
+                        "bonus": [ "Atak +1" ],
+                        "requirements": "Budowa 13",
+                        "special": [ "2-ręczna" ],
+                        "damage":[
+                            "Bd: 10  (L/L/C)",
+                            "Bd: 14  (L/C/C)",
+                            "Bd: 19+ (L/C/K)"
+                        ],
+                        "description": "No tak, stuknięcie taki kawałkiem żelaza, osadzonym na krótkim drzewcu, bardzo szybko skieruje ekspresową drogą do Krainy Wiecznych Łowów każdego ducha, który bedzie na tyle głupi, że stani Ci na drodze. Ale to nie jest broń dla wymoczków, trzeba mień nie lada krzepę, aby posługiwać sie takim Warhammerem. Znalazłem kiedyś faceta, który pomalował swój młotek fosforyzującą farbą i czasem walczył nim w ciemnościach. To była jazda chłopie."
+                    },
+                    {
+                        "name": "Ciężki młot",
+                        "type": "Broń biała",
+                        "availability": 0,
+                        "price": 15,
+                        "bonus": [ "Atak +1", "Walka z grupą +1" ],
+                        "penetration": 1,
+                        "requirements": "Budowa 15",
+                        "special": [ "2-ręczna" ],
+                        "damage":[
+                            "Bd: 10  (D/L/C)",
+                            "Bd: 14  (D/C/K)",
+                            "Bd: 18  (L/C/K)",
+                            "Bd: 19+ (C/C/K)"
+                        ],
+                        "description": "No tak, stuknięcie taki kawałkiem żelaza, osadzonym na krótkim drzewcu, bardzo szybko skieruje ekspresową drogą do Krainy Wiecznych Łowów każdego ducha, który bedzie na tyle głupi, że stani Ci na drodze. Ale to nie jest broń dla wymoczków, trzeba mień nie lada krzepę, aby posługiwać sie takim Warhammerem. Znalazłem kiedyś faceta, który pomalował swój młotek fosforyzującą farbą i czasem walczył nim w ciemnościach. To była jazda chłopie."
+                    },
+                    {
+                        "name": "Włócznia",
+                        "type": "Broń biała",
+                        "availability": 70,
+                        "price": 10,
+                        "bonus": [ "Atak +1", "Obrona +1", "Inicjatywa +1" ],
+                        "penetration": 1,
+                        "requirements": "Budowa 10",
+                        "special": [ "2-ręczna" ],
+                        "damage": "(L/C/C)",
+                        "description": "Przepis jest prosty - weź dobre ostrze i kawał prostego kija, złóż to razem i otrzymasz całkiem niezłą broń. Nie dość, że można tym nieźle walczyć, to jeszcze, gdy sytuacja będzie tego wymagała, zawsze można włócznią rzucić. Tylko miej zawsze jeszcze coś innego na podoręczniu, bo niezaleznie od tego, czy trafisz, czy nie, zostaniesz przez chwilę bezbronny. A to nie jest dobry pomysł."
+                    },
+                    {
+                        "name": "Karabin z bagnetem",
+                        "type": "Broń biała",
+                        "availability": 0,
+                        "bonus": [ "Inicjatywa +1" ],
+                        "penetration": 1,
+                        "requirements": "Budowa 10",
+                        "special": [ "2-ręczna" ],
+                        "damage": "(L/C/C)",
+                        "description": "Powiem Ci, cakiem skuteczne cholerstwo, tylko pamiętaj, nie przesadzaj z zastawami, bo potem już nie postrzelasz."
+                    },
+                    {
+                        "name": "Lekka tarcza",
+                        "type": "Broń biała",
+                        "availability": 50,
+                        "price": 5,
+                        "durability": 2,
+                        "bonus": [ "Obrona +3" ],
+                        "requirements": "Budowa 10",
+                        "damage": "(D/L/L)",
+                        "description": "Tarcza dość mocno różni się od pancerzy, które zakładasz na siebie. Tarczą musisz machać samodzielnie, a jej efektywność zalezy od tego, co potrafisz. Znam gości, którym wręcz by przeszkadzała."
+                    },
+                    {
+                        "name": "Ciężka tarcza",
+                        "type": "Broń biała",
+                        "availability": 40,
+                        "price": 10,
+                        "durability": 6,
+                        "bonus": [ "Obrona +3" ],
+                        "requirements": "Budowa 14",
+                        "damage": "(D/L/L)",
+                        "description": "Tarcza dość mocno różni się od pancerzy, które zakładasz na siebie. Tarczą musisz machać samodzielnie, a jej efektywność zalezy od tego, co potrafisz. Znam gości, którym wręcz by przeszkadzała."
+                    }
+                ]
+            },
+            {
+                "name": "Broń miotana",
+                "items": [
+                    {
+                        "name": "Łuk",
+                        "type": "Broń miotana",
+                        "availability": 40,
+                        "price": 30,
+                        "penetration": 1,
+                        "damage": "L",
+                        "description": "To nie jest tak, że jeśli weźmiesz łuk, od razu zamieniasz się w Robin Hooda. Niestety, ta broń ma to do siebie, że trzeba sporo ćwiczyć, aby w ogóle coś trafić. No i wymaga sporej siły. Ale gdy już opanujesz strzelanie z łuku to dostajesz całkiem niezłą broń, o zasięgu porównywalnym z pistoletem maszynowym, która bez problemu przebija kamizelkę kuloodporną. No i do tego broń jest cicha. Tylko może szybkostrzelność mała i raczej niezbyt odporna na pogodę. Zapomnij o strzelaniu w deszczu albo podczas śnieżnej zadymki."
+                    },
+                    {
+                        "name": "Lekka kusza",
+                        "type": "Broń miotana",
+                        "availability": 30,
+                        "price": 30,
+                        "penetration": 1,
+                        "damage": "L",
+                        "description": "Ręczne napinanie łuku to koszmar. Celowanie, to jeszcze gorsza sprawa. Ale od czego ludzka pomysłowość? Przecież to wszystko można umiescić na wygodnym łożu, a samą cięciwę napinać za pomocą korby albo innych dziwacznych wynalazków. No i osiąga przy tym całkiem nizłą celność, a nie trzeba tyle ćwiczyć."
+                    },
+                    {
+                        "name": "Ciężka kusza",
+                        "type": "Broń miotana",
+                        "availability": 30,
+                        "price": 40,
+                        "penetration": 2,
+                        "damage": "C",
+                        "description": "Arbalet - kusza miotająca maymi kulkami lub nawet kamieniami. Działa jak tradycyjna kusza."
+                    }
+                ]
+            },
+            {
+                "name": "Pistolety i rewolwery",
+                "items": [
+                    {
+                        "name": "Pistolet odprzodowy",
+                        "type": "Pistolet",
+                        "availability": 20,
+                        "price": 20,
+                        "special": [ "Zawodny", "Nieporęczny", "Bardzo niecelny", "Cholernie wolne przeładowanie", "Mały zasięg" ],
+                        "damage": "C",
+                        "ammo": "Ołowiane kule"
+                    },
+                    {
+                        "name": "Magnum 44",
+                        "type": "Rewolwer",
+                        "availability": 35,
+                        "price": 60,
+                        "damage": "C",
+                        "penetration": 2,
+                        "special": [ "Niezawodny", "Nieporęczny", "Celny" ],
+                        "ammo": ".44\" Magnum",
+                        "magazine": "6",
+                        "requirements": "Budowa 12",
+                        "description": "Możesz tego nie pamiętać, ale był kiedyś taki gość. Nazywali go Brudny Harry. Nosił śmieszny garnitur, miał parszywą mordę i ponure spojrzenie. I korzystał z tej broni. A wiesz dlaczego? Bo ten rewolwer to pieprzona armata, a samo zaglądanie mu w lufę może doprowadzić do lekkiego zawału. Powiem tak, chłopie, jeśli jakiegoś typa nie rozwali pocisk z Magnum, to nie rozwali go niemal nic. Jest to niemal najsilniejsza amunicja, jaką możesz wepchnąć do krótkiej broni, jedyne co może z nią konkurować, to izraelski potwór - Desert Eagle. Po wpakowaniu komuś w bebechy wszystkich sześciu kul z tej broni powinien powędrować do Krainy Wiecznych Łowów szybciej niż tornado. Jeśli ktoś albo coś po tym wstanie, to nie należy pytać o nic, tylko spieprzać jak najdalej się da, albo kupić sobie cholerne działko. Magnum też ma swoje wady - jest spory, ciężko go szybko wyciągnąć i strzelić, a po za tym to cholernie ciężka spluwa. Ale warto ją mieć. Choćby po to, aby zobaczyć minę type, który stanie ze zwykłym pistolecikiem naprzeciwko Ciebie. A, i jeszcze jedno, ta broń ma potężnego kopa, może się tak zdarzyć, że osoba, która wali z niej po raz pierwszy w życiu, będzie miała problemy z nadgarstkami."
+                    },
+                    {
+                        "name": "Colt \"Peacemaker\"",
+                        "type": "Rewolwer",
+                        "availability": 40,
+                        "price": 40,
+                        "damage": "L",
+                        "penetration": 2,
+                        "special": [ "Niezawodny - nie zacina się", "Mały zasięg", "Niecelny", "Nieporęczny" ],
+                        "ammo": ".44\"-40 lub .45\" ACP",
+                        "magazine": "6",
+                        "description": "Ciężki, nieporęczny i niewygodny w noszeniu rewolwer - no chyba, że chcesz cały czas mieć na sobie pas i kaburę. Żeby strzelić, trzeba ręcznie napiąć kurek druga ręką. Wygląda to, jakbyś głaskał swojego Colta zanim pociągniesz za spust. Niezbyt celny. Ledwie sześć kul w bębenku, a jeśli chcesz do niego wpakować następne, to stracisz na to mnóstwo czasu. A zatem, po co w ogóle się z nim męczyć? Bo to symbol, chłopie. Legenda Ameryki, wolnego ducha i tego wszystkiego co zbudowało niegdyś ten kraj. No i nie zapominaj o zaletach - jest bardzo prosty w budowie. Kilka części, szkielet broni i bębenek - niemal nie może się zaciąć, a wyczyścić go można nawet w ciemnościach i w środku cholernej burzy piaskowej. Jeśli napotkasz na niewypał nie przejmuj się, nie będziesz spokojnie patrzył, jak wróg wywala Ci w głowie dziurę, wystarczy przekręcić bębenek na kolejną pozycję, napiąć spust i et vila! Strzela, prawda? Do tego przyzwyczajony jest do marnej amunicji, nawet robionej ręczne, może i nie będzie walił daleko, ale wystrzeli, nie to co te nowomodne plastykowe zabaweczki. Powiem tak - nie wazne skąd pochodzisz i jak wyglądasz. Jeśli używasz starego Colta, to jesteś gość. Myślisz, że to tylko stary rewolwer? Nie, to symbol. A o nich warto pamiętać. Zawsze. Słyszałem nawet, że niektórzy dowcipnisie nazywają go teraz Pissmaker, bo na jego widok inni leja w gacie."
+                    },
+                    {
+                        "name": "Trzydziestka ósemka (S&W)",
+                        "type": "Rewolwer",
+                        "availability": 30,
+                        "price": 35,
+                        "damage": "L",
+                        "special": [ "Poręczny", "Niezawodny", "Mały zasięg" ],
+                        "ammo": ".38\"",
+                        "magazine": "6",
+                        "description": "Przed wojną tą małą, podręczną broń mieli niemal wszyscy. Mieścił się w kaburze strażnika bankowego i w damskiej torebce. Można go było trzymać w schowku na rękawiczki i pod poduszką. Od tego czasu niewiele się zmieniło. Nadal jest to najpopularniejsza spluwa w całych Stanach. A raczej tym, co po nich zostało. Amunicję do tego rewolweru można dostać niemal wszędzie, nie będziesz miał problemu, aby kupić ją nawet w najbardziej zapadłym kącie. Nie zacina się, wystarczy tylko trochę o niego zadbać, poręczny - można go szybko wyciągnąć i wymierzyć prosto w stronę wroga. To zalety. A wady, cóż - mała pojemność bębenka - miesci się tam tylko sześć naboi, no i, powiedzmy sobie szczerze, niewielki zasięg. Na więcej niż 20 metrów z krótkiej lufy tego rewolweru trudno trafić w coś mniejszego niż wrota od stodoły. No i zapomnij o szybkim załadowaniu broni. Podsumowując, test to mały, wygodny rewolwer, coś, co zawsze warto mieć pod ręką."
+                    },
+                    {
+                        "name": "Glock 17",
+                        "type": "Pistolet",
+                        "availability": 30,
+                        "price": 55,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Niezawodny", "Poręczny", "Szybkie przeładowanie", "Niecelny" ],
+                        "ammo": "9mm",
+                        "magazine": "17/31",
+                        "description": "Wyobraź sobie firmę produkującą łopatki, donicki, pojemniki , kołatki do drzwi i tym podobny sprzęt. Czaisz chłopie? To teraz pomyśl, że nagle im odbija i zaczynają produkować broń, choć nigdy dotąd tego nie robili. Od tak sobie. A żeby było jeszcze śmieszniej, to Ci cholerni Austryjacy robiący przez lata pieprzone plastykowe grabki i łopatki stworzyli w sześć miesięcy spluwę, która stała się legendą. Niesamowita historia, nie? I co jeszcze zabawniejsze - prawdziwa. Pistolet z wyglądu jest nieco toporny, ale niech Cię to nie zmyli, weź na moment do ręki. Lekki? Nie, dzieciaku, on jest załadowany i ma teraz w magazynku 17 naboi, czujesz blusa? Wypełniony po brzegi nabojami, waży tyle, co inny pistolet wojskowy pusty! Dlaczego? bo goście wykonali szkielet broni z tworzyw sztucznych, nie na darmo tłukli przez lata te plastykowe doniczki. Dodam, że to, z czego go zrobili, jest wytrzymalsze od metalu i działa w temperaturze od minus 40 do plus 200 stopni. Można z niego celnie strzelać nawet w pieprzonym piekle. A na dodatek jest to tak bezpieczna broń, że możesz nią sobie rzucać z nabojem w lufie, a ta spluwa nie wystrzeli. Porównaj to z innym cwaniaku... nie, nie, cholera, tylko żartowałem, zostaw tego Colta w spokoju! W każdym razie występuje w kilku odmianach, standardowa, którą bawisz się to Glock 17, ale znacznie fajniejsza jest ta onzaczona numerem 18. Jest to ni mniej, ni więcej tylko pistolet automatyczny. Co to znaczy? To znaczy, że możesz z niego strzelać serią. Zdziwiony? Tak, ta broń niejednym potrafi zaskoczyć. A, do obu wersji możesz używać również przedłużonego 31 nabojowego magazynka. No i co, nadal Cię dziwi, że niektórzy piszą o glockach poematy? W skrócie, ta spluwa jest niezawodna, łatwo się ją czyści, ma taki magazynek, którego nie ma żadna inna, a amunicja jest dość powszechnie spotykana, czego można chcieć od broni więcej, co?"
+                    },
+                    {
+                        "name": "Glock 18",
+                        "type": "Pistolet",
+                        "availability": 30,
+                        "price": 55,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Niezawodny", "Poręczny", "Szybkie przeładowanie", "Strzelanie serią", "Niecelny" ],
+                        "ammo": "9mm",
+                        "magazine": "17/31",
+                        "description": "Wyobraź sobie firmę produkującą łopatki, donicki, pojemniki , kołatki do drzwi i tym podobny sprzęt. Czaisz chłopie? To teraz pomyśl, że nagle im odbija i zaczynają produkować broń, choć nigdy dotąd tego nie robili. Od tak sobie. A żeby było jeszcze śmieszniej, to Ci cholerni Austryjacy robiący przez lata pieprzone plastykowe grabki i łopatki stworzyli w sześć miesięcy spluwę, która stała się legendą. Niesamowita historia, nie? I co jeszcze zabawniejsze - prawdziwa. Pistolet z wyglądu jest nieco toporny, ale niech Cię to nie zmyli, weź na moment do ręki. Lekki? Nie, dzieciaku, on jest załadowany i ma teraz w magazynku 17 naboi, czujesz blusa? Wypełniony po brzegi nabojami, waży tyle, co inny pistolet wojskowy pusty! Dlaczego? bo goście wykonali szkielet broni z tworzyw sztucznych, nie na darmo tłukli przez lata te plastykowe doniczki. Dodam, że to, z czego go zrobili, jest wytrzymalsze od metalu i działa w temperaturze od minus 40 do plus 200 stopni. Można z niego celnie strzelać nawet w pieprzonym piekle. A na dodatek jest to tak bezpieczna broń, że możesz nią sobie rzucać z nabojem w lufie, a ta spluwa nie wystrzeli. Porównaj to z innym cwaniaku... nie, nie, cholera, tylko żartowałem, zostaw tego Colta w spokoju! W każdym razie występuje w kilku odmianach, standardowa, którą bawisz się to Glock 17, ale znacznie fajniejsza jest ta onzaczona numerem 18. Jest to ni mniej, ni więcej tylko pistolet automatyczny. Co to znaczy? To znaczy, że możesz z niego strzelać serią. Zdziwiony? Tak, ta broń niejednym potrafi zaskoczyć. A, do obu wersji możesz używać również przedłużonego 31 nabojowego magazynka. No i co, nadal Cię dziwi, że niektórzy piszą o glockach poematy? W skrócie, ta spluwa jest niezawodna, łatwo się ją czyści, ma taki magazynek, którego nie ma żadna inna, a amunicja jest dość powszechnie spotykana, czego można chcieć od broni więcej, co?"
+                    },
+                    {
+                        "name": "Desert Eagle",
+                        "type": "Pistolet",
+                        "availability": 30,
+                        "price": 40,
+                        "damage": "C",
+                        "penetration": 2,
+                        "special": [ "Nieporęczny", "Dobra amunicja" ],
+                        "ammo": ".44\" Magnum",
+                        "magazine": "8",
+                        "requirements": "Budowa 12",
+                        "description": "Weź go do ręki. Zaglądnij do lufy - widzisz ten cholerny tunel, z którego może wyjechać nawet pieprzony parowóz? Trzymasz chłopie teraz w łapie największą armatę, jaką kiedykolwiek w dziejach skonstruowano i nazwano pistoletem. Goście, którzy ją na spółkę z Izrealczykami wymyślili z pół wieku temu, pisali w swych folderach reklamowych, że miała służyć do celów sportowych i do polowań. I wiesz co? Mieli rację - teraz używamy ją do łowów na te cholerne maszyny Molocha. Ta zabaweczka to jest jedyny pistolet, który robi na nich wrażenie. A jeśli ona nie da rady, to jedyne co Ci pozostało, to salwa artylerii rakietowej. Nie ma na tym świecie człowieka czy mutanta, który wstanie gdy walisz do niego cały magazynek pocisków z tej spluwy. Czy ma wady? Jasne - same. Nie jest to celna broń, nie jest niezawodna, a o jej poręczności nie ma sensu rozmawiać... Pusta waży prawie dwa kilogramy i nie postrzelasz sobie jedną ręką, zapomnij. Nie ma też pojemnego magazynka, mieści się w niej ledwie 8 ogromnych naboi, które strasznie trudno w dzisiejszych czasach znaleźć. Fakt, ma niezły zasięg. Ale najwięszką jej zaletą jest to, że jeśli nawet drań, którego ścigasz, schowa się za ścianą, to nie masz się co przejmować, bo po pociągnięciu za spust, kula z tej spluwy przebije i mur i faceta, i dwóch jego kumpli na dodatek. Moc jest z Tobą, rozumiesz?"
+                    },
+                    {
+                        "name": "Walther P-99",
+                        "type": "Pistolet",
+                        "availability": 30,
+                        "price": 55,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Celny", "Niezawodny" ],
+                        "ammo": "9mm",
+                        "magazine": "15",
+                        "description": "Solidna niemiecja produkcja. Zaprojektowany dla policji i na rynek cywilny jako broń do samoobrony i dla oficerów wojskowych. P-99 stał się następcą Walthera PPK. James Bond też się na niego przerzucił z Walthera PPK. Wygodny z plastikowymi elementami, które właściwie przed wojną pojawiły się w każdej broni, stanowi dobry wybór dla każdego, kto nie walczy z mutkami i maszynami Molocha. Po prostu można na nim polegać. Od czasu do czasu ktoś znajduje \"militarną\" wersję P-99, a jedyne, co ją różni od standardowej, to kolor - jest ciemnozielona. Gdy zdobędziesz tę spluwę, rozejrzyj się za innym uchwytem, dopasowanym do wymiarów Twojej dłoni. Dawniej ludzie dbali o wygodę."
+                    },
+                    {
+                        "name": "Browing HP",
+                        "type": "Pistolet",
+                        "availability": 25,
+                        "price": 45,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Bardzo celny", "Wolne przeładowanie (HP)" ],
+                        "ammo": "9mm",
+                        "magazine": "13",
+                        "description": "To jest dosyć niesamowita spluwa. Międzynarodowa, można rzec. Zaprojektowanł ją Amerykanin, ale produkowano ją przez lata w Belgii. W swoim czasie przepisowa broń niemal w połowie krajów świata. Zaczęto ją wytwarzać ponad 100 lat temu, ale nadal jest to ulubiona broń wielu żołnierzy. Dlaczego? Po pierwsze, dobrze leży w dłoni i jest cholernie celna, jest tak cholernie celna, że można było ją w swoim czasie kupić z drewnianą dostawianą kolbą i strzelać z niej spokojnie na 100 metrów. Po drugie, ma całkiem spory magazynek na 13 naboi, może nieco słabszych niż Colt M191A1, ale kiedy twardzielowi walącemu z tamtej spluwy dawno skończy się amunicja, Ty będziesz mógł do niego spokojnie podejść i wpakować mu jeszcze z sześć kul w łepetynę, a to jest coś, prawda? Jest stosunkowo niezawodna i gdy dobrze o nią dbać, to odpłaci się człowiekowi tym samym. Jej największą wadą, jest cholerna sprężyna w magazynku, sam diabeł wie, po jaką cholerę Browning ją tam umieścił. Normalnie, rozumiesz zwalniasz zatrzask i magazynek, hop, sam wyskakuje i spada na ziemię, a Ty w tym czasie szybko wkładasz nowy, a tu zapomnij. Trzeba się chwilę namęczyć zanim wydłubiesz go z tej spluwy. Ale i tak ją lubię. A wiesz dlaczego? Bo z żadnego innego pistoletu nie trafisz w pudełko zapałek z pięćdziesięciu metrów."
+                    },
+                    {
+                        "name": "Sig - Sauer P226",
+                        "type": "Pistolet",
+                        "availability": 20,
+                        "price": 40,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Poręczny", "Celny", "Szybkie przeładowanie", "Dobra amunicja" ],
+                        "ammo": "9mm",
+                        "magazine": "15",
+                        "description": "Ta broń to efekt współpracy niemiecko-szwajcarskiej. Czy trzeba dodawać coś więcej? Działa tak sprawnie jak zegarek z kukułką i wygląda jak BMW, ale lepiej nie rozkładać jej na części na środku pustyni. Ma nowoczesny, ergonomiczny kształt i leży w dłoni, jak żadna inna. Jak mawiał mój znajomy ochroniarz: \"Ta broń sama trafia!\". I coś w tym jest! Broń jest niesamowicie celna i ma całkiem spory magazynek, w którym leży sobie równiutko poukładane pietnaście 9mm naboi. A na dodatek, po zwolnieniu magazynka, ten wyfruwa z broni, jakby go ktoś gonił i można szybciutko włożyć na jego miejsce nowy. A to jest, jak sam przyznasz, cholernie przydatne w naszych trudnych czasach. To jest broń, której można zaufać i powierzyć swoje życie, ale ma coś takiego w sobie, że nigdy nie nazwiesz jej spluwą czy gnatem. Jedyną wadą Sig-Sauer jest to, że nie będzie działał z marną amunicją. No, po prostu - nie będzie. Wysokiej jakości broń wymaga wysokiej jakości naboi. Nic na to człowieku nie poradzisz."
+                    },
+                    {
+                        "name": "Kel - Tec",
+                        "type": "Pistolet",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "L",
+                        "penetration": 1,
+                        "ammo": "9mm",
+                        "magazine": "11",
+                        "description": "O tym pistolecie mogę powiedzieć tylko jedno... ciężko cokolwiek o nim powiedzieć. Jest to totalnie przeciętna, niczym nie wyróżniajaca się spluwa, strzela kulkami 9mm, czyli o najpopularniejszym kalibrze. Ot, typowy pistolet, dobry dla kazdego, kto nie chce się wyrózniać."
+                    },
+                    {
+                        "name": "Beretta",
+                        "type": "Pistolet",
+                        "availability": 30,
+                        "price": 35,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Celny", "Szybkie przeładowanie", "Dobra amunicja", "Poręczny" ],
+                        "ammo": "9mm",
+                        "magazine": "15",
+                        "description": "Włoskie cacuszko w amerykańskich rękach. Przejeliśmy je tak, jak Sylvestra Stallone, Madonnę czy pizze i wyszło nam to na dobre. Standardowy pistolet dawnej US Army, noszacy w niej wojskową nazwę M9, zastąpił w tej roli poczciwego Colta M191A1. Magazynek mieści 15 równo upakowanych naboi 9mm. Mozna je dosyć łatwo znaleźć, nawet w dzisiejszych, trudnych czasach. Jest to bardzo dobra broń, acz ma tendencję do zacinania się, jesli nie będzie się o nią należycie dbało. Dosyć wybredna w kwestii amunicji, lepiej używać sprawdzonej. Bardzo ładna i poręczna, a lekki odrzut pozwala prowadzić z niej celny ogień nawet tym, którzy po raz pierwszy trzymają ją w rękach. Podobnie, jak w przypadku Glocka istnieje odmiana Beretty nazwana 93R, strzelająca ogniem seryjnym, zasilana 20 nabojowym, pojemnym magazynkiem. Jeśli dołożysz do tej wersji kolbę otrzymasz celną broń nawet na dystansie do 50 metrów. Niby taki mały, zgrabny pistolecik, a ile radości może dostarczyć, prawda?"
+                    },
+                    {
+                        "name": "Beretta 93R",
+                        "type": "Pistolet",
+                        "availability": 30,
+                        "price": 35,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Celny", "Szybkie przeładowanie", "Dobra amunicja", "Poręczny", "Strzelanie serią" ],
+                        "ammo": "9mm",
+                        "magazine": "20",
+                        "description": "Włoskie cacuszko w amerykańskich rękach. Przejeliśmy je tak, jak Sylvestra Stallone, Madonnę czy pizze i wyszło nam to na dobre. Standardowy pistolet dawnej US Army, noszacy w niej wojskową nazwę M9, zastąpił w tej roli poczciwego Colta M191A1. Magazynek mieści 15 równo upakowanych naboi 9mm. Mozna je dosyć łatwo znaleźć, nawet w dzisiejszych, trudnych czasach. Jest to bardzo dobra broń, acz ma tendencję do zacinania się, jesli nie będzie się o nią należycie dbało. Dosyć wybredna w kwestii amunicji, lepiej używać sprawdzonej. Bardzo ładna i poręczna, a lekki odrzut pozwala prowadzić z niej celny ogień nawet tym, którzy po raz pierwszy trzymają ją w rękach. Podobnie, jak w przypadku Glocka istnieje odmiana Beretty nazwana 93R, strzelająca ogniem seryjnym, zasilana 20 nabojowym, pojemnym magazynkiem. Jeśli dołożysz do tej wersji kolbę otrzymasz celną broń nawet na dystansie do 50 metrów. Niby taki mały, zgrabny pistolecik, a ile radości może dostarczyć, prawda?"
+                    },
+                    {
+                        "name": "Colt M1911 A1",
+                        "type": "Pistolet",
+                        "availability": 25,
+                        "price": 40,
+                        "damage": "L",
+                        "penetration": 2,
+                        "special": [ "Niezawodny" ],
+                        "ammo": ".45\" ACP",
+                        "magazine": "7",
+                        "description": "Klasyczny amerykański produkt. Postawiony na jednej półce z Coltem Peacemakerem i... Coltem M16. Co chłopie, jesteś zdziwiony, że ta sama firma produkowała je wszystkie rodzaje broni? Wracając jednak do M1911A1, jest to potężny pistolet zasilany amunicją .45ACP(11,43mm), \"artyleryjski kaliber\" można powiedzieć. Dlaczego aż taką silną? A to też fajna historia, mogę Ci w trzech słowach opowiedzieć. Otóż w latach 1898-1900 amerykańscy chłopcy tłukli się na Filipinach z tubylcami. Szczególne problemy sprawiało plemię Moro, pukało się do tych gości z trzydziestek ósemek, a oni wstawali, jak gdyby nigdy nic i beigli dalej, sam rozumiesz, było to bardzo denerwujące. Aż w końcu wojskowi wyprodukowali taki nabój, po którym nie wstałby nawet mamut. Kilka lat póxniej armia USA wspowadziła do służby swój pierwszy pistolet samopowtarzalny. Colta właśnie, to jaką amunicję mieli do środka upchnąć, jak nie na włochate słonie? Swoją drogą, staruszek nieźle się trzymał i pozostawał on w linii przez ponad 70 lat, póki nie zastąpiono go zabaweczką wymyśloną przez makaroniarzy. Ale to inna historia. Jednym słowem, masz w rękach solidnego gnata, odpornego na brud i zanieczyszczenia oraz strzelającego naprawdę silnymi pociskami. Wadą jest niewielka pojemność magazynka, liczy on sobie tylko siedem naboi. Jak już mówiłem, prawdziwa amerykańska klasyka. No i jak Stany długie i szerokie - łatwo do nie znaleźć amunicję. A to w dzisiejszych czasach, duży plus."
+                    }
+                ]
+            },
+            {
+                "name": "Pistolety maszynowe",
+                "items": [
+                    {
+                        "name": "UZI",
+                        "type": "Pistolet maszynowy",
+                        "availability": 50,
+                        "price": 60,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Niezawodny", "Szybkie przeładowanie" ],
+                        "ammo": "9mm",
+                        "magazine": "32 / 20 / 25",
+                        "firerate": 2,
+                        "requirements": "Budowa 12",
+                        "description": "Jeszcze do niedawna dla wielu ludzi pistolet maszynowy kojarzy się nieodmiennie z UZI. Peem jest tak charakterystyczny, że gdy zobaczysz u swoich wrogów w łapach coś w kształcie litery T, to lepiej poszukaj sobie bezpiecznej kryjówki. Sieje gradem kul, jak powinien. Był testowany na pustyni, więc synku i u nas nie ma się prawa zaciąć. Solidna maszynka. Istnieje też wersja - Mini-UZI, którą można sobie ukryć w rękawie, ale również ma 32 nabojowy magazynek. Choć możesz i uzywać mniejszych - 20 czy 25 nabojoiwych, jeśli tylko... uda Ci się je znaleźć. Jest jeszcze jedna sztuczka, którą warto stosować, można połączyć ze sobą dwa magazynki w taki sposób, aby do wystającego z rękojesci podłączyć drugi pod kątem prostym. Znacznie skraca to czas wymiany i przeładowania broni. A to nie raz może uratować Twoje życie."
+                    },
+                    {
+                        "name": "Colt.635",
+                        "type": "Pistolet maszynowy",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Celny", "Dobra amunicja" ],
+                        "ammo": "9mm",
+                        "magazine": "20 / 35",
+                        "firerate": 3,
+                        "requirements": "Budowa 11",
+                        "description": "Dziecko amerykańskiej pomysłowości i oszczędności bracie. Fakt, wygląda jak zmniejszon wersja M-4, ale to zupełnie inna broń. Po prostu komuś, tak się spodobał M-4, ze postanowił zrobić oparty na jego konstrukcji pistolet maszynowy. Dzięki temu ludzie przyzwyczajeni do karabinu łatwiej obsługują podobny w konstrukcji pistolet. Za produkcję zabrała się solidna firma i tak powstał Colt model 635. Całkiem szybkostrzelny ze składana kolbą i dwiema dziesiątkami naboi w magazynku. Nic spejalnego, ale strzela łatwodostepna amunicją, no i był dość popularny w kilku oddziałach policji. Agencji ds. Zwalczania Narkotyków czy Agencji Atomistyki. Gdy będziesz przeszukiwał okolice elektrowni atomowej, to przy szkieletach znajdziesz najprawdopodobniej takie cacko."
+                    },
+                    {
+                        "name": "H&K UMP",
+                        "type": "Pistolet maszynowy",
+                        "availability": 20,
+                        "price": 75,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Celny", "Niezawodny", "Poręczny" ],
+                        "ammo": ".45\" ACP",
+                        "magazine": "10 / 25 / 30",
+                        "firerate": 2,
+                        "requirements": "Budowa 11",
+                        "description": "Pamiętasz dzieło chłopaków w tyrolskich kapeluszach i śmiesznych spodenkach? Nie, nie Scheissewurst, tylko MP-5. No więc nowica: MP-5 ma młodszego brata o imieniu UMP, co znaczy Uniwersale Maschine Pistol. Dobra, Niemcy nie mieli fantazji do nazw, ale za to robili doskonałe spluwy. UMP jest wykonany w dużej mierze z plastiku, więc waży niewiele. Ma sensowniejszy (bo większy) kaliber niż MP-5. Można zamocować do niego celownik optyczny lub kolimatorowy (o ile znajdziesz), ewentualnie latarkę, celownik laserowy, dodatkowy uchwyt i może jeszcze bojler. Tak jak MP-5, tak i UMP jest arcydziełem w swojej klasie. Jeżeli Niemcy jeszcze istnieją, to czekam na kontakt z nimi, żeby usłyszeć, co nowego wymyślili."
+                    },
+                    {
+                        "name": "H&K MP5",
+                        "type": "Pistolet maszynowy",
+                        "availability": 20,
+                        "price": 75,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Celny", "Szybkie przeładowanie", "Dobra amunicja" ],
+                        "ammo": "9mm",
+                        "magazine": "15 / 20",
+                        "firerate": 2,
+                        "requirements": "Budowa 11",
+                        "description": "Chcesz mieć najlepszy pistolet maszynowy, jaki kiedykolwiek wyprodukowano? Weź MP5. Chesz mieć najcelniejszy? Wybierz MP5. Znowu niemieckia konstrukcja, Ci chłopcy w zabawnych spodenkach, tyrolskich kapelusikach, żywiący się tylko piwem i kiełbasą, wiedzieli jak robić broń. Prawie nie ma odrzutu. Wystarczy nakierować ją na cel i pociągnąć za spust. Trafisz, bo ona sama leży w dłoniach. Taka magia ukryta jest w tej spluwie. Kiedyś używały jej wszystkie oddziały specjalne na całej tej planecie, wszystkie oddziały SWAT i komandosi. Bo ta broń jest klasą samą w sobie. Teutońska prefekcja i porzadek, sam wiesz. W magazynku 30 dziewięciomilimetrowych nabojów. Mało tego, istnieje kilka jej typów - standardowy już znasz, ale chłopaki wymyśliły jeszcze broń z integralnym tłumikiem, nazywa się MP5SD. Dźwięk, który wydaje, można porównać z rozklekotanym budzikiem, który już nie dzwoni, a terkocze. Mało tego, istnieje jeszcze wersja krótka, MP5K, niewiele dłuższa od zwykłego pistoletu, a możesz tym prowadzić normalnie ogień seryjny i na dodatek nosić w kaburze pod pachą, jak zwykłego gnata. Firma Heckler und Koch dbała o swych wiernych klientów, a co!"
+                    },
+                    {
+                        "name": "H&K MP5K",
+                        "type": "Pistolet maszynowy",
+                        "availability": 20,
+                        "price": 75,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Celny", "Szybkie przeładowanie", "Dobra amunicja", "Poręczny" ],
+                        "ammo": "9mm",
+                        "magazine": "15 / 20",
+                        "firerate": 2,
+                        "requirements": "Budowa 11",
+                        "description": "Chcesz mieć najlepszy pistolet maszynowy, jaki kiedykolwiek wyprodukowano? Weź MP5. Chesz mieć najcelniejszy? Wybierz MP5. Znowu niemieckia konstrukcja, Ci chłopcy w zabawnych spodenkach, tyrolskich kapelusikach, żywiący się tylko piwem i kiełbasą, wiedzieli jak robić broń. Prawie nie ma odrzutu. Wystarczy nakierować ją na cel i pociągnąć za spust. Trafisz, bo ona sama leży w dłoniach. Taka magia ukryta jest w tej spluwie. Kiedyś używały jej wszystkie oddziały specjalne na całej tej planecie, wszystkie oddziały SWAT i komandosi. Bo ta broń jest klasą samą w sobie. Teutońska prefekcja i porzadek, sam wiesz. W magazynku 30 dziewięciomilimetrowych nabojów. Mało tego, istnieje kilka jej typów - standardowy już znasz, ale chłopaki wymyśliły jeszcze broń z integralnym tłumikiem, nazywa się MP5SD. Dźwięk, który wydaje, można porównać z rozklekotanym budzikiem, który już nie dzwoni, a terkocze. Mało tego, istnieje jeszcze wersja krótka, MP5K, niewiele dłuższa od zwykłego pistoletu, a możesz tym prowadzić normalnie ogień seryjny i na dodatek nosić w kaburze pod pachą, jak zwykłego gnata. Firma Heckler und Koch dbała o swych wiernych klientów, a co!"
+                    },
+                    {
+                        "name": "H&K MP5SD",
+                        "type": "Pistolet maszynowy",
+                        "availability": 20,
+                        "price": 75,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Celny", "Szybkie przeładowanie", "Dobra amunicja", "Wyciszony" ],
+                        "ammo": "9mm",
+                        "magazine": "15 / 20",
+                        "firerate": 2,
+                        "requirements": "Budowa 11",
+                        "description": "Chcesz mieć najlepszy pistolet maszynowy, jaki kiedykolwiek wyprodukowano? Weź MP5. Chesz mieć najcelniejszy? Wybierz MP5. Znowu niemieckia konstrukcja, Ci chłopcy w zabawnych spodenkach, tyrolskich kapelusikach, żywiący się tylko piwem i kiełbasą, wiedzieli jak robić broń. Prawie nie ma odrzutu. Wystarczy nakierować ją na cel i pociągnąć za spust. Trafisz, bo ona sama leży w dłoniach. Taka magia ukryta jest w tej spluwie. Kiedyś używały jej wszystkie oddziały specjalne na całej tej planecie, wszystkie oddziały SWAT i komandosi. Bo ta broń jest klasą samą w sobie. Teutońska prefekcja i porzadek, sam wiesz. W magazynku 30 dziewięciomilimetrowych nabojów. Mało tego, istnieje kilka jej typów - standardowy już znasz, ale chłopaki wymyśliły jeszcze broń z integralnym tłumikiem, nazywa się MP5SD. Dźwięk, który wydaje, można porównać z rozklekotanym budzikiem, który już nie dzwoni, a terkocze. Mało tego, istnieje jeszcze wersja krótka, MP5K, niewiele dłuższa od zwykłego pistoletu, a możesz tym prowadzić normalnie ogień seryjny i na dodatek nosić w kaburze pod pachą, jak zwykłego gnata. Firma Heckler und Koch dbała o swych wiernych klientów, a co!"
+                    },
+                    {
+                        "name": "Ruger MP 9",
+                        "type": "Pistolet maszynowy",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Celny", "Niezawodny", "Mały zasięg" ],
+                        "ammo": "9mm",
+                        "magazine": "32",
+                        "firerate": 2,
+                        "requirements": "Budowa 11",
+                        "description": "Jak zauważyłeś, wiele broni tutaj to \"młodsi bracia\" innych egzamplarzy. Tak samo jest z MP-9, młodszym bratem UZI, zaprojektowanym przez tę samą osobę, pana Uziela Gala, czyli solidną firmę. MP-9 jest dosyć podobny do UZI z wyglądu, choć nieco mniejszy. Na pewno lepiej się z niego strzela. Mniej szarpie, więc jest celniejszy. Poza tym oddziały policji, których nie stać było na drogie MP-5 czy UMP, używały właśnie MP-9, więc nie będzie trudno go dostać. Co mogę powiedzieć... mała, nizawodna spluwa, w sam raz do noszenia po mieście."
+                    },
+                    {
+                        "name": "Ingram MAC-10",
+                        "type": "Pistolet maszynowy",
+                        "availability": 10,
+                        "price": 75,
+                        "damage": "L",
+                        "penetration": 2,
+                        "special": [ "Poręczny", "Bardzo niecelny", "Niewielki zasięg" ],
+                        "ammo": ".45\" ACP lub 9mm",
+                        "magazine": "32",
+                        "firerate": 3,
+                        "requirements": "Budowa 10",
+                        "description": "To maleństwo ma jedną cechę szczególną. Pal już licho dźwięk, jaki wydaje podczas strzelania, przypominający darcie prześcieradła, ale niesamowita jest szybkostrzelność. Wywala ponad 1000 cholernych pocisków na minutę. Za pomocą tej zabaweczki naprawdę można postawić na krótkich dystansach ścianę ołowiu. No dobrze, jest to trochę niepraktyczne teraz, gdy naboje są drogie i amunicja nie rośnie na drzewach, ale mimo wszyystko warto mieć chyba pod ręką. Bo pewnego dnia może się okazać, ze biegnących wrogów będzie tak dużo, że tylko ta spluwa uratuje Twoje dupsko. Trochę mały magazynek, to fakt, ledwie 32 naboje wchodzą do środka i znikną Ci one, zanim zdołasz się zorientować, że w ogóle wystrzeliłeś. Można z niego prowadzić ogień pojedynczy, ale nie do tego służy ta zabaweczka. Nie po to ją ze sobą targasz, aby pocisk po pocisku wykańczać wrogów, zresztą, ma na to za małą celność. Wszystkie swoje zalety ujawnia, gdy wdusisz spust do oporu. Tak, mały, to własnie od tej broni pochodzi okreslenie \"grad kul\"."
+                    }
+                ]
+            },
+            {
+                "name": "Karabiny powtarzalne i samopowtarzalne",
+                "items": [
+                    {
+                        "name": "Muszkiet",
+                        "type": "Karabin powtarzalny",
+                        "availability": 70,
+                        "price": 30,
+                        "penetration": 1,
+                        "special": [ "Zawodny", "Bardzo niecelny", "Cholernie wolne przeładowanie", "Niewielki zasięg" ],
+                        "damage": "C",
+                        "ammo": "Ołowiane kule",
+                        "requirements": "Budowa 12"
+                    },
+                    {
+                        "name": "Winchester",
+                        "type": "Karabin powtarzalny",
+                        "availability": 60,
+                        "price": 40,
+                        "damage": "L",
+                        "penetration": 1,
+                        "special": [ "Niezawodny", "Mały zasięg" ],
+                        "ammo": ".44-40\"",
+                        "magazine": "15",
+                        "requirements": "Budowa 12",
+                        "description": "Ten karabin ma już prawie dwie setki lat. Chyba najstarsza spluwa jaką tutaj znajdziesz. Nie wiem czy wiesz, ale wymyślił go ten sam gość, który opatentował agrafki. Najfajniejsze jest w tym karabinie przeładowywanie, za pomocą osłony spustu w którą wkładasz dłoń. Wystarczy jeden ruch nadgarstka, a do komory nabojowej wędruje kolejny ładunek. W magazynku Winchestera mieści się 15 kul, nie trzeba więc za bardzo oszczędzać. Jedyną jego wada jest amunicja, kiedyś ktoś wpadł na pomysł, aby stworzyć karabin i rewolwer, które będą waliły tymi samymi nabojami. Wszystko fajnie, ale otrzymano nieco dziwny zestaw - bardzo silną broń krótką i bardzo słabą długą. Z tymi rzeczami uniwersalnymi to jest podobnie jak z pieprzoną świnką morską - ani świnka, ani morska. Cholera, nie wiesz, co to za zwierzak?"
+                    },
+                    {
+                        "name": "Springfield",
+                        "type": "Karabin powtarzalny",
+                        "availability": 20,
+                        "price": 45,
+                        "damage": "C",
+                        "penetration": 2,
+                        "special": [ "Bardzo niezawodny", "Celny" ],
+                        "ammo": "7.62mm",
+                        "magazine": "5",
+                        "requirements": "Budowa 12",
+                        "description": "Ciężki i nieporęczny karabin liczący sobie z górą 150 lat. Armia amerykańska używała go w pierwszej wojnie światowej, łapiesz chłopie? Prawdziwy rarytas w mojej kolekcji. Niby już zupełnie się nie liczy, ale podobnie jak Colt czy Thompson, nobilituje swojego posiadacza. Ten karabin jest niezawodną konstrukcją, dlatego tak często znajdziesz go w rękach Indiańców. Może mieli jeszcze zapasy w swych rezerwatach z dawnych czasów? A na dodatek, ta spluwa jest tak wykonana i ma tak długą lufę, że nawet po latach jet celniejsza od swoich młodszych braci."
+                    },
+                    {
+                        "name": "M1 Garand",
+                        "type": "Karabin samopowtarzalny",
+                        "availability": 30,
+                        "price": 65,
+                        "damage": "C",
+                        "penetration": 2,
+                        "special": [ "Bardzo niezawodny" ],
+                        "ammo": "7.62mm",
+                        "magazine": "8",
+                        "requirements": "Budowa 12",
+                        "description": "Pierwszy masowo wprowadzony do produkcji karabin samopowtarzalny. Ciężka i nieporęczna spluwa, w porównaniu z nowoczesnymi karabinkami automatycznymi, ale za to jest to karabin, który jest wytrzymały i w żadnej sytuacji Cię nie zawiedzie. Zadziała nawet w strefie takiego promieniowania, w której M16 lufa skręca się w słupek, a plastik się topi. Jakbyś zgadł, bardzo lubię tę spluwę, gdy kończyłem akademię wojskową 40 lat temu, to ganiałem po polach i lasach własnie z tym karabinem. Dał mi w kość, ale wiesz, co? Teraz żaden inny mnie nie zaskoczy. A, gdy na końcu dodasz bagnet, to okazuje się, ż masz w rękach odpowiednik włóczni, tylko nim, do cholery nie rzucaj!"
+                    },
+                    {
+                        "name": "SU-16",
+                        "type": "Karabin samopowtarzalny",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "C",
+                        "penetration": 1,
+                        "special": [ "Wbudowany dwójnóg" ],
+                        "ammo": "5.56mm",
+                        "magazine": "10 / 30",
+                        "requirements": "Budowa 10",
+                        "description": "Jak pierwszy raz go podniosłem, to się zdziwiłem. Jak karabinek 5.56 może być tak lekki? Niecałe 2,5 kilograma? Przecież żadna poważna broń nie może ważyć tak mało! Ale szybko zmieniłem zdanie, SU-16 to całkiem solidna spluwa. Lekka, ponieważ tylko iglica, lufa i zamek są ze stali. Resztę zrobiono z wytrzymałego plastiku. Poza tym, osłona lufy rozkłada się w normalny, funkcjonujący dwójnóg. Jeśli chcesz, możesz złożyć karabinek w pół i schować do plecaka. A dwa magazynki możesz nosić w kolbie. Broń dla tych co nie lubią drałować przez pustynię objuczeni jak osły. Jeszcze jedno - można użyć 30 nabojowego magazynku z M-16, fajna sprawa."
+                    },
+                    {
+                        "name": "SKS",
+                        "type": "Karabin samopowtarzalny",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "C",
+                        "penetration": 2,
+                        "special": [ "Niezawodny", "Wolne przeładowanie", "Wewnętrzny magazynek" ],
+                        "ammo": "7,62mm",
+                        "magazine": "10",
+                        "firerate": 3,
+                        "requirements": "Budowa 12",
+                        "description": "Hmm, dziwi mnie aż tak duża ilość tej broni w Stanach, ale cóż, darowanej spluwie w lufę się nie patrzy, a SKS to solidna rzecz. Był stworzony jako broń wojskowa, sprawdził się jako karabin myśliwski i sporo egzemplarzy przetrwało wojne. Dzisiaj z jego pomocą polujemy nie tylko na ruchome żarcie, ale też na mutków i na ludzi. SKS to konstrukcja solidna, niezawodna i mocna. Po prostu można na nim polegać."
+                    }
+                ]
+            },
+            {
+                "name": "Karabiny automatyczne",
+                "items": [
+                    {
+                        "name": "M14",
+                        "type": "Karabin automatyczny",
+                        "availability": 20,
+                        "price": 50,
+                        "damage": "C",
+                        "penetration": 2,
+                        "special": [ "Celny", "Zawodny", "Niecelny ogień ciągły" ],
+                        "ammo": "7.62mm",
+                        "magazine": "20",
+                        "firerate": 2,
+                        "requirements": "Budowa 13",
+                        "description": "Ten karabin to porażka. Miał zastąpić Garanda, ale jakoś tak nie do końca wyszło i bardzo szybko armia zamieniła go na M16. Ciężki, zawodny i nieporęczny, tak można go krótko scharakteryzować. Co z tego, że może strzelać serią, jeśli trafienie w cokolwiek nawet z pięćdziesięciu metrów jest niemal niemożliwe, a poza tym grzeje się wtedy, jak cholerny toster. Jedyne, do czego tak naprawdę można go wykorzystywać, to namiastka karabinu wyborowego. Trzeba tylko zamocować na nim celownik optyczny, dodać jakiś dwójnóg i walić tylko ogniem pojedynczym. W magazynku standardowo mieści się 20 naboi. Raczej polecam unikac tej spluwy, chyba, że nie masz już zupełnie innego wyjścia."
+                    },
+                    {
+                        "name": "FN-SCAR L",
+                        "type": "Karabin automatyczny",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "C",
+                        "penetration": 1,
+                        "special": [ "Nie można zamontować bagnetu" ],
+                        "ammo": "5.56mm",
+                        "magazine": "30",
+                        "firerate": 2,
+                        "requirements": "Budowa 13",
+                        "description": "Miał byc następcą M-16, ale zdetronizowali go Niemcy ze swoim XM-8. Nie mniej jednak nie zniknął tak całkiem. Kilka formacji używało go do czasów wojny, bo ta broń ma spory potencjał. Nie wygląda tak futurystycznie jak XM-8, jest cięższa, ale można na nią liczyć. Firmowo każdy egzemplarz przychodzi z wymienną lufą i komora zamkową, więc w zależności od potrzeb da się go szybko przerobić na kaliber 7.62 lub 5.56 - w dzisiejszych warunkach niebagatelne udogodnienie. Możesz trafić na wersję skróconą, \"standardową\" lub \"snajperską\". Tak czy siak postaraj się o dodatkową lufę i zamek, bo nigdy nie wiesz, jak będzie z amunicją."
+                    },
+                    {
+                        "name": "FN-SCAR H",
+                        "type": "Karabin automatyczny",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "C",
+                        "penetration": 2,
+                        "special": [ "Nie można zamontować bagnetu" ],
+                        "ammo": "7.62mm",
+                        "magazine": "30",
+                        "firerate": 2,
+                        "requirements": "Budowa 13",
+                        "description": "Miał byc następcą M-16, ale zdetronizowali go Niemcy ze swoim XM-8. Nie mniej jednak nie zniknął tak całkiem. Kilka formacji używało go do czasów wojny, bo ta broń ma spory potencjał. Nie wygląda tak futurystycznie jak XM-8, jest cięższa, ale można na nią liczyć. Firmowo każdy egzemplarz przychodzi z wymienną lufą i komora zamkową, więc w zależności od potrzeb da się go szybko przerobić na kaliber 7.62 lub 5.56 - w dzisiejszych warunkach niebagatelne udogodnienie. Możesz trafić na wersję skróconą, \"standardową\" lub \"snajperską\". Tak czy siak postaraj się o dodatkową lufę i zamek, bo nigdy nie wiesz, jak będzie z amunicją."
+                    },
+                    {
+                        "name": "AK",
+                        "type": "Karabin automatyczny",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "C",
+                        "penetration": 2,
+                        "special": [ "Bardzo niezawodny" ],
+                        "ammo": "7.62mm",
+                        "magazine": "30",
+                        "firerate": 2,
+                        "requirements": "Budowa 13",
+                        "description": "Ten karabinek to legenda. Wyprodukowano ich więcej egzemplarzy niż mieszkańców Francji, gdy jeszcze istniały normalne państwa, znajdował się na flagach przynajmniej pięciu z nich. Nie było takiej wojny na której by się nie znalazł. Prosta, toporna można rzec broń, ale ma jedną podstawową zaletę. Jest niemal niezniszczalna. Można po niej skakać, wlec za samochodem, palić, zakopać na rok w ogródku obok zwłok teściowej, rzucać z samolotu albo zamrozić, ale i tak po wzięciu jej do ręki będzie strzelała. Niezwykłe, prawda? Ma tak charakterystyczne wygląd, że nie da się jej pomylić z żadna inną, my w Stanach nazywamy ją ze względu na kształ magazynka \"bananową spluwą\". Jest stosunkowo celna, ale nie próbuj z niej strzelać na więcej niż 200 metró. Co z tego, że pocisk doleci, jeśli i tak nie trafisz? Jest nieco kłopotu z amunicją, ale w swoim czasie przywożono jej tyle, że można na nią czasami wpaść. W magazynku mieści się 30 nabojów kaliber 7.62mm. A i uważaj na jedno - kiedyś za produkcję kałaszy zabrali się Chińczycy i jak to zwykle oni coś spieprzyli. Te egzemplarze to zakała rodu i gdy takiego zobaczysz to nie bierz do rąk. Może się zdarzyć, że sam z siebie wybuchnie Ci w twarz. Wiesz co jest naprawde smutne? Że gość, który skonstruował tą najbardziej popularną na całej tej cholernej planecie broń nie miał z tego ani grosza. Los płata nam niezłe figle, prawda?"
+                    },
+                    {
+                        "name": "M16 A2",
+                        "type": "Karabin automatyczny",
+                        "availability": 40,
+                        "price": 70,
+                        "damage": "C",
+                        "penetration": 1,
+                        "special": [ "Celny", "Dobra animacja" ],
+                        "ammo": "5.56mm",
+                        "magazine": "30",
+                        "firerate": 2,
+                        "requirements": "Budowa 13",
+                        "description": "Kiedy po ra pierwszy żołnierze wzili ten karabinek do ręki, wielu z nich, przyzwyczajonych do topornych, drewnianych kształtów broni, nie mogło uwierzyć, że jest to prawdziwa broń. A jak jeszcze Ci powiem, że gdy ją pierwszy raz prowadzono, to instrukcja do nie była w formie komiksu, to tym bardziej zrozumiesz, żewielu gości w panterkach miało spory problem w przekonaniu się do niej. Różnie go nazywano, \"słodką szesnastką\", \"zabaweczka\" czy \"czarny karabin\", ale wiedz jedno, jest to rasowa amerykańska spluwa. Tak, dobrze się domyśliłeś, goście z Nowego Jorku cenią ją sobie ponad wszystkie inne, tam też możesz kupić do niej najwięcej dodatków. Istnieje kilka modeli tej spluwy - podstatowy, ale zupełnie dzisiaj niespotykany to M16. I lepiej obchodzić z daleka, bo ta broń strzela tylko w sterylnym  labolatorium, a nie na placu boju. Nieco lepszy jest M16A1, poprawiono w nim kilka rzeczy, ale nadal nie była to spluwa godna zaufania. Poznasz ją po takim charakterystycznym kształcie łoża - z przodu przekrojem przypomina trójkąt oraz po 20 nabojowym magazynku. I raczej też tego modelu unikaj, nie znajdziesz obecnie pasującej do niego amunicji. Choć będziesz strzelał z tej samej, z jakiej wali M16A2, to jednak zasięg spada do ledwie 100m, a i tak nie jest wtedy zbyt celny. Najlepszą wersją jest oczywiście M16A2, czyli właśnie ten karabinek, na który się teraz gapisz. Śliczna broń, prawda? W magazynku mieści się 30 ślicznych naboi kalibru 5.56mm, które z odległości 200 metrów przebijają każdą lekką kamizelkę kuloodporną. Ta spluwa jest cholernie celna, można do niej podpiąć całą masę różnych gadżetów od celownika optycznego zaczynając, na granatniku i podlufowej śrutówce kończąc. Nawiasem mówiąc, taki zestaw nazywa się wytrychem, sam domyśl się dlaczego. Ma tylko dwie wady - jest nieco za długa, nie ma wersji ze składaną kolbą, no i trzeba o nią dbać, aby dobrze Ci służyła. A własnie, zapomniałem ponieważ M16A2 była za długa i zupełnie niepotrzebnie strzelała nieco za daleko, skonstruowano jej skróconą wersję i od początku XXI wieku do armii wprowadzono tylko te modele. Mowa o M4A1 - ma krótszą lufę, niż starszy brat i składaną, czteropołożeniową teleskopową kolbę. Jasnewalić z niej można na znacznie mniejsze odległości, ale po pierwsze - całe dodatkowe wyposażenie z M16 podepniesz i pod nią, a jest dużo lżejsza i podręczniejsza. Po drugie - jak na tak krótką lufę i tak jest to cholerniecelna broń. Jest to jeden z najczęściej spotykany w powojennych Stanach karabinków."
+                    },
+                    {
+                        "name": "M4A1",
+                        "type": "Karabin automatyczny",
+                        "availability": 40,
+                        "price": 70,
+                        "damage": "C",
+                        "penetration": 1,
+                        "special": [ "Celny", "Dobra animacja" ],
+                        "ammo": "5.56mm",
+                        "magazine": "30",
+                        "firerate": 3,
+                        "requirements": "Budowa 13",
+                        "description": "Kiedy po ra pierwszy żołnierze wzili ten karabinek do ręki, wielu z nich, przyzwyczajonych do topornych, drewnianych kształtów broni, nie mogło uwierzyć, że jest to prawdziwa broń. A jak jeszcze Ci powiem, że gdy ją pierwszy raz prowadzono, to instrukcja do nie była w formie komiksu, to tym bardziej zrozumiesz, żewielu gości w panterkach miało spory problem w przekonaniu się do niej. Różnie go nazywano, \"słodką szesnastką\", \"zabaweczka\" czy \"czarny karabin\", ale wiedz jedno, jest to rasowa amerykańska spluwa. Tak, dobrze się domyśliłeś, goście z Nowego Jorku cenią ją sobie ponad wszystkie inne, tam też możesz kupić do niej najwięcej dodatków. Istnieje kilka modeli tej spluwy - podstatowy, ale zupełnie dzisiaj niespotykany to M16. I lepiej obchodzić z daleka, bo ta broń strzela tylko w sterylnym  labolatorium, a nie na placu boju. Nieco lepszy jest M16A1, poprawiono w nim kilka rzeczy, ale nadal nie była to spluwa godna zaufania. Poznasz ją po takim charakterystycznym kształcie łoża - z przodu przekrojem przypomina trójkąt oraz po 20 nabojowym magazynku. I raczej też tego modelu unikaj, nie znajdziesz obecnie pasującej do niego amunicji. Choć będziesz strzelał z tej samej, z jakiej wali M16A2, to jednak zasięg spada do ledwie 100m, a i tak nie jest wtedy zbyt celny. Najlepszą wersją jest oczywiście M16A2, czyli właśnie ten karabinek, na który się teraz gapisz. Śliczna broń, prawda? W magazynku mieści się 30 ślicznych naboi kalibru 5.56mm, które z odległości 200 metrów przebijają każdą lekką kamizelkę kuloodporną. Ta spluwa jest cholernie celna, można do niej podpiąć całą masę różnych gadżetów od celownika optycznego zaczynając, na granatniku i podlufowej śrutówce kończąc. Nawiasem mówiąc, taki zestaw nazywa się wytrychem, sam domyśl się dlaczego. Ma tylko dwie wady - jest nieco za długa, nie ma wersji ze składaną kolbą, no i trzeba o nią dbać, aby dobrze Ci służyła. A własnie, zapomniałem ponieważ M16A2 była za długa i zupełnie niepotrzebnie strzelała nieco za daleko, skonstruowano jej skróconą wersję i od początku XXI wieku do armii wprowadzono tylko te modele. Mowa o M4A1 - ma krótszą lufę, niż starszy brat i składaną, czteropołożeniową teleskopową kolbę. Jasnewalić z niej można na znacznie mniejsze odległości, ale po pierwsze - całe dodatkowe wyposażenie z M16 podepniesz i pod nią, a jest dużo lżejsza i podręczniejsza. Po drugie - jak na tak krótką lufę i tak jest to cholerniecelna broń. Jest to jeden z najczęściej spotykany w powojennych Stanach karabinków."
+                    },
+                    {
+                        "name": "XM-8",
+                        "type": "Karabin automatyczny",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "C",
+                        "penetration": 1,
+                        "special": [ "Niezawodny", "Dobra amunicja" ],
+                        "ammo": "5.56mm",
+                        "magazine": "30",
+                        "firerate": 2,
+                        "requirements": "Budowa 11",
+                        "description": "Armia Amerykańska nie bierze nic w ciemno, a to kupili. Trudno o lepsza rekomendację. M8 to podstawowy karabinek Armi Amerykańskiej od 2005 roku, skonstruowany przez ojców UMP i MP-5. Jest lekki (jak na karabin), bo zrobiono go po części z kompozytów. Jest też dość celny, jeżeli tylko posiadasz baterię do seryjnie montowanych kolimatorów. Firmowe magazynki sa przezroczyste, co łatwo pozwala skontrolować ilość naboi. Na XM-8 można też zamontować dowolne akcesoria. Po prostu solidna, spełniająca wsyztskie wymagania broń pola walki XXI wieku. Mozna z niej strzelać do maszyn Molocha, bo kaliber 5.56 to nie byle co. Jest tylko jeden szkopuł - musisz mieć zapas baterii do celownika. Na szczęście, jako że spluwa była produkowana seryjnie, to baterie do niej również."
+                    }
+                ]
+            },
+            {
+                "name": "Strzelby",
+                "items": [
+                    {
+                        "name": "Dwururka",
+                        "type": "Strzelba",
+                        "availability": 60,
+                        "price": 50,
+                        "special": [ "Niezawodny - nie zacina się", "Krótki zasięg" ],
+                        "ammo": "śrut",
+                        "magazine": "2",
+                        "requirements": "Budowa 12",
+                        "description": "Łamie się ją wpół i ładuje od tyłu, jak głosi stary kawał, mniejsza zresztą o czym. Strzelba, w której dwie lufy położone są jedna obok drugiej. Najczęściej ma dwa spusty, po jednym na lufę. Jeśli chłopie znajdziesz kiedyś strzelbę, która też ma dwie lufy, ale umieszczone jedna nad drugą, to nie panikuj od razu i nie strzelaj myśląc, że to zmutowana spluwa czy przyczajona technomorwa. Po prostu i takie strzelby też produkowano, nazywały się bokówki, ale kniejówki."
+                    },
+                    {
+                        "name": "Obrzyn",
+                        "type": "Strzelba",
+                        "availability": 70,
+                        "price": 50,
+                        "special": [ "Niezawodny - nie zacina się", "Bliski zasięg" ],
+                        "ammo": "śrut",
+                        "magazine": "2",
+                        "requirements": "Budowa 10",
+                        "description": "Czasami warto mieć przy sobie dwururkę z oberżniętą lufą i odciętą kolbą. Małe to, wszędzie da się schować, a jak wygarniesz, to koleś będzie wyglądał jak poszatkowany."
+                    },
+                    {
+                        "name": "Pompka",
+                        "type": "Strzelba",
+                        "availability": 35,
+                        "price": 60,
+                        "special": [ "Krótki zasięg", "Dobra amunicja" ],
+                        "ammo": "śrut",
+                        "magazine": "5",
+                        "requirements": "Budowa 12",
+                        "description": "Fachowo to się kurde strzelba z zamkiem blokowo-ślizgowym nazywa, ale jak znajdziesz mi gościa stąd aż do Missisipi, który wie o tym, to postawie Tobie i jemu skrzynkę przedwojennego piwa. Ponieważ podczas strzelania, aby przeładować spluwę wykonuje się charakterystyczny gest pompowania i niech Ci się nie kojarzy z czymś innym mały, to tak też nazwali tę powtarzalną śrutówkę - pompka. Po prostu. Jej zaletą nad dwururką, jest to, że posiada rurowy magazynek pod lufą, tak na 5 pocisków. A wadą jest to, że jak Ci się zatnie, to ciężko jest ją szybko naprawić."
+                    },
+                    {
+                        "name": "USAS-12",
+                        "type": "Strzelba",
+                        "availability": 0,
+                        "price": 5,
+                        "special": [ "Dobra amunicja" ],
+                        "ammo": "śrut",
+                        "magazine": "10 / 20",
+                        "firerate": 1,
+                        "requirements": "Budowa 15",
+                        "description": "Universal Semi-Automatic Shotgun - duża, ciężka i zabójcza śrutówka strzelająca seriami. Wciskasz spust w korytarzu pełynym mutków i zamieniasz ich w hamburgery. Duży ciężar pozwala kontrolować broń, gdy walisz serią, ale za to daje się we znaki przy noszeniu. Po za tym USAS jest wybredny, jeśli chodzi o amunicję. Właściwie jeżeli nie strzelasz zwykłym śrutem, może sprawić przykrą niespodziankę i odmówić współpracy. Ale na bliskie dystanse nie ma nic lepszego. No i dobrze wygląda w rekach twardziela."
+                    },
+                    {
+                        "name": "SPAS-12",
+                        "type": "Strzelba",
+                        "availability": 0,
+                        "price": 5,
+                        "special": [ "Celny", "Wolne przeładowanie" ],
+                        "ammo": "śrut",
+                        "magazine": "8",
+                        "requirements": "Budowa 12",
+                        "description": "SPAS-12 wygląda jak bardzo brzydka pompka i można go używać jak pompkę. Ale jeżeli tylko załadujesz dobrą amunicję, przerzucasz przełącznik i wchodzisz w tryb półautomatyczny. Odpada pompowanie, większa się szybkostrzelność, naprawdę świetna sprawa. SPAS to włoska broń, która, stała się modna w szeregach amerykańskiej policji. Inna sprawa, że była droga, więc do dzisiaj przetrwało niewiele sprawnych egzemplarzy. Niewielu potrafiło się należycie zaopiekować tym skomplikowanym sprzętem. Ale jeśli dobrze o niego zadbasz, odpłaci Ci z nawiązką."
+                    }
+                ]
+            },
+            {
+                "name": "Karabiny maszynowe",
+                "items": [
+                    {
+                        "name": "M240",
+                        "type": "Karabin maszynowy",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "C",
+                        "penetration": 2,
+                        "special": [ "Niezawodny" ],
+                        "ammo": "7.62mm",
+                        "magazine": "300 (pas nabojów)",
+                        "firerate": 3,
+                        "requirements": "Budowa 18",
+                        "description": "Następca słynnego M-60, \"Świniaka\". Stworzony przez godną zaufania firmę FN (to Ci od cudownego Minima). Służył do zdejmowania śmigłowców oraz czołgów, a dzisiaj nada się przeciw maszynom Molocha. Żeby strzelić z tego jak ze zwykłego karabinu, człowiek musiałby być solidnie zmutowany lub zcybernetyzowany, więc używają tego głównie wszelkie maści potworni odmieńcy. Jak zbierzesz ze zwłok mutasa, to sam Ci pogratuluję, ale za Posterunkowców się nie bierz. Tak czy siak, jeśli jesteś normalny, bez dwójnoga lub trójnoga sobie nie postrzelasz. Jeszcze jedno, spryciarze z fabryki dorzucili przełącznik szybkostrzelności. Jak masz nadmiar amunicji, możesz siekać jak opętany. M240 waży od 13 do 21 kg z trójnogiem."
+                    },
+                    {
+                        "name": "M2HB",
+                        "type": "Karabin maszynowy",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "K",
+                        "penetration": 3,
+                        "special": [ "Niezawodny" ],
+                        "ammo": ".50\" BMG",
+                        "magazine": "100 (pas lub skrzynka)",
+                        "firerate": 2,
+                        "requirements": "Budowa 22",
+                        "description": "To jest coś stary. Taki kałach wśród karabinów maszynowych, stworzony na sto lat przed pojawieniem się Molocha, a służy nam do dzisiaj. Solidny, niezawodny, niestety na rzadką anumicję .50. Nawet mutasy nie mogę go używać z ręki, bo waży to 38 kilogramów bez pocisków i trójnoga. Szczerze mówiąc, bez jednego i drugiego nie postrzelasz. Rzadko się zacina, robi w celu dziury wielkości pięści, zatrzymuje maszyny Molocha i jadące ciężarówki. Co mogę więcej powiedzieć, marzenie każdego Zabójcy maszyn i maniaka z Hegemonii."
+                    },
+                    {
+                        "name": "M60",
+                        "type": "Karabin maszynowy",
+                        "availability": 20,
+                        "price": 80,
+                        "damage": "C",
+                        "penetration": 2,
+                        "special": [ "Tylko ogień ciągły" ],
+                        "ammo": "7.62mm",
+                        "magazine": "100 (pas)",
+                        "firerate": 2,
+                        "requirements": "Budowa 16",
+                        "description": "Z racji paskudnego wyglądu, wielu chłopaków nazywa tą broń \"Świniakiem\". Nie pytaj mnie dlaczego, być może ażurowa korywa wywoływała wspomnienia ze świńskim ryjem. Amerykańska broń, ale to nieco gorsza kopia starego niemieckiego karabinu maszynowego MG42 z czasów II wojny światowej. Cóż, lepiej było nie kombinować i nie zmieniać szwabskich wynalazków. Chociaż broń była używana przez Amerykę gdzie się tylko dało, żołnierze jakoś nigdy nie nabrali do niej zaufania. Duża siła ognia to spory plus, ale cholerstwo było kapryśne, jak blondyna z Vegas i potrafiło się zaciąć w najmniej spodziewanym momencie."
+                    },
+                    {
+                        "name": "Minimi",
+                        "type": "Karabin maszynowy",
+                        "availability": 10,
+                        "price": 100,
+                        "damage": "C",
+                        "penetration": 1,
+                        "special": [ "Niezawodny", "Tylko ogień ciągły i seryjny" ],
+                        "ammo": "5.56",
+                        "magazine": "30 lub taśma",
+                        "firerate": 3,
+                        "requirements": "Budowa 16",
+                        "description": "Śliczne maleństwo. Ręczny karabinek maszynowy. Taka śmieszna broń, którą można zasilać zarówno z taśmy zamkniętej w poręcznej skrzyneczce zawieszanej do broni, w której znajduje sie 200 naboi, jak i z normalnych 30 nabojowych magazynków z M16. Jest na tyle lekki, że da sie z niego strzelać z biodra, nawet gdy biegniesz. No, celne to może nie będzie, ale na pewno czasami może być przydatne. Ta spluwa ma od razu mocowany dwójnóg. Jest to chyba najbardziej niezawodny erkaem, jakie kiedykolwiek wyprodukowano."
+                    }
+                ]
+            },
+            {
+                "name": "Karabiny snajperskie",
+                "items": [
+                    {
+                        "name": "M40A3",
+                        "type": "Karabin snajperski",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "C",
+                        "penetration": 2,
+                        "special": [ "Celny", "Dobra amunicja" ],
+                        "ammo": "7.62mm",
+                        "magazine": "5",
+                        "requirements": "Budowa 13",
+                        "description": "To będzie najczęściej spotykany przez Ciebie karabin snajperski. Oby nie trafił w ręce Twoich wrogów. Jest używany od legendarnego konfliktu w Wietnamie i ciągle ulepszany. Nie ma może tak imponującego zasięgu jak półcalowy Barret, ale jest łatwiej dostępny, mniejszy i lżejszy. Po prostu solidny karabin snajperski, można nim zapolować na ludzi i mutantów."
+                    },
+                    {
+                        "name": "PSG-1",
+                        "type": "Karabin snajperski",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "C",
+                        "penetration": 2,
+                        "special": [ "Bardzo celny", "Dobra amunicja" ],
+                        "ammo": "7.62mm",
+                        "magazine": "5",
+                        "requirements": "Budowa 12",
+                        "description": "To jest coś dla miłośników subtelności i precyzji. Najsłynniejsza snajperka czasów preapokaliptycznych i żeby nie było wątpliwości, jedna z najdroższych. Wojsko jej nie chciało, narzekało że ciężka i droga, ale pomimo ceny policja zakupiła trochę egzemplarzy, więc szukaj tej spluwy w koszarach oddziałów S.W.A.T. Jest celna, ma solidny zasięg, ale nie lubi brudu, więc na psutyni to sobie zbyt długo nie postrzelasz. I do cięższych maszyn Molocha także - zbyt lekka amunicja."
+                    },
+                    {
+                        "name": "Barrett M82 A1",
+                        "type": "Karabin snajperski",
+                        "availability": 0,
+                        "price": 5,
+                        "damage": "K",
+                        "penetration": 3,
+                        "special": [ "Bardzo celny", "Dobra amunicja" ],
+                        "ammo": ".50\" BMG",
+                        "magazine": "11",
+                        "requirements": "Budowa 18",
+                        "description": "No tak, czas przejść do prawdziwych armat. Dawniej taką broń nazywano rusznicami przeciwpancernymi i polowana z nią na czołgi. Teraz mało kto używa czołgów, no i zrobiły się nieco bardziej opancerzone, ale nie oznacza to, że spluwy tego typu powędrowały na śmietnik, o nie! Pocisk z tego karabinu przelatuje przez lekko opancerzone cele jak przez kartkę papieru. Mobsprzęt nie jest żadnym wyzwaniem dla mojego Barretta. Mało tego, ta spluwa ma niesamowity zasięg ponad kilometr. To oznacza, że w s sprzyjających okolicznościach możesz zdmuchnąć przeciwnika, zanim mu do głowy przyjdzie, że w okolicy jest ktoś jeszcze. Ale coś za coś. Ta armatka swoje waży i zapomnij o walce przy jej pomocy w ciasnych pomieszczeniach czy wąskich zaukłach miast. To spluwa na otwarty teren i tam ujawnia swoje właściwości."
+                    }
+                ]
+            },
+            {
+                "name": "Granatniki",
+                "items": [
+                    {
+                        "name": "M79",
+                        "type": "Granatnik",
+                        "availability": 30,
+                        "price": 70,
+                        "special": [ "Niezawodny" ],
+                        "ammo": "40mm",
+                        "magazine": "1",
+                        "requirements": "Budowa 14",
+                        "description": "Broń pamiętająca walkę z małymi skośnookimi mikrusami gdzieś w dżungli. Ponad wszelką wątpliwość dowiodła swoich zalet. Wygląda jak powiększona, jednostrzałowa śrutówka. I to chyba wszystko co mozna o niej powiedzieć - teraz załaduj granat i wal."
+                    },
+                    {
+                        "name": "MGL Mk-1S Multiple Grenade Launcher",
+                        "type": "Granatnik",
+                        "availability": 0,
+                        "price": 5,
+                        "special": [ "Niezawodny" ],
+                        "ammo": "40mm",
+                        "magazine": "6",
+                        "requirements": "Budowa 14",
+                        "description": "Pamiętasz M79? Miła broń, solidna, daje satysfakcjonujacy wybuch po trafieniu. No więc jakiś zapoznany geniusz wpadł na pomysł, że skoro jeden strzał z M79 jest dobrą rzeczą, to kilka da efekt rewelacyjny. Nie, nie mówię o tym maniaku, który stworzył Mk-19, tylko rozsądnym gościu, który dał światu granatnik rewolwerowy. Nie rewolwer strzelający granatami, lecz granatnik z bębeniem jak w rewolwerze. Sześć granatów, sześć strzałów, sześć wybuchów. Cudo, szkoda tylko, że jest taki ciężki, no i o granaty niełatwo. Świetna broń do pacyfikowania osad mutantów i hurtowego rozwalania gangerów. I ekonomiczniejsza niż Mk-19."
+                    }
+                ]
+            },
+            {
+                "name": "Broń przeciwpancerna",
+                "items": [
+                    {
+                        "name": "Bazooka",
+                        "type": "Broń przeciwpancerna",
+                        "availability": 0,
+                        "price": 5,
+                        "ammo": "66mm",
+                        "magazine": "1",
+                        "description": "Stara konstrukcja, nazywana dawniej pancerzownicą. Tak naprawdę to tylko rura, do które wpychasz od tyłu przeciwpancerny granat o napędzie rakietowym. Później naciskasz na spust i rakieta frunie w kierunku nieprzyjaciela. Tylko uważaj, aby nikt nie stał z tyłu wyrzutni, gdy strzelasz, bo inaczej taki delikwent zmieni się w przypaloną grzanką. W końcu gdzieś gazy wylotowe musza uciekać, nie? Broń wielorazowego użytku, niemal niezniszczalna, bo jak w końcu można uszkodzić kawałek pieprzonej rury ? Dosyć ciężko jest znaleźć do niej amunicję. No i ma jedną podstawową wadę. Musisz być cholernie blisko celu, bo zasię tej pancerzownicy nie jest większy niż 100 metrów."
+                    },
+                    {
+                        "name": "M72 LAW",
+                        "type": "Broń przeciwpancerna",
+                        "availability": 30,
+                        "price": 75,
+                        "ammo": "66mm",
+                        "magazine": "1",
+                        "description": "Mały, przenośny, przeciwpancerny granatnik rakietowy jednorazowego użytku. LAW to tuleja z włókna szklanego, w której mieści się 66mm pocisk rakietowy. Rozkładasz ją teleskopowo, zerkasz w celownik i naciskasz spust, a w tym momecie z ryzykiem pocisk kumulacyjny zaczyna lecieć w kierunku bunkra czy tez ciężkiego pojazdu Molocha. Efekt gwarantowany. Zawsze na północy warto mieć ze sobą taką zabaweczkę, może się okazać, że często będzie to jedyna broń, która uratuje Ci życie. A raczej to co z niego teraz zostało."
+                    }
+                ]
+            },
+            {
+                "name": "Miotacze ognia",
+                "items": [
+                    {
+                        "name": "Miotacz ognia",
+                        "type": "Miotacz ognia",
+                        "ammo": "paliwo",
+                        "availability": 0,
+                        "special": [ "Oparzenia" ],
+                        "description": "Czasami zamiast iść do piekła, trzeba sprowadzić je prosto na ziemię. Zasada jest prosta - zbiornik z mieszanką zapalającą, gaz pod ciśnieniem, przewód oraz zawór. Odkręcasz zawór, gaz miesza się z paliwem i już masz prawie mioracz ognia. Dodajesz do tego prosty spust i mocujesz zapalniczkę na końcu broni. Nie kieruj tego w moją stronę! Naciśnij teraz na cyngiel. Gaz wybycha mieszankę z butli, a zapalniczka ją podpala. Broń jest celna na jakieś 50 metrów, a gdy już wróg zacznie się fajczyć to raczej jest to kres jego ziemskiego żywota, wiesz jak cholernie ciężko leczą się poparzenia? Jest nieco problemów z mieszanką zapalającą, ale ktoś, kto ma postawowe pojęcie o chemii powinien Ci pomóc. A benzyna ostatecznie zawsze się gdzies znajdzie."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Pancerz",
+        "subcategories": [
+            {
+                "name": "Zbroje",
+                "items": [
+                    {
+                        "name": "Kiepska zbroja śmieciowa",
+                        "durability": 2,
+                        "defence": [
+                            {
+                                "name": "Tułów",
+                                "value": 2
+                            },
+                            {
+                                "name": "Głowa",
+                                "value": 2
+                            }
+                        ],
+                        "penalty": 30
+                    },
+                    {
+                        "name": "Dobra zbroja śmieciowa",
+                        "durability": 5,
+                        "defence": [
+                            {
+                                "name": "Tułów",
+                                "value": 2
+                            },
+                            {
+                                "name": "Głowa",
+                                "value": 2
+                            }
+                        ],
+                        "penalty": 20
+                    },
+                    {
+                        "name": "Pancerz RIOT",
+                        "durability": 3,
+                        "defence": [
+                            {
+                                "name": "Tułów",
+                                "value": 2,
+                                "extra": "nie dotyczy tnących"
+                            },
+                            {
+                                "name": "Nogi",
+                                "value": 2,
+                                "extra": "nie dotyczy tnących"
+                            },
+                            {
+                                "name": "Ręce",
+                                "value": 2,
+                                "extra": "nie dotyczy tnących"
+                            }
+
+                        ],
+                        "penalty": 25
+                    }
+                ]
+            },
+            {
+                "name": "Kamizelki",
+                "items": [
+                    {
+                        "name": "Kamizelka przeciwodłamkowa",
+                        "durability": 2,
+                        "defence": [
+                            {
+                                "name": "Tułów",
+                                "value": 2,
+                                "extra": "nie dotyczy tnących"
+                            }
+                        ],
+                        "penalty": 5
+                    },
+                    {
+                        "name": "Kamizelka strzelecka",
+                        "durability": 3,
+                        "defence": [
+                            {
+                                "name": "Tułów",
+                                "value": 3,
+                                "extra": "1 dla tnących"
+                            }
+                        ],
+                        "penalty": 10
+                    }
+                ]
+            },
+            {
+                "name": "Hełmy",
+                "items": [
+                    {
+                        "name": "Hełm wojskowy",
+                        "durability": 5,
+                        "defence": [
+                            {
+                                "name": "Głowa",
+                                "value": 2
+                            }
+                        ],
+                        "penalty": 5
+                    }
+                ]
+            }
+        ]
+    }
+]
