@@ -1,0 +1,114 @@
+[
+    {
+        "name": "2-ręczna",
+        "description": "Broni można skutecznie używać tylko dwurącz."
+    },
+    {
+        "name": "Łańcuch",
+        "description": "Niweluje bonusy do zręczności w obronie, jakie przeciwnik otrzymuje dzięki swej broni."
+    },
+    {
+        "name": "Zawodny",
+        "description": "Feralny rzut na zacięcie 10-20."
+    },
+    {
+        "name": "Niezawodny",
+        "description": "Feralny rzut na zacięcie 19-20."
+    },
+    {
+        "name": "Bardzo niezawodny",
+        "description": "Feralny rzut na zacięcie 20."
+    },
+    {
+        "name": "Niezawodny - nie zacina się",
+        "description": "Feralny rzut na zacięcie 20."
+    },
+    {
+        "name": "Niecelny",
+        "description": "Kara +10% to testu na trafienie."
+    },
+    {
+        "name": "Celny",
+        "description": "Kara -10% do testu na trafienie."
+    },
+    {
+        "name": "Bardzo celny",
+        "description": "Kara -20% do testu na trafienie."
+    },
+    {
+        "name": "Bardzo niecelny",
+        "description": "Kara +20% do testu na trafienie."
+    },
+    {
+        "name": "Niecelny ogień ciągły",
+        "description": "Kata +40% do testu na trafienie podczas ognia ciągłego."
+    },
+    {
+        "name": "Szybkie przeładowanie",
+        "description": "Przeładowanie zajmuje 2 segmenty."
+    },
+    {
+        "name": "Wolne przeładowanie",
+        "description": "Ładujesz 1 nabój na segment."
+    },
+    {
+        "name": "Wolne przeładowanie (HP)",
+        "description": "Przy wymianie magazynka rzuć k20. Jeśli udało Ci się wyrzucić 10 i więcej to udało Ci się to w normalnym czasie (trzy segmenty), ale jesli nie.. oj bracie, będziesz się z tym męczył kolejne trzy segmenty. I módl się, żeby nikt Cię w tym czasie nie zastrzelił."
+    },
+    {
+        "name": "Cholernie wolne przeładowanie",
+        "description": "Przeładowanie zajmuje trzy tury."
+    },
+    {
+        "name": "Bliski zasięg",
+        "description": "Zasięg do 10 metrów."
+    },
+    {
+        "name": "Mały zasięg",
+        "description": "Zasięg do 20 metrów."
+    },
+    {
+        "name": "Krótki zasięg",
+        "description": "Zasięg do 30 metrów."
+    },
+    {
+        "name": "Niewielki zasięg",
+        "description": "Zasięg do 50 metrów."
+    },
+    {
+        "name": "Nieporęczny",
+        "description": "schować to, Ty go nigdzie nie schowasz, ale ta spluwa nie służy do tego, aby trzymać ją w gaciach, nie?"
+    },
+    {
+        "name": "Poręczny",
+        "description": "tę pukawkę da się schować. Trzeba Cię zacząć przeszukiwać, aby ją znaleźć, bo na pierwszy rzut oka jej nie widać."
+    },
+    {
+        "name": "Strzelanie serią",
+        "description": "Możliwość strzelania serią, Szybkostrzelność 1, seria Długa."
+    },
+    {
+        "name": "Dobra amunicja",
+        "description": "Przy samoróbkach zacięcie przy wynikach 15-20."
+    },
+    {
+        "name": "Wyciszony",
+        "description": "Standardowo ma wbudowany tłumik. Chłopie, to znaczy, że możesz rozwalić gościa, a on nawet nie będzie o tym wiedział."
+    },
+    {
+        "name": "Wbudowany dwójnóg",
+        "description": "Broń posiada zamontowany dwójnóg, który zapewnia -10% do testów strzelania gdy z niego korzystasz."
+    },
+    {
+        "name": "Nie można zamontować bagnetu",
+        "description": "Broń nie ma możliwości zamontowania bagnetu."
+    },
+    {
+        "name": "Wewnętrzny magazynek",
+        "description": "Możesz przeładować broń dopiero po opróżnieniu magazynka."
+    },
+    {
+        "name": "Oparzenia",
+        "description": "Miotacz ognia zadaje Ciężkie obrażenia na każde trzy tury, gdy na kimś płonie. Aby zgasić typa, który został potraktowany miotaczem ognia, należy wykonać Bardzo Trudny test Zręczności. Szybkie użycie gaśnicy, albo koca azbestowego może uratować Twojemu kumplowi, o ile masz takowych, jego nędzny żywot."
+    }
+]
