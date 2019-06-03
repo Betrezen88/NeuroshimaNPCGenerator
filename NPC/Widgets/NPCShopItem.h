@@ -1,4 +1,4 @@
-#ifndef NPCSHOPITEM_H
+﻿#ifndef NPCSHOPITEM_H
 #define NPCSHOPITEM_H
 
 #include "NPCCustomWidget.h"
@@ -17,6 +17,9 @@ public:
 
 private:
     void handWeaponLayout();
+    void tossingWeaponLayout();
+    void gunWeaponLayout();
+    void armorLayout();
 
     void addRequirements();
     void addDamage();
@@ -24,6 +27,11 @@ private:
     void addSpecial();
     void addDescription();
     void addAvailability();
+    void addAmmo();
+    void addMagazine();
+    void addDurability();
+    void addDefence();
+    void addPenalty();
 
 private:
     QJsonObject m_item;

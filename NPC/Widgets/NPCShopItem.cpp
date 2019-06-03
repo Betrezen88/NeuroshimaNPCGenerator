@@ -1,4 +1,4 @@
-#include "NPCShopItem.h"
+﻿#include "NPCShopItem.h"
 
 #include <QFrame>
 #include <QGridLayout>
@@ -37,6 +37,27 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
 
     if ( "Broń biała" == m_item.value("type").toString() )
         handWeaponLayout();
+    else if ( "Broń miotana" == m_item.value("type").toString() )
+        tossingWeaponLayout();
+    else if ( "Pistolet" == m_item.value("type").toString()
+              || "Rewolwer" == m_item.value("type").toString()
+              || "Pistolet maszynowy" == m_item.value("type").toString()
+              || "Karabin powtarzalny" == m_item.value("type").toString()
+              || "Karabin samopowtarzalny" == m_item.value("type").toString()
+              || "Karabin automatyczny" == m_item.value("type").toString()
+              || "Strzelba" == m_item.value("type").toString()
+              || "Karabin maszynowy" == m_item.value("type").toString()
+              || "Karabin snajperski" == m_item.value("type").toString()
+              || "Granatnik" == m_item.value("type").toString()
+              || "Broń przeciwpancerna" == m_item.value("type").toString()
+              || "Miotacz ognia" == m_item.value("type").toString() )
+        gunWeaponLayout();
+    else
+        armorLayout();
+
+    if ( m_item.contains("description") )
+        addDescription();
+    addAvailability();
 
     m_pLayout->addWidget( m_pBuyBtn, m_row, 2 );
 }
@@ -59,11 +80,36 @@ void NPCShopItem::handWeaponLayout()
     if ( m_item.contains("penetration") )
         addPenetration();
 
+    if ( m_item.contains("durability") )
+        addDurability();
+
     if ( m_item.contains("special") )
         addSpecial();
+}
 
-    addDescription();
-    addAvailability();
+void NPCShopItem::tossingWeaponLayout()
+{
+    addPenetration();
+    addDamage();
+}
+
+void NPCShopItem::gunWeaponLayout()
+{
+    if ( m_item.contains("damage") )
+        addDamage();
+    if ( m_item.contains("ammo") )
+        addAmmo();
+    if ( m_item.contains("magazine") )
+        addMagazine();
+    if ( m_item.contains("special") )
+        addSpecial();
+}
+
+void NPCShopItem::armorLayout()
+{
+    addDurability();
+    addDefence();
+    addPenalty();
 }
 
 void NPCShopItem::addRequirements()
@@ -108,7 +154,10 @@ void NPCShopItem::addSpecial()
     for ( int i{0}; i<special.size(); ++i ) {
         if ( 0 == i%2 )
             pRow = new QHBoxLayout;
-        pRow->addWidget( new QLabel(special.at(i).toString(), this), 0, Qt::AlignLeft );
+        QLabel *pSpecial = new QLabel(special.at(i).toString(), this);
+        if ( i < special.size()-1 )
+            pSpecial->setText( pSpecial->text() + "," );
+        pRow->addWidget( pSpecial, 0, Qt::AlignLeft );
         if ( 1 == i%2 || i == special.size()-1 )
             m_pLayout->addLayout( pRow, m_row++, 1, 1, 2, Qt::AlignLeft );
     }
@@ -131,5 +180,51 @@ void NPCShopItem::addAvailability()
     QLabel *pAvailability = new QLabel("Dostępność: "
                                        +QString::number(m_item.value("availability").toInt()), this);
     m_pLayout->addWidget( pAvailability,
-                        m_row++, 2, Qt::AlignRight );
+                          m_row++, 2, Qt::AlignRight );
+}
+
+void NPCShopItem::addAmmo()
+{
+    QLabel *pAmmo = new QLabel("Nabój: "+m_item.value("ammo").toString(), this);
+    m_pLayout->addWidget( pAmmo, m_row++, 0 );
+}
+
+void NPCShopItem::addMagazine()
+{
+    QLabel *pMagazine = new QLabel("Magazynek: "+m_item.value("magazine").toString(),
+                                   this);
+    m_pLayout->addWidget( pMagazine, m_row++, 0 );
+}
+
+void NPCShopItem::addDurability()
+{
+    QLabel *pDurability = new QLabel("Wytrzymałość: "
+                                     +QString::number(
+                                         m_item.value("durability").toInt()),
+                                     this);
+    m_pLayout->addWidget( pDurability, m_row++, 0 );
+}
+
+void NPCShopItem::addDefence()
+{
+    QLabel *pDefence = new QLabel("Redukcja:", this);
+    m_pLayout->addWidget( pDefence, m_row++, 0 );
+    QJsonArray defence = m_item.value("defence").toArray();
+    for ( int i{0}; i<defence.size(); ++i ) {
+        const QJsonObject tDefence = defence.at(i).toObject();
+        QLabel *pLocation = new QLabel("\t- "+tDefence.value("name").toString()
+                                       +" "+QString::number(tDefence.value("value").toInt()));
+        if ( tDefence.contains("extra") )
+            pLocation->setText( pLocation->text()
+                                +" ("+tDefence.value("extra").toString()+")" );
+        m_pLayout->addWidget( pLocation, m_row++, 0 );
+    }
+}
+
+void NPCShopItem::addPenalty()
+{
+    QLabel *pPenalty = new QLabel("Kara: +"+
+                                  QString::number(m_item.value("penalty").toInt())
+                                  +"%", this);
+    m_pLayout->addWidget( pPenalty, m_row++, 0 );
 }
