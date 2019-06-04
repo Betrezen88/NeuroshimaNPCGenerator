@@ -632,8 +632,8 @@
                     {
                         "name": "AK",
                         "type": "Karabin automatyczny",
-                        "availability": 0,
-                        "price": 5,
+                        "availability": 10,
+                        "price": 70,
                         "damage": "C",
                         "penetration": 2,
                         "special": [ "Bardzo niezawodny" ],
@@ -841,8 +841,8 @@
                     {
                         "name": "Barrett M82 A1",
                         "type": "Karabin snajperski",
-                        "availability": 0,
-                        "price": 5,
+                        "availability": 5,
+                        "price": 230,
                         "damage": "K",
                         "penetration": 3,
                         "special": [ "Bardzo celny", "Dobra amunicja" ],
@@ -888,7 +888,7 @@
                         "type": "Broń przeciwpancerna",
                         "availability": 0,
                         "price": 5,
-                        "ammo": "66mm",
+                        "ammo": "Pocisk rakietowy",
                         "magazine": "1",
                         "description": "Stara konstrukcja, nazywana dawniej pancerzownicą. Tak naprawdę to tylko rura, do które wpychasz od tyłu przeciwpancerny granat o napędzie rakietowym. Później naciskasz na spust i rakieta frunie w kierunku nieprzyjaciela. Tylko uważaj, aby nikt nie stał z tyłu wyrzutni, gdy strzelasz, bo inaczej taki delikwent zmieni się w przypaloną grzanką. W końcu gdzieś gazy wylotowe musza uciekać, nie? Broń wielorazowego użytku, niemal niezniszczalna, bo jak w końcu można uszkodzić kawałek pieprzonej rury ? Dosyć ciężko jest znaleźć do niej amunicję. No i ma jedną podstawową wadę. Musisz być cholernie blisko celu, bo zasię tej pancerzownicy nie jest większy niż 100 metrów."
                     },
@@ -897,7 +897,7 @@
                         "type": "Broń przeciwpancerna",
                         "availability": 30,
                         "price": 75,
-                        "ammo": "66mm",
+                        "ammo": "Pocisk rakietowy",
                         "magazine": "1",
                         "description": "Mały, przenośny, przeciwpancerny granatnik rakietowy jednorazowego użytku. LAW to tuleja z włókna szklanego, w której mieści się 66mm pocisk rakietowy. Rozkładasz ją teleskopowo, zerkasz w celownik i naciskasz spust, a w tym momecie z ryzykiem pocisk kumulacyjny zaczyna lecieć w kierunku bunkra czy tez ciężkiego pojazdu Molocha. Efekt gwarantowany. Zawsze na północy warto mieć ze sobą taką zabaweczkę, może się okazać, że często będzie to jedyna broń, która uratuje Ci życie. A raczej to co z niego teraz zostało."
                     }
@@ -1021,6 +1021,596 @@
                             }
                         ],
                         "penalty": 5
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Amunicja",
+        "subcategories": [
+            {
+                "name": "Amunicja rewolwerowa",
+                "items": [
+                    {
+                        "name": ".38",
+                        "price": 2,
+                        "availability": 40
+                    },
+                    {
+                        "name": ".40-44",
+                        "price": 2,
+                        "availability": 20
+                    },
+                    {
+                        "name": ".44",
+                        "price": 3,
+                        "availability": 30
+                    }
+                ]
+            },
+            {
+                "name": "Amunicja pistoletowa",
+                "items": [
+                    {
+                        "name": "5,7mm",
+                        "price": 3,
+                        "availability": 10
+                    },
+                    {
+                        "name": "7,62mm TT",
+                        "price": 2,
+                        "availability": 30
+                    },
+                    {
+                        "name": "9mm",
+                        "price": 3,
+                        "availability": 40
+                    },
+                    {
+                        "name": "45ACP",
+                        "price": 2,
+                        "availability": 40
+                    },
+                    {
+                        "name": "50.AE",
+                        "price": 2,
+                        "availability": 10
+                    }
+                ]
+            },
+            {
+                "name": "Amunicja karabinowa",
+                "items": [
+                    {
+                        "name": ".22",
+                        "price": 2,
+                        "availability": 50
+                    },
+                    {
+                        "name": "5,56mm",
+                        "price": 3,
+                        "availability": 40
+                    },
+                    {
+                        "name": "7,62mm",
+                        "price": 3,
+                        "availability": 40
+                    },
+                    {
+                        "name": "7,62mm AK",
+                        "price": 2,
+                        "availability": 30
+                    },
+                    {
+                        "name": ".50BMG",
+                        "price": 2,
+                        "availability": 40
+                    },
+                    {
+                        "name": ".12",
+                        "price": 2,
+                        "availability": 50
+                    }
+                ]
+            },
+            {
+                "name": "Amunicja granaty",
+                "items": [
+                    {
+                        "name": "Granat 20mm",
+                        "price": 50,
+                        "availability": 10
+                    },
+                    {
+                        "name": "Granat 40mm",
+                        "price": 40,
+                        "availability": 20
+                    },
+                    {
+                        "name": "Pocisk rakietowy",
+                        "price": 100,
+                        "availability": 10
+                    }
+                ]
+            },
+            {
+                "name": "Amunicja miotana",
+                "items": [
+                    {
+                        "name": "Strzała",
+                        "price": 1,
+                        "availability": 80
+                    },
+                    {
+                        "name": "Bełt",
+                        "price": 2,
+                        "availability": 40
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Inne",
+        "subcategories": [
+            {
+                "name": "Używki",
+                "items": [
+                    {
+                        "name": "Alkohol samogon 1L",
+                        "price": 5,
+                        "availability": 70
+                    },
+                    {
+                        "name": "Alkohol markowy 1L",
+                        "price": 10,
+                        "availability": 20
+                    },
+                    {
+                        "name": "Papieros",
+                        "price": 1,
+                        "availability": 60
+                    },
+                    {
+                        "name": "Tytoń do żucia",
+                        "price": 2,
+                        "availability": 80
+                    }
+                ]
+            },
+            {
+                "name": "Paliwo",
+                "items": [
+                    {
+                        "name": "Dobrej jakości",
+                        "price": 15,
+                        "availability": 10
+                    },
+                    {
+                        "name": "Przeciętnej jakości",
+                        "price": 5,
+                        "availability": 30
+                    },
+                    {
+                        "name": "Słabej jakości",
+                        "price": 3,
+                        "availability": 50
+                    },
+                    {
+                        "name": "Olej napędowy",
+                        "price": 3,
+                        "availability": 50
+                    }
+                ]
+            },
+            {
+                "name": "Lekarstwa",
+                "items": [
+                    {
+                        "name": "Decalcit",
+                        "price": 2,
+                        "availability": 80
+                    },
+                    {
+                        "name": "Calcidis",
+                        "price": 2,
+                        "availability": 60
+                    },
+                    {
+                        "name": "Valapren",
+                        "price": 5,
+                        "availability": 20
+                    },
+                    {
+                        "name": "Ebokiller",
+                        "price": 4,
+                        "availability": 40
+                    },
+                    {
+                        "name": "Tubokuraryna",
+                        "price": 1,
+                        "availability": 70
+                    },
+                    {
+                        "name": "Benzodiazepiny",
+                        "price": 2,
+                        "availability": 50
+                    },
+                    {
+                        "name": "Progabid",
+                        "price": 3,
+                        "availability": 40
+                    },
+                    {
+                        "name": "Pinio",
+                        "price": 1,
+                        "availability": 60
+                    },
+                    {
+                        "name": "Uregyt",
+                        "price": 2,
+                        "availability": 80
+                    },
+                    {
+                        "name": "Kwas foliowy",
+                        "price": 1,
+                        "availability": 80
+                    },
+                    {
+                        "name": "Preparaty żelaza",
+                        "price": 1,
+                        "availability": 80
+                    },
+                    {
+                        "name": "Leki przeciwhistaminowe",
+                        "price": 3,
+                        "availability": 30
+                    },
+                    {
+                        "name": "Alef",
+                        "price": 2,
+                        "availability": 50
+                    },
+                    {
+                        "name": "Bet",
+                        "price": 2,
+                        "availability": 40
+                    },
+                    {
+                        "name": "Gimel",
+                        "price": 2,
+                        "availability": 40
+                    },
+                    {
+                        "name": "Reminex",
+                        "price": 5,
+                        "availability": 30
+                    },
+                    {
+                        "name": "Lek na drgawki",
+                        "price": 1,
+                        "availability": 40
+                    },
+                    {
+                        "name": "Psychotropy",
+                        "price": 3,
+                        "availability": 25
+                    },
+                    {
+                        "name": "Krioprecypitat",
+                        "price": 10,
+                        "availability": 20
+                    },
+                    {
+                        "name": "Osocze",
+                        "price": 5,
+                        "availability": 10
+                    },
+                    {
+                        "name": "Desmopresyna",
+                        "price": 7,
+                        "availability": 30
+                    },
+                    {
+                        "name": "Mallonix",
+                        "price": 2,
+                        "availability": 50
+                    },
+                    {
+                        "name": "Wapniak",
+                        "price": 1,
+                        "availability": 25
+                    },
+                    {
+                        "name": "Actinix",
+                        "price": 2,
+                        "availability": 50
+                    },
+                    {
+                        "name": "Rephidal",
+                        "price": 3,
+                        "availability": 25
+                    },
+                    {
+                        "name": "Aspityna K",
+                        "price": 1,
+                        "availability": 80
+                    },
+                    {
+                        "name": "Preparat krwiotwórczy T",
+                        "price": 3,
+                        "availability": 60
+                    },
+                    {
+                        "name": "Preparat krwiotwórczy K",
+                        "price": 4,
+                        "availability": 60
+                    },
+                    {
+                        "name": "Memorial",
+                        "price": 6,
+                        "availability": 30
+                    },
+                    {
+                        "name": "AVTDS",
+                        "price": 2,
+                        "availability": 40
+                    },
+                    {
+                        "name": "Witaminy",
+                        "price": 1,
+                        "availability": 80
+                    },
+                    {
+                        "name": "Środki przeciwbólowe",
+                        "price": 1,
+                        "availability": 70
+                    },
+                    {
+                        "name": "Keep Smiling",
+                        "price": 1,
+                        "availability": 10
+                    },
+                    {
+                        "name": "Klonazepam",
+                        "price": 1,
+                        "availability": 50
+                    },
+                    {
+                        "name": "Słabe środki uspokajające",
+                        "price": 5,
+                        "availability": 50
+                    },
+                    {
+                        "name": "Silne środki uspokajające",
+                        "price": 15,
+                        "availability": 10
+                    }
+                ]
+            },
+            {
+                "name": "Akcesoria do broni balnej",
+                "items": [
+                    {
+                        "name": "Celownik laserowy",
+                        "price": 60,
+                        "availability": 10
+                    },
+                    {
+                        "name": "Celownik optyczny",
+                        "price": 40,
+                        "availability": 20
+                    },
+                    {
+                        "name": "Dwójnóg",
+                        "price": 10,
+                        "availability": 80
+                    },
+                    {
+                        "name": "Granatnik podwieszany",
+                        "price": 70,
+                        "availability": 20
+                    },
+                    {
+                        "name": "Podstawka trójnożna",
+                        "price": 20,
+                        "availability": 70
+                    },
+                    {
+                        "name": "Śrutówka podlufowa",
+                        "price": 45,
+                        "availability": 15
+                    }
+                ]
+            },
+            {
+                "name": "Elektronika",
+                "items": [
+                    {
+                        "name": "Analizator chemiczny",
+                        "price": 100,
+                        "availability": 5
+                    },
+                    {
+                        "name": "Bateria",
+                        "price": 20,
+                        "availability": 10
+                    },
+                    {
+                        "name": "Części zapasowe(0.25 kg)",
+                        "price": 5,
+                        "availability": 100
+                    },
+                    {
+                        "name": "Detektor ruchu",
+                        "price": 80,
+                        "availability": 10
+                    },
+                    {
+                        "name": "Krótkofalówka",
+                        "price": 25,
+                        "availability": 25
+                    },
+                    {
+                        "name": "Mały Elektryk",
+                        "price": 20,
+                        "availability": 50
+                    },
+                    {
+                        "name": "Miernik promieniowania",
+                        "price": 30,
+                        "availability": 30
+                    },
+                    {
+                        "name": "Miernik skażenia chemicznego",
+                        "price": 50,
+                        "availability": 20
+                    },
+                    {
+                        "name": "Noktowizor",
+                        "price": 70,
+                        "availability": 15
+                    },
+                    {
+                        "name": "Odtwarzacz CD",
+                        "price": 10,
+                        "availability": 20
+                    },
+                    {
+                        "name": "Radio",
+                        "price": 15,
+                        "availability": 70
+                    },
+                    {
+                        "name": "Wykrywacz metalu",
+                        "price": 30,
+                        "availability": 20
+                    },
+                    {
+                        "name": "Wytrych (elektroniczny)",
+                        "price": 50,
+                        "availability": 5
+                    },
+                    {
+                        "name": "Komputer osobisty",
+                        "price": 30,
+                        "availability": 80
+                    },
+                    {
+                        "name": "Komputer osobisty najnowszej generacji",
+                        "price": 60,
+                        "availability": 40
+                    },
+                    {
+                        "name": "Laptop",
+                        "price": 50,
+                        "availability": 60
+                    },
+                    {
+                        "name": "Laptop wojskowy",
+                        "price": 140,
+                        "availability": 5
+                    },
+                    {
+                        "name": "Laptop ze sztuczną inteligencją",
+                        "price": 80,
+                        "availability": 10
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Mechanika",
+        "subcategories": [
+            {
+                "name": "Pojazdy",
+                "items": [
+                    {
+                        "name": "Autobus miejski",
+                        "price": 180,
+                        "availability": 20
+                    },
+                    {
+                        "name": "Autobus szkolny",
+                        "price": 170,
+                        "availability": 15
+                    },
+                    {
+                        "name": "Autobus Turystyczny",
+                        "price": 220,
+                        "availability": 10
+                    },
+                    {
+                        "name": "Ciężarówka",
+                        "price": 200,
+                        "availability": 15
+                    },
+                    {
+                        "name": "Coupe",
+                        "price": 40,
+                        "availability": 40
+                    },
+                    {
+                        "name": "Furgonetka",
+                        "price": 150,
+                        "availability": 20
+                    },
+                    {
+                        "name": "Hammer",
+                        "price": 180,
+                        "availability": 10
+                    },
+                    {
+                        "name": "Hatchback",
+                        "price": 50,
+                        "availability": 40
+                    },
+                    {
+                        "name": "Jeep",
+                        "price": 100,
+                        "availability": 25
+                    },
+                    {
+                        "name": "Limuzyna",
+                        "price": 100,
+                        "availability": 15
+                    },
+                    {
+                        "name": "Łazik",
+                        "price": 80,
+                        "availability": 20
+                    },
+                    {
+                        "name": "Kombi",
+                        "price": 40,
+                        "availability": 60
+                    },
+                    {
+                        "name": "Pickup",
+                        "price": 100,
+                        "availability": 25
+                    },
+                    {
+                        "name": "Minivan",
+                        "price": 120,
+                        "availability": 20
+                    },
+                    {
+                        "name": "Motocykl",
+                        "price": 50,
+                        "availability": 40
+                    },
+                    {
+                        "name": "Sedan",
+                        "price": 60,
+                        "availability": 30
+                    },
+                    {
+                        "name": "Wóz strażacki",
+                        "price": 300,
+                        "availability": 15
                     }
                 ]
             }
