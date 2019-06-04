@@ -87,7 +87,6 @@ void NPCShop::addItemsToShop()
 
 void NPCShop::hideItems()
 {
-    for ( int i{0}; i<m_pShop->count(); ++i ) {
+    for ( int i{0}; i<m_pShop->count(); ++i )
         m_pShop->item(i)->setHidden( true );
-    }
 }
