@@ -15,6 +15,10 @@ class NPCShopItem : public NPCCustomWidget
 public:
     NPCShopItem(const QJsonObject &item, QWidget *parent = nullptr);
 
+private slots:
+    void checkItemAvailability();
+    void buyItem();
+
 private:
     void handWeaponLayout();
     void tossingWeaponLayout();
@@ -32,6 +36,7 @@ private:
     void addDurability();
     void addDefence();
     void addPenalty();
+    void addButton();
 
     QString gambleText(const int &price);
 

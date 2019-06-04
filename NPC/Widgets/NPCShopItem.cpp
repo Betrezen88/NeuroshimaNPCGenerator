@@ -1,4 +1,5 @@
 ﻿#include "NPCShopItem.h"
+#include "../Utils/Dice.h"
 
 #include <QFrame>
 #include <QGridLayout>
@@ -14,7 +15,7 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
       m_pName( new QLabel(this) ),
       m_pPrice( new QLabel(this) ),
       m_pLine( new QFrame(this) ),
-      m_pBuyBtn( new QPushButton("Sprawdź", this) )
+      m_pBuyBtn( new QPushButton(this) )
 {
     m_pLayout->setSpacing( 1 );
     m_pName->setText( m_item.value("name").toString() );
@@ -60,7 +61,25 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
         addDescription();
     addAvailability();
 
-    m_pLayout->addWidget( m_pBuyBtn, m_row, 2 );
+    addButton();
+}
+
+void NPCShopItem::checkItemAvailability()
+{
+    Dice k100{100};
+
+    if ( m_item.value("availability").toInt() >= static_cast<int>(k100.throwValue()) ) {
+        m_pBuyBtn->setText( "Kup" );
+    }
+    else {
+        m_pBuyBtn->setText( "Brak" );
+        m_pBuyBtn->setDisabled( true );
+    }
+}
+
+void NPCShopItem::buyItem()
+{
+
 }
 
 void NPCShopItem::handWeaponLayout()
@@ -228,6 +247,21 @@ void NPCShopItem::addPenalty()
                                   QString::number(m_item.value("penalty").toInt())
                                   +"%", this);
     m_pLayout->addWidget( pPenalty, m_row++, 0 );
+}
+
+void NPCShopItem::addButton()
+{
+    if ( 100 > m_item.value("availability").toInt() ) {
+        m_pBuyBtn->setText( "Sprawdź" );
+        connect( m_pBuyBtn, &QPushButton::clicked,
+                 this, &NPCShopItem::checkItemAvailability );
+    }
+    else {
+        m_pBuyBtn->setText( "Kup" );
+        connect( m_pBuyBtn, &QPushButton::clicked,
+                 this, &NPCShopItem::buyItem );
+    }
+    m_pLayout->addWidget( m_pBuyBtn, m_row, 2, Qt::AlignRight );
 }
 
 QString NPCShopItem::gambleText(const int &price)
