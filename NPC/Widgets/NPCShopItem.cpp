@@ -21,7 +21,8 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
     m_pName->setObjectName( "Name" );
     m_pName->setStyleSheet( m_nameStyle );
 
-    m_pPrice->setText( QString::number(m_item.value("price").toInt())+" gambli" );
+    const int &price = m_item.value("price").toInt();
+    m_pPrice->setText( QString::number(price)+" "+gambleText(price) );
     m_pPrice->setObjectName( "Name" );
     m_pPrice->setStyleSheet( m_nameStyle );
 
@@ -227,4 +228,14 @@ void NPCShopItem::addPenalty()
                                   QString::number(m_item.value("penalty").toInt())
                                   +"%", this);
     m_pLayout->addWidget( pPenalty, m_row++, 0 );
+}
+
+QString NPCShopItem::gambleText(const int &price)
+{
+    if ( price == 1 )
+        return "gambel";
+    else if ( price < 5 )
+        return "gamble";
+    else
+        return "gambli";
 }

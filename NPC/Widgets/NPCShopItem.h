@@ -33,6 +33,8 @@ private:
     void addDefence();
     void addPenalty();
 
+    QString gambleText(const int &price);
+
 private:
     QJsonObject m_item;
     QGridLayout *m_pLayout{nullptr};
