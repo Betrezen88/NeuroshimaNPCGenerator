@@ -21,18 +21,18 @@
 
 - dodać logikę weryfikującą ukończenie procesu tworzenia postaci
 
-- dodać klasę prezentującą przedmiot w ekwipunku
-
 - dodać logikę kupowania przedmiotu
 
-- dodać logikę losującą ilość przedmiotów dostępnych w sklepie
+- dodać informację o regułach specjalnych broni
+
+- dodać klasę prezentującą przedmiot w ekwipunku
 
 BUGS:
 - wielokrotne wciśnięcie przycisku losuj w zakładce Choroba nie odświerza listy wylosowanych chorób,
   nie znikają wcześniej wylosowane choroby
 
 In progress:
-
+- dodać logikę losującą ilość przedmiotów dostępnych w sklepie
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
