@@ -86,6 +86,15 @@ void NPCShopItem::checkItemAvailability()
     }
 }
 
+void NPCShopItem::transformToBuyBtn()
+{
+    m_pBuyBtn->setText( "Kup" );
+    disconnect( m_pBuyBtn, &QPushButton::clicked,
+                this, &NPCShopItem::checkItemAvailability );
+    connect( m_pBuyBtn, &QPushButton::clicked,
+             this, &NPCShopItem::buyItem );
+}
+
 void NPCShopItem::buyItem()
 {
     setQuantity( --m_quantity );

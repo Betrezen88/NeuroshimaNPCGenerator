@@ -19,6 +19,7 @@ public:
 
 private slots:
     void checkItemAvailability();
+    void transformToBuyBtn();
     void buyItem();
 
 private:
