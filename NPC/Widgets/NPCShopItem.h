@@ -5,6 +5,8 @@
 
 #include <QJsonObject>
 
+class Dice;
+
 class QFrame;
 class QGridLayout;
 class QLabel;
@@ -37,6 +39,13 @@ private:
     void addDefence();
     void addPenalty();
     void addButton();
+    void setQuantity(const int &value);
+
+    void rollQuantity();
+    void ammoQuantity(int &quantity, Dice &k10);
+    void handWeaponQuantity(int &quantity, Dice &k10);
+    void armorQuantity(int &quantity, Dice &k10);
+    void usableQuantity(int &quantity, Dice &k10);
 
     QString gambleText(const int &price);
 
@@ -45,10 +54,12 @@ private:
     QGridLayout *m_pLayout{nullptr};
     QLabel *m_pName{nullptr};
     QLabel *m_pPrice{nullptr};
+    QLabel *m_pQuantity{nullptr};
     QFrame *m_pLine{nullptr};
     QPushButton *m_pBuyBtn{nullptr};
 
     int m_row{0};
+    int m_quantity{0};
 
     const QString m_nameStyle{
         "QLabel#Name{"

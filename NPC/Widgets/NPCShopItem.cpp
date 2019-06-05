@@ -14,6 +14,7 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
       m_pLayout( new QGridLayout(this) ),
       m_pName( new QLabel(this) ),
       m_pPrice( new QLabel(this) ),
+      m_pQuantity(new QLabel(this)),
       m_pLine( new QFrame(this) ),
       m_pBuyBtn( new QPushButton(this) )
 {
@@ -21,6 +22,7 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
     m_pName->setText( m_item.value("name").toString() );
     m_pName->setObjectName( "Name" );
     m_pName->setStyleSheet( m_nameStyle );
+    m_pName->setSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum );
 
     const int &price = m_item.value("price").toInt();
     m_pPrice->setText( QString::number(price)+" "+gambleText(price) );
@@ -33,8 +35,12 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
     m_pLine->setFrameShadow( QFrame::Sunken );
     setLayout( m_pLayout );
 
-    m_pLayout->addWidget( m_pName, m_row, 0, Qt::AlignLeft );
-    m_pLayout->addWidget( m_pPrice, m_row++, 2, Qt::AlignRight );
+    QHBoxLayout *pHeaderL = new QHBoxLayout;
+    pHeaderL->addWidget( m_pName, 1, Qt::AlignLeft );
+    pHeaderL->addWidget( m_pQuantity, 0, Qt::AlignLeft );
+    pHeaderL->addWidget( m_pPrice, 0, Qt::AlignRight );
+
+    m_pLayout->addLayout( pHeaderL, m_row++, 0, 1, 3 );
     m_pLayout->addWidget( m_pLine, m_row++, 0, 1, 3 );
 
     if ( "Broń biała" == m_item.value("type").toString() )
@@ -54,7 +60,9 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
               || "Broń przeciwpancerna" == m_item.value("type").toString()
               || "Miotacz ognia" == m_item.value("type").toString() )
         gunWeaponLayout();
-    else
+    else if ( "Zbroja" == m_item.value("type").toString()
+              || "Kamizelka" == m_item.value("type").toString()
+              || "Hełm" == m_item.value("type").toString() )
         armorLayout();
 
     if ( m_item.contains("description") )
@@ -70,6 +78,7 @@ void NPCShopItem::checkItemAvailability()
 
     if ( m_item.value("availability").toInt() >= static_cast<int>(k100.throwValue()) ) {
         m_pBuyBtn->setText( "Kup" );
+        rollQuantity();
     }
     else {
         m_pBuyBtn->setText( "Brak" );
@@ -262,6 +271,85 @@ void NPCShopItem::addButton()
                  this, &NPCShopItem::buyItem );
     }
     m_pLayout->addWidget( m_pBuyBtn, m_row, 2, Qt::AlignRight );
+}
+
+void NPCShopItem::setQuantity(const int &value)
+{
+    m_quantity = value;
+    m_pQuantity->setText( "(Ilość: "+QString::number(m_quantity)+")" );
+}
+
+void NPCShopItem::rollQuantity()
+{
+    Dice k10{10};
+    int quantity{0};
+    if ( "ammo" == m_item.value("type").toString() )
+        ammoQuantity(quantity, k10);
+    else if ( "Broń biała" == m_item.value("type").toString()
+              || "Broń miotana" == m_item.value("type").toString()
+              || "Pistolet" == m_item.value("type").toString()
+              || "Rewolwer" == m_item.value("type").toString()
+              || "Pistolet maszynowy" == m_item.value("type").toString()
+              || "Karabin powtarzalny" == m_item.value("type").toString()
+              || "Karabin samopowtarzalny" == m_item.value("type").toString()
+              || "Karabin automatyczny" == m_item.value("type").toString()
+              || "Strzelba" == m_item.value("type").toString()
+              || "Karabin maszynowy" == m_item.value("type").toString()
+              || "Karabin snajperski" == m_item.value("type").toString()
+              || "Granatnik" == m_item.value("type").toString()
+              || "Broń przeciwpancerna" == m_item.value("type").toString()
+              || "Miotacz ognia" == m_item.value("type").toString() )
+        handWeaponQuantity(quantity, k10);
+    else if ( "Zbroja" == m_item.value("type").toString()
+              || "Kamizelka" == m_item.value("type").toString()
+              || "Hełm" == m_item.value("type").toString() )
+        quantity = 1;
+    else if ( "Używka" == m_item.value("type").toString() )
+        usableQuantity(quantity, k10);
+
+    setQuantity( quantity );
+}
+
+void NPCShopItem::ammoQuantity(int &quantity, Dice &k10)
+{
+    int result = static_cast<int>( k10.throwValue() );
+
+    if ( 5 >= result ) {
+        quantity = 5 + static_cast<int>(k10.throwValue());
+    }
+    else if ( 5 < result && 9 > result ) {
+        quantity = 5 + static_cast<int>(k10.throwValue()) + static_cast<int>(k10.throwValue());
+    }
+    else {
+        quantity = 5 + static_cast<int>(k10.throwValue()) + static_cast<int>(k10.throwValue())
+                 + static_cast<int>(k10.throwValue());
+    }
+}
+
+void NPCShopItem::handWeaponQuantity(int &quantity, Dice &k10)
+{
+    int result = static_cast<int>( k10.throwValue() );
+
+    quantity = (7>=result) ? 1 : 2;
+}
+
+void NPCShopItem::armorQuantity(int &quantity, Dice &k10)
+{
+    int result = static_cast<int>( k10.throwValue() );
+
+    quantity = (6>result) ? 1 : 2;
+}
+
+void NPCShopItem::usableQuantity(int &quantity, Dice &k10)
+{
+    int result = static_cast<int>( k10.throwValue() );
+
+    if ( 5>result )
+        quantity = 5 + static_cast<int>( k10.throwValue() );
+    else if ( 5<=result && 8>=result )
+        quantity = 9 + static_cast<int>( k10.throwValue() ) + static_cast<int>( k10.throwValue() );
+    else
+        quantity = 13 + static_cast<int>( k10.throwValue() ) + static_cast<int>( k10.throwValue() );
 }
 
 QString NPCShopItem::gambleText(const int &price)
