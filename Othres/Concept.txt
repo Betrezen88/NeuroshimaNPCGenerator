@@ -21,12 +21,18 @@
 
 - dodać logikę weryfikującą ukończenie procesu tworzenia postaci
 
+- dodać klasę prezentującą przedmiot w ekwipunku
+
+- dodać logikę kupowania przedmiotu
+
+- dodać logikę losującą ilość przedmiotów dostępnych w sklepie
+
 BUGS:
 - wielokrotne wciśnięcie przycisku losuj w zakładce Choroba nie odświerza listy wylosowanych chorób,
   nie znikają wcześniej wylosowane choroby
 
 In progress:
-- dodać json z przedmiotami
+
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
@@ -130,3 +136,6 @@ FIXED:
 + dodać klasę odpowiedzialną za inne umiejętności, użytkownik wybiera z przykładowych lub dodaje własne,
   każda z nich musi mieć info o atrybucie na którym się opiera
 + dodać widget prezentujący inne umiejętności na karcie
++ dodać json z przedmiotami
++ dodać zakładkę sklep do tworzenia postaci
++ dodać informację o ilości posiadanych gambli

@@ -18,7 +18,8 @@ NPCShop::NPCShop(QWidget *parent)
       m_pCategory(new QComboBox(this)),
       m_pSubcategory(new QComboBox(this)),
       m_pInventory(new QListWidget(this)),
-      m_pShop(new QListWidget(this))
+      m_pShop(new QListWidget(this)),
+      m_pMoney(new QLabel("100", this))
 {
     connect( m_pCategory, &QComboBox::currentTextChanged,
              this, &NPCShop::setSubcategory );
@@ -32,7 +33,9 @@ NPCShop::NPCShop(QWidget *parent)
     addItemsToShop();
 
     pLayout->addWidget( new QLabel("Ekwipunek"), 0, 0, 1, 2 );
-    pLayout->addWidget( m_pInventory, 1, 0, 7, 2 );
+    pLayout->addWidget( new QLabel("Gamble"), 1, 0, 1, 1 );
+    pLayout->addWidget( m_pMoney, 1, 1, 1, 1 );
+    pLayout->addWidget( m_pInventory, 2, 0, 6, 2 );
     pLayout->addWidget( new QLabel("Sklep"), 0, 2, 1, 2 );
     pLayout->addWidget( new QLabel("Kategoria"), 1, 2, 1, 1 );
     pLayout->addWidget( m_pCategory, 1, 3, 1, 1 );

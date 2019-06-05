@@ -5,6 +5,7 @@
 #include <QHash>
 
 class QComboBox;
+class QLabel;
 class QListWidget;
 class QListWidgetItem;
 
@@ -38,6 +39,7 @@ private:
     QComboBox *m_pSubcategory{nullptr};
     QListWidget *m_pInventory{nullptr};
     QListWidget *m_pShop{nullptr};
+    QLabel *m_pMoney{nullptr};
 
     QHash<QString, QHash<QString, QVector<QListWidgetItem*>>> m_items;
 };
