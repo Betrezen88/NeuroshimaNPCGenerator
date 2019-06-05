@@ -77,7 +77,7 @@ void NPCShopItem::checkItemAvailability()
     Dice k100{100};
 
     if ( m_item.value("availability").toInt() >= static_cast<int>(k100.throwValue()) ) {
-        m_pBuyBtn->setText( "Kup" );
+        transformToBuyBtn();
         rollQuantity();
     }
     else {
@@ -280,11 +280,8 @@ void NPCShopItem::addButton()
         connect( m_pBuyBtn, &QPushButton::clicked,
                  this, &NPCShopItem::checkItemAvailability );
     }
-    else {
-        m_pBuyBtn->setText( "Kup" );
-        connect( m_pBuyBtn, &QPushButton::clicked,
-                 this, &NPCShopItem::buyItem );
-    }
+    else
+        transformToBuyBtn();
     m_pLayout->addWidget( m_pBuyBtn, m_row, 2, Qt::AlignRight );
 }
 
