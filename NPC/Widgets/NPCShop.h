@@ -31,7 +31,6 @@ private slots:
 
 private:
     void addItemsToShop();
-
     void hideItems();
 
 private:
