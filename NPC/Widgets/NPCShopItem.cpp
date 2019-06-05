@@ -288,7 +288,7 @@ void NPCShopItem::addButton()
 void NPCShopItem::setQuantity(const int &value)
 {
     m_quantity = value;
-    m_pQuantity->setText( "(Ilość: "+QString::number(m_quantity)+")" );
+    m_pQuantity->setText( "(Ilość: "+QString::number(value)+")" );
 }
 
 void NPCShopItem::rollQuantity()
