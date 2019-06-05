@@ -14,8 +14,12 @@ class QPushButton;
 
 class NPCShopItem : public NPCCustomWidget
 {
+    Q_OBJECT
 public:
     NPCShopItem(const QJsonObject &item, QWidget *parent = nullptr);
+
+signals:
+    void itemBougth(const QJsonObject &item);
 
 private slots:
     void checkItemAvailability();
