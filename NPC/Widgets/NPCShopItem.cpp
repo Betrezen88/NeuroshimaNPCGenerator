@@ -88,7 +88,13 @@ void NPCShopItem::checkItemAvailability()
 
 void NPCShopItem::buyItem()
 {
+    setQuantity( --m_quantity );
+    emit itemBougth( m_item );
 
+    if ( 0 >= m_quantity ) {
+        m_pBuyBtn->setText( "Brak" );
+        m_pBuyBtn->setDisabled( true );
+    }
 }
 
 void NPCShopItem::handWeaponLayout()
