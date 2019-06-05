@@ -53,6 +53,7 @@ private:
     const QString m_nameStyle{
         "QLabel#Name{"
         " font: 11 bold;"
+        " padding-right: 5px;"
         "}"
     };
 };
