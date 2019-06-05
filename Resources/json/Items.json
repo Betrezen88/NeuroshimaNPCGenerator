@@ -926,6 +926,7 @@
                 "items": [
                     {
                         "name": "Kiepska zbroja śmieciowa",
+                        "type": "Zbroja",
                         "durability": 2,
                         "defence": [
                             {
@@ -941,6 +942,7 @@
                     },
                     {
                         "name": "Dobra zbroja śmieciowa",
+                        "type": "Zbroja",
                         "durability": 5,
                         "defence": [
                             {
@@ -956,6 +958,7 @@
                     },
                     {
                         "name": "Pancerz RIOT",
+                        "type": "Zbroja",
                         "durability": 3,
                         "defence": [
                             {
@@ -984,6 +987,7 @@
                 "items": [
                     {
                         "name": "Kamizelka przeciwodłamkowa",
+                        "type": "Kamizelka",
                         "durability": 2,
                         "defence": [
                             {
@@ -996,6 +1000,7 @@
                     },
                     {
                         "name": "Kamizelka strzelecka",
+                        "type": "Kamizelka",
                         "durability": 3,
                         "defence": [
                             {
@@ -1013,6 +1018,7 @@
                 "items": [
                     {
                         "name": "Hełm wojskowy",
+                        "type": "Hełm",
                         "durability": 5,
                         "defence": [
                             {
@@ -1035,17 +1041,20 @@
                     {
                         "name": ".38",
                         "price": 2,
-                        "availability": 40
+                        "availability": 40,
+                        "type": "ammo"
                     },
                     {
                         "name": ".40-44",
                         "price": 2,
-                        "availability": 20
+                        "availability": 20,
+                        "type": "ammo"
                     },
                     {
                         "name": ".44",
                         "price": 3,
-                        "availability": 30
+                        "availability": 30,
+                        "type": "ammo"
                     }
                 ]
             },
@@ -1055,27 +1064,32 @@
                     {
                         "name": "5,7mm",
                         "price": 3,
-                        "availability": 10
+                        "availability": 10,
+                        "type": "ammo"
                     },
                     {
                         "name": "7,62mm TT",
                         "price": 2,
-                        "availability": 30
+                        "availability": 30,
+                        "type": "ammo"
                     },
                     {
                         "name": "9mm",
                         "price": 3,
-                        "availability": 40
+                        "availability": 40,
+                        "type": "ammo"
                     },
                     {
                         "name": "45ACP",
                         "price": 2,
-                        "availability": 40
+                        "availability": 40,
+                        "type": "ammo"
                     },
                     {
                         "name": "50.AE",
                         "price": 2,
-                        "availability": 10
+                        "availability": 10,
+                        "type": "ammo"
                     }
                 ]
             },
@@ -1085,32 +1099,38 @@
                     {
                         "name": ".22",
                         "price": 2,
-                        "availability": 50
+                        "availability": 50,
+                        "type": "ammo"
                     },
                     {
                         "name": "5,56mm",
                         "price": 3,
-                        "availability": 40
+                        "availability": 40,
+                        "type": "ammo"
                     },
                     {
                         "name": "7,62mm",
                         "price": 3,
-                        "availability": 40
+                        "availability": 40,
+                        "type": "ammo"
                     },
                     {
                         "name": "7,62mm AK",
                         "price": 2,
-                        "availability": 30
+                        "availability": 30,
+                        "type": "ammo"
                     },
                     {
                         "name": ".50BMG",
                         "price": 2,
-                        "availability": 40
+                        "availability": 40,
+                        "type": "ammo"
                     },
                     {
                         "name": ".12",
                         "price": 2,
-                        "availability": 50
+                        "availability": 50,
+                        "type": "ammo"
                     }
                 ]
             },
@@ -1120,17 +1140,20 @@
                     {
                         "name": "Granat 20mm",
                         "price": 50,
-                        "availability": 10
+                        "availability": 10,
+                        "type": "ammo"
                     },
                     {
                         "name": "Granat 40mm",
                         "price": 40,
-                        "availability": 20
+                        "availability": 20,
+                        "type": "ammo"
                     },
                     {
                         "name": "Pocisk rakietowy",
                         "price": 100,
-                        "availability": 10
+                        "availability": 10,
+                        "type": "ammo"
                     }
                 ]
             },
@@ -1140,12 +1163,14 @@
                     {
                         "name": "Strzała",
                         "price": 1,
-                        "availability": 80
+                        "availability": 80,
+                        "type": "ammo"
                     },
                     {
                         "name": "Bełt",
                         "price": 2,
-                        "availability": 40
+                        "availability": 40,
+                        "type": "ammo"
                     }
                 ]
             }
@@ -1159,21 +1184,25 @@
                 "items": [
                     {
                         "name": "Alkohol samogon 1L",
+                        "type": "Używka",
                         "price": 5,
                         "availability": 70
                     },
                     {
                         "name": "Alkohol markowy 1L",
+                        "type": "Używka",
                         "price": 10,
                         "availability": 20
                     },
                     {
                         "name": "Papieros",
+                        "type": "Używka",
                         "price": 1,
                         "availability": 60
                     },
                     {
                         "name": "Tytoń do żucia",
+                        "type": "Używka",
                         "price": 2,
                         "availability": 80
                     }
