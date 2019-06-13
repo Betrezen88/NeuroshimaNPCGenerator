@@ -25,8 +25,6 @@ signals:
     void itemBougth(const QJsonObject &item);
 
 private slots:
-    void checkItemAvailability();
-    void transformToBuyBtn();
     void buyItem();
 
 private:
@@ -47,13 +45,6 @@ private:
     void addDefence();
     void addPenalty();
     void addButton();
-    void setQuantity(const int &value);
-
-    void rollQuantity();
-    void ammoQuantity(int &quantity, Dice &k10);
-    void handWeaponQuantity(int &quantity, Dice &k10);
-    void armorQuantity(int &quantity, Dice &k10);
-    void usableQuantity(int &quantity, Dice &k10);
 
     QString gambleText(const int &price);
 
