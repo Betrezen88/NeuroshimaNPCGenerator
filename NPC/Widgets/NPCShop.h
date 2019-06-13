@@ -11,10 +11,6 @@ class QListWidgetItem;
 
 class NPCShopItem;
 
-struct Category {
-
-};
-
 class NPCShop : public QWidget
 {
     Q_OBJECT
