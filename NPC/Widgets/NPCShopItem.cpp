@@ -18,6 +18,9 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
       m_pLine( new QFrame(this) ),
       m_pButton( new QPushButton(this) )
 {
+    connect( this, &NPCShopItem::quantityChanged,
+             this, &NPCShopItem::setSoldout );
+
     m_pLayout->setSpacing( 1 );
     m_pName->setText( m_item.value("name").toString() );
     m_pName->setObjectName( "Name" );
