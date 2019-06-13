@@ -55,7 +55,7 @@ private:
     QLabel *m_pPrice{nullptr};
     QLabel *m_pQuantity{nullptr};
     QFrame *m_pLine{nullptr};
-    QPushButton *m_pBuyBtn{nullptr};
+    QPushButton *m_pButton{nullptr};
 
     int m_row{0};
     int m_quantity{0};

@@ -16,7 +16,7 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
       m_pPrice( new QLabel(this) ),
       m_pQuantity(new QLabel(this)),
       m_pLine( new QFrame(this) ),
-      m_pBuyBtn( new QPushButton(this) )
+      m_pButton( new QPushButton(this) )
 {
     m_pLayout->setSpacing( 1 );
     m_pName->setText( m_item.value("name").toString() );
@@ -29,7 +29,7 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
     m_pPrice->setObjectName( "Name" );
     m_pPrice->setStyleSheet( m_nameStyle );
 
-    m_pBuyBtn->setFixedSize( 70, 20 );
+    m_pButton->setFixedSize( 70, 20 );
 
     m_pLine->setFrameShape( QFrame::HLine );
     m_pLine->setFrameShadow( QFrame::Sunken );
@@ -84,10 +84,6 @@ void NPCShopItem::buyItem()
     setQuantity( --m_quantity );
     emit itemBougth( m_item );
 
-    if ( 0 >= m_quantity ) {
-        m_pBuyBtn->setText( "Brak" );
-        m_pBuyBtn->setDisabled( true );
-    }
 }
 
 void NPCShopItem::handWeaponLayout()
