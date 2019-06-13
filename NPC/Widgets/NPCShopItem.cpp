@@ -286,8 +286,15 @@ void NPCShopItem::addPenalty()
 void NPCShopItem::addButton()
 {
     if ( 100 > m_item.value("availability").toInt() ) {
+        m_pButton->setText( "Sprawdź" );
+        connect( m_pButton, &QPushButton::clicked,
+                 [this](){
+            emit this->checkAvailability(m_item.value("availability").toInt(), this);
+        } );
     }
     else
+        setBuyBtn();
+    m_pLayout->addWidget( m_pButton, m_row, 2, Qt::AlignRight );
 }
 
 QString NPCShopItem::gambleText(const int &price)
