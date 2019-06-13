@@ -105,7 +105,9 @@ void NPCShopItem::setSoldout(const int &quantity)
 void NPCShopItem::buyItem()
 {
     setQuantity( --m_quantity );
+    emit quantityChanged( m_quantity );
     emit itemBougth( m_item );
+}
 
 void NPCShopItem::setBuyBtn()
 {
