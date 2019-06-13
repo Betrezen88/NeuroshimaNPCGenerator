@@ -22,6 +22,7 @@ signals:
 public slots:
 
 private slots:
+    void addItemToInventory(const QJsonObject &item);
     void setSubcategory(const QString &categoryName);
     void showItems(const QString &subcategoryName);
     void checkItemAvailability(const int &availability, NPCShopItem *item);

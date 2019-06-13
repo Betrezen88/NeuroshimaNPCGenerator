@@ -2,6 +2,7 @@
 
 #include "../Utils/DataLoader.h"
 #include "NPCShopItem.h"
+#include "NPCItem.h"
 
 #include <QComboBox>
 #include <QGridLayout>
@@ -42,6 +43,23 @@ NPCShop::NPCShop(QWidget *parent)
     pLayout->addWidget( new QLabel("Podkategoria"), 2, 2, 1, 1 );
     pLayout->addWidget( m_pSubcategory, 2, 3, 1, 1 );
     pLayout->addWidget( m_pShop, 3, 2, 5, 2 );
+}
+
+void NPCShop::addItemToInventory(const QJsonObject &item)
+{
+    NPCItem *pInvItem = findItemInInventoryByName( item.value("name").toString() );
+
+    if ( pInvItem ) {
+        pInvItem->increaseQuantity();
+    }
+    else {
+        QListWidgetItem *pItem = new QListWidgetItem( m_pInventory );
+        pInvItem = new NPCItem( item, this );
+        m_pInventory->addItem( pItem );
+        m_pInventory->setItemWidget( pItem, pInvItem );
+        pItem->setSizeHint( pInvItem->sizeHint() );
+    }
+    m_pMoney->setText( QString::number(m_pMoney->text().toInt() - item.value("price").toInt()) );
 }
 
 void NPCShop::setSubcategory(const QString &categoryName)
