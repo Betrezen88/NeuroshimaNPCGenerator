@@ -89,6 +89,29 @@ void NPCShop::checkItemAvailability(const int &availability, NPCShopItem *item)
     }
 }
 
+void NPCShop::checkItemQuantity(const QString &type, NPCShopItem *item)
+{
+    Dice k10{10};
+    int quantity{0};
+    if ( "ammo" == type ) {
+        quantity = static_cast<int>( k10.throwValue() + k10.throwValue() + k10.throwValue() );
+    }
+    else if ( "Broń biała" == type || "Broń miotana" == type
+              || "Pistolet" == type || "Rewolwer" == type
+              || "Pistolet maszynowy" == type || "Karabin powtarzalny" == type
+              || "Karabin samopowtarzalny" == type || "Karabin automatyczny" == type
+              || "Strzelba" == type || "Karabin maszynowy" == type
+              || "Karabin snajperski" == type || "Granatnik" == type
+              || "Broń przeciwpancerna" == type || "Miotacz ognia" == type )
+        quantity = ( 7>=static_cast<int>(k10.throwValue()) ) ? 1: 2;
+    else if ( "Zbroja" == type || "Kamizelka" == type
+              || "Hełm" == type )
+        quantity = ( 6>static_cast<int>(k10.throwValue()) ) ? 1: 2;
+    else if ( "Używka" == type )
+        quantity = static_cast<int>( k10.throwValue() + k10.throwValue() + k10.throwValue() );
+    item->setQuantity( quantity );
+}
+
 void NPCShop::addItemsToShop()
 {
     QJsonArray categories = DataLoader::loadJson( ":/data/json/Items.json" );
