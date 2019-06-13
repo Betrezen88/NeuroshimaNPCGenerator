@@ -84,6 +84,11 @@ void NPCShopItem::buyItem()
     setQuantity( --m_quantity );
     emit itemBougth( m_item );
 
+void NPCShopItem::setBuyBtn()
+{
+    m_pButton->setText( "Kup" );
+    connect( m_pButton, &QPushButton::clicked,
+             this, &NPCShopItem::buyItem );
 }
 
 void NPCShopItem::handWeaponLayout()

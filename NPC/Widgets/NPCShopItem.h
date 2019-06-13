@@ -26,6 +26,7 @@ signals:
 
 private slots:
     void buyItem();
+    void setBuyBtn();
 
 private:
     void handWeaponLayout();
