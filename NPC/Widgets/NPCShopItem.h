@@ -19,6 +19,9 @@ public:
     NPCShopItem(const QJsonObject &item, QWidget *parent = nullptr);
 
 signals:
+    void checkAvailability(const int &availability, NPCShopItem *item);
+    void checkQuantity(const QString &type, NPCShopItem *item);
+    void quantityChanged(const int &quantity);
     void itemBougth(const QJsonObject &item);
 
 private slots:
