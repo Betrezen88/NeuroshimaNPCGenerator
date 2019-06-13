@@ -128,6 +128,14 @@ void NPCShop::addItemsToShop()
             for ( const QJsonValue item: tSubcategory.value("items").toArray() ) {
                 QListWidgetItem *pItem = new QListWidgetItem(m_pShop);
                 NPCShopItem *pShopItem = new NPCShopItem(item.toObject(), this);
+
+                connect( pShopItem, &NPCShopItem::itemBougth,
+                         this, &NPCShop::addItemToInventory );
+                connect( pShopItem, &NPCShopItem::checkAvailability,
+                         this, &NPCShop::checkItemAvailability );
+                connect( pShopItem, &NPCShopItem::checkQuantity,
+                         this, &NPCShop::checkItemQuantity );
+
                 m_pShop->addItem( pItem );
                 m_pShop->setItemWidget( pItem, pShopItem );
                 pItem->setSizeHint( pShopItem->sizeHint() );

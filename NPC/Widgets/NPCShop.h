@@ -10,6 +10,7 @@ class QListWidget;
 class QListWidgetItem;
 
 class NPCShopItem;
+class NPCItem;
 
 class NPCShop : public QWidget
 {
