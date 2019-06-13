@@ -145,3 +145,14 @@ void NPCShop::hideItems()
     for ( int i{0}; i<m_pShop->count(); ++i )
         m_pShop->item(i)->setHidden( true );
 }
+
+NPCItem *NPCShop::findItemInInventoryByName(const QString &name)
+{
+    NPCItem *pItem{nullptr};
+    for ( int i{0}; i<m_pInventory->count(); ++i ) {
+        NPCItem *pTmpItem = static_cast<NPCItem*>( m_pInventory->itemWidget(m_pInventory->item(i)) );
+        if ( name == pTmpItem->name() )
+            pItem = pTmpItem;
+    }
+    return pItem;
+}
