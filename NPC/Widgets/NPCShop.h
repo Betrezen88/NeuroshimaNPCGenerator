@@ -19,6 +19,7 @@ public:
     explicit NPCShop(QWidget *parent = nullptr);
 
 signals:
+    void moneyValueChanged(const int &value);
 
 public slots:
 
