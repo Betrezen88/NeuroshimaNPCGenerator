@@ -60,6 +60,17 @@ void NPCShop::showItems(const QString &subcategoryName)
     }
 }
 
+void NPCShop::checkItemAvailability(const int &availability, NPCShopItem *item)
+{
+    Dice k100{100};
+    bool available = availability >= static_cast<int>(k100.throwValue());
+    item->setAvailable( available );
+    if ( available ) {
+        disconnect( item, &NPCShopItem::checkAvailability,
+                    this, &NPCShop::checkItemAvailability );
+    }
+}
+
 void NPCShop::addItemsToShop()
 {
     QJsonArray categories = DataLoader::loadJson( ":/data/json/Items.json" );

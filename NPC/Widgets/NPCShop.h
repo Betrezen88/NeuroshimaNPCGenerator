@@ -24,6 +24,7 @@ public slots:
 private slots:
     void setSubcategory(const QString &categoryName);
     void showItems(const QString &subcategoryName);
+    void checkItemAvailability(const int &availability, NPCShopItem *item);
 
 private:
     void addItemsToShop();
