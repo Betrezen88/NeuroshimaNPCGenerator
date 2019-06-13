@@ -90,7 +90,16 @@ void NPCShopItem::setQuantity(const int &value)
 
 }
 
+void NPCShopItem::setSoldout(const int &quantity)
 {
+    if ( isEnabled() && quantity == 0 ) {
+        setEnabled( false );
+        m_pButton->setText( "Wyprzedany" );
+    }
+    else if ( !isEnabled() && quantity > 0) {
+        setEnabled( true );
+        m_pButton->setText( "Kup" );
+    }
 }
 
 void NPCShopItem::buyItem()

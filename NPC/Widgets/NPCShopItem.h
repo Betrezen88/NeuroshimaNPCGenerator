@@ -27,6 +27,8 @@ signals:
 public slots:
     void setAvailable(const bool &available);
     void setQuantity(const int &value);
+    void setSoldout(const int &quantity);
+
 private slots:
     void buyItem();
     void setBuyBtn();
