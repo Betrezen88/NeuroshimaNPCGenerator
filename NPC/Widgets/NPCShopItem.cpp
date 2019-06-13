@@ -83,6 +83,11 @@ void NPCShopItem::setAvailable(const bool &available)
         m_pButton->setText( "Brak" );
 }
 
+void NPCShopItem::setQuantity(const int &value)
+{
+    m_quantity = value;
+    m_pQuantity->setText( "(Ilość: "+QString::number(value)+")" );
+
 }
 
 {
