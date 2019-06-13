@@ -1,6 +1,7 @@
 #include "NPCShop.h"
 
 #include "../Utils/DataLoader.h"
+#include "../Utils/Dice.h"
 #include "NPCShopItem.h"
 #include "NPCItem.h"
 
