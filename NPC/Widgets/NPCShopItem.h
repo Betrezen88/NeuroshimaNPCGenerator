@@ -24,6 +24,8 @@ signals:
     void quantityChanged(const int &quantity);
     void itemBougth(const QJsonObject &item);
 
+public slots:
+    void setAvailable(const bool &available);
 private slots:
     void buyItem();
     void setBuyBtn();

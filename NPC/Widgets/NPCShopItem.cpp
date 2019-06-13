@@ -72,8 +72,17 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
     addButton();
 }
 
+void NPCShopItem::setAvailable(const bool &available)
 {
+    setEnabled( available );
+    if ( available ) {
+        setBuyBtn();
+        emit checkQuantity( m_item.value("type").toString(), this );
     }
+    else
+        m_pButton->setText( "Brak" );
+}
+
 }
 
 {
