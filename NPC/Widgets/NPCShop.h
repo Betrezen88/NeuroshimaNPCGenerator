@@ -21,8 +21,6 @@ public:
 signals:
     void moneyValueChanged(const int &value);
 
-public slots:
-
 private slots:
     void addItemToInventory(const QJsonObject &item);
     void setSubcategory(const QString &categoryName);
