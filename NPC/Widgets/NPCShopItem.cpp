@@ -32,7 +32,7 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
     m_pPrice->setObjectName( "Name" );
     m_pPrice->setStyleSheet( m_nameStyle );
 
-    m_pButton->setFixedSize( 70, 20 );
+    m_pButton->setFixedSize( 80, 20 );
 
     m_pLine->setFrameShape( QFrame::HLine );
     m_pLine->setFrameShadow( QFrame::Sunken );
