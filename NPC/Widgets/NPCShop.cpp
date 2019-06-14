@@ -59,6 +59,9 @@ void NPCShop::addItemToInventory(const QJsonObject &item)
         m_pInventory->addItem( pItem );
         m_pInventory->setItemWidget( pItem, pInvItem );
         pItem->setSizeHint( pInvItem->sizeHint() );
+
+        connect( pInvItem, &NPCItem::returnItem,
+                 this, &NPCShop::returnItemToShop );
     }
     m_pMoney->setText( QString::number(m_pMoney->text().toInt() - item.value("price").toInt()) );
     emit moneyValueChanged( m_pMoney->text().toInt() );
