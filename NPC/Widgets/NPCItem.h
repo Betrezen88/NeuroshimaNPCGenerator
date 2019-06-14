@@ -6,6 +6,7 @@
 #include <QJsonObject>
 
 class QLabel;
+class QPushButton;
 
 class NPCItem : public NPCCustomWidget
 {
@@ -22,6 +23,7 @@ private:
     QJsonObject m_item;
     QLabel *m_pName{nullptr};
     QLabel *m_pQuantity{nullptr};
+    QPushButton *m_pReturnBtn{nullptr};
 };
 
 #endif // NPCITEM_H
