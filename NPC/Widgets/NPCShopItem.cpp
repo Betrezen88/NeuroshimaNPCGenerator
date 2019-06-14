@@ -80,6 +80,11 @@ QString NPCShopItem::name() const
     return m_item.value("name").toString();
 }
 
+int NPCShopItem::quantity() const
+{
+    return m_quantity;
+}
+
 void NPCShopItem::setAvailable(const bool &available)
 {
     setEnabled( available );

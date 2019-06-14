@@ -19,6 +19,8 @@ public:
     NPCShopItem(const QJsonObject &item, QWidget *parent = nullptr);
 
     QString name() const;
+    int quantity() const;
+
 signals:
     void checkAvailability(const int &availability, NPCShopItem *item);
     void checkQuantity(const QString &type, NPCShopItem *item);
