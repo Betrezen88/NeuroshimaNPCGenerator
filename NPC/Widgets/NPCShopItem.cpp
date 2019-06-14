@@ -75,6 +75,11 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
     addButton();
 }
 
+QString NPCShopItem::name() const
+{
+    return m_item.value("name").toString();
+}
+
 void NPCShopItem::setAvailable(const bool &available)
 {
     setEnabled( available );
