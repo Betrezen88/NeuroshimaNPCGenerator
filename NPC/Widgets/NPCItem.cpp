@@ -11,6 +11,14 @@ NPCItem::NPCItem(const QJsonObject &item, QWidget *parent)
       m_pQuantity(new QLabel("1", this)),
       m_pReturnBtn(new QPushButton("Zwróć", this))
 {
+    connect( m_pReturnBtn, &QPushButton::clicked,
+             [this](){
+        emit this->returnItem(m_item.value("name").toString(), m_item.value("price").toInt());
+        m_pQuantity->setText( QString::number(m_pQuantity->text().toInt()-1) );
+        if ( m_pQuantity->text().toInt() == 0 )
+            emit this->destroyItem( this );
+    });
+
     QHBoxLayout *pLayout = new QHBoxLayout;
     pLayout->setSpacing( 1 );
     setLayout( pLayout );
