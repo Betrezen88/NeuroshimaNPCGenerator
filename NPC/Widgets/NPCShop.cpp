@@ -123,6 +123,17 @@ void NPCShop::returnItemToShop(const QString &name, const int &value)
         emit moneyValueChanged( m_pMoney->text().toInt() );
     }
 }
+
+void NPCShop::destroyInventoryItem(NPCItem *item)
+{
+    for ( int i{0}; i<m_pInventory->count(); ++i ) {
+        if ( item == m_pInventory->itemWidget( m_pInventory->item(i) ) ) {
+            delete item;
+            delete m_pInventory->takeItem(i);
+        }
+    }
+}
+
 void NPCShop::addItemsToShop()
 {
     QJsonArray categories = DataLoader::loadJson( ":/data/json/Items.json" );
