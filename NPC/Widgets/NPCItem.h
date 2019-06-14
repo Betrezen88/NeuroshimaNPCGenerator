@@ -19,6 +19,8 @@ public:
 
     void increaseQuantity();
 
+signals:
+    void returnItem(const QString &name, const int &price);
 private:
     QJsonObject m_item;
     QLabel *m_pName{nullptr};
