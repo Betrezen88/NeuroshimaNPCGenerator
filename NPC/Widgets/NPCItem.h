@@ -21,6 +21,8 @@ public:
 
 signals:
     void returnItem(const QString &name, const int &price);
+    void destroyItem(NPCItem *item);
+
 private:
     QJsonObject m_item;
     QLabel *m_pName{nullptr};
