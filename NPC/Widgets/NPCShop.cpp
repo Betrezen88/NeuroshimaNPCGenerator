@@ -163,6 +163,14 @@ NPCItem *NPCShop::findItemInInventoryByName(const QString &name)
         NPCItem *pTmpItem = static_cast<NPCItem*>( m_pInventory->itemWidget(m_pInventory->item(i)) );
         if ( name == pTmpItem->name() )
             pItem = pTmpItem;
+NPCShopItem *NPCShop::findItemInShopByName(const QString &name)
+{
+    NPCShopItem *pItem{nullptr};
+    for ( int i{0}; i<m_pShop->count(); ++i ) {
+        NPCShopItem *pTmpItem = qobject_cast<NPCShopItem*>( m_pShop->itemWidget(m_pShop->item(i)) );
+        if ( pTmpItem )
+            if ( name == pTmpItem->name() )
+                pItem = pTmpItem;
     }
     return pItem;
 }

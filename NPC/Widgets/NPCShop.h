@@ -34,6 +34,7 @@ private:
     void addItemsToShop();
     void hideItems();
     NPCItem *findItemInInventoryByName(const QString &name);
+    NPCShopItem *findItemInShopByName(const QString &name);
 
 private:
     QComboBox *m_pCategory{nullptr};
