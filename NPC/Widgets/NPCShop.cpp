@@ -114,6 +114,15 @@ void NPCShop::checkItemQuantity(const QString &type, NPCShopItem *item)
     item->setQuantity( quantity );
 }
 
+void NPCShop::returnItemToShop(const QString &name, const int &value)
+{
+    NPCShopItem *pItem = findItemInShopByName(name);
+    if ( pItem ) {
+        pItem->setQuantity( pItem->quantity()+1 );
+        m_pMoney->setText( QString::number(m_pMoney->text().toInt()+value) );
+        emit moneyValueChanged( m_pMoney->text().toInt() );
+    }
+}
 void NPCShop::addItemsToShop()
 {
     QJsonArray categories = DataLoader::loadJson( ":/data/json/Items.json" );
