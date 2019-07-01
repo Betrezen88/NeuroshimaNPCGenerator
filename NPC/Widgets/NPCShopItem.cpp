@@ -46,6 +46,9 @@ NPCShopItem::NPCShopItem(const QJsonObject &item, QWidget *parent)
     m_pLayout->addLayout( pHeaderL, m_row++, 0, 1, 3 );
     m_pLayout->addWidget( m_pLine, m_row++, 0, 1, 3 );
 
+    if ( m_item.contains("requirements") )
+        addRequirements();
+
     if ( "Broń biała" == m_item.value("type").toString() )
         handWeaponLayout();
     else if ( "Broń miotana" == m_item.value("type").toString() )
@@ -138,9 +141,6 @@ void NPCShopItem::handWeaponLayout()
         QLabel *pBonus = new QLabel("Bonus do Zręczności: "+bonuses.join(", "), this);
         m_pLayout->addWidget( pBonus, m_row++, 0, Qt::AlignLeft );
     }
-
-    if ( m_item.contains("requirements") )
-        addRequirements();
 
     addDamage();
 
