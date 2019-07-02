@@ -93,6 +93,9 @@ void NPCShop::checkItemAvailability(const int &availability, NPCShopItem *item)
     if ( available ) {
         disconnect( item, &NPCShopItem::checkAvailability,
                     this, &NPCShop::checkItemAvailability );
+        connect( this, &NPCShop::moneyValueChanged,
+                 item, &NPCShopItem::checkPrice );
+        item->checkPrice( m_pMoney->text().toInt() );
     }
 }
 
