@@ -21,6 +21,10 @@
 
 - dodać logikę weryfikującą ukończenie procesu tworzenia postaci
 
+- dodać funkcjonalność przeniesienia przedmiotów do karty bohatera
+
+- dodać logikę pozwalającą na swobodne kupno przedmiotów w sklepie
+
 BUGS:
 - wielokrotne wciśnięcie przycisku losuj w zakładce Choroba nie odświerza listy wylosowanych chorób,
   nie znikają wcześniej wylosowane choroby
