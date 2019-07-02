@@ -9,8 +9,6 @@
 
 - poprawić literówki pliku Sickness.json
 
-- dodać do karty zakładkę z ekwipunkiem
-
 - dodać do karty zakładkę z formularzem postaci oraz opisami, historią itp.
 
 - dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
@@ -30,7 +28,7 @@ BUGS:
   nie znikają wcześniej wylosowane choroby
 
 In progress:
-
+- dodać do karty zakładkę z ekwipunkiem
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
