@@ -118,6 +118,18 @@ void NPCShopItem::setSoldout(const int &quantity)
     }
 }
 
+void NPCShopItem::checkPrice(const int &money)
+{
+    if ( isEnabled() && money < m_item.value("price").toInt() ) {
+        m_pButton->setDisabled( true );
+        m_pButton->setText( "Nie stać Cię!" );
+    }
+    else {
+        m_pButton->setEnabled( true );
+        m_pButton->setText( "Kup" );
+    }
+}
+
 void NPCShopItem::buyItem()
 {
     setQuantity( --m_quantity );

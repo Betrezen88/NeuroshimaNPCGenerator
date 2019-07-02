@@ -31,6 +31,7 @@ public slots:
     void setAvailable(const bool &available);
     void setQuantity(const int &value);
     void setSoldout(const int &quantity);
+    void checkPrice(const int &money);
 
 private slots:
     void buyItem();
