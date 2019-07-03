@@ -24,6 +24,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    NPC/Widgets/NPCArmor.cpp \
     NPC/Widgets/NPCItem.cpp \
     NPC/Widgets/NPCOtherSkills.cpp \
     NPC/Widgets/NPCOtherSkillsView.cpp \
@@ -66,6 +67,7 @@ SOURCES += \
 
 HEADERS += \
         MainWindow.h \
+    NPC/Widgets/NPCArmor.h \
     NPC/Widgets/NPCAttributesModsInfoWidget.h \
     NPC/Widgets/NPCAttributeWidget.h \
     NPC/Widgets/NPCAttributeValueWidget.h \
