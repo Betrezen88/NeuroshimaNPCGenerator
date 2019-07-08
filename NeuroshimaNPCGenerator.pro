@@ -32,6 +32,7 @@ SOURCES += \
     NPC/Widgets/NPCShopItem.cpp \
     NPC/Widgets/NPCSkillChoose.cpp \
     NPC/Widgets/NPCTrickManagerWidget.cpp \
+    NPC/Widgets/NPCWeaponItem.cpp \
     NPC/Widgets/NPCWeaponView.cpp \
         main.cpp \
         MainWindow.cpp \
@@ -82,6 +83,7 @@ HEADERS += \
     NPC/Widgets/NPCTrickManagerWidget.h \
     NPC/Widgets/NPCTricksWidget.h \
     NPC/Widgets/NPCTrickWidgetItem.h \
+    NPC/Widgets/NPCWeaponItem.h \
     NPC/Widgets/NPCWeaponView.h \
     NPC/Widgets/SkillSpinBox.h \
     NPC/Widgets/DragDropAreaWidget.h \
