@@ -1,4 +1,5 @@
 #include "NPCWeaponView.h"
+#include "NPCWeaponItem.h"
 
 #include <QLabel>
 #include <QListWidget>
@@ -22,5 +23,9 @@ NPCWeaponView::NPCWeaponView(QWidget *parent)
 
 void NPCWeaponView::addWeapon(const QJsonObject &item)
 {
-
+    QListWidgetItem *pItem = new QListWidgetItem( m_pWeapons );
+    NPCWeaponItem *pWeapon = new NPCWeaponItem(item, 10, this);
+    m_pWeapons->addItem( pItem );
+    m_pWeapons->setItemWidget( pItem, pWeapon );
+    pItem->setSizeHint( pWeapon->sizeHint() );
 }
