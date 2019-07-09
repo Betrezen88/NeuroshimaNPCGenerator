@@ -24,9 +24,9 @@ NPCArmor::NPCArmor(QWidget *parent)
     m_pTitle->setObjectName( "Title" );
     m_pTitle->setStyleSheet( m_titleStyle );
 
-    QLabel *pHandsL = new QLabel( "Ręce", this );
+    QLabel *pHandsL = infoLabel( "Ręce", "Subtitle", m_subtitleStyle );
     pHandsL->setAlignment( Qt::AlignCenter );
-    QLabel *pLegsL = new QLabel( "Nogi", this );
+    QLabel *pLegsL = infoLabel( "Nogi", "Subtitle", m_subtitleStyle );
     pLegsL->setAlignment( Qt::AlignCenter );
 
     QGridLayout *pLayout = new QGridLayout;
@@ -35,37 +35,37 @@ NPCArmor::NPCArmor(QWidget *parent)
 
     QHBoxLayout *pHeadL = new QHBoxLayout;
     pHeadL->setSpacing( 1 );
-    pHeadL->addWidget( new QLabel("Głowa:"), 0, Qt::AlignLeft );
+    pHeadL->addWidget( infoLabel("Głowa:", "Info", m_infoStyle), 0, Qt::AlignLeft );
     pHeadL->addWidget( m_pHead, 0, Qt::AlignLeft );
     pHeadL->addWidget( m_pHeadItem, 1, Qt::AlignLeft );
 
     QHBoxLayout *pTorsoL = new QHBoxLayout;
     pTorsoL->setSpacing( 1 );
-    pTorsoL->addWidget( new QLabel("Tułów:"), 0, Qt::AlignLeft );
+    pTorsoL->addWidget( infoLabel("Tułów:", "Info", m_infoStyle), 0, Qt::AlignLeft );
     pTorsoL->addWidget( m_pTorso, 0, Qt::AlignLeft );
     pTorsoL->addWidget( m_pTorsoItem, 1, Qt::AlignLeft );
 
     QHBoxLayout *pLeftHandL = new QHBoxLayout;
     pLeftHandL->setSpacing( 1 );
-    pLeftHandL->addWidget( new QLabel("Lewa:"), 0, Qt::AlignLeft );
+    pLeftHandL->addWidget( infoLabel("Lewa:", "Info", m_infoStyle), 0, Qt::AlignLeft );
     pLeftHandL->addWidget( m_pLeftHand, 0, Qt::AlignLeft );
     pLeftHandL->addWidget( m_pLeftHandItem, 1, Qt::AlignLeft );
 
     QHBoxLayout *pRightHandL = new QHBoxLayout;
     pRightHandL->setSpacing( 1 );
-    pRightHandL->addWidget( new QLabel("Prawa:"), 0, Qt::AlignLeft );
+    pRightHandL->addWidget( infoLabel("Prawa:", "Info", m_infoStyle), 0, Qt::AlignLeft );
     pRightHandL->addWidget( m_pRightHand, 0, Qt::AlignLeft );
     pRightHandL->addWidget( m_pRightHandItem, 1, Qt::AlignLeft );
 
     QHBoxLayout *pLeftLegL = new QHBoxLayout;
     pLeftLegL->setSpacing( 1 );
-    pLeftLegL->addWidget( new QLabel("Lewa:"), 0, Qt::AlignLeft );
+    pLeftLegL->addWidget( infoLabel("Lewa:", "Info", m_infoStyle), 0, Qt::AlignLeft );
     pLeftLegL->addWidget( m_pLeftLeg, 0, Qt::AlignLeft );
     pLeftLegL->addWidget( m_pLeftLegItem, 1, Qt::AlignLeft );
 
     QHBoxLayout *pRightLegL = new QHBoxLayout;
     pRightLegL->setSpacing( 1 );
-    pRightLegL->addWidget( new QLabel("Prawa:"), 0, Qt::AlignLeft );
+    pRightLegL->addWidget( infoLabel("Prawa:", "Info", m_infoStyle), 0, Qt::AlignLeft );
     pRightLegL->addWidget( m_pRightLeg, 0, Qt::AlignLeft );
     pRightLegL->addWidget( m_pRightLegItem, 1, Qt::AlignLeft );
 
@@ -107,4 +107,12 @@ void NPCArmor::addArmor(const QJsonObject &item)
             m_pRightLegItem->setText( "("+name+")" );
         }
     }
+}
+
+QLabel *NPCArmor::infoLabel(QString text, QString name, QString style)
+{
+    QLabel *pLabel = new QLabel(text, this);
+    pLabel->setObjectName( name );
+    pLabel->setStyleSheet( style );
+    return pLabel;
 }

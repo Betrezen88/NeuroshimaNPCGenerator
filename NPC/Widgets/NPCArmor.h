@@ -16,6 +16,9 @@ public slots:
     void addArmor(const QJsonObject &item);
 
 private:
+    QLabel *infoLabel(QString text, QString name, QString style);
+
+private:
     QLabel *m_pTitle{nullptr};
     QLabel *m_pHead{nullptr};
     QLabel *m_pHeadItem{nullptr};
@@ -32,8 +35,27 @@ private:
 
     const QString m_titleStyle{
         "QLabel#Title{"
-        " font: 12pt;"
-        " padding: 5pt;"
+        " font: bold 12pt;"
+        " color: white;"
+        " background-color: black;"
+        " padding: 5px;"
+        " border: 1px solid black;"
+        " border-radius: 5px;"
+        "}"
+    };
+
+    const QString m_infoStyle{
+        "QLabel#Info{"
+        " font: bold 10pt;"
+        "}"
+    };
+
+    const QString m_subtitleStyle{
+        "QLabel#Subtitle{"
+        " font: bold 10pt;"
+        " color: white;"
+        " padding: 3px;"
+        " background-color: black;"
         " border: 1px solid black;"
         " border-radius: 5px;"
         "}"
