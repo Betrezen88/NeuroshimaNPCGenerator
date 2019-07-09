@@ -107,7 +107,7 @@ QLabel *NPCWeaponItem::addDexterityBonus()
     return pBonus;
 }
 
-QLabel * NPCWeaponItem::addDamage()
+QLabel *NPCWeaponItem::addDamage()
 {
     QLabel *pDamage = new QLabel(this);
     pDamage->setMinimumHeight(20);
@@ -147,12 +147,12 @@ QLabel *NPCWeaponItem::addSpecial()
         for ( const QJsonValue t: array ) {
             QJsonObject obj = t.toObject();
             if ( special.toString() == obj.value("name").toString() )
-                tooltip += obj.value("name").toString() + " - "
+                tooltip += "<b>"+obj.value("name").toString() + "</b> - "
                         + obj.value("description").toString();
         }
         if ( special != m_item.value("special").toArray().last() ) {
             specials += ", ";
-            tooltip += "<br>";
+            tooltip += "<br><br>";
         }
     }
     tooltip += "</div>";
