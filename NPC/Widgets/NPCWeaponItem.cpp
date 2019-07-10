@@ -87,10 +87,10 @@ void NPCWeaponItem::handWeaponLayout()
     m_pLayout->addWidget( addDamage() );
 
     if ( m_item.contains("penetration") )
-        addPenetration();
+        m_pLayout->addWidget( addPenetration() );
 
     if ( m_item.contains("special") )
-        addSpecial();
+        m_pLayout->addWidget( addSpecial() );
 }
 
 QLabel *NPCWeaponItem::addDexterityBonus()
