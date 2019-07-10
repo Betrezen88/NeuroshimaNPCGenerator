@@ -2,6 +2,7 @@
 #define NPCWEAPONVIEW_H
 
 #include "NPCCustomWidget.h"
+#include "NPCWeaponItem.h"
 
 #include <QJsonObject>
 
@@ -10,11 +11,18 @@ class QListWidget;
 
 class NPCWeaponView : public NPCCustomWidget
 {
+    Q_OBJECT
 public:
     NPCWeaponView(QWidget *parent);
 
+signals:
+    void unequip(const QJsonObject &item);
+
 public slots:
     void addWeapon(const QJsonObject &item);
+
+private slots:
+    void removeWeapon(NPCWeaponItem *weapon);
 
 private:
     QLabel *m_pTitle{nullptr};

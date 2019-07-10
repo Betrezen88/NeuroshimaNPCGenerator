@@ -19,10 +19,15 @@ public:
 
 signals:
     void returnItemToShop(const QString &name, const int &price);
+    void equipArmor(QJsonObject &item);
+    void equipWeapon(QJsonObject &item);
 
 public slots:
     void addItem(NPCItem *item);
     void destroyItem(NPCItem *item);
+
+private slots:
+    void onEquip(QJsonObject &item);
 
 private:
     NPCItem *findItemByName(const QString &name);

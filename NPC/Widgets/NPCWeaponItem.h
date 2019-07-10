@@ -5,14 +5,20 @@
 
 #include <QJsonObject>
 
-class QLabel;
-class QVBoxLayout;
 class QFrame;
+class QLabel;
+class QPushButton;
+class QVBoxLayout;
 
 class NPCWeaponItem : public NPCCustomWidget
 {
+    Q_OBJECT
 public:
     NPCWeaponItem(const QJsonObject &item, const int &body, QWidget *parent = nullptr);
+
+signals:
+    void unequip(const QJsonObject &item);
+    void destroyView(NPCWeaponItem *item);
 
 private:
     void gunLayout();
@@ -34,6 +40,7 @@ private:
 
     QVBoxLayout *m_pLayout{nullptr};
     QLabel *m_pName{nullptr};
+    QPushButton *m_pButton{nullptr};
     QFrame *m_pLine{nullptr};
 
     const QString m_nameStyle{

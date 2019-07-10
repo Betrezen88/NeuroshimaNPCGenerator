@@ -4,6 +4,7 @@
 #include <QFrame>
 #include <QLabel>
 #include <QJsonArray>
+#include <QPushButton>
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -16,8 +17,15 @@ NPCWeaponItem::NPCWeaponItem(const QJsonObject &item, const int &body, QWidget *
       m_body(body),
       m_pLayout(new QVBoxLayout),
       m_pName(new QLabel(this)),
+      m_pButton(new QPushButton("Schowaj", this)),
       m_pLine(new QFrame(this))
 {
+    connect( m_pButton, &QPushButton::clicked,
+             [this](){
+        emit this->unequip(this->m_item);
+        emit this->destroyView(this);
+    });
+
     setLayout( m_pLayout );
     m_pLayout->setSpacing( 2 );
     m_pName->setAlignment( Qt::AlignCenter );
@@ -44,6 +52,7 @@ NPCWeaponItem::NPCWeaponItem(const QJsonObject &item, const int &body, QWidget *
               || "Miotacz ognia" == m_item.value("type").toString() )
         gunLayout();
 
+    m_pLayout->addWidget( m_pButton, 0, Qt::AlignRight );
     m_pLayout->addWidget( m_pLine );
 }
 
@@ -84,10 +93,14 @@ void NPCWeaponItem::handWeaponLayout()
     if ( m_item.contains("bonus") )
         m_pLayout->addWidget( addDexterityBonus() );
 
-    m_pLayout->addWidget( addDamage() );
+    QHBoxLayout *pDamageRow = new QHBoxLayout;
+    pDamageRow->addWidget( addDamage() );
 
     if ( m_item.contains("penetration") )
-        m_pLayout->addWidget( addPenetration() );
+        pDamageRow->addWidget( addPenetration() );
+    else
+        pDamageRow->addSpacerItem( new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum) );
+    m_pLayout->addLayout( pDamageRow );
 
     if ( m_item.contains("special") )
         m_pLayout->addWidget( addSpecial() );

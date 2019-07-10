@@ -45,6 +45,10 @@ void NPCInventory::addItem(NPCItem *item)
             connect( item, &NPCItem::returnItem,
                      this, &NPCInventory::returnItemToShop );
         }
+        else {
+            connect( item, &NPCItem::equip,
+                     this, &NPCInventory::onEquip );
+        }
 
         connect( item, &NPCItem::destroyItem,
                  this, &NPCInventory::destroyItem );
@@ -59,6 +63,31 @@ void NPCInventory::destroyItem(NPCItem *item)
             delete m_pInventory->takeItem(i);
             break;
         }
+}
+
+void NPCInventory::onEquip(QJsonObject &item)
+{
+    if ( "Broń biała" == item.value("type").toString()
+         || "Broń miotana" == item.value("type").toString()
+         || "Pistolet" == item.value("type").toString()
+         || "Rewolwer" == item.value("type").toString()
+         || "Pistolet maszynowy" == item.value("type").toString()
+         || "Karabin powtarzalny" == item.value("type").toString()
+         || "Karabin samopowtarzalny" == item.value("type").toString()
+         || "Karabin automatyczny" == item.value("type").toString()
+         || "Strzelba" == item.value("type").toString()
+         || "Karabin maszynowy" == item.value("type").toString()
+         || "Karabin snajperski" == item.value("type").toString()
+         || "Granatnik" == item.value("type").toString()
+         || "Broń przeciwpancerna" == item.value("type").toString()
+         || "Miotacz ognia" == item.value("type").toString() ) {
+        emit equipWeapon( item );
+    }
+    else if ( "Zbroja" == item.value("type").toString()
+              || "Kamizelka" == item.value("type").toString()
+              || "Hełm" == item.value("type").toString() ) {
+        emit equipArmor( item );
+    }
 }
 
 NPCItem *NPCInventory::findItemByName(const QString &name)

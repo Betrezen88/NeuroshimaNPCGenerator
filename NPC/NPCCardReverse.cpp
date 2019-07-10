@@ -3,6 +3,7 @@
 #include "Widgets/NPCArmor.h"
 #include "Widgets/NPCWeaponView.h"
 #include "Widgets/NPCInventory.h"
+#include "Widgets/NPCItem.h"
 
 #include <QGridLayout>
 #include <QListWidget>
@@ -16,6 +17,16 @@ NPCCardReverse::NPCCardReverse(QWidget *parent)
       m_pWeaponView( new NPCWeaponView(this) ),
       m_pInventory( new NPCInventory(this) )
 {
+    connect( m_pInventory, &NPCInventory::equipWeapon,
+             m_pWeaponView, &NPCWeaponView::addWeapon );
+    connect( m_pInventory, &NPCInventory::equipArmor,
+             m_pArmor, &NPCArmor::addArmor );
+    connect( m_pWeaponView, &NPCWeaponView::unequip,
+             [this](const QJsonObject &item){
+        NPCItem *pItem = new NPCItem(item, NPCItem::Type::INVENTORY, m_pInventory);
+        m_pInventory->addItem( pItem );
+    });
+
     QGridLayout *pLayout = new QGridLayout;
     setLayout( pLayout );
     pLayout->addWidget( m_pArmor, 0, 0, 1, 1 );
