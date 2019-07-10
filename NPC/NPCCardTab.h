@@ -14,6 +14,7 @@ public:
     NPCCardTab(QWidget *parent = nullptr);
 
     NPCCardObverse *obverse() const;
+    NPCCardReverse *reverse() const;
 
 private:
     NPCCardObverse *m_pObverse{nullptr};

@@ -14,3 +14,8 @@ NPCCardObverse *NPCCardTab::obverse() const
 {
     return m_pObverse;
 }
+
+NPCCardReverse *NPCCardTab::reverse() const
+{
+    return m_pReverse;
+}
