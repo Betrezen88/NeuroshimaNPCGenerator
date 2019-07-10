@@ -317,8 +317,9 @@ void NPCShopItem::addButton()
             emit this->checkAvailability(m_item.value("availability").toInt(), this);
         } );
     }
-    else
+    else {
         setBuyBtn();
+    }
     m_pLayout->addWidget( m_pButton, m_row, 2, Qt::AlignRight );
 }
 

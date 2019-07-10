@@ -148,6 +148,9 @@ void NPCShop::addItemsToShop()
                 connect( pShopItem, &NPCShopItem::checkQuantity,
                          this, &NPCShop::checkItemQuantity );
 
+                if ( 100 == item.toObject().value("availability").toInt() )
+                    checkItemQuantity( item.toObject().value("type").toString(), pShopItem );
+
                 m_pShop->addItem( pItem );
                 m_pShop->setItemWidget( pItem, pShopItem );
                 pItem->setSizeHint( pShopItem->sizeHint() );
