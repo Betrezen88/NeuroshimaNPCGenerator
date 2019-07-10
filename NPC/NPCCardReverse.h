@@ -3,15 +3,26 @@
 
 #include <QWidget>
 
+class NPCArmor;
+class NPCWeaponView;
+class NPCInventory;
+
 class NPCCardReverse : public QWidget
 {
     Q_OBJECT
 public:
     explicit NPCCardReverse(QWidget *parent = nullptr);
 
+    NPCInventory *inventory() const;
+
 signals:
 
 public slots:
+
+private:
+    NPCArmor *m_pArmor{nullptr};
+    NPCWeaponView *m_pWeaponView{nullptr};
+    NPCInventory *m_pInventory{nullptr};
 };
 
 #endif // NPCCARDREVERSE_H
