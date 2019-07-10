@@ -2,6 +2,8 @@
 
 #include "../Widgets/NPCOtherSkillsView.h"
 #include "../Widgets/NPCShop.h"
+#include "../Widgets/NPCInventory.h"
+#include "../Widgets/NPCItem.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -70,9 +72,15 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
                                                          pair.first->text(),
                                                          pair.second->value() );
         }
-
         m_pCard->obverse()->setTricks( m_pTricksManager->tricks() );
-        emit this->creationCompleted(m_pCard); this->close();
+
+        for ( NPCItem *pItem: m_pShop->inventory()->items() ) {
+            pItem->setType( NPCItem::Type::INVENTORY );
+            m_pCard->reverse()->inventory()->addItem( pItem );
+        }
+
+        emit this->creationCompleted(m_pCard);
+        this->close();
     } );
 
     connect( m_pAttributeManager, &NPCAttributeManagerWidget::attributeChanged,
