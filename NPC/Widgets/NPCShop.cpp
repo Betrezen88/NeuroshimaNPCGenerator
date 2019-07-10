@@ -3,6 +3,7 @@
 #include "../Utils/DataLoader.h"
 #include "../Utils/Dice.h"
 #include "NPCShopItem.h"
+#include "NPCInventory.h"
 #include "NPCItem.h"
 
 #include <QComboBox>
@@ -19,7 +20,7 @@ NPCShop::NPCShop(QWidget *parent)
     : QWidget(parent),
       m_pCategory(new QComboBox(this)),
       m_pSubcategory(new QComboBox(this)),
-      m_pInventory(new QListWidget(this)),
+      m_pInventory(new NPCInventory(this)),
       m_pShop(new QListWidget(this)),
       m_pMoney(new QLabel("100", this))
 {
@@ -27,6 +28,8 @@ NPCShop::NPCShop(QWidget *parent)
              this, &NPCShop::setSubcategory );
     connect( m_pSubcategory, &QComboBox::currentTextChanged,
              this, &NPCShop::showItems );
+    connect( m_pInventory, &NPCInventory::returnItemToShop,
+             this, &NPCShop::returnItemToShop );
 
     QGridLayout *pLayout = new QGridLayout;
     pLayout->setSpacing( 1 );
@@ -46,25 +49,15 @@ NPCShop::NPCShop(QWidget *parent)
     pLayout->addWidget( m_pShop, 3, 2, 5, 2 );
 }
 
+NPCInventory *NPCShop::inventory() const
+{
+    return m_pInventory;
+}
+
 void NPCShop::addItemToInventory(const QJsonObject &item)
 {
-    NPCItem *pInvItem = findItemInInventoryByName( item.value("name").toString() );
-
-    if ( pInvItem ) {
-        pInvItem->increaseQuantity();
-    }
-    else {
-        QListWidgetItem *pItem = new QListWidgetItem( m_pInventory );
-        pInvItem = new NPCItem( item, this );
-        m_pInventory->addItem( pItem );
-        m_pInventory->setItemWidget( pItem, pInvItem );
-        pItem->setSizeHint( pInvItem->sizeHint() );
-
-        connect( pInvItem, &NPCItem::returnItem,
-                 this, &NPCShop::returnItemToShop );
-        connect( pInvItem, &NPCItem::destroyItem,
-                 this, &NPCShop::destroyInventoryItem );
-    }
+    NPCItem *pInvItem = new NPCItem( item, NPCItem::Type::SHOP, this );
+    m_pInventory->addItem( pInvItem );
     m_pMoney->setText( QString::number(m_pMoney->text().toInt() - item.value("price").toInt()) );
     emit moneyValueChanged( m_pMoney->text().toInt() );
 }
@@ -132,16 +125,6 @@ void NPCShop::returnItemToShop(const QString &name, const int &value)
     }
 }
 
-void NPCShop::destroyInventoryItem(NPCItem *item)
-{
-    for ( int i{0}; i<m_pInventory->count(); ++i ) {
-        if ( item == m_pInventory->itemWidget( m_pInventory->item(i) ) ) {
-            delete item;
-            delete m_pInventory->takeItem(i);
-        }
-    }
-}
-
 void NPCShop::addItemsToShop()
 {
     QJsonArray categories = DataLoader::loadJson( ":/data/json/Items.json" );
@@ -184,26 +167,15 @@ void NPCShop::hideItems()
         m_pShop->item(i)->setHidden( true );
 }
 
-NPCItem *NPCShop::findItemInInventoryByName(const QString &name)
-{
-    NPCItem *pItem{nullptr};
-    for ( int i{0}; i<m_pInventory->count(); ++i ) {
-        NPCItem *pTmpItem = qobject_cast<NPCItem*>( m_pInventory->itemWidget(m_pInventory->item(i)) );
-        if ( pTmpItem )
-            if ( name == pTmpItem->name() )
-                pItem = pTmpItem;
-    }
-    return pItem;
-}
-
 NPCShopItem *NPCShop::findItemInShopByName(const QString &name)
 {
     NPCShopItem *pItem{nullptr};
     for ( int i{0}; i<m_pShop->count(); ++i ) {
         NPCShopItem *pTmpItem = qobject_cast<NPCShopItem*>( m_pShop->itemWidget(m_pShop->item(i)) );
-        if ( pTmpItem )
-            if ( name == pTmpItem->name() )
-                pItem = pTmpItem;
+        if ( pTmpItem && (name == pTmpItem->name()) ) {
+            pItem = pTmpItem;
+            break;
+        }
     }
     return pItem;
 }

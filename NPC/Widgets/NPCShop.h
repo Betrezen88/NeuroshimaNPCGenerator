@@ -10,6 +10,7 @@ class QListWidget;
 class QListWidgetItem;
 
 class NPCShopItem;
+class NPCInventory;
 class NPCItem;
 
 class NPCShop : public QWidget
@@ -17,6 +18,8 @@ class NPCShop : public QWidget
     Q_OBJECT
 public:
     explicit NPCShop(QWidget *parent = nullptr);
+
+    NPCInventory *inventory() const;
 
 signals:
     void moneyValueChanged(const int &value);
@@ -28,18 +31,16 @@ private slots:
     void checkItemAvailability(const int &availability, NPCShopItem *item);
     void checkItemQuantity(const QString &type, NPCShopItem *item);
     void returnItemToShop(const QString &name, const int &value);
-    void destroyInventoryItem(NPCItem *item);
 
 private:
     void addItemsToShop();
     void hideItems();
-    NPCItem *findItemInInventoryByName(const QString &name);
     NPCShopItem *findItemInShopByName(const QString &name);
 
 private:
     QComboBox *m_pCategory{nullptr};
     QComboBox *m_pSubcategory{nullptr};
-    QListWidget *m_pInventory{nullptr};
+    NPCInventory *m_pInventory{nullptr};
     QListWidget *m_pShop{nullptr};
     QLabel *m_pMoney{nullptr};
 
