@@ -103,7 +103,7 @@ void NPCShopItem::setQuantity(const int &value)
 {
     m_quantity = value;
     m_pQuantity->setText( "(Ilość: "+QString::number(value)+")" );
-
+    emit quantityChanged( m_quantity );
 }
 
 void NPCShopItem::setSoldout(const int &quantity)
