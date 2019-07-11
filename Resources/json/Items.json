@@ -928,6 +928,8 @@
                         "name": "Kiepska zbroja śmieciowa",
                         "type": "Zbroja",
                         "durability": 2,
+                        "availability": 50,
+                        "price": 20,
                         "defence": [
                             {
                                 "name": "Tułów",
@@ -944,6 +946,8 @@
                         "name": "Dobra zbroja śmieciowa",
                         "type": "Zbroja",
                         "durability": 5,
+                        "availability": 40,
+                        "price": 30,
                         "defence": [
                             {
                                 "name": "Tułów",
@@ -960,6 +964,8 @@
                         "name": "Pancerz RIOT",
                         "type": "Zbroja",
                         "durability": 3,
+                        "availability": 30,
+                        "price": 50,
                         "defence": [
                             {
                                 "name": "Tułów",
@@ -989,6 +995,8 @@
                         "name": "Kamizelka przeciwodłamkowa",
                         "type": "Kamizelka",
                         "durability": 2,
+                        "availability": 30,
+                        "price": 25,
                         "defence": [
                             {
                                 "name": "Tułów",
@@ -1002,6 +1010,8 @@
                         "name": "Kamizelka strzelecka",
                         "type": "Kamizelka",
                         "durability": 3,
+                        "availability": 20,
+                        "price": 30,
                         "defence": [
                             {
                                 "name": "Tułów",
@@ -1020,6 +1030,8 @@
                         "name": "Hełm wojskowy",
                         "type": "Hełm",
                         "durability": 5,
+                        "availability": 40,
+                        "price": 10,
                         "defence": [
                             {
                                 "name": "Głowa",
