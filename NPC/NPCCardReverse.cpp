@@ -26,6 +26,11 @@ NPCCardReverse::NPCCardReverse(QWidget *parent)
         NPCItem *pItem = new NPCItem(item, NPCItem::Type::INVENTORY, m_pInventory);
         m_pInventory->addItem( pItem );
     });
+    connect( m_pArmor, &NPCArmor::unequip,
+             [this](const QJsonObject &item){
+        NPCItem *pItem = new NPCItem(item, NPCItem::Type::INVENTORY, m_pInventory);
+        m_pInventory->addItem( pItem );
+    });
 
     QGridLayout *pLayout = new QGridLayout;
     setLayout( pLayout );
