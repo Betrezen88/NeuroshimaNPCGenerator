@@ -9,14 +9,26 @@ class QLabel;
 
 class NPCArmor: public NPCCustomWidget
 {
+    Q_OBJECT
 public:
     NPCArmor(QWidget *parent);
+
+signals:
+    void unequip(const QJsonObject &item);
 
 public slots:
     void addArmor(const QJsonObject &item);
 
+private slots:
+    void removeArmor(const QJsonObject &item);
+
 private:
     QLabel *infoLabel(QString text, QString name, QString style);
+
+    void addArmorPiece(const QString &location, const QString &name, const int &value);
+    void removeArmorPiece(const QString &location);
+
+    QJsonArray overlapingArmor(QJsonArray &defence);
 
 private:
     QLabel *m_pTitle{nullptr};
@@ -32,6 +44,8 @@ private:
     QLabel *m_pLeftLegItem{nullptr};
     QLabel *m_pRightLeg{nullptr};
     QLabel *m_pRightLegItem{nullptr};
+
+    QHash<QString, QJsonObject> m_equiped;
 
     const QString m_titleStyle{
         "QLabel#Title{"
