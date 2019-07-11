@@ -23,11 +23,18 @@
 
 - dodać logikę pozwalającą na swobodne kupno przedmiotów w sklepie
 
+- dodać sekcję z modyfikatorami do testów
+
+- usunąć sekcję z bonusami postaci
+
 BUGS:
 - wielokrotne wciśnięcie przycisku losuj w zakładce Choroba nie odświerza listy wylosowanych chorób,
   nie znikają wcześniej wylosowane choroby
 
 In progress:
+- dodać wskaźnik na wartość budowy postaci
+- dodać logikę dodającą info o regułach specjalnych broni
+- dodać logikę pozwalającą zdjąć pancerz
 - dodać do karty zakładkę z ekwipunkiem
 
 Done:
