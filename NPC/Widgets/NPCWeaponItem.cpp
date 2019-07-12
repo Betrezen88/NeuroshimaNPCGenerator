@@ -129,7 +129,7 @@ QLabel *NPCWeaponItem::addDamage()
         for ( const QJsonValue dmg: m_item.value("damage").toArray() ) {
             QRegExp value = QRegExp("(\\d+)");
             value.indexIn(dmg.toString());
-            if ( m_body <= value.cap(1).toInt() ) {
+            if ( m_body <= value.cap(1).toInt() || dmg == m_item.value("damage").toArray().last() ) {
                 value.setPattern("(\\b.\\/.\\/.\\b)");
                 value.indexIn(dmg.toString());
                 damageValue = damage(value.cap(1));
