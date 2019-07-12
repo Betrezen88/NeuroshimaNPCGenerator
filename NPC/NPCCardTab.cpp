@@ -3,7 +3,7 @@
 NPCCardTab::NPCCardTab(QWidget *parent)
     : QTabWidget(parent),
       m_pObverse(new NPCCardObverse(this)),
-      m_pReverse(new NPCCardReverse(this))
+      m_pReverse(new NPCCardReverse(m_pObverse->attributes()->value("Budowa")->currentValue(), this))
 {
     setTabPosition( TabPosition::West );
     addTab( m_pObverse, "Awers" );

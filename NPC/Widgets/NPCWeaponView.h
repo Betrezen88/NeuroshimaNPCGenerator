@@ -13,7 +13,7 @@ class NPCWeaponView : public NPCCustomWidget
 {
     Q_OBJECT
 public:
-    NPCWeaponView(QWidget *parent);
+    NPCWeaponView(int *body, QWidget *parent);
 
 signals:
     void unequip(const QJsonObject &item);
@@ -25,6 +25,7 @@ private slots:
     void removeWeapon(NPCWeaponItem *weapon);
 
 private:
+    int *m_pBody;
     QLabel *m_pTitle{nullptr};
     QListWidget *m_pWeapons{nullptr};
 

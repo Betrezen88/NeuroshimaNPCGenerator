@@ -11,10 +11,10 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-NPCCardReverse::NPCCardReverse(QWidget *parent)
+NPCCardReverse::NPCCardReverse(int *body, QWidget *parent)
     : QWidget(parent),
       m_pArmor( new NPCArmor(this) ),
-      m_pWeaponView( new NPCWeaponView(this) ),
+      m_pWeaponView( new NPCWeaponView(body, this) ),
       m_pInventory( new NPCInventory(this) )
 {
     connect( m_pInventory, &NPCInventory::equipWeapon,

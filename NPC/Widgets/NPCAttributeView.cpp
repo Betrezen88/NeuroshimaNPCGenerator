@@ -22,6 +22,9 @@ NPCAttributeView::NPCAttributeView(const QString &name,
       m_pLayout(new QHBoxLayout),
       m_pSkillsLayout(new QVBoxLayout)
 {
+    connect( this, &NPCAttributeView::currentValueChanged,
+             this, &NPCAttributeView::setCurrentValue );
+
     m_pName->setObjectName( "Title" );
     m_pName->setStyleSheet( m_titleStyle );
     m_pName->setFixedHeight( 35 );
@@ -69,9 +72,19 @@ int NPCAttributeView::modValue() const
     return m_modValue;
 }
 
+int *NPCAttributeView::currentValue()
+{
+    return &m_currentValue;
+}
+
 void NPCAttributeView::setSkillValue(const QString &skillpack, const QString &skill, const int &value)
 {
     m_skillpacks.value(skillpack)->setSkillValue(skill, value);
+}
+
+void NPCAttributeView::setCurrentValue(const int &value)
+{
+    m_currentValue = value;
 }
 
 QVBoxLayout *NPCAttributeView::pointsView()

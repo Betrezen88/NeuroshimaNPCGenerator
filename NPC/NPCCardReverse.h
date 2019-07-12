@@ -11,7 +11,7 @@ class NPCCardReverse : public QWidget
 {
     Q_OBJECT
 public:
-    explicit NPCCardReverse(QWidget *parent = nullptr);
+    explicit NPCCardReverse(int *body, QWidget *parent = nullptr);
 
     NPCInventory *inventory() const;
 

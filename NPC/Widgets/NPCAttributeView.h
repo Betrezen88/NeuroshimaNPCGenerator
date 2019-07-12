@@ -27,11 +27,16 @@ public:
     void setModValue(const int &value);
     int modValue() const;
 
+    int *currentValue();
+
 signals:
     void currentValueChanged(const int &value);
 
 public slots:
     void setSkillValue(const QString &skillpack, const QString &skill, const int &value);
+
+private slots:
+    void setCurrentValue(const int &value);
 
 private:
     QVBoxLayout *pointsView();
@@ -40,6 +45,7 @@ private:
     QLabel *m_pName{nullptr};
     int m_value{0};
     int m_modValue{0};
+    int m_currentValue{0};
 
     QHBoxLayout *m_pLayout{nullptr};
     QVBoxLayout *m_pSkillsLayout{nullptr};
