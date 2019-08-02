@@ -32,9 +32,6 @@ BUGS:
   nie znikają wcześniej wylosowane choroby
 
 In progress:
-- przerobić layout NPCShopItem
-- dodać logikę dodającą info o regułach specjalnych broni
-- dodać logikę pozwalającą zdjąć pancerz
 - dodać do karty zakładkę z ekwipunkiem
 
 Done:
@@ -148,3 +145,6 @@ FIXED:
 + dodać informację o regułach specjalnych broni
 + dodać logikę weryfikującą stan portfela i blokującą możliwość kupna przedmiotu zbyt drogiego
 + dodać wskaźnik na wartość budowy postaci
++ przerobić layout NPCShopItem
++ dodać logikę dodającą info o regułach specjalnych broni
++ dodać logikę pozwalającą zdjąć pancerz
