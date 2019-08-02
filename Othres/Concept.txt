@@ -19,8 +19,6 @@
 
 - dodać logikę weryfikującą ukończenie procesu tworzenia postaci
 
-- dodać funkcjonalność przeniesienia przedmiotów do karty bohatera
-
 - dodać logikę pozwalającą na swobodne kupno przedmiotów w sklepie
 
 - dodać sekcję z modyfikatorami do testów
@@ -32,7 +30,7 @@ BUGS:
   nie znikają wcześniej wylosowane choroby
 
 In progress:
-- dodać do karty zakładkę z ekwipunkiem
+
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
@@ -122,11 +120,6 @@ Done:
 + stworzyć logikę przenoszącą dane z klasy NPCCreatorDialog do NPCCardTab
 + dodać informację o chorobie w klasie NPCSicknessManagerWidget
 + Dodać możliwość wyboru portretu postaci
-
-FIXED:
-+ punkty umiejętności 35, punkty na specjalizację 30
-+ gdy punkty umiejętności z danej grupy się skończą się, pakietu nie można kupić, po cofnięciu
-  wydanych punktów pakietów dalej nie można kupić przez zablokowanie checkboxa
 + dodać specjalną klasę NPCSkillPackWidget dla pakietu "Wiedza ogólna", gdzie będzie można wybrać
   umiejętności
 + dodać opcję dodatkowej kostki przy losowaniu atrybutów
@@ -148,3 +141,10 @@ FIXED:
 + przerobić layout NPCShopItem
 + dodać logikę dodającą info o regułach specjalnych broni
 + dodać logikę pozwalającą zdjąć pancerz
++ dodać funkcjonalność przeniesienia przedmiotów do karty bohatera
++ dodać do karty zakładkę z ekwipunkiem
+
+FIXED:
++ punkty umiejętności 35, punkty na specjalizację 30
++ gdy punkty umiejętności z danej grupy się skończą się, pakietu nie można kupić, po cofnięciu
+  wydanych punktów pakietów dalej nie można kupić przez zablokowanie checkboxa
