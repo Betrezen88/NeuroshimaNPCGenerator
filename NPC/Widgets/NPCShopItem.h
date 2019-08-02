@@ -8,6 +8,7 @@
 class Dice;
 
 class QFrame;
+class QHBoxLayout;
 class QGridLayout;
 class QLabel;
 class QPushButton;
@@ -43,20 +44,22 @@ private:
     void gunWeaponLayout();
     void armorLayout();
 
-    void addRequirements();
-    void addDamage();
-    void addPenetration();
-    void addSpecial();
+    QHBoxLayout *addBonus();
+    QHBoxLayout *addRequirements();
+    QHBoxLayout *addDamage();
+    QHBoxLayout *addPenetration();
+    QHBoxLayout *addSpecial();
     void addDescription();
     void addAvailability();
-    void addAmmo();
-    void addMagazine();
-    void addDurability();
+    QHBoxLayout *addAmmo();
+    QHBoxLayout *addMagazine();
+    QHBoxLayout *addDurability();
     void addDefence();
-    void addPenalty();
+    QHBoxLayout *addPenalty();
     void addButton();
 
     QString gambleText(const int &price);
+    QString damageText(const QJsonValue &value);
 
 private:
     QJsonObject m_item;
@@ -70,12 +73,17 @@ private:
     int m_row{0};
     int m_quantity{0};
 
-    const QString m_nameStyle{
+    const QString m_nameStyle2{
         "QLabel#Name{"
-        " font: 11 bold;"
+        " font: 13 bold;"
         " padding-right: 5px;"
         "}"
     };
+
+    const QString m_nameStyle { "font: 13 bold;" };
+
+    const QString m_infoStyle{ "font: 11 bold;" };
+    const QString m_valueStyle{ "font: 11 italic;" };
 };
 
 #endif // NPCSHOPITEM_H
