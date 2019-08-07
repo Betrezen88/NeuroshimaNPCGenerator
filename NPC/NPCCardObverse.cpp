@@ -29,6 +29,7 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
     m_attributesMods = DataLoader::loadJson( ":/data/json/DifficultyLevel.json" );
     m_pPortrait->setFixedSize( 140, 200 );
     m_pPortrait->setScaledContents( true );
+
     m_pOrigin->setReadOnly( true );
     m_pProfession->setReadOnly( true );
     m_pSpecialization->setReadOnly( true );
@@ -276,6 +277,7 @@ void NPCCardObverse::setName(const QString &name)
 
 void NPCCardObverse::setPortrait(const QPixmap portrait)
 {
+    portrait.scaled( 140, 200, Qt::KeepAspectRatio );
     m_pPortrait->setPixmap( portrait );
 }
 
