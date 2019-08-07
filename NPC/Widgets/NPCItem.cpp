@@ -35,6 +35,16 @@ NPCItem::Type NPCItem::type() const
     return m_type;
 }
 
+QJsonObject NPCItem::object() const
+{
+    return m_item;
+}
+
+int NPCItem::quantity() const
+{
+    return m_pQuantity->text().toInt();
+}
+
 void NPCItem::increaseQuantity()
 {
     m_pQuantity->setText( QString::number(m_pQuantity->text().toInt()+1) );

@@ -19,6 +19,8 @@ public:
 
     QString name() const;
     Type type() const;
+    QJsonObject object() const;
+    int quantity() const;
 
     void increaseQuantity();
     void decreaseQuantity();
