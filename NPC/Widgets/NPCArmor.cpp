@@ -80,6 +80,16 @@ NPCArmor::NPCArmor(QWidget *parent)
     pLayout->addLayout( pRightLegL, 4, 1 );
 }
 
+QJsonArray NPCArmor::equiped() const
+{
+    QJsonArray items;
+    for ( const QJsonObject &item: m_equiped.values() ) {
+        if ( !items.contains(item) )
+            items.push_back(item);
+    }
+    return items;
+}
+
 void NPCArmor::addArmor(const QJsonObject &item)
 {
     QString name = item.value("name").toString();

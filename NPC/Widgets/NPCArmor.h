@@ -13,6 +13,8 @@ class NPCArmor: public NPCCustomWidget
 public:
     NPCArmor(QWidget *parent);
 
+    QJsonArray equiped() const;
+
 signals:
     void unequip(const QJsonObject &item);
 
