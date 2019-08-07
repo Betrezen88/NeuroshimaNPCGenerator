@@ -14,6 +14,7 @@ public:
     explicit NPCCardReverse(int *body, QWidget *parent = nullptr);
 
     NPCInventory *inventory() const;
+    NPCArmor *armor() const;
 
 signals:
 

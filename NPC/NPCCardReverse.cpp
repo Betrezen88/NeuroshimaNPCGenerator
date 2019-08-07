@@ -43,3 +43,8 @@ NPCInventory *NPCCardReverse::inventory() const
 {
     return m_pInventory;
 }
+
+NPCArmor *NPCCardReverse::armor() const
+{
+    return m_pArmor;
+}
