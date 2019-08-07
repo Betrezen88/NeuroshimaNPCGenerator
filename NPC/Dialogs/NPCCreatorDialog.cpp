@@ -137,6 +137,7 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
     m_pSpecializationManager->specializationChanged( "Technik" );
     m_pOriginManager->setOrigin( "Południowa Hegemonia" );
     m_pProfessionManager->setProfession( "Chemik" );
+    m_pBioManager->setPortrait( ":/images/icons/Hero_portrait_icon.png" );
 
     QHBoxLayout *pButtonsL = new QHBoxLayout;
     pButtonsL->addWidget( m_pClose );
