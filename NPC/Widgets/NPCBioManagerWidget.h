@@ -20,6 +20,7 @@ signals:
     void portraitChanged(const QPixmap potrait);
 
 public slots:
+    void setPortrait(const QString &fileName);
 
 protected:
     void mousePressEvent(QMouseEvent *event);

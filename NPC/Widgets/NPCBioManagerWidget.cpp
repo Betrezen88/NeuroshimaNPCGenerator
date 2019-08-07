@@ -16,13 +16,10 @@ NPCBioManagerWidget::NPCBioManagerWidget(QWidget *parent)
       m_pSurname(new QLineEdit(this)),
       m_pNickname(new QLineEdit(this))
 {
-    QPixmap portait( ":/images/icons/Hero_portrait_icon.png" );
-    portait.scaled( 140, 200, Qt::KeepAspectRatio );
-
-    m_pPortrait->setMaximumSize( 140, 200 );
-    m_pPortrait->setPixmap( portait );
     QGridLayout *pLayout = new QGridLayout;
     setLayout( pLayout );
+
+    m_pPortrait->setFixedSize( 140, 200 );
 
     m_pName->setPlaceholderText( "Imię" );
     m_pSurname->setPlaceholderText( "Nazwisko" );
@@ -39,6 +36,15 @@ NPCBioManagerWidget::NPCBioManagerWidget(QWidget *parent)
     pLayout->addWidget( formBox(), 1, 0, 1, 4 );
 }
 
+void NPCBioManagerWidget::setPortrait(const QString &fileName)
+{
+    QPixmap portrait(fileName);
+    portrait.scaled( 140, 200, Qt::KeepAspectRatio );
+    m_pPortrait->setScaledContents( true );
+    m_pPortrait->setPixmap( portrait );
+    portraitChanged( portrait );
+}
+
 void NPCBioManagerWidget::mousePressEvent(QMouseEvent *event)
 {
     if ( childAt(event->pos()) == m_pPortrait ) {
@@ -46,13 +52,8 @@ void NPCBioManagerWidget::mousePressEvent(QMouseEvent *event)
                                                          "Wybierz portret",
                                                          QDir::homePath(),
                                                          "*.img, *.png, *.jpg" );
-        if ( !fileName.isEmpty() ) {
-            QPixmap portrait(fileName);
-            portrait.scaled( 140, 200, Qt::KeepAspectRatio );
-            m_pPortrait->setScaledContents( true );
-            m_pPortrait->setPixmap( portrait );
-            portraitChanged( portrait );
-        }
+        if ( !fileName.isEmpty() )
+            setPortrait( fileName );
     }
 }
 
