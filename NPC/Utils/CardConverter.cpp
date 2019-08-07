@@ -1,4 +1,7 @@
 #include "CardConverter.h"
+#include "NPC/Widgets/NPCInventory.h"
+#include "NPC/Widgets/NPCItem.h"
+#include "NPC/Widgets/NPCArmor.h"
 
 #include <QJsonValue>
 
@@ -14,6 +17,12 @@ const QJsonObject CardConverter::toJson(const NPCCardTab *card, QString filePath
     cardJson.insert( "personal", personalJson(card->obverse(), filePath) );
     cardJson.insert( "tricks", tricksJson(card->obverse()->tricks()) );
     cardJson.insert( "stats", attributesJson(card->obverse()->attributes()) );
+    cardJson.insert( "inventory", inventoryJson(card->reverse()->inventory()->items()) );
+
+    QJsonObject equiped;
+    equiped.insert( "armor", card->reverse()->armor()->equiped() );
+
+    cardJson.insert( "equiped", equiped );
 
     return cardJson;
 }
@@ -29,7 +38,7 @@ NPCCardTab* CardConverter::toCard(const QJsonObject &object)
     return pCard;
 }
 
-const QJsonObject CardConverter::personalJson(const NPCCardObverse *obverse, QString filePath) const
+QJsonObject CardConverter::personalJson(const NPCCardObverse *obverse, QString filePath) const
 {
     QJsonObject personalObj;
 
@@ -59,7 +68,7 @@ const QJsonObject CardConverter::personalJson(const NPCCardObverse *obverse, QSt
     return personalObj;
 }
 
-const QJsonArray CardConverter::tricksJson(const QListWidget *tricks) const
+QJsonArray CardConverter::tricksJson(const QListWidget *tricks) const
 {
     QJsonArray tricksObj;
     for ( int i=0; i<tricks->count(); ++i ) {
@@ -102,7 +111,7 @@ const QJsonArray CardConverter::tricksJson(const QListWidget *tricks) const
     return tricksObj;
 }
 
-const QJsonArray CardConverter::attributesJson(const QHash<QString, NPCAttributeView *> *attributes) const
+QJsonArray CardConverter::attributesJson(const QHash<QString, NPCAttributeView *> *attributes) const
 {
     QJsonArray attributesObj;
 
@@ -118,7 +127,7 @@ const QJsonArray CardConverter::attributesJson(const QHash<QString, NPCAttribute
     return attributesObj;
 }
 
-const QJsonArray CardConverter::packetsJson(const QHash<QString, NPCSkillpackView *> &skillPacks) const
+QJsonArray CardConverter::packetsJson(const QHash<QString, NPCSkillpackView *> &skillPacks) const
 {
     QJsonArray packetsArray;
 
@@ -132,7 +141,7 @@ const QJsonArray CardConverter::packetsJson(const QHash<QString, NPCSkillpackVie
     return packetsArray;
 }
 
-const QJsonArray CardConverter::skillsJson(const QHash<QLabel*, QLabel *> &skills) const
+QJsonArray CardConverter::skillsJson(const QHash<QLabel*, QLabel *> &skills) const
 {
     QJsonArray skillsArray;
 
@@ -144,6 +153,18 @@ const QJsonArray CardConverter::skillsJson(const QHash<QLabel*, QLabel *> &skill
     }
 
     return skillsArray;
+}
+
+QJsonArray CardConverter::inventoryJson(const QVector<NPCItem *> items) const
+{
+    QJsonArray inventory;
+    for ( NPCItem *item: items ) {
+        QJsonObject tItem;
+        tItem.insert( "item", item->object() );
+        tItem.insert( "quantity", item->quantity() );
+        inventory.push_back( tItem );
+    }
+    return inventory;
 }
 
 void CardConverter::personal(NPCCardTab *card, const QJsonObject &object)
