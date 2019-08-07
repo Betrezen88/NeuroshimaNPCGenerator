@@ -1,8 +1,6 @@
 ﻿#include "MainWindow.h"
 #include "NPC/Utils/CardConverter.h"
 #include "NPC/Utils/DataLoader.h"
-//#include "NPC/Dialogs/NPCSkicnessDialog.h"
-//#include "NPC/Dialogs/NPCOriginManagerDialog.h"
 #include "NPC/Dialogs/NPCCreatorDialog.h"
 
 #include <QMenuBar>
@@ -91,7 +89,8 @@ void MainWindow::saveCard()
         CardConverter converter;
         QJsonDocument json;
         json.setObject( converter.toJson(pCard, portraitPath) );
-        pCard->obverse()->portrait().save(portraitPath);
+        if ( !pCard->obverse()->portrait().isNull() )
+            pCard->obverse()->portrait().save(portraitPath);
         file.write( json.toJson() );
     }
     else {
