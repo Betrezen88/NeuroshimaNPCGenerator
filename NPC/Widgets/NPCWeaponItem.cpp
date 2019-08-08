@@ -56,6 +56,11 @@ NPCWeaponItem::NPCWeaponItem(const QJsonObject &item, const int &body, QWidget *
     m_pLayout->addWidget( m_pLine );
 }
 
+QJsonObject NPCWeaponItem::item() const
+{
+    return m_item;
+}
+
 void NPCWeaponItem::gunLayout()
 {
     QHBoxLayout *pDamageRow = new QHBoxLayout;

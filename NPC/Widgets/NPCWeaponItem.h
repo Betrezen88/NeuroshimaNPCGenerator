@@ -16,6 +16,8 @@ class NPCWeaponItem : public NPCCustomWidget
 public:
     NPCWeaponItem(const QJsonObject &item, const int &body, QWidget *parent = nullptr);
 
+    QJsonObject item() const;
+
 signals:
     void unequip(const QJsonObject &item);
     void destroyView(NPCWeaponItem *item);
