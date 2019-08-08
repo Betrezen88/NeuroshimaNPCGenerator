@@ -22,6 +22,16 @@ NPCWeaponView::NPCWeaponView(int *body, QWidget *parent)
     pLayout->addWidget( m_pWeapons );
 }
 
+QJsonArray NPCWeaponView::weapons() const
+{
+    QJsonArray array;
+
+    for ( int i{0}; i<m_pWeapons->count(); ++i )
+        array.push_back( dynamic_cast<NPCWeaponItem*>(m_pWeapons->item(i))->item() );
+
+    return array;
+}
+
 void NPCWeaponView::addWeapon(const QJsonObject &item)
 {
     QListWidgetItem *pItem = new QListWidgetItem( m_pWeapons );

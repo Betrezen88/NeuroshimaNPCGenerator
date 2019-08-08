@@ -4,6 +4,7 @@
 #include "NPCCustomWidget.h"
 #include "NPCWeaponItem.h"
 
+#include <QJsonArray>
 #include <QJsonObject>
 
 class QLabel;
@@ -14,6 +15,8 @@ class NPCWeaponView : public NPCCustomWidget
     Q_OBJECT
 public:
     NPCWeaponView(int *body, QWidget *parent);
+
+    QJsonArray weapons() const;
 
 signals:
     void unequip(const QJsonObject &item);
