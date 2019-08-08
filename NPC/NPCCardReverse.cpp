@@ -48,3 +48,8 @@ NPCArmor *NPCCardReverse::armor() const
 {
     return m_pArmor;
 }
+
+NPCWeaponView *NPCCardReverse::weaponView() const
+{
+    return m_pWeaponView;
+}

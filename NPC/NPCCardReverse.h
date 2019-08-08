@@ -15,6 +15,7 @@ public:
 
     NPCInventory *inventory() const;
     NPCArmor *armor() const;
+    NPCWeaponView *weaponView() const;
 
 signals:
 
