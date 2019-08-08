@@ -55,8 +55,21 @@ void NPCItem::decreaseQuantity()
     m_pQuantity->setText( QString::number(m_pQuantity->text().toInt()-1) );
 }
 
+void NPCItem::setQuantity(const int quantity)
+{
+    m_pQuantity->setText( QString::number(quantity) );
+}
+
 void NPCItem::throwOut()
 {
+    decreaseQuantity();
+    if ( 0 == m_pQuantity->text().toInt() )
+        emit destroyItem( this );
+}
+
+void NPCItem::onEquipTrigger()
+{
+    emit equip( m_item );
     decreaseQuantity();
     if ( 0 == m_pQuantity->text().toInt() )
         emit destroyItem( this );
@@ -110,12 +123,7 @@ void NPCItem::createActions()
             m_pEquip = new QAction("Wyekwipuj", this);
             pMenu->addAction(m_pEquip);
             connect( m_pEquip, &QAction::triggered,
-                     [this](){
-                emit this->equip(m_item);
-                this->decreaseQuantity();
-                if ( 0 == m_pQuantity->text().toInt() )
-                    emit this->destroyItem( this );
-            });
+                     this, &NPCItem::onEquipTrigger );
         }
         else {
             m_pUse = new QAction("Użyj", this);

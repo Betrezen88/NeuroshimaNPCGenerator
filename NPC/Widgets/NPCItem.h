@@ -24,6 +24,7 @@ public:
 
     void increaseQuantity();
     void decreaseQuantity();
+    void setQuantity(const int quantity);
 
 signals:
     void typeChanged(const Type &type);
@@ -36,6 +37,7 @@ public slots:
 
 private slots:
     void throwOut();
+    void onEquipTrigger();
 
 private:
     void createActions();
