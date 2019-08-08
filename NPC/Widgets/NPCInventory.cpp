@@ -55,6 +55,23 @@ void NPCInventory::addItem(NPCItem *item)
     }
 }
 
+void NPCInventory::addItem(const QJsonObject item, const int quantity)
+{
+    NPCItem *pItem = new NPCItem(item, NPCItem::Type::INVENTORY);
+    pItem->setQuantity( quantity );
+
+    QListWidgetItem *pInvItem = new QListWidgetItem( m_pInventory );
+    m_pInventory->addItem( pInvItem );
+    m_pInventory->setItemWidget( pInvItem, pItem );
+    pInvItem->setSizeHint( pItem->sizeHint() );
+
+    connect( pItem, &NPCItem::equip,
+             this, &NPCInventory::onEquip );
+
+    connect( pItem, &NPCItem::destroyItem,
+             this, &NPCInventory::destroyItem );
+}
+
 void NPCInventory::destroyItem(NPCItem *item)
 {
     for ( int i{0}; i<m_pInventory->count(); ++i )

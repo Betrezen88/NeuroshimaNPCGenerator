@@ -24,6 +24,7 @@ signals:
 
 public slots:
     void addItem(NPCItem *item);
+    void addItem(const QJsonObject item, const int quantity);
     void destroyItem(NPCItem *item);
 
 private slots:
