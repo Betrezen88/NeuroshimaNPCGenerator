@@ -2,6 +2,7 @@
 #include "NPC/Widgets/NPCInventory.h"
 #include "NPC/Widgets/NPCItem.h"
 #include "NPC/Widgets/NPCArmor.h"
+#include "NPC/Widgets/NPCWeaponView.h"
 
 #include <QJsonValue>
 
@@ -21,6 +22,7 @@ const QJsonObject CardConverter::toJson(const NPCCardTab *card, QString filePath
 
     QJsonObject equiped;
     equiped.insert( "armor", card->reverse()->armor()->equiped() );
+    equiped.insert( "weapons", card->reverse()->weaponView()->weapons() );
 
     cardJson.insert( "equiped", equiped );
 
