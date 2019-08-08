@@ -12,7 +12,7 @@ class CardConverter
 public:
     CardConverter();
 
-    const QJsonObject toJson(const NPCCardTab *card, QString filePath) const;
+    QJsonObject toJson(const NPCCardTab *card, QString filePath) const;
     NPCCardTab *toCard(const QJsonObject &object);
 
 private:
@@ -22,11 +22,11 @@ private:
     QJsonArray packetsJson(const QHash<QString, NPCSkillpackView *> &skillPacks) const;
     QJsonArray skillsJson(const QHash<QLabel *, QLabel *> &skills) const;
     QJsonArray inventoryJson(const QVector<NPCItem*> items) const;
-    QJsonArray armorJson(const QJsonArray items);
 
     void personal(NPCCardTab *card, const QJsonObject &object);
     void stats(NPCCardTab *card, const QJsonArray &stats);
     void tricks(NPCCardTab *card, const QJsonArray &tricks);
+    void equipment(NPCCardReverse *reverse, const QJsonObject &equipment);
 };
 
 #endif // CARDCONVERTER_H

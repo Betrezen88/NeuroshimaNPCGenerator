@@ -6,25 +6,27 @@
 
 #include <QJsonValue>
 
+#include <QDebug>
+
 CardConverter::CardConverter()
 {
 
 }
 
-const QJsonObject CardConverter::toJson(const NPCCardTab *card, QString filePath) const
+QJsonObject CardConverter::toJson(const NPCCardTab *card, QString filePath) const
 {
     QJsonObject cardJson;
 
     cardJson.insert( "personal", personalJson(card->obverse(), filePath) );
     cardJson.insert( "tricks", tricksJson(card->obverse()->tricks()) );
     cardJson.insert( "stats", attributesJson(card->obverse()->attributes()) );
-    cardJson.insert( "inventory", inventoryJson(card->reverse()->inventory()->items()) );
 
-    QJsonObject equiped;
-    equiped.insert( "armor", card->reverse()->armor()->equiped() );
-    equiped.insert( "weapons", card->reverse()->weaponView()->weapons() );
+    QJsonObject equipment;
+    equipment.insert( "inventory", inventoryJson(card->reverse()->inventory()->items()) );
+    equipment.insert( "armor", card->reverse()->armor()->equiped() );
+    equipment.insert( "weapons", card->reverse()->weaponView()->weapons() );
 
-    cardJson.insert( "equiped", equiped );
+    cardJson.insert( "equipment", equipment );
 
     return cardJson;
 }
@@ -36,6 +38,7 @@ NPCCardTab* CardConverter::toCard(const QJsonObject &object)
     personal( pCard, object.value("personal").toObject() );
     stats( pCard, object.value("stats").toArray() );
     tricks( pCard, object.value("tricks").toArray() );
+    equipment( pCard->reverse(), object.value("equipment").toObject() );
 
     return pCard;
 }
@@ -228,4 +231,23 @@ void CardConverter::tricks(NPCCardTab *card, const QJsonArray &tricks)
         tTricks.push_back( dynamic_cast<QListWidgetItem*>(pTrick) );
     }
     pObverse->setTricks( tTricks );
+}
+
+void CardConverter::equipment(NPCCardReverse *reverse, const QJsonObject &equipment)
+{
+    if ( !equipment.value("armor").toArray().isEmpty() ) {
+        for ( const QJsonValue armor: equipment.value("armor").toArray() )
+            reverse->armor()->addArmor( armor.toObject() );
+    }
+
+    if ( !equipment.value("weapons").toArray().isEmpty() ) {
+        for ( const QJsonValue weapon: equipment.value("weapons").toArray() )
+            reverse->weaponView()->addWeapon( weapon.toObject() );
+    }
+
+    if ( !equipment.value("inventory").toArray().isEmpty() ) {
+        for ( const QJsonValue item: equipment.value("inventory").toArray() )
+            reverse->inventory()->addItem( item.toObject().value("item").toObject(),
+                                           item.toObject().value("quantity").toInt() );
+    }
 }
