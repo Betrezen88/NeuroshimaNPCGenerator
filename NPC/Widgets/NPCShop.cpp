@@ -14,8 +14,6 @@
 #include <QLabel>
 #include <QListWidget>
 
-#include <QDebug>
-
 NPCShop::NPCShop(QWidget *parent)
     : QWidget(parent),
       m_pCategory(new QComboBox(this)),
@@ -31,22 +29,48 @@ NPCShop::NPCShop(QWidget *parent)
     connect( m_pInventory, &NPCInventory::returnItemToShop,
              this, &NPCShop::returnItemToShop );
 
-    QGridLayout *pLayout = new QGridLayout;
-    pLayout->setSpacing( 1 );
-    setLayout( pLayout );
-
     addItemsToShop();
 
-    pLayout->addWidget( new QLabel("Ekwipunek"), 0, 0, 1, 2 );
-    pLayout->addWidget( new QLabel("Gamble"), 1, 0, 1, 1 );
-    pLayout->addWidget( m_pMoney, 1, 1, 1, 1 );
-    pLayout->addWidget( m_pInventory, 2, 0, 6, 2 );
-    pLayout->addWidget( new QLabel("Sklep"), 0, 2, 1, 2 );
-    pLayout->addWidget( new QLabel("Kategoria"), 1, 2, 1, 1 );
-    pLayout->addWidget( m_pCategory, 1, 3, 1, 1 );
-    pLayout->addWidget( new QLabel("Podkategoria"), 2, 2, 1, 1 );
-    pLayout->addWidget( m_pSubcategory, 2, 3, 1, 1 );
-    pLayout->addWidget( m_pShop, 3, 2, 5, 2 );
+    QHBoxLayout *pGambleRow = new QHBoxLayout;
+    QLabel *pGampleL = new QLabel( "Gamble:", this );
+    pGampleL->setStyleSheet( "font: bold 10pt;" );
+    pGambleRow->addSpacerItem( new QSpacerItem(10, 1) );
+    pGambleRow->addWidget( pGampleL );
+    pGambleRow->addWidget( m_pMoney );
+
+    QVBoxLayout *pLeftColumn = new QVBoxLayout;
+    pLeftColumn->addWidget( m_pInventory );
+    pLeftColumn->addLayout( pGambleRow );
+
+    QLabel *pShopL = new QLabel( "Sklep", this );
+    pShopL->setAlignment( Qt::AlignHCenter );
+    pShopL->setObjectName( "Title" );
+    pShopL->setStyleSheet( m_titleStyle );
+    QLabel *pCategoryL = new QLabel( "Kategoria:", this );
+    pCategoryL->setStyleSheet( "font: bold 10pt;" );
+    QLabel *pSubcategoryL = new QLabel( "Podkategoria:", this );
+    pSubcategoryL->setStyleSheet( "font: bold 10pt;" );
+
+    QHBoxLayout *pCategoryRow = new QHBoxLayout;
+    pCategoryRow->addWidget( pCategoryL );
+    pCategoryRow->addWidget( m_pCategory );
+
+    QHBoxLayout *pSubcategoryRow = new QHBoxLayout;
+    pSubcategoryRow->addWidget( pSubcategoryL );
+    pSubcategoryRow->addWidget( m_pSubcategory );
+
+    QVBoxLayout *pRightColumn = new QVBoxLayout;
+    pRightColumn->addSpacerItem( new QSpacerItem(1, 11) );
+    pRightColumn->addWidget( pShopL );
+    pRightColumn->addLayout( pCategoryRow );
+    pRightColumn->addLayout( pSubcategoryRow );
+    pRightColumn->addWidget( m_pShop );
+
+    QHBoxLayout *pLayout = new QHBoxLayout;
+    pLayout->addLayout( pLeftColumn );
+    pLayout->addLayout( pRightColumn );
+
+    setLayout( pLayout );
 }
 
 NPCInventory *NPCShop::inventory() const

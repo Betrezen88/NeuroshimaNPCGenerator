@@ -45,6 +45,17 @@ private:
     QLabel *m_pMoney{nullptr};
 
     QHash<QString, QHash<QString, QVector<QListWidgetItem*>>> m_items;
+
+    const QString m_titleStyle{
+        "QLabel#Title{"
+        " font: bold 12pt;"
+        " color: white;"
+        " background-color: black;"
+        " padding: 5px;"
+        " border: 1px solid black;"
+        " border-radius: 5px;"
+        "}"
+    };
 };
 
 #endif // NPCSHOP_H
