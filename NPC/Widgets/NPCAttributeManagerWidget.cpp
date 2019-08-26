@@ -12,11 +12,13 @@ NPCAttributeManagerWidget::NPCAttributeManagerWidget(const QJsonArray *attribute
       m_pThrowBtn(new QPushButton("Losuj", this)),
       m_pResultBox(new QGroupBox("Wyniki", this))
 {
-    m_pRollCount->setRange( 1, 5 );
-    m_pDistributeType->insertItems( 0, m_distributionTypes );
-
     connect( m_pThrowBtn, &QPushButton::clicked,
              this, &NPCAttributeManagerWidget::throwBtnClicked );
+    connect( m_pDistributeType, &QComboBox::currentTextChanged,
+             this, &NPCAttributeManagerWidget::onDistribiutionChanged);
+
+    m_pRollCount->setRange( 1, 5 );
+    m_pDistributeType->insertItems( 0, m_distributionTypes );
 
     m_pMainLayout = new QGridLayout;
     m_pMainLayout->addWidget( optionsBox(), 0, 0, 1, 2 );
@@ -70,7 +72,8 @@ void NPCAttributeManagerWidget::distributeResults()
                 QVector<DragDropAreaWidget*> values =
                         m_resultRows.at(m_radioBtn.indexOf(pRadioBtn))->results();
                 DragDropAreaWidget *pMin = values.first();
-                for ( DragDropAreaWidget *pAttribute: m_attributesValues ) {
+                for ( QWidget *pValue: m_attributesValues ) {
+                    DragDropAreaWidget *pAttribute = dynamic_cast<DragDropAreaWidget*>(pValue);
                     pAttribute->addLabel( QString::number(values.at(index)->value()) );
                     if ( pMin->value() > pAttribute->value() )
                         pMin = pAttribute;
@@ -84,6 +87,42 @@ void NPCAttributeManagerWidget::distributeResults()
                 }
                 break;
             }
+        }
+    }
+}
+
+void NPCAttributeManagerWidget::onDistribiutionChanged(const QString &distribiution)
+{
+    if ( !m_attributesValues.isEmpty() )
+        removeAttributeValues();
+    if ( "Własny" == distribiution ) {
+        m_pThrowBtn->setDisabled( true );
+        m_pExtraDice->setDisabled( true );
+        m_pExtraDice->setChecked( false );
+
+        for ( int row{0}; row<m_attributesNames.size(); ++row ) {
+            QSpinBox *pSpinBox = new QSpinBox( this );
+            pSpinBox->setRange( 0, 20 );
+            connect( pSpinBox, QOverload<int>::of(&QSpinBox::valueChanged),
+                     [this, row, pSpinBox] () {
+                emit attributeChanged(m_attributesNames.at(row)->text(), pSpinBox->value());
+            } );
+            m_attributesValues.push_back( pSpinBox );
+            m_pAttributeLayout->addWidget( pSpinBox, row, 1 );
+        }
+    }
+    else {
+        m_pThrowBtn->setEnabled( true );
+        m_pExtraDice->setEnabled( true );
+
+        for ( int row{0}; row<m_attributesNames.size(); ++row ) {
+            DragDropAreaWidget *pDrag = new DragDropAreaWidget( this );
+            connect( pDrag, &DragDropAreaWidget::hasLabelChanged,
+                     [this, row, pDrag](){
+                emit attributeChanged(m_attributesNames.at(row)->text(), pDrag->value());
+            } );
+            m_attributesValues.push_back( pDrag );
+            m_pAttributeLayout->addWidget( pDrag, row, 1 );
         }
     }
 }
@@ -109,28 +148,31 @@ QGroupBox *NPCAttributeManagerWidget::attributesBox()
 {
     QGroupBox *pAttributeBox = new QGroupBox( "Atrybuty", this );
 
-    QGridLayout *pLayout = new QGridLayout;
+    m_pAttributeLayout = new QGridLayout;
 
     int row{0};
     for ( const QJsonValue tAttribute: *m_attributes ) {
         const QJsonObject &attribute = tAttribute.toObject();
         QLabel *pLabel = new QLabel(attribute.value("name").toString());
-        DragDropAreaWidget *pDragDrop = new DragDropAreaWidget(this);
         m_attributesNames.push_back( pLabel );
-        m_attributesValues.push_back( pDragDrop );
 
-        pLayout->addWidget( pLabel, row, 0 );
-        pLayout->addWidget( pDragDrop, row, 1 );
-
-        connect( pDragDrop, &DragDropAreaWidget::hasLabelChanged,
-                 [this, pLabel, pDragDrop](){
-            emit attributeChanged(pLabel->text(), pDragDrop->value());
-        } );
+        m_pAttributeLayout->addWidget( pLabel, row, 0 );
 
         ++row;
     }
+    onDistribiutionChanged( m_pDistributeType->currentText() );
 
-    pAttributeBox->setLayout( pLayout );
+    pAttributeBox->setLayout( m_pAttributeLayout );
 
     return pAttributeBox;
+}
+
+void NPCAttributeManagerWidget::removeAttributeValues()
+{
+    for ( int i{0}; i<m_attributesNames.size(); ++i ) {
+        m_pAttributeLayout->removeWidget( m_attributesValues.at(i) );
+        m_attributesValues.at(i)->deleteLater();
+        emit attributeChanged( m_attributesNames.at(i)->text(), 0 );
+    }
+    m_attributesValues.clear();
 }

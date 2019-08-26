@@ -30,10 +30,12 @@ public slots:
 private slots:
     void throwBtnClicked();
     void distributeResults();
+    void onDistribiutionChanged(const QString &distribiution);
 
 private:
     QGroupBox *optionsBox();
     QGroupBox *attributesBox();
+    void removeAttributeValues();
 
 private:
     const QJsonArray *m_attributes;
@@ -44,16 +46,18 @@ private:
     QGroupBox *m_pResultBox{nullptr};
 
     QGridLayout *m_pMainLayout{nullptr};
+    QGridLayout *m_pAttributeLayout{nullptr};
 
     QVector<QLabel*> m_attributesNames;
-    QVector<DragDropAreaWidget*> m_attributesValues;
+    QVector<QWidget*> m_attributesValues;
 
     QVector<QRadioButton*> m_radioBtn;
     QVector<NPCAttributeResultsRow*> m_resultRows;
 
     const QStringList m_distributionTypes{
         "Dowolny",
-        "Określony"
+        "Określony",
+        "Własny"
     };
 };
 

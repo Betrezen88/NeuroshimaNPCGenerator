@@ -1,8 +1,6 @@
 ﻿To Do:
 - Dodać opis pochodzenia do Origins.json
 
-- dodać możlwiość wpisania wartości atrybutów przy typie dowolny w NPCAttributeManagerWidget
-
 - dodać logikę blokującą wybór wylosowanych atrybutów po pobraniu wartości z jednej grupy
 
 - dodać slot resetPoints() do NPCSkillsManagerWidget, używać przy zmianie bonusowych skillpontów
@@ -148,3 +146,4 @@ FIXED:
 + punkty umiejętności 35, punkty na specjalizację 30
 + gdy punkty umiejętności z danej grupy się skończą się, pakietu nie można kupić, po cofnięciu
   wydanych punktów pakietów dalej nie można kupić przez zablokowanie checkboxa
++ dodać możlwiość wpisania wartości atrybutów przy typie własnym w NPCAttributeManagerWidget
