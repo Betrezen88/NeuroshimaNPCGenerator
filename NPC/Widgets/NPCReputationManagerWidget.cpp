@@ -39,6 +39,15 @@ void NPCReputationManagerWidget::setPlaceReputation(const QString &name)
     emit freeReputationPointsChanged( m_pPoints->text().toInt() );
 }
 
+void NPCReputationManagerWidget::checkFame()
+{
+    int tFame{0};
+    for ( const QString &place: m_reputation.keys() )
+        if ( 20 == m_reputation.value(place)->value() )
+            ++tFame;
+    m_pFame->setNum( tFame );
+}
+
 QGroupBox *NPCReputationManagerWidget::reputationBox()
 {
     QGroupBox *pReputationBox = new QGroupBox( "Reputacja w miejscu", this );
@@ -58,11 +67,13 @@ QGroupBox *NPCReputationManagerWidget::reputationBox()
                  [this](){
             this->m_pPoints->setNum( this->m_pPoints->text().toInt()-1 );
             emit this->freeReputationPointsChanged( this->m_pPoints->text().toInt() );
+            this->checkFame();
         });
         connect( pReputation, &ReputationValueBox::valueDown,
                  [this](){
             this->m_pPoints->setNum( this->m_pPoints->text().toInt()+1 );
             emit this->freeReputationPointsChanged( this->m_pPoints->text().toInt() );
+            this->checkFame();
         });
 
         pLayout->addWidget( pPlace, row, column );

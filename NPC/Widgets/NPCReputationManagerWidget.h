@@ -23,6 +23,9 @@ public slots:
     void setPlaceReputation(const QString &name);
 
 private:
+    void checkFame();
+
+private:
     QGroupBox *reputationBox();
     QGroupBox *fameBox();
     QGroupBox *pointsBox();
