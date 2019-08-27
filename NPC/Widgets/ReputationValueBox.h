@@ -23,6 +23,7 @@ public slots:
     void setDownDisable(const bool &disable);
     void setMinimumValue(const int &min);
     void setMaximumValue(const int &max);
+    void onFreePointsChange(const int &value);
 
 private slots:
     void upBtnClick();

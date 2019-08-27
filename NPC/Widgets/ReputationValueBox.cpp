@@ -2,6 +2,8 @@
 
 #include <QHBoxLayout>
 
+#include <QDebug>
+
 ReputationValueBox::ReputationValueBox(QWidget *parent)
     : QWidget(parent),
       m_pValue(new QLineEdit("0", this)),
@@ -55,6 +57,14 @@ void ReputationValueBox::setMinimumValue(const int &min)
 void ReputationValueBox::setMaximumValue(const int &max)
 {
     m_maximum = max;
+}
+
+void ReputationValueBox::onFreePointsChange(const int &value)
+{
+    if ( 0 == value )
+        m_pUpBtn->setDisabled( true );
+    else
+        m_pUpBtn->setEnabled( true );
 }
 
 void ReputationValueBox::upBtnClick()

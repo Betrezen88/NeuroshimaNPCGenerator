@@ -29,10 +29,14 @@ void NPCReputationManagerWidget::setPlaceReputation(const QString &name)
             break;
         }
 
-    if ( m_reputation.contains(name) )
+    if ( m_reputation.contains(name) ) {
         m_reputation.value(name)->setValue( 1 );
+        m_reputation.value(name)->setMinimumValue( 1 );
+    }
     else
         m_pPoints->setNum( 1 );
+
+    emit freeReputationPointsChanged( m_pPoints->text().toInt() );
 }
 
 QGroupBox *NPCReputationManagerWidget::reputationBox()
@@ -47,6 +51,20 @@ QGroupBox *NPCReputationManagerWidget::reputationBox()
         QLabel *pPlace = new QLabel( place.toString(), this );
         ReputationValueBox *pReputation = new ReputationValueBox( this );
         pReputation->setMaximumValue( 20 );
+
+        connect( this, &NPCReputationManagerWidget::freeReputationPointsChanged,
+                 pReputation, &ReputationValueBox::onFreePointsChange );
+        connect( pReputation, &ReputationValueBox::valueUp,
+                 [this](){
+            this->m_pPoints->setNum( this->m_pPoints->text().toInt()-1 );
+            emit this->freeReputationPointsChanged( this->m_pPoints->text().toInt() );
+        });
+        connect( pReputation, &ReputationValueBox::valueDown,
+                 [this](){
+            this->m_pPoints->setNum( this->m_pPoints->text().toInt()+1 );
+            emit this->freeReputationPointsChanged( this->m_pPoints->text().toInt() );
+        });
+
         pLayout->addWidget( pPlace, row, column );
         pLayout->addWidget( pReputation, row, column+1 );
 

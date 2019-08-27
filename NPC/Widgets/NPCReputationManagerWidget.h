@@ -6,7 +6,6 @@
 #include <QHash>
 #include <QGridLayout>
 #include <QGroupBox>
-//#include <QSpinBox>
 
 #include "ReputationValueBox.h"
 
@@ -18,6 +17,7 @@ public:
 
 signals:
     void availabeReputationPointsChanged(const int &value);
+    void freeReputationPointsChanged(const int &value);
 
 public slots:
     void setPlaceReputation(const QString &name);
