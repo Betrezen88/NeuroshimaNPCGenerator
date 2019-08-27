@@ -21,6 +21,21 @@ NPCReputationManagerWidget::NPCReputationManagerWidget(QWidget *parent)
     m_pLayout->addWidget( descriptionBox(), 1, 2, 9, 2 );
 }
 
+QHash<QString, int> NPCReputationManagerWidget::reputations() const
+{
+    QHash<QString, int> reputation;
+
+    for ( const QString &place: m_reputation.keys() )
+        reputation.insert( place, m_reputation.value(place)->value() );
+
+    return reputation;
+}
+
+int NPCReputationManagerWidget::fame() const
+{
+    return m_pFame->text().toInt();
+}
+
 void NPCReputationManagerWidget::setPlaceReputation(const QString &name)
 {
     for ( ReputationValueBox *pReputation: m_reputation )

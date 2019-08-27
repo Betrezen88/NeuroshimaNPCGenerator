@@ -15,6 +15,9 @@ class NPCReputationManagerWidget : public QWidget
 public:
     explicit NPCReputationManagerWidget(QWidget *parent = nullptr);
 
+    QHash<QString, int> reputations() const;
+    int fame() const;
+
 signals:
     void availabeReputationPointsChanged(const int &value);
     void freeReputationPointsChanged(const int &value);
