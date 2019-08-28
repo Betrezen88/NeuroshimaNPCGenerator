@@ -1,4 +1,5 @@
 ﻿#include "NPCCardTab.h"
+#include "NPC/Widgets/NPCAttributeView.h"
 
 NPCCardTab::NPCCardTab(QWidget *parent)
     : QTabWidget(parent),
