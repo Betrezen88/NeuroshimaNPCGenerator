@@ -41,8 +41,7 @@ public:
     const QString professionFeature() const;
     const QString originFeatureDescription() const;
     const QString professionFeatureDescription() const;
-    int reputation() const;
-    int fame() const;
+    NPCReputationView *reputation() const;
 
     const QListWidget *tricks() const;
     NPCOtherSkillsView *otherSkills();
@@ -101,8 +100,8 @@ private:
     QLineEdit *m_pSickness{nullptr};
     QLineEdit *m_pOriginFeature{nullptr};
     QLineEdit *m_pProfessionFeature{nullptr};
-    QSpinBox *m_pReputation{nullptr};
-    QSpinBox *m_pFame{nullptr};
+    QPushButton *m_pReputation{nullptr};
+    QLabel *m_pFame{nullptr};
     QLabel *m_pBonus{nullptr};
 
     QString m_originBonus;

@@ -28,8 +28,8 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
       m_pSickness(new QLineEdit(this)),
       m_pOriginFeature(new QLineEdit(this)),
       m_pProfessionFeature(new QLineEdit(this)),
-      m_pReputation(new QSpinBox(this)),
-      m_pFame(new QSpinBox(this)),
+      m_pReputation(new QPushButton("Reputacja", this)),
+      m_pFame(new QLabel("0",this)),
       m_pBonus(new QLabel(this)),
       m_pTricks(new QListWidget(this)),
       m_pOtherSkills(new NPCOtherSkillsView("Inne Umiejętności", this)),
@@ -165,10 +165,6 @@ QWidget *NPCCardObverse::createPersonalSection()
     pFeatrue2L->addWidget( new QLabel("Cecha z profesji", pWidget) );
     pFeatrue2L->addWidget( m_pProfessionFeature );
 
-    QHBoxLayout *pReputationL = new QHBoxLayout;
-    pReputationL->addWidget( new QLabel("Reputacja", pWidget) );
-    pReputationL->addWidget( m_pReputation );
-
     QHBoxLayout *pFameL = new QHBoxLayout;
     pFameL->addWidget( new QLabel("Sława", pWidget) );
     pFameL->addWidget( m_pFame );
@@ -181,7 +177,7 @@ QWidget *NPCCardObverse::createPersonalSection()
     pLayout->addLayout( pSicknessL );
     pLayout->addLayout( pOriginFeatureL );
     pLayout->addLayout( pFeatrue2L );
-    pLayout->addLayout( pReputationL );
+    pLayout->addWidget( m_pReputation );
     pLayout->addLayout( pFameL );
     pLayout->setSpacing( 2 );
     pLayout->setMargin( 0 );
@@ -261,14 +257,9 @@ const QString NPCCardObverse::professionFeatureDescription() const
     return m_professionFeaturesDescription;
 }
 
-int NPCCardObverse::reputation() const
+NPCReputationView *NPCCardObverse::reputation() const
 {
-    return m_pReputation->value();
-}
-
-int NPCCardObverse::fame() const
-{
-    return m_pFame->value();
+    return m_pReputationView;
 }
 
 const QListWidget *NPCCardObverse::tricks() const
