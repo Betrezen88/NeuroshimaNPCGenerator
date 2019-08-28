@@ -6,6 +6,7 @@
 #include "Widgets/NPCAttributeWidget.h"
 #include "Widgets/NPCSkillpackView.h"
 #include "Widgets/NPCOtherSkillsView.h"
+#include "Widgets/NPCReputationView.h"
 
 #include <QComboBox>
 #include <QDialog>
@@ -31,7 +32,8 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
       m_pFame(new QSpinBox(this)),
       m_pBonus(new QLabel(this)),
       m_pTricks(new QListWidget(this)),
-      m_pOtherSkills(new NPCOtherSkillsView("Inne Umiejętności", this))
+      m_pOtherSkills(new NPCOtherSkillsView("Inne Umiejętności", this)),
+      m_pReputationView(new NPCReputationView(this)),
 {
     setAttributes( DataLoader::loadJson(":/data/json/Attributes.json") );
     m_attributesMods = DataLoader::loadJson( ":/data/json/DifficultyLevel.json" );

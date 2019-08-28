@@ -21,6 +21,7 @@ class NPCAttributeView;
 class NPCAttributeWidget;
 class NPCOtherSkillsView;
 class NPCSkillpackView;
+class NPCReputationView;
 
 class NPCCardObverse : public QWidget
 {
@@ -112,6 +113,7 @@ private:
     QListWidget *m_pTricks{nullptr};
     NPCAttributesModsInfoWidget *m_pAttributesModsInfo{nullptr};
     NPCOtherSkillsView *m_pOtherSkills{nullptr};
+    NPCReputationView *m_pReputationView{nullptr};
 
     // Data containers
     QHash<QString, NPCAttributeView*> m_attributes{};
