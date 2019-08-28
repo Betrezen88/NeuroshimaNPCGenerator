@@ -84,6 +84,8 @@ private:
 
     void updateBonusLabel();
 
+    QDialog *createReputationDialog();
+
     QVBoxLayout *column1();
     QVBoxLayout *column2();
     QVBoxLayout *column3();
@@ -114,6 +116,8 @@ private:
     NPCAttributesModsInfoWidget *m_pAttributesModsInfo{nullptr};
     NPCOtherSkillsView *m_pOtherSkills{nullptr};
     NPCReputationView *m_pReputationView{nullptr};
+
+    QDialog *m_pReputationDialog{nullptr};
 
     // Data containers
     QHash<QString, NPCAttributeView*> m_attributes{};

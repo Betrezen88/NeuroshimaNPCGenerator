@@ -34,6 +34,7 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
       m_pTricks(new QListWidget(this)),
       m_pOtherSkills(new NPCOtherSkillsView("Inne Umiejętności", this)),
       m_pReputationView(new NPCReputationView(this)),
+      m_pReputationDialog(createReputationDialog())
 {
     setAttributes( DataLoader::loadJson(":/data/json/Attributes.json") );
     m_attributesMods = DataLoader::loadJson( ":/data/json/DifficultyLevel.json" );
@@ -363,6 +364,30 @@ void NPCCardObverse::setAttributes(const QJsonArray &attributes)
 void NPCCardObverse::updateBonusLabel()
 {
     m_pBonus->setText( m_originBonus + "\n\n" + m_professionBonus );
+}
+
+QDialog *NPCCardObverse::createReputationDialog()
+{
+    QDialog *pDialog = new QDialog();
+    pDialog->setWindowTitle( "Reputacja postaci" );
+    pDialog->setMinimumWidth( 450 );
+
+    QPushButton *pOkBtn = new QPushButton( "Zamknij" );
+    connect( pOkBtn, &QPushButton::clicked,
+             pDialog, &QDialog::close );
+
+    QHBoxLayout *pButtonRow = new QHBoxLayout;
+    pButtonRow->addSpacerItem( new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum) );
+    pButtonRow->addWidget( pOkBtn );
+    pButtonRow->addSpacerItem( new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum) );
+
+    QVBoxLayout *pDialogL = new QVBoxLayout;
+    pDialogL->addWidget( m_pReputationView );
+    pDialogL->addLayout( pButtonRow );
+
+    pDialog->setLayout( pDialogL );
+
+    return  pDialog;
 }
 
 QVBoxLayout *NPCCardObverse::column1()
