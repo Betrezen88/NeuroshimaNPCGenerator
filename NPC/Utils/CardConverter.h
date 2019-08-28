@@ -17,6 +17,7 @@ public:
 
 private:
     QJsonObject personalJson(const NPCCardObverse *obverse, QString filePath) const;
+    QJsonArray reputationJson(QHash<QString, int> reputation) const;
     QJsonArray tricksJson(const QListWidget *tricks) const;
     QJsonArray attributesJson(const QHash<QString, NPCAttributeView *> *attributes) const;
     QJsonArray packetsJson(const QHash<QString, NPCSkillpackView *> &skillPacks) const;

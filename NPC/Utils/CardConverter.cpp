@@ -1,8 +1,11 @@
 #include "CardConverter.h"
+#include "NPC/Widgets/NPCAttributeView.h"
 #include "NPC/Widgets/NPCInventory.h"
 #include "NPC/Widgets/NPCItem.h"
 #include "NPC/Widgets/NPCArmor.h"
 #include "NPC/Widgets/NPCWeaponView.h"
+#include "NPC/Widgets/NPCReputationView.h"
+#include "NPC/Widgets/NPCTrickWidgetItem.h"
 
 #include <QJsonValue>
 
@@ -52,8 +55,7 @@ QJsonObject CardConverter::personalJson(const NPCCardObverse *obverse, QString f
     personalObj.insert( "profession", obverse->profession() );
     personalObj.insert( "specialization", obverse->specialization() );
     personalObj.insert( "sickness", obverse->sickness() );
-    personalObj.insert( "reputation", obverse->reputation() );
-    personalObj.insert( "fame", obverse->fame() );
+    personalObj.insert( "reputation", reputationJson(obverse->reputation()->reputation()) );
     personalObj.insert( "portrait", filePath );
 
     QJsonObject origin;
@@ -71,6 +73,20 @@ QJsonObject CardConverter::personalJson(const NPCCardObverse *obverse, QString f
     personalObj.insert( "features", featuresObj );
 
     return personalObj;
+}
+
+QJsonArray CardConverter::reputationJson(QHash<QString, int> reputation) const
+{
+    QJsonArray tReputation;
+
+    for ( const QString &place: reputation.keys() ) {
+        QJsonObject tPlace;
+        tPlace.insert( "name", place );
+        tPlace.insert( "value", reputation.value(place) );
+        tReputation.push_back( tPlace );
+    }
+
+    return tReputation;
 }
 
 QJsonArray CardConverter::tricksJson(const QListWidget *tricks) const
