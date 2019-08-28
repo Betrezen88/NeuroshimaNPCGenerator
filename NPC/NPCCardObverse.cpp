@@ -36,6 +36,11 @@ NPCCardObverse::NPCCardObverse(QWidget *parent)
       m_pReputationView(new NPCReputationView(this)),
       m_pReputationDialog(createReputationDialog())
 {
+    connect( m_pReputation, &QPushButton::clicked,
+             m_pReputationDialog, &QDialog::show );
+    connect( m_pReputationView, &NPCReputationView::fameChanged,
+             m_pFame, QOverload<int>::of(&QLabel::setNum) );
+
     setAttributes( DataLoader::loadJson(":/data/json/Attributes.json") );
     m_attributesMods = DataLoader::loadJson( ":/data/json/DifficultyLevel.json" );
     m_pPortrait->setFixedSize( 140, 200 );
