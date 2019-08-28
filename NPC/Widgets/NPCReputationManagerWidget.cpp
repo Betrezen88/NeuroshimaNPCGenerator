@@ -41,12 +41,14 @@ void NPCReputationManagerWidget::setPlaceReputation(const QString &name)
     for ( ReputationValueBox *pReputation: m_reputation )
         if ( pReputation->value() > 0 ) {
             pReputation->setValue( 0 );
+            emit reputationChanged( m_reputation.key(pReputation), pReputation->value() );
             break;
         }
 
     if ( m_reputation.contains(name) ) {
         m_reputation.value(name)->setValue( 1 );
         m_reputation.value(name)->setMinimumValue( 1 );
+        emit reputationChanged( name, m_reputation.value(name)->value() );
     }
     else
         m_pPoints->setNum( 1 );

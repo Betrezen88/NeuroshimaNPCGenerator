@@ -21,6 +21,7 @@ public:
 signals:
     void availabeReputationPointsChanged(const int &value);
     void freeReputationPointsChanged(const int &value);
+    void reputationChanged(const QString &place, const int &value);
 
 public slots:
     void setPlaceReputation(const QString &name);
