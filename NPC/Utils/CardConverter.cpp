@@ -197,6 +197,8 @@ void CardConverter::personal(NPCCardTab *card, const QJsonObject &object)
     pObverse->setSickness( object.value("sickness").toString(), "" );
     pObverse->setSpecialization( object.value("specialization").toString() );
 
+    reputation( pObverse->reputation(), object.value("reputation").toArray() );
+
     const QJsonObject &origin = object.value("features").toObject().value("origin").toObject();
     const QJsonObject &profession = object.value("features").toObject().value("profession").toObject();
 
@@ -205,6 +207,14 @@ void CardConverter::personal(NPCCardTab *card, const QJsonObject &object)
     pObverse->setProfessionFeature( profession.value("name").toString(),
                                     profession.value("description").toString() );
     pObverse->setPortrait( QPixmap(object.value("portrait").toString()) );
+}
+
+void CardConverter::reputation(NPCReputationView *reputationView, const QJsonArray &reputation)
+{
+    for ( const QJsonValue place: reputation ) {
+        const QJsonObject &tPlace = place.toObject();
+        reputationView->setPlaceReputation( tPlace.value("name").toString(), tPlace.value("value").toInt() );
+    }
 }
 
 void CardConverter::stats(NPCCardTab *card, const QJsonArray &stats)

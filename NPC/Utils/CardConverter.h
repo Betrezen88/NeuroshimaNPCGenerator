@@ -25,6 +25,7 @@ private:
     QJsonArray inventoryJson(const QVector<NPCItem*> items) const;
 
     void personal(NPCCardTab *card, const QJsonObject &object);
+    void reputation(NPCReputationView *reputationView, const QJsonArray &reputation);
     void stats(NPCCardTab *card, const QJsonArray &stats);
     void tricks(NPCCardTab *card, const QJsonArray &tricks);
     void equipment(NPCCardReverse *reverse, const QJsonObject &equipment);
