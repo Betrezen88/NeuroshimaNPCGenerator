@@ -3,10 +3,18 @@
 #include "Utils/DataLoader.h"
 
 #include "Widgets/NPCAttributeView.h"
+#include "Widgets/NPCAttributeWidget.h"
 #include "Widgets/NPCSkillpackView.h"
 #include "Widgets/NPCOtherSkillsView.h"
 
+#include <QComboBox>
+#include <QDialog>
 #include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QListWidget>
+#include <QPushButton>
+#include <QVBoxLayout>
 #include <QDebug>
 
 NPCCardObverse::NPCCardObverse(QWidget *parent)

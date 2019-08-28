@@ -3,23 +3,24 @@
 
 #include <QWidget>
 
-#include <QComboBox>
 #include <QHash>
 #include <QJsonArray>
 #include <QJsonObject>
-#include <QLabel>
-#include <QLineEdit>
-#include <QListWidget>
-#include <QPushButton>
-#include <QSpinBox>
-#include <QVBoxLayout>
+#include <QListWidgetItem>
 
-#include "Widgets/NPCAttributeView.h"
-#include "Widgets/NPCAttributeWidget.h"
 #include "Widgets/NPCAttributesModsInfoWidget.h"
-#include "Widgets/NPCProgressWidget.h"
 
+class QComboBox;
+class QDialog;
+class QLabel;
+class QLineEdit;
+class QPushButton;
+class QVBoxLayout;
+
+class NPCAttributeView;
+class NPCAttributeWidget;
 class NPCOtherSkillsView;
+class NPCSkillpackView;
 
 class NPCCardObverse : public QWidget
 {
