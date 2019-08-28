@@ -1,6 +1,7 @@
 #include "NPCCreatorDialog.h"
 
 #include "../Widgets/NPCOtherSkillsView.h"
+#include "../Widgets/NPCReputationView.h"
 #include "../Widgets/NPCShop.h"
 #include "../Widgets/NPCInventory.h"
 #include "../Widgets/NPCItem.h"
@@ -133,6 +134,9 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
 
     connect( m_pSicknessManager, &NPCSicknessManagerWidget::sicknessChanged,
              m_pCard->obverse(), &NPCCardObverse::setSickness );
+
+    connect( m_pReputationManager, &NPCReputationManagerWidget::reputationChanged,
+             m_pCard->obverse()->reputation(), &NPCReputationView::setPlaceReputation );
 
     m_pSpecializationManager->specializationChanged( "Technik" );
     m_pOriginManager->setOrigin( "Południowa Hegemonia" );
