@@ -29,6 +29,7 @@ SOURCES += \
     NPC/Widgets/NPCItem.cpp \
     NPC/Widgets/NPCOtherSkills.cpp \
     NPC/Widgets/NPCOtherSkillsView.cpp \
+    NPC/Widgets/NPCReputationView.cpp \
     NPC/Widgets/NPCShop.cpp \
     NPC/Widgets/NPCShopItem.cpp \
     NPC/Widgets/NPCSkillChoose.cpp \
@@ -79,6 +80,7 @@ HEADERS += \
     NPC/Widgets/NPCOtherSkills.h \
     NPC/Widgets/NPCOtherSkillsView.h \
     NPC/Widgets/NPCProgressWidget.h \
+    NPC/Widgets/NPCReputationView.h \
     NPC/Widgets/NPCShop.h \
     NPC/Widgets/NPCShopItem.h \
     NPC/Widgets/NPCSkillChoose.h \
