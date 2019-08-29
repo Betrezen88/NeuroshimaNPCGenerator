@@ -89,7 +89,7 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
     connect( m_pSpecializationManager, &NPCSpecializationManagerWidget::specializationChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setSpecialization );
     connect( m_pOriginManager, &NPCOriginManagerWidget::originNameChanged,
-             m_pReputationManager, &NPCReputationManagerWidget::setPlaceReputation );
+             m_pReputationManager, &NPCReputationManagerWidget::onOriginChange );
     connect( m_pOriginManager, &NPCOriginManagerWidget::attributeBonusChanged,
              m_pSkillsManager, &NPCSkillsManagerWidget::setAttributeModValue );
     connect( m_pOriginManager, &NPCOriginManagerWidget::bonusSkillChanged,

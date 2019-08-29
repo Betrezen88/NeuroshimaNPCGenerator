@@ -36,15 +36,23 @@ int NPCReputationManagerWidget::fame() const
     return m_pFame->text().toInt();
 }
 
+void NPCReputationManagerWidget::onOriginChange(const QString &name)
+{
+    if ( m_currentOrigin == name )
+        return;
+
+    if ( !m_currentOrigin.isEmpty() ) {
+        m_reputation.value(m_currentOrigin)->setValue( -1 );
+        emit reputationChanged( m_currentOrigin, m_reputation.value(m_currentOrigin)->value() );
+    }
+
+    m_reputation.value(name)->setValue( 1 );
+    emit reputationChanged( name, m_reputation.value(name)->value() );
+    m_currentOrigin = name;
+}
+
 void NPCReputationManagerWidget::setPlaceReputation(const QString &name)
 {
-    for ( ReputationValueBox *pReputation: m_reputation )
-        if ( pReputation->value() > 0 ) {
-            pReputation->setValue( 0 );
-            emit reputationChanged( m_reputation.key(pReputation), pReputation->value() );
-            break;
-        }
-
     if ( m_reputation.contains(name) ) {
         m_reputation.value(name)->setValue( 1 );
         m_reputation.value(name)->setMinimumValue( 1 );

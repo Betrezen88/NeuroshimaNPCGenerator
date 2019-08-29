@@ -24,6 +24,7 @@ signals:
     void reputationChanged(const QString &place, const int &value);
 
 public slots:
+    void onOriginChange(const QString &name);
     void setPlaceReputation(const QString &name);
 
 private:
@@ -41,6 +42,7 @@ private:
     QLabel *m_pPoints{nullptr};
 
     QHash<QString, ReputationValueBox*> m_reputation;
+    QString m_currentOrigin;
 
     const QString m_reputationDesc{ "Testy reputacji mozna wykonać za każdy razem gdy "
                                     "BG spotyka postać niezależną. Wtedy MG określa "
