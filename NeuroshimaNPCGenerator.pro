@@ -119,14 +119,4 @@ RESOURCES += \
     Resources/resources.qrc
 
 DISTFILES += \
-    Othres/Concept.txt \
-    Resources/json/OtherSkills.json \
-    json/Origins.json \
-    json/Attributes.json \
-    json/Specializations.json \
-    json/Professions.json \
-    json/Sickness.json \
-    json/Tricks.json \
-    json/DifficultyLevel.json \
-    json/Questions.json \
-    json/Reputation.json
+    Othres/Concept.txt

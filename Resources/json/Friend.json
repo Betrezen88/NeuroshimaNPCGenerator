@@ -1,0 +1,198 @@
+[
+    {
+        "name": "questions",
+        "data": [
+            {
+                "no": 1,
+                "question": "Jak mógłbyś opisać swojego znajomego - jego wygląd zewnetrzny i charakter? Jaki jest w stosunku do Ciebie, a jaki w stosunku do innych ludzi?"
+            },
+            {
+                "no": 2,
+                "question": "Jak ma na imię znajomy? Czy posiada jakąś ksywkę, a jesli tak, to czy jest ona związana z jakimiś wydarzeniami?"
+            },
+            {
+                "no": 3,
+                "question": "W jakich okolicznościach go poznałeś? Jak dawno temu to było?"
+            },
+            {
+                "no": 4,
+                "question": "Jak mógłbyś określić wasze wzejemne relacje? Wspólne interesy, znajomość, koleżeństwo, przyjaźń?"
+            },
+            {
+                "no": 5,
+                "question": "Gdzie mieszka Twój znajomy i czym się zajmuje? Włóczy się po kontynencie? Osiadł gdzieś i znalazł dla siebie jakieś zajęcie? A może podróżuje z Tobą?"
+            },
+            {
+                "no": 6,
+                "question": "Jest człowiekiem zamożnym, czy raczej klepie biedę? Potrafisz powiedzieć coś na temat innych jego znajmych?"
+            },
+            {
+                "no": 7,
+                "question": "Czy potrafisz opowiedzieć o prywatnym życiu znajomego? Jak wiele możesz opowiedzieć o jego przeszłości? Czy sądzisz, że ma przed Tobą jakieś tajemnice?"
+            }
+        ]
+    },
+    {
+        "name": "connection",
+        "data": [
+            {
+                "name": "Ja Ciebie chyba znam...",
+                "value": 1,
+                "description": "Nie ukrywajmy, facet z Powiązaniami na 1 nie jest szczególnie dobrym kumplem. Byź może los zetknął was raz czy dwa w takiej sytuacji, że ni ejesteście już zupełnie obcy, ale to wszystko. Zapamiętałeś jego twarz, wiesz, że nie jest byle przybłędą, ale na twoim miejscu nie powierzyłbym komuś takiemu nawet trzonka od łopaty, nie mówić już o jakimkolwiek zaufaniu. Nie mnie jednak znajomość może rozkwitnąć i rozwinąć się. Wszystko zależy od Ciebie."
+            },
+            {
+                "name": "Witam, panie... eee...",
+                "value": 2,
+                "description": "Możesz mieć kłopoty z zapamiętaniem jego imienia, ale nie przejmuj się. Ot parę razy spędziliście trochę czasu ze sobą, a ten gość był jednym z wielu nieznajomych. Na pewno można powiedzieć, że Twoją pierwszą reakcją na jego widok nie jest sięgnięcie po spluwę, jak to jest w przypadku wielu obcych. Na pewno, jesli powiesz mu: \"stary, zrób to dla mnie, a ja zrobią dla CIebie coś innego\", facet się zgodzi, jeśli tylko propozycja będzie uczciwa. Tylko nie polegaj na nim za bardzo - jeśli tylko okaże się, że może na tym interesie coś stracić, wycofa się bez żalu."
+            },
+            {
+                "name": "Przejdźmy do interesów",
+                "value": 3,
+                "description": "Zaczynamy już mówić o konkretnych znajomościach. Facet taki jak ten z penością jest przydatny, a Ty jesteś przydatny dla niego. I nie ma mowy o niczym więcej niż tylko wspólne interesy. Rzecz nie musi dotyczyć gambli, chociaż najczęściej o nie chodzi. Mam na przykład takiego znajomka, który pilnuje mi domu podczas mojej nieobecności. W zamian przywożę mu zdjęcia z różnych odległych zakątków. Wiesz już, o co chodzi? Wzajemna współpraca. Ale gdyby mój dom zaatakowało pięciu paskudnych mutków, facet zwiałby, i nie mogę mieć o to do niego żalu."
+            },
+            {
+                "name": "Osłaniaj mnie!",
+                "value": 4,
+                "description": "Nie wiem, czy zdarzyło Ci się kiedyś siedzeić w okopie. Kiedy byłem żołnierzem, razem z grupą podobnych naiwniaków czołgaliśmy się po jakichś dziurach, a w powietrzu latały kule. Nie można powiedzieć, że byliśmy wielkimi przyjaciółmi, ale jeden chronił tyłek drugiego i wiedziałem, ze mogę liczyć na pozostałych. Pamiętam ich imiona, oglądałem ich pamiątki z rodzinnych stron. Kiedy wielki Juggernout rozwiązał nasz oddział, niedobitki rozeszły się w swoje strony. Nie oglądaliśmy się za siebie, bo nie było po co. Ale gdyby los znowu postawił nas koło siebie, bylibyśmy zgraną paczkę. Nie tylko na froncie."
+            },
+            {
+                "name": "Kopę lat, staruszku...",
+                "value": 5,
+                "description": "Tu już możesz mówić o przyjaźni. Zależy oczywiście, co kto uważa za przyjaźń. Dla mnie jest to zaufanie i dbanie o druga osobę. A przy tym inne sprawy. Jeśli Twój kumpel posiada powiązania na 5 to znaczy, że znasz go całkiem dobrze, poznałeś jego słabe i mocne strony, wiesz trochę o jego przeszłości - chociaż nie o tajemnicach i najbardziej wstydliwych sprawach z życiorysu. Komuś takiemu możesz bez obaw oddać pod opiekę własną siostrę i w najgorszym razie będziesz miał super szwagra. No dobra, to żart. Chcę po prostu powiedzieć, że jeśli będziesz potrzebował pomocy, ten facet wywiąże się ze zobowiązań."
+            },
+            {
+                "name": "Stańmy to siebie plecami i wyciągaj spluwę.",
+                "value": 6,
+                "description": "Miałem kiedyś dwóch przyjaciół. Stana i Harveya. Razem weszliśmy do jaskini mutantów żeby wyciągnąć stamtąd córkę farmera. Wspólnie broniliśmy się przed napastnikiami, ale kiedy zrobiło się naprawdę gorąco, a w korytarzu pojawił się jakiś pająkopodobny horror, Stan powiedział: \"To ja pobiegnę po pomoc\" i tyle go widziałem. A Harwey został i pomógł mi wysłać potwora do piekła dla mutków. Widzisz, sa pewne granice, przy których człowiek pęka i opuszcza Cię w potrzebie, żeby ratować swoją dupę. To po prostu silniejsze od niego. Nie mówię o przekupstwie czy zagrożeniu na polu walki, a raczej o takich nieprzyjemnościach jak tortury lub budzacy grozę widok. Przyjaciela z Powiązaniami na 6 poznasz po tym, że Cię nie zdradzi. Kimś takim jest Harvey."
+            },
+            {
+                "name": "Potrzebujesz pomocy na Orbitalu? Już lecę.",
+                "value": 7,
+                "description": "Wiesz kogo nazwałbym prawdziwym przyjacielem? Człowieka, który przejchałby całe Stany, by mi pomóc. Kogoś takiego nie musisz wzywać na pomoc - on sam troszczy się o Ciebie i wie, co dla Ciebie dobre. Jest bezinteresowny, daje z siebie wszystko i możesz być pewien, że działa dla Twojego dobra, nawet jeśli robi coś zupełnie bez sensu. Zupełnie jak mój przyjaciel Harry, który rozwalił mojego psa Custera, za co dostał po twarzy. Kiedy już wstał, wytłumaczył mi, że jakaś pluskwa molocha przegryzła się Custerowi do mózgu. Korzystając z okazji - jeśli to czytasz Harry, wielkie sorry."
+            },
+            {
+                "name": "Mój syjamski bracie",
+                "value": 8,
+                "description": "Właściwie nie wiem, jak to wytłumaczyć. Nigdy nie znałem nikogo, kto miałby Powiązania na 8. Na myśl przychodzą mi jedynie bohaterowie filmowi z kina w Detroit - Flip i Flap, Luke Skywalker i Han Solo, Marks i Engels. Wierzę jednak, że taka ostateczna przyjaźń, bezkompromisowa i dozgonna istnieje. Może Ty będziesz miał więcej szczęścia i znajdziesz takiego przyjaciela? Wtedy na pewno będziesz wiedział o co chodzi."
+            }
+        ]
+    },
+    {
+        "name": "features",
+        "data": [
+            {
+                "name": "Umiejętność na poziomie 4",
+                "type": "skill",
+                "value": 4,
+                "description": "Znajomy posiada umiejętność na poziomie 4 i może Ci nią służyć.",
+                "price": 10
+            },
+            {
+                "name": "Umiejętność na poziomie 8",
+                "type": "skill",
+                "value": 8,
+                "description": "Znajomy posiada umiejętność na poziomie 8 i może Ci nią służyć.",
+                "price": 20
+            },
+            {
+                "name": "3 Umiejętności Specializacji",
+                "type": "skills",
+                "value": [ 4, 3, 2 ],
+                "description": "Znajomy jest specjalistą i posiada 3 umiejętności na poziomach 4, 3 i 2.",
+                "price": 25
+            },
+            {
+                "name": "Współczynnik na poziomie 14",
+                "type": "attribute",
+                "value": 14,
+                "description": "Znajomy posiada wybrany współczynnik na poziomie 14.",
+                "price": 20
+            },
+            {
+                "name": "Współczynnik na poziomie 16",
+                "type": "attribute",
+                "value": 16,
+                "description": "Znajomy posiada wybrany współczynnik na poziomie 16.",
+                "price": 35
+            },
+            {
+                "name": "Współczynnik na poziomie 18",
+                "type": "attribute",
+                "value": 18,
+                "description": "Znajomy posiada wybrany współczynnik na poziomie 18.",
+                "price": 50
+            },
+            {
+                "name": "10 punktów reputacji",
+                "type": "reputation",
+                "value": 10,
+                "description": "Znajomy posiada 10 punktów reputacji w wybranym miejscu.",
+                "price": 5
+            },
+            {
+                "name": "3 Sławy oraz informacje o miejscu",
+                "type": "fame",
+                "values": 3,
+                "description": "Znajomy posiada doskonałe informacje o miejscu, w którym mieszka i może mieć tu Sławę 3.",
+                "price": 30
+            },
+            {
+                "name": "Członek gangu lub organizacji",
+                "type": "other",
+                "description": "Znajomy należy do jednego ze sławnych gangów lub do znanej organizacji.",
+                "price": 10
+            },
+            {
+                "name": "Pamięć czasów sprzed wojny",
+                "type": "other",
+                "description": "Znajomy pamięta czasy sprzed wojny.",
+                "price": 5
+            },
+            {
+                "name": "Mutek",
+                "type": "other",
+                "description": "Znajomy jest mutkiem, co widać na pierwszy rzut oka.",
+                "price": -10
+            },
+            {
+                "name": "Poszukiwany",
+                "type": "other",
+                "description": "Znajomy jest poszukiwany przez Sędziów, a jego reputacja i Sława może być tylko zła.",
+                "price": -5
+            },
+            {
+                "name": "Kaleka",
+                "type": "other",
+                "description": "Znajomy jest kaleką.",
+                "price": -20
+            },
+            {
+                "name": "Zobowiązanie",
+                "type": "other",
+                "description": "Znajomy ma u kogoś zobowiązania, które musi wypełniać.",
+                "price": -10
+            },
+            {
+                "name": "Dług",
+                "type": "debt",
+                "value": 100,
+                "description": "Zaciągnąłeś u niego dług i nic dla Ciebie nie zrobi, dopóki go nie spłacisz; nie możesz mieć Powiązań większych niż 4.",
+                "connection": 4,
+                "price": -5
+            },
+            {
+                "name": "Towarzysz",
+                "type": "companion",
+                "description": "Znajomy towarzyszy Ci w podróżach, ale musisz mu płacić (50 gambli miesięcznie); Powiązania nie mogą być większe niż 2.",
+                "connection": 2,
+                "price": -30
+            },
+            {
+                "name": "Ćpun",
+                "type": "other",
+                "description": "Znajomy to ćpun w ostatnim stadium nałogu.",
+                "price": -25
+            }
+        ]
+    }
+]

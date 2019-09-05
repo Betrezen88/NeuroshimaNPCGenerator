@@ -11,8 +11,6 @@
 
 - dodać logiki specyficzne dla każdego bonusu z pochodzenia i profesji
 
-- dodać zakładkę z wyborem znajomych oraz rozdysponowaniem gambli na nich
-
 - zmienić NPCSkillPack na szablon ?
 
 - dodać logikę weryfikującą ukończenie procesu tworzenia postaci
@@ -28,7 +26,7 @@ BUGS:
   nie znikają wcześniej wylosowane choroby
 
 In progress:
-
+- dodać zakładkę z wyborem znajomych oraz rozdysponowaniem gambli na nich
 
 Done:
 + po kupieniu pakietu, minimalna możliwa wartość skilla to 1.
