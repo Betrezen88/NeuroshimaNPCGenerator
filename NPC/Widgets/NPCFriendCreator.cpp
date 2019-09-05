@@ -97,6 +97,8 @@ void NPCFriendCreator::onAddBtnClick()
         QDialog *pDialog = createDialog( feature );
         pDialog->show();
     }
+    else
+        buyFeature( feature );
 }
 
 void NPCFriendCreator::buyFeature(const QJsonObject &feature)
@@ -123,7 +125,7 @@ void NPCFriendCreator::setCost(const QString &type, const int &value)
     else if ( "profit" == type )
         m_profit += value;
 
-    m_pSpendedCash->setNum( m_connectionCost + m_featuresCost - m_profit );
+    m_pSpendedCash->setNum( m_connectionCost + m_featuresCost + m_profit );
     m_pAvailableCash->setNum( m_cash.toInt() - m_pSpendedCash->text().toInt() );
 
     checkFeatureAvailability();
