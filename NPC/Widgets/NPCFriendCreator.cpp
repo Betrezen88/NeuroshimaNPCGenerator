@@ -37,8 +37,12 @@ NPCFriendCreator::NPCFriendCreator(QString cash, QWidget *parent)
              this, &NPCFriendCreator::onConnectionValueChange );
     connect( m_pAvailableFeatures, &QListWidget::itemClicked,
              this, &NPCFriendCreator::onAvailableFeatureClick );
+    connect( m_pFeatures, &QListWidget::itemClicked,
+             this, &NPCFriendCreator::onBougthFeatureClick );
     connect( m_pAddBtn, &QPushButton::clicked,
              this, &NPCFriendCreator::onAddBtnClick );
+    connect( m_pRemoveBtn, &QPushButton::clicked,
+             this, &NPCFriendCreator::onRemoveBtnClick );
     connect( this, &NPCFriendCreator::connectionCostChanged,
              [this](const int &value){ this->setCost("connection", value); } );
     connect( this, &NPCFriendCreator::featureCostChanged,
@@ -87,6 +91,12 @@ void NPCFriendCreator::onAvailableFeatureClick(QListWidgetItem *pItem)
         m_pAddBtn->setEnabled( true );
 }
 
+void NPCFriendCreator::onBougthFeatureClick(QListWidgetItem *pItem)
+{
+    Q_UNUSED(pItem);
+    m_pRemoveBtn->setEnabled( true );
+}
+
 void NPCFriendCreator::onAddBtnClick()
 {
     m_pAddBtn->setDisabled( true );
@@ -99,6 +109,23 @@ void NPCFriendCreator::onAddBtnClick()
     }
     else
         buyFeature( feature );
+}
+
+void NPCFriendCreator::onRemoveBtnClick()
+{
+    m_pRemoveBtn->setDisabled( true );
+
+    const int &row = m_pFeatures->row( m_pFeatures->currentItem() );
+    QListWidgetItem *pItem = m_pFeatures->takeItem( row );
+    const QJsonObject feature = pItem->data(0x100).toJsonObject();
+
+    int price = feature.value("price").toInt();
+    if ( 0 < price )
+        emit featureCostChanged( -price );
+    else
+        emit profitCostChanged( -price );
+    delete pItem;
+
 }
 
 void NPCFriendCreator::buyFeature(const QJsonObject &feature)

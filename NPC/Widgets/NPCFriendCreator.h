@@ -37,7 +37,9 @@ public slots:
 private slots:
     void onConnectionValueChange(const int &value);
     void onAvailableFeatureClick(QListWidgetItem *pItem);
+    void onBougthFeatureClick(QListWidgetItem *pItem);
     void onAddBtnClick();
+    void onRemoveBtnClick();
     void buyFeature(const QJsonObject &feature);
     void setCost(const QString &type, const int &value);
     void checkFeatureAvailability();
