@@ -42,10 +42,24 @@ void NPCFriendManager::showCreatorDialog() const
     pDialog->setWindowTitle( "Tworzenie znajomości" );
     pDialog->setMinimumWidth( 400 );
 
+    QPushButton *pOkBtn = new QPushButton("Dodaj");
+    QPushButton *pCloseBtn = new QPushButton("Anuluj");
+
+    connect( pCloseBtn, &QPushButton::clicked,
+             pDialog, &QDialog::close );
+    connect( pOkBtn, &QPushButton::clicked,
+             pDialog, &QDialog::close );
+
+    QHBoxLayout *pButtonL = new QHBoxLayout;
+    pButtonL->addSpacerItem( new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Expanding) );
+    pButtonL->addWidget( pOkBtn );
+    pButtonL->addWidget( pCloseBtn );
+
     NPCFriendCreator *pCreator = new NPCFriendCreator( m_pCash->text() );
 
     QVBoxLayout *pLayout = new QVBoxLayout;
     pLayout->addWidget( pCreator );
+    pLayout->addLayout( pButtonL );
 
     pDialog->setLayout( pLayout );
 
