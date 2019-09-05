@@ -1,4 +1,5 @@
 #include "NPCFriendManager.h"
+#include "NPCFriendCreator.h"
 
 #include <QDialog>
 #include <QLabel>
@@ -41,8 +42,10 @@ void NPCFriendManager::showCreatorDialog() const
     pDialog->setWindowTitle( "Tworzenie znajomości" );
     pDialog->setMinimumWidth( 400 );
 
+    NPCFriendCreator *pCreator = new NPCFriendCreator( m_pCash->text() );
 
     QVBoxLayout *pLayout = new QVBoxLayout;
+    pLayout->addWidget( pCreator );
 
     pDialog->setLayout( pLayout );
 
