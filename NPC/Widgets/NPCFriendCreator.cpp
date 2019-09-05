@@ -139,7 +139,8 @@ void NPCFriendCreator::checkFeatureAvailability()
         const int &price = feature.value("price").toInt();
 
         if ( (price > 0 && m_pAvailableCash->text().toInt() < price)
-             || (price < 0 && (m_featuresCost+m_connectionCost < 70) && m_profit < 30 ) ) {
+             || (price < 0 && (m_featuresCost+m_connectionCost < 70) && m_profit < 30 )
+             || (feature.contains("connection") && feature.value("connection").toInt() < m_pConnection->currentIndex()+1) ) {
             pItem->setFlags( pItem->flags() & ~Qt::ItemIsEnabled );
         }
         else {
