@@ -18,6 +18,7 @@ class QPushButton;
 class QScrollArea;
 class QSpinBox;
 
+class NPCFeatureWidget;
 
 class NPCFriendCreator : public QWidget
 {
@@ -47,6 +48,7 @@ private:
     QWidget *createFeaturesTab();
     QJsonArray jsonData(const QString &category);
     QDialog *createDialog(const QJsonObject &feature);
+    NPCFeatureWidget *createWidget(const QJsonObject &feature);
 
 private:
     QString m_cash;

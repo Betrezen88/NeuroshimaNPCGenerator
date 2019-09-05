@@ -1,5 +1,6 @@
 #include "NPCFriendCreator.h"
 
+#include "NPCFeatureWidget.h"
 #include "../Utils/DataLoader.h"
 
 #include <QComboBox>
@@ -259,6 +260,7 @@ QDialog *NPCFriendCreator::createDialog(const QJsonObject &feature)
     m_pOkBtn = new QPushButton( "Akceptuj" );
     m_pCloseBtn = new QPushButton( "Anuluj" );
 
+    NPCFeatureWidget *pWidget = createWidget( feature );
 
     QHBoxLayout *pButtonsL = new QHBoxLayout;
     pButtonsL->addWidget( m_pOkBtn );
@@ -267,12 +269,34 @@ QDialog *NPCFriendCreator::createDialog(const QJsonObject &feature)
     connect( m_pCloseBtn, &QPushButton::clicked,
              pDialog, &QDialog::close );
     connect( m_pOkBtn, &QPushButton::clicked,
+             pWidget, &NPCFeatureWidget::createFeature );
+    connect( pWidget, &NPCFeatureWidget::sendFeature,
+             this, &NPCFriendCreator::buyFeature );
+    connect( m_pOkBtn, &QPushButton::clicked,
              pDialog, &QDialog::close );
 
     QVBoxLayout *pLayout = new QVBoxLayout;
     pDialog->setLayout( pLayout );
+    pLayout->addWidget( pWidget );
     pLayout->addLayout( pButtonsL );
 
     return pDialog;
 }
 
+NPCFeatureWidget *NPCFriendCreator::createWidget(const QJsonObject &feature)
+{
+    NPCFeatureWidget *pWidget{nullptr};
+    if ( "skill" == feature.value("type").toString() )
+        pWidget = new SkillSelector( feature );
+    else if ( "skills" == feature.value("type").toString() )
+        pWidget = new SkillsSelector( feature );
+    else if ( "attribute" == feature.value("type").toString() )
+        pWidget = new AttributeSelector( feature );
+    else if ( "reputation" == feature.value("type").toString() )
+        pWidget = new ReputationSelector( feature );
+    else if ( "fame" == feature.value("type").toString() )
+        pWidget = new ReputationSelector( feature );
+    else if ( "debt" == feature.value("type").toString() )
+        pWidget = new DebtSelector( feature );
+    return pWidget;
+}
