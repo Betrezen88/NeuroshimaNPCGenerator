@@ -5,6 +5,7 @@
 #include "../Widgets/NPCShop.h"
 #include "../Widgets/NPCInventory.h"
 #include "../Widgets/NPCItem.h"
+#include "../Widgets/NPCFriendManager.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -27,7 +28,8 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
       m_pTricksManager(new NPCTrickManagerWidget(m_pSkillsManager->attributes(), this)),
       m_pBioManager(new NPCBioManagerWidget(this)),
       m_pReputationManager(new NPCReputationManagerWidget(this)),
-      m_pShop(new NPCShop(this))
+      m_pShop(new NPCShop(this)),
+      m_pFriendManager(new NPCFriendManager(this))
 {
     setAttribute( Qt::WA_DeleteOnClose );
     setMinimumSize( 500, 880 );
@@ -42,6 +44,7 @@ NPCCreatorDialog::NPCCreatorDialog(QWidget *parent)
     m_pTabWidget->addTab( m_pReputationManager, "Reputacja" );
     m_pTabWidget->addTab( m_pBioManager, "Personalia" );
     m_pTabWidget->addTab( m_pShop, "Sklep" );
+    m_pTabWidget->addTab( m_pFriendManager, "Znajomości" );
 
     m_pClose->setFixedWidth( 80 );
     m_pAccept->setFixedWidth( 80 );
