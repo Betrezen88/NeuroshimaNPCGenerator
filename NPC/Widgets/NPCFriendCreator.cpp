@@ -171,7 +171,8 @@ void NPCFriendCreator::checkFeatureAvailability()
         if ( (price > 0 && m_pAvailableCash->text().toInt() < price)
              || (price < 0 && (m_featuresCost+m_connectionCost < 70) && m_profit < 30 )
              || (feature.contains("connection") && feature.value("connection").toInt() < m_pConnection->currentIndex()+1)
-             || ("other" == feature.value("type").toString() && pItem->data(0x101).toBool() ) ) {
+             || ("other" == feature.value("type").toString()
+                 && (pItem->data(0x101).toBool() || feature.value("price").toInt()+m_profit < -30)) ) {
             pItem->setFlags( pItem->flags() & ~Qt::ItemIsEnabled );
         }
         else {
