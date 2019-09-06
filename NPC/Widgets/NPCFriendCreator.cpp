@@ -102,8 +102,9 @@ void NPCFriendCreator::onAddBtnClick()
     m_pAddBtn->setDisabled( true );
 
     QJsonObject feature = m_pAvailableFeatures->currentItem()->data(0x100).toJsonObject();
+    const QString &type = feature.value("type").toString();
 
-    if ( "other" != feature.value("type").toString() ) {
+    if ( "other" != type || "debt" != type ) {
         QDialog *pDialog = createDialog( feature );
         pDialog->show();
     }
