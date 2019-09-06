@@ -102,13 +102,16 @@ class DebtSelector : public NPCFeatureWidget
 {
     Q_OBJECT
 public:
-    explicit DebtSelector(const QJsonObject &feature, QWidget *parent = nullptr);
+    explicit DebtSelector(const int &profit, const QJsonObject &feature, QWidget *parent = nullptr);
 
 public slots:
     void createFeature();
 
 private slots:
     void setProfitValue(const int &index);
+
+private:
+    void fillDebtBox(const int &profit);
 
 private:
     QComboBox *m_pDebt{nullptr};

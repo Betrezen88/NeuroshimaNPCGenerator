@@ -222,7 +222,7 @@ QStringList ReputationSelector::places() const
     return data;
 }
 
-DebtSelector::DebtSelector(const QJsonObject &feature, QWidget *parent)
+DebtSelector::DebtSelector(const int &profit, const QJsonObject &feature, QWidget *parent)
     : NPCFeatureWidget (feature, parent),
       m_pDebt( new QComboBox ),
       m_pProfit( new QLabel("0") )
@@ -230,7 +230,7 @@ DebtSelector::DebtSelector(const QJsonObject &feature, QWidget *parent)
     connect( m_pDebt, QOverload<int>::of(&QComboBox::currentIndexChanged),
              this, &DebtSelector::setProfitValue );
 
-    m_pDebt->addItems( {"100", "200", "300", "400", "500", "600"} );
+    fillDebtBox( profit );
 
     QHBoxLayout *pDebtRow = new QHBoxLayout;
     pDebtRow->addWidget( new QLabel("Wartość długu:") );
@@ -253,7 +253,7 @@ void DebtSelector::createFeature()
 
     feature.insert( "name", m_feature.value("name").toString()+ " "
                     + m_pDebt->currentText() + " gambli." );
-    feature.insert( "price", m_pProfit->text() );
+    feature.insert( "price", m_pProfit->text().toInt() );
 
     emit sendFeature( feature );
 }
@@ -262,4 +262,15 @@ void DebtSelector::setProfitValue(const int &index)
 {
     int profit = m_feature.value("price").toInt() * (index+1);
     m_pProfit->setNum( profit );
+}
+
+void DebtSelector::fillDebtBox(const int &profit)
+{
+    int debt = m_feature.value("value").toInt();
+    for ( int i{0}; i<6; ++i ) {
+        if ( (profit-((i+1)*5)) >= -30 )
+            m_pDebt->addItem( QString::number(debt*(i+1)) );
+        else
+            break;
+    }
 }

@@ -357,6 +357,6 @@ NPCFeatureWidget *NPCFriendCreator::createWidget(const QJsonObject &feature)
     else if ( "fame" == feature.value("type").toString() )
         pWidget = new ReputationSelector( feature );
     else if ( "debt" == feature.value("type").toString() )
-        pWidget = new DebtSelector( feature );
+        pWidget = new DebtSelector( m_profit, feature );
     return pWidget;
 }
