@@ -110,6 +110,8 @@ void NPCFriendCreator::onAddBtnClick()
     else {
         m_pAvailableFeatures->currentItem()->setData( 0x101, true );
         buyFeature( feature );
+    }
+    m_pAvailableFeatures->clearSelection();
 }
 
 void NPCFriendCreator::onRemoveBtnClick()
