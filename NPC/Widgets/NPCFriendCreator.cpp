@@ -107,7 +107,8 @@ void NPCFriendCreator::onAddBtnClick()
         QDialog *pDialog = createDialog( feature );
         pDialog->show();
     }
-    else
+    else {
+        m_pAvailableFeatures->currentItem()->setData( 0x101, true );
         buyFeature( feature );
 }
 
@@ -167,7 +168,8 @@ void NPCFriendCreator::checkFeatureAvailability()
 
         if ( (price > 0 && m_pAvailableCash->text().toInt() < price)
              || (price < 0 && (m_featuresCost+m_connectionCost < 70) && m_profit < 30 )
-             || (feature.contains("connection") && feature.value("connection").toInt() < m_pConnection->currentIndex()+1) ) {
+             || (feature.contains("connection") && feature.value("connection").toInt() < m_pConnection->currentIndex()+1)
+             || ("other" == feature.value("type").toString() && pItem->data(0x101).toBool() ) ) {
             pItem->setFlags( pItem->flags() & ~Qt::ItemIsEnabled );
         }
         else {
@@ -196,6 +198,8 @@ void NPCFriendCreator::init()
         pFeature->setText( tFeature.value("name").toString() +
                            " (" + QString::number(tFeature.value("price").toInt()) +"g)" );
         pFeature->setData( 0x100, feature );
+        if ( "other" == tFeature.value("type").toString() )
+            pFeature->setData( 0x101, false );
         pFeature->setToolTip( "<div style=\"width: 200px; word-wrap: break-word;\" align=\"justify\">"
                               + tFeature.value("description").toString()
                               + "</div>" );
