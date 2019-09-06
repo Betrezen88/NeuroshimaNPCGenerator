@@ -15,8 +15,6 @@
 #include <QScrollArea>
 #include <QSpinBox>
 
-#include <QDebug>
-
 NPCFriendCreator::NPCFriendCreator(QString cash, QWidget *parent)
     : QWidget( parent ),
       m_cash( QString::number(cash.toInt()*2) ),
@@ -104,7 +102,7 @@ void NPCFriendCreator::onAddBtnClick()
     QJsonObject feature = m_pAvailableFeatures->currentItem()->data(0x100).toJsonObject();
     const QString &type = feature.value("type").toString();
 
-    if ( "other" != type || "debt" != type ) {
+    if ( "other" != type ) {
         QDialog *pDialog = createDialog( feature );
         pDialog->show();
     }
@@ -329,6 +327,13 @@ QDialog *NPCFriendCreator::createDialog(const QJsonObject &feature)
              this, &NPCFriendCreator::buyFeature );
     connect( m_pOkBtn, &QPushButton::clicked,
              pDialog, &QDialog::close );
+    if ( "debt" == feature.value("type").toString() ) {
+        connect( m_pOkBtn, &QPushButton::clicked,
+                 [this](){
+            this->m_pAvailableFeatures->currentItem()->setData(0x101, true);
+            this->checkFeatureAvailability();
+        });
+    }
 
     QVBoxLayout *pLayout = new QVBoxLayout;
     pDialog->setLayout( pLayout );
