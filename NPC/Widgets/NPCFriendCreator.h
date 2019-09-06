@@ -19,6 +19,7 @@ class QScrollArea;
 class QSpinBox;
 
 class NPCFeatureWidget;
+class NPCFriendEquipment;
 
 class NPCFriendCreator : public QWidget
 {
@@ -75,6 +76,8 @@ private:
 
     QPushButton *m_pRemoveBtn{nullptr};
     QPushButton *m_pAddBtn{nullptr};
+
+    NPCFriendEquipment *m_pEquipment{nullptr};
 
     QPushButton *m_pOkBtn{nullptr};
     QPushButton *m_pCloseBtn{nullptr};

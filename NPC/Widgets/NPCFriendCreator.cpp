@@ -1,6 +1,7 @@
 #include "NPCFriendCreator.h"
 
 #include "NPCFeatureWidget.h"
+#include "NPCFriendEquipment.h"
 #include "../Utils/DataLoader.h"
 
 #include <QComboBox>
@@ -29,7 +30,8 @@ NPCFriendCreator::NPCFriendCreator(QString cash, QWidget *parent)
       m_pAvailableFeatures( new QListWidget ),
       m_pFeatures( new QListWidget ),
       m_pRemoveBtn( new QPushButton("Usuń") ),
-      m_pAddBtn( new QPushButton("Dodaj") )
+      m_pAddBtn( new QPushButton("Dodaj") ),
+      m_pEquipment( new NPCFriendEquipment )
 {
     connect( m_pConnection, QOverload<int>::of(&QComboBox::currentIndexChanged),
              this, &NPCFriendCreator::onConnectionValueChange );
@@ -65,7 +67,7 @@ NPCFriendCreator::NPCFriendCreator(QString cash, QWidget *parent)
     m_pTabWidget->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
     m_pTabWidget->addTab( pScrollArea, "Dane personalne" );
     m_pTabWidget->addTab( createFeaturesTab(), "Cechy" );
-    m_pTabWidget->addTab( new QWidget(), "Ekwipunek" );
+    m_pTabWidget->addTab( m_pEquipment, "Ekwipunek" );
 
     QVBoxLayout *pLayout = new QVBoxLayout;
     setLayout( pLayout );
