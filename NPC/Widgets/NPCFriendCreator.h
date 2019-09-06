@@ -79,8 +79,6 @@ private:
     QPushButton *m_pOkBtn{nullptr};
     QPushButton *m_pCloseBtn{nullptr};
 
-    QVector<QComboBox*> m_selections;
-
     QVector<QPlainTextEdit*> m_answers;
     QJsonArray m_connections;
 };
