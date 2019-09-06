@@ -17,7 +17,7 @@
 
 NPCFriendCreator::NPCFriendCreator(QString cash, QWidget *parent)
     : QWidget( parent ),
-      m_cash( QString::number(cash.toInt()*2) ),
+      m_cash( cash ),
       m_pAvailableCash( new QLabel(this) ),
       m_pSpendedCash( new QLabel(this) ),
       m_pTabWidget( new QTabWidget ),
