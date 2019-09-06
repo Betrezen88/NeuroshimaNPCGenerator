@@ -180,6 +180,22 @@ void NPCFriendCreator::checkFeatureAvailability()
             pItem->setFlags( pItem->flags() | Qt::ItemIsEnabled );
         }
     }
+
+    for ( int i{0}; i<m_pFeatures->count(); ++i ) {
+        QListWidgetItem *pItem = m_pFeatures->item(i);
+        if ( 0 > m_profit ) {
+            const QJsonObject feature = pItem->data(0x100).toJsonObject();
+            const int &price = feature.value("price").toInt();
+            const QString &type = feature.value("type").toString();
+
+            if ( ("other" != type || ("debt" != type ))
+                 && (m_featuresCost+m_connectionCost-price < 70) ) {
+                pItem->setFlags( pItem->flags() & ~Qt::ItemIsEnabled );
+            }
+        }
+        else
+            pItem->setFlags( pItem->flags() | Qt::ItemIsEnabled );
+    }
 }
 
 void NPCFriendCreator::init()
