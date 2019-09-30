@@ -1,65 +1,27 @@
 #ifndef NPCSKILLPACKVIEW_H
 #define NPCSKILLPACKVIEW_H
 
-#include <QWidget>
-#include <QLabel>
+#include "NPCAbstractSkillpackView.h"
 
-#include <QGridLayout>
-
-#include "NPCCustomWidget.h"
-
-class NPCSkillpackView : public NPCCustomWidget
+class NPCSkillpackView : public NPCAbstractSkillpackView
 {
-    Q_OBJECT
 public:
     explicit NPCSkillpackView(const QString &name,
+                              const QStringList &specs,
+                              const QStringList &skills,
                               QWidget *parent = nullptr);
 
-    void addSpecialization(const QString &name);
-    void addSkill(const QString &name);
-
-    QHash<QLabel *, QLabel *> skills() const;
-
-    const QString name() const;
-
-signals:
-    void specsChanged();
+    QVector<QPair<QString, int> > skills() const override;
 
 public slots:
-    void setSkillValue(const QString &name, const int &value);
-
-private slots:
-    void updateSpecLabel();
+    void setSkillValue(const QString &name, const int &value) override;
+    void setSkillValueBy(const QString &name, const int &value) override;
 
 private:
-    QLabel *m_pName{nullptr};
-    QLabel *m_pSpecs{nullptr};
+    void addSkills(const QStringList &skills) override;
 
-    QGridLayout *m_pLayout{nullptr};
-
-    QStringList m_specializations;
-    QHash<QLabel*, QLabel*> m_skills;
-
-    const QString m_titleStyle{
-        "QLabel#Title{"
-        " font: bold;"
-        " font-size: 12em;"
-        "}"
-    };
-
-    const QString m_valueStyle{
-        "QLabel#Value{"
-        " font: bold;"
-        " padding-left: 3px;"
-        "}"
-    };
-
-    const QString m_skillpackStyle{
-        "QWidget#Skillpack{"
-        " border: 1px solid black;"
-        " border-radius: 5px;"
-        "}"
-    };
+private:
+    QVector<QPair<QLabel*, QLabel*>> m_skills;
 };
 
 #endif // NPCSKILLPACKVIEW_H

@@ -1,81 +1,48 @@
 #include "NPCSkillpackView.h"
 
-#include <QDebug>
+#include <QLabel>
+#include <QGridLayout>
 
-NPCSkillpackView::NPCSkillpackView(const QString &name,
+NPCSkillpackView::NPCSkillpackView(const QString &name, const QStringList &specs, const QStringList &skills,
                                    QWidget *parent)
-    : NPCCustomWidget(parent),
-      m_pName(new QLabel(name, this)),
-      m_pSpecs(new QLabel(this)),
-      m_pLayout(new QGridLayout)
+    : NPCAbstractSkillpackView(name, specs, parent)
 {
-    connect( this, &NPCSkillpackView::specsChanged,
-             this, &NPCSkillpackView::updateSpecLabel );
-    setFixedWidth( 220 );
-    setObjectName( "Skillpack" );
-    setStyleSheet( m_skillpackStyle );
-    m_pName->setObjectName( "Title" );
-    m_pSpecs->setObjectName( "Title" );
-    m_pName->setStyleSheet( m_titleStyle );
-    m_pSpecs->setStyleSheet( m_titleStyle );
-    setLayout( m_pLayout );
-
-    QHBoxLayout *pLayout = new QHBoxLayout;
-    pLayout->addWidget( m_pName );
-    pLayout->addWidget( m_pSpecs, Qt::AlignLeft );
-    m_pLayout->addLayout( pLayout, 0, 0 );
+    addSkills( skills );
 }
 
-void NPCSkillpackView::addSpecialization(const QString &name)
+QVector<QPair<QString, int> > NPCSkillpackView::skills() const
 {
-    m_specializations << name;
-    emit specsChanged();
-}
-
-void NPCSkillpackView::addSkill(const QString &name)
-{
-    QLabel *pSkillName = new QLabel(name, this);
-    QLabel *pSkillValue = new QLabel("0", this);
-    pSkillValue->setObjectName( "Value" );
-    pSkillValue->setStyleSheet( m_valueStyle );
-    m_skills.insert( pSkillName, pSkillValue );
-    int row = m_skills.count();
-    m_pLayout->addWidget( pSkillName, row, 0, Qt::AlignLeft );
-    m_pLayout->addWidget( pSkillValue, row, 1, Qt::AlignRight );
-    pSkillName->setHidden( true );
-    pSkillValue->setHidden( true );
-}
-
-QHash<QLabel*, QLabel *> NPCSkillpackView::skills() const
-{
-    return m_skills;
-}
-
-const QString NPCSkillpackView::name() const
-{
-    return m_pName->text();
+    QVector<QPair<QString, int>> result;
+    for ( const QPair<QLabel*, QLabel*> &skill: m_skills )
+        result.push_back( QPair<QString, int>(skill.first->text(),
+                                              skill.second->text().toInt()) );
+    return result;
 }
 
 void NPCSkillpackView::setSkillValue(const QString &name, const int &value)
 {
-    for ( QLabel *pName: m_skills.keys() ) {
-        if ( pName->text() == name ) {
-            m_skills.value(pName)->setText( QString::number(value) );
-            m_skills.value(pName)->setVisible( true );
-            pName->setVisible( true );
+    for ( QPair<QLabel*, QLabel*> skill: m_skills )
+        if ( name == skill.first->text() ) {
+            skill.second->setNum( value );
             break;
         }
-    }
 }
 
-void NPCSkillpackView::updateSpecLabel()
+void NPCSkillpackView::setSkillValueBy(const QString &name, const int &value)
 {
-    QString text = "(";
-    for ( const QString &spec: m_specializations ) {
-        if ( spec != m_specializations.first() )
-            text += ",";
-        text += spec.at(0);
+    for ( QPair<QLabel*, QLabel*> skill: m_skills )
+        if ( name == skill.first->text() ) {
+            int skillValue = skill.second->text().toInt();
+            skill.second->setNum( skillValue + value );
+            break;
+        }
+}
+
+void NPCSkillpackView::addSkills(const QStringList &skills)
+{
+    for ( const QString &skill: skills ) {
+        m_skills.push_back( QPair<QLabel*, QLabel*>(new QLabel( skill, this ), new QLabel( "0", this )) );
+        m_pLayout->addWidget( m_skills.last().first, m_skills.count(), 0 );
+        m_pLayout->addWidget( m_skills.last().second, m_skills.count(), 1 );
     }
-    text += ")";
-    m_pSpecs->setText( text );
 }

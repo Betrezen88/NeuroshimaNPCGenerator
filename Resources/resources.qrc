@@ -17,5 +17,6 @@
     <qresource prefix="/images">
         <file>icons/Neuroshima_icon.png</file>
         <file>icons/Hero_portrait_icon.png</file>
+        <file>icons/Dice_icon.png</file>
     </qresource>
 </RCC>

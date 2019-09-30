@@ -11,7 +11,7 @@ Dice::Dice(const quint32 &value)
 quint32 Dice::throwValue()
 {
     ++m_throws;
-    return m_generator.bounded( m_value );
+    return m_generator.bounded( m_value )+1;
 }
 
 quint32 Dice::seed()

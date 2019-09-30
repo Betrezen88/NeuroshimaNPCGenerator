@@ -24,11 +24,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    NPC/Widgets/NPCAbstractSkillpackView.cpp \
     NPC/Widgets/NPCArmor.cpp \
     NPC/Widgets/NPCFeatureWidget.cpp \
     NPC/Widgets/NPCFriendCreator.cpp \
     NPC/Widgets/NPCFriendEquipment.cpp \
     NPC/Widgets/NPCFriendManager.cpp \
+    NPC/Widgets/NPCFriendStats.cpp \
+    NPC/Widgets/NPCGeneralSkillpack.cpp \
     NPC/Widgets/NPCInventory.cpp \
     NPC/Widgets/NPCItem.cpp \
     NPC/Widgets/NPCOtherSkills.cpp \
@@ -75,6 +78,7 @@ SOURCES += \
 
 HEADERS += \
         MainWindow.h \
+    NPC/Widgets/NPCAbstractSkillpackView.h \
     NPC/Widgets/NPCArmor.h \
     NPC/Widgets/NPCAttributesModsInfoWidget.h \
     NPC/Widgets/NPCAttributeWidget.h \
@@ -83,6 +87,8 @@ HEADERS += \
     NPC/Widgets/NPCFriendCreator.h \
     NPC/Widgets/NPCFriendEquipment.h \
     NPC/Widgets/NPCFriendManager.h \
+    NPC/Widgets/NPCFriendStats.h \
+    NPC/Widgets/NPCGeneralSkillpack.h \
     NPC/Widgets/NPCInventory.h \
     NPC/Widgets/NPCItem.h \
     NPC/Widgets/NPCOtherSkills.h \

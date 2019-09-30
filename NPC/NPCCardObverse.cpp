@@ -193,18 +193,16 @@ QWidget *NPCCardObverse::createPersonalSection()
 
 NPCSkillpackView *NPCCardObverse::createSkillPack(const QJsonObject &skillPack)
 {
-    NPCSkillpackView *pSkillpack = new NPCSkillpackView( skillPack.value("name").toString() );
+    QStringList specs, skills;
+    const QJsonArray &tSpecs = skillPack.value("Specialization").toArray();
+    for ( const QJsonValue tSpec: tSpecs )
+        specs << tSpec.toString();
 
-    const QJsonArray &specs = skillPack.value("Specialization").toArray();
-    for ( const QJsonValue &tSpec: specs )
-        pSkillpack->addSpecialization( tSpec.toString() );
+    const QJsonArray &tSkills = skillPack.value("skills").toArray();
+    for ( const QJsonValue tSkill: tSkills )
+        skills << tSkill.toString();
 
-    const QJsonArray &skills = skillPack.value("skills").toArray();
-    for ( const QJsonValue &tSkill: skills ) {
-        pSkillpack->addSkill( tSkill.toString() );
-    }
-
-    return pSkillpack;
+    return new NPCSkillpackView( skillPack.value("name").toString(), specs, skills, this );
 }
 
 const QHash<QString, NPCAttributeView *> *NPCCardObverse::attributes() const
@@ -341,18 +339,17 @@ void NPCCardObverse::setAttributes(const QJsonArray &attributes)
 
         const QJsonArray &skillPacks = object.value("skillPacks").toArray();
         for ( const QJsonValue &tSkillPack: skillPacks ) {
+            QStringList specs, skills;
             const QJsonObject &skillPack = tSkillPack.toObject();
-            NPCSkillpackView *pSkillpack = new NPCSkillpackView(skillPack.value("name").toString());
-            const QJsonArray &specs = skillPack.value("Specialization").toArray();
-            for ( const QJsonValue &tSpec: specs )
-                pSkillpack->addSpecialization( tSpec.toString() );
-            const QJsonArray &skills = skillPack.value("skills").toArray();
-            for ( const QJsonValue &tSkill: skills )
-                pSkillpack->addSkill( tSkill.toString() );
+            const QJsonArray &tSpecs = skillPack.value("Specialization").toArray();
+            for ( const QJsonValue tSpec: tSpecs )
+                specs << tSpec.toString();
+            const QJsonArray &tSkills = skillPack.value("skills").toArray();
+            for ( const QJsonValue tSkill: tSkills )
+                skills << tSkill.toString();
 
-            pAttribute->addSkillpack( pSkillpack );
+            pAttribute->addSkillpack( new NPCSkillpackView( skillPack.value("name").toString(), specs, skills, this ) );
         }
-
         m_attributes.insert( name, pAttribute );
     }
 }

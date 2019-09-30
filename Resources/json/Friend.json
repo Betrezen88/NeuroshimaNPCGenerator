@@ -37,42 +37,42 @@
         "data": [
             {
                 "name": "Ja Ciebie chyba znam...",
-                "value": 1,
+                "value": 5,
                 "description": "Nie ukrywajmy, facet z Powiązaniami na 1 nie jest szczególnie dobrym kumplem. Byź może los zetknął was raz czy dwa w takiej sytuacji, że ni ejesteście już zupełnie obcy, ale to wszystko. Zapamiętałeś jego twarz, wiesz, że nie jest byle przybłędą, ale na twoim miejscu nie powierzyłbym komuś takiemu nawet trzonka od łopaty, nie mówić już o jakimkolwiek zaufaniu. Nie mnie jednak znajomość może rozkwitnąć i rozwinąć się. Wszystko zależy od Ciebie."
             },
             {
                 "name": "Witam, panie... eee...",
-                "value": 2,
+                "value": 10,
                 "description": "Możesz mieć kłopoty z zapamiętaniem jego imienia, ale nie przejmuj się. Ot parę razy spędziliście trochę czasu ze sobą, a ten gość był jednym z wielu nieznajomych. Na pewno można powiedzieć, że Twoją pierwszą reakcją na jego widok nie jest sięgnięcie po spluwę, jak to jest w przypadku wielu obcych. Na pewno, jesli powiesz mu: \"stary, zrób to dla mnie, a ja zrobią dla CIebie coś innego\", facet się zgodzi, jeśli tylko propozycja będzie uczciwa. Tylko nie polegaj na nim za bardzo - jeśli tylko okaże się, że może na tym interesie coś stracić, wycofa się bez żalu."
             },
             {
                 "name": "Przejdźmy do interesów",
-                "value": 3,
+                "value": 15,
                 "description": "Zaczynamy już mówić o konkretnych znajomościach. Facet taki jak ten z penością jest przydatny, a Ty jesteś przydatny dla niego. I nie ma mowy o niczym więcej niż tylko wspólne interesy. Rzecz nie musi dotyczyć gambli, chociaż najczęściej o nie chodzi. Mam na przykład takiego znajomka, który pilnuje mi domu podczas mojej nieobecności. W zamian przywożę mu zdjęcia z różnych odległych zakątków. Wiesz już, o co chodzi? Wzajemna współpraca. Ale gdyby mój dom zaatakowało pięciu paskudnych mutków, facet zwiałby, i nie mogę mieć o to do niego żalu."
             },
             {
                 "name": "Osłaniaj mnie!",
-                "value": 4,
+                "value": 20,
                 "description": "Nie wiem, czy zdarzyło Ci się kiedyś siedzeić w okopie. Kiedy byłem żołnierzem, razem z grupą podobnych naiwniaków czołgaliśmy się po jakichś dziurach, a w powietrzu latały kule. Nie można powiedzieć, że byliśmy wielkimi przyjaciółmi, ale jeden chronił tyłek drugiego i wiedziałem, ze mogę liczyć na pozostałych. Pamiętam ich imiona, oglądałem ich pamiątki z rodzinnych stron. Kiedy wielki Juggernout rozwiązał nasz oddział, niedobitki rozeszły się w swoje strony. Nie oglądaliśmy się za siebie, bo nie było po co. Ale gdyby los znowu postawił nas koło siebie, bylibyśmy zgraną paczkę. Nie tylko na froncie."
             },
             {
                 "name": "Kopę lat, staruszku...",
-                "value": 5,
+                "value": 25,
                 "description": "Tu już możesz mówić o przyjaźni. Zależy oczywiście, co kto uważa za przyjaźń. Dla mnie jest to zaufanie i dbanie o druga osobę. A przy tym inne sprawy. Jeśli Twój kumpel posiada powiązania na 5 to znaczy, że znasz go całkiem dobrze, poznałeś jego słabe i mocne strony, wiesz trochę o jego przeszłości - chociaż nie o tajemnicach i najbardziej wstydliwych sprawach z życiorysu. Komuś takiemu możesz bez obaw oddać pod opiekę własną siostrę i w najgorszym razie będziesz miał super szwagra. No dobra, to żart. Chcę po prostu powiedzieć, że jeśli będziesz potrzebował pomocy, ten facet wywiąże się ze zobowiązań."
             },
             {
                 "name": "Stańmy to siebie plecami i wyciągaj spluwę.",
-                "value": 6,
+                "value": 30,
                 "description": "Miałem kiedyś dwóch przyjaciół. Stana i Harveya. Razem weszliśmy do jaskini mutantów żeby wyciągnąć stamtąd córkę farmera. Wspólnie broniliśmy się przed napastnikiami, ale kiedy zrobiło się naprawdę gorąco, a w korytarzu pojawił się jakiś pająkopodobny horror, Stan powiedział: \"To ja pobiegnę po pomoc\" i tyle go widziałem. A Harwey został i pomógł mi wysłać potwora do piekła dla mutków. Widzisz, sa pewne granice, przy których człowiek pęka i opuszcza Cię w potrzebie, żeby ratować swoją dupę. To po prostu silniejsze od niego. Nie mówię o przekupstwie czy zagrożeniu na polu walki, a raczej o takich nieprzyjemnościach jak tortury lub budzacy grozę widok. Przyjaciela z Powiązaniami na 6 poznasz po tym, że Cię nie zdradzi. Kimś takim jest Harvey."
             },
             {
                 "name": "Potrzebujesz pomocy na Orbitalu? Już lecę.",
-                "value": 7,
+                "value": 35,
                 "description": "Wiesz kogo nazwałbym prawdziwym przyjacielem? Człowieka, który przejchałby całe Stany, by mi pomóc. Kogoś takiego nie musisz wzywać na pomoc - on sam troszczy się o Ciebie i wie, co dla Ciebie dobre. Jest bezinteresowny, daje z siebie wszystko i możesz być pewien, że działa dla Twojego dobra, nawet jeśli robi coś zupełnie bez sensu. Zupełnie jak mój przyjaciel Harry, który rozwalił mojego psa Custera, za co dostał po twarzy. Kiedy już wstał, wytłumaczył mi, że jakaś pluskwa molocha przegryzła się Custerowi do mózgu. Korzystając z okazji - jeśli to czytasz Harry, wielkie sorry."
             },
             {
                 "name": "Mój syjamski bracie",
-                "value": 8,
+                "value": 40,
                 "description": "Właściwie nie wiem, jak to wytłumaczyć. Nigdy nie znałem nikogo, kto miałby Powiązania na 8. Na myśl przychodzą mi jedynie bohaterowie filmowi z kina w Detroit - Flip i Flap, Luke Skywalker i Han Solo, Marks i Engels. Wierzę jednak, że taka ostateczna przyjaźń, bezkompromisowa i dozgonna istnieje. Może Ty będziesz miał więcej szczęścia i znajdziesz takiego przyjaciela? Wtedy na pewno będziesz wiedział o co chodzi."
             }
         ]
@@ -192,6 +192,406 @@
                 "type": "other",
                 "description": "Znajomy to ćpun w ostatnim stadium nałogu.",
                 "price": -25
+            }
+        ]
+    },
+    {
+        "name": "origin",
+        "data": [
+            {
+                "name": "Takie jak Twoje",
+                "range": [ 1, 2 ]
+            },
+            {
+                "name": "Duże miasto",
+                "range": [ 3, 6 ],
+                "data": [
+                    "San Francisco",
+                    "Los Angeles",
+                    "San Diego",
+                    "Salt Lake City",
+                    "Vegas",
+                    "Denver",
+                    "Minneapolis",
+                    "Kansas City",
+                    "Dallas",
+                    "Huston",
+                    "Toronto",
+                    "Detroit",
+                    "Cleveland",
+                    "Pittsburgh",
+                    "Nowy Orlean",
+                    "Boston",
+                    "Nowy Jork",
+                    "Atlanta",
+                    "Miami",
+                    "Posterunek"
+                ]
+            },
+            {
+                "name": "osada Federacji Appalachów",
+                "range": [ 7 ]
+            },
+            {
+                "name": "osady Hegemonii",
+                "range": [ 8 ]
+            },
+            {
+                "name": "osady Teksasu",
+                "range": [ 9 ]
+            },
+            {
+                "name": "osady okolic Wielkich Jezior",
+                "range": [ 10 ]
+            },
+            {
+                "name": "osady okolic Florydy",
+                "range": [ 11 ]
+            },
+            {
+                "name": "osady okolic Missouri i Missisipi",
+                "range": [ 12 ]
+            },
+            {
+                "name": "osady Kalifornii",
+                "range": [ 13 ]
+            },
+            {
+                "name": "osady Meksyku",
+                "range": [ 14 ]
+            },
+            {
+                "name": "osady Kolorado",
+                "range": [ 15 ]
+            },
+            {
+                "name": "osady Kansas i Oklahomy",
+                "range": [ 16 ]
+            },
+            {
+                "name": "osady Nevady i Utah",
+                "range": [ 17 ]
+            },
+            {
+                "name": "osady Illinois",
+                "range": [ 18 ]
+            },
+            {
+                "name": "osady Wschodniego Wybrzeża",
+                "range": [ 19 ]
+            },
+            {
+                "name": "osady granic Molocha",
+                "range": [ 20 ]
+            }
+        ]
+    },
+    {
+        "name": "attributes",
+        "data": [
+            [ 11, 10, 9, 9, 6 ],
+            [ 11, 10, 10, 10, 9 ],
+            [ 11, 11, 10, 10, 10 ],
+            [ 12, 11, 11, 11, 11 ],
+            [ 12, 11, 11, 11, 10 ],
+            [ 12, 12, 12, 10, 9 ],
+            [ 12, 12, 10, 9, 7 ],
+            [ 13, 12, 11, 10, 10 ],
+            [ 13, 12, 12, 11, 9 ],
+            [ 13, 12, 10, 9, 6 ],
+            [ 13, 13, 11, 10, 8 ],
+            [ 14, 12, 11, 10, 9 ],
+            [ 14, 13, 13, 10, 9 ],
+            [ 14, 11, 10, 10, 10 ],
+            [ 14, 12, 10, 8, 6 ],
+            [ 14, 13, 10, 8, 6 ],
+            [ 14, 12, 11, 10, 8 ],
+            [ 15, 13, 11, 9, 8 ],
+            [ 15, 12, 10, 10, 6 ],
+            [ 15, 13, 10, 9, 8 ]
+        ]
+    },
+    {
+        "name": "archetypes",
+        "data": [
+            {
+                "name": "Przeciętniak",
+                "attributes": [ "Zręczność", "Percepcja", "Charakter", "Spryt", "Budowa" ]
+            },
+            {
+                "name": "Toporny Wojownik",
+                "attributes": [ "Budowa", "Charakter", "Zręczność", "Percepcja", "Spryt" ]
+            },
+            {
+                "name": "Wojownik Spryciarz",
+                "attributes": [ "Zręczność", "Percepcja", "Budowa", "Charakter", "Spryt" ]
+            },
+            {
+                "name": "Wędrowiec",
+                "attributes": [ "Percepcja", "Charakter", "Zręczność", "Spryt", "Budowa" ]
+            },
+            {
+                "name": "Spec",
+                "attributes": [ "Spryt", "Percepcja", "Charakter", "Zręczność", "Budowa" ]
+            },
+            {
+                "name": "Złodziej",
+                "attributes": [ "Zręczność", "Spryt", "Percepcja", "Charakter", "Budowa" ]
+            }
+        ]
+    },
+    {
+        "name": "skills",
+        "rules": [
+            {
+                "count": 1,
+                "value": 2
+            },
+            {
+                "count": 3,
+                "value": 1
+            }
+        ],
+        "data": [
+            {
+                "name": "Walka Wręcz",
+                "range": [ 1 ]
+            },
+            {
+                "name": "Prowadzenie Pojazdów",
+                "range": [ 2, 3 ]
+            },
+            {
+                "name": "Zdolnosci Manualne",
+                "range": [ 4 ]
+            },
+            {
+                "name": "Broń Strzelecka",
+                "range": [ 5 ]
+            },
+            {
+                "name": "Broń Dystansowa",
+                "range": [ 6, 7 ]
+            },
+            {
+                "name": "Orientacja w Terenie",
+                "range": [ 8 ]
+            },
+            {
+                "name": "Spostrzegawczość",
+                "range": [ 9 ]
+            },
+            {
+                "name": "Kamuflaż",
+                "range": [ 10 ]
+            },
+            {
+                "name": "Przetrwanie",
+                "range": [ 11 ]
+            },
+            {
+                "name": "Negocjacje",
+                "range": [ 12 ]
+            },
+            {
+                "name": "Empatia",
+                "range": [ 13 ]
+            },
+            {
+                "name": "Siła Woli",
+                "range": [ 14 ]
+            },
+            {
+                "name": "Medycyna",
+                "range": [ 15 ]
+            },
+            {
+                "name": "Technika",
+                "range": [ 16 ]
+            },
+            {
+                "name": "Sprzęt",
+                "range": [ 17 ]
+            },
+            {
+                "name": "Pirotechnika",
+                "range": [ 18 ]
+            },
+            {
+                "name": "Sprawność",
+                "range": [ 19 ]
+            },
+            {
+                "name": "Jeździectwo",
+                "range": [ 20 ]
+            }
+        ]
+    },
+    {
+        "name": "mods",
+        "data": [
+            {
+                "name": "Wędrowiec",
+                "throws": [
+                    {
+                        "count": 1,
+                        "value": 3
+                    }
+                ],
+                "data": [
+                    {
+                        "name": "Prowadzenie Pojazdów",
+                        "range": [ 1, 4 ]
+                    },
+                    {
+                        "name": "Orientacja w Terenie",
+                        "range": [ 5, 8 ]
+                    },
+                    {
+                        "name": "Kamuflaż",
+                        "range": [ 9, 10 ]
+                    },
+                    {
+                        "name": "Przetrwanie",
+                        "range": [ 11, 15 ]
+                    },
+                    {
+                        "name": "Sprawność",
+                        "range": [ 16, 18 ]
+                    },
+                    {
+                        "name": "Jeździectwo",
+                        "range": [ 19, 20 ]
+                    }
+                ]
+            },
+            {
+                "name": "Kizior",
+                "throws": [
+                    {
+                        "count": 1,
+                        "value": 3
+                    },
+                    {
+                        "count": 1,
+                        "value": 2
+                    }
+                ],
+                "data": [
+                    {
+                        "name": "Walka Wręcz",
+                        "range": [ 1, 4 ]
+                    },
+                    {
+                        "name": "Broń Strzelecka",
+                        "range": [ 5, 8 ]
+                    },
+                    {
+                        "name": "Broń Dystansowa",
+                        "range": [ 9, 10 ]
+                    },
+                    {
+                        "name": "Negocjacje",
+                        "range": [ 11, 15 ]
+                    },
+                    {
+                        "name": "Siła Woli",
+                        "range": [ 16, 18 ]
+                    },
+                    {
+                        "name": "Pirotechnika",
+                        "range": [ 19, 20 ]
+                    }
+                ]
+            },
+            {
+                "name": "Spec",
+                "throws": [
+                    {
+                        "count": 1,
+                        "value": 3
+                    }
+                ],
+                "data": [
+                    {
+                        "name": "Prowadzenie Pojazdów",
+                        "range": [ 1, 3 ]
+                    },
+                    {
+                        "name": "Medycyna",
+                        "range": [ 4, 6 ]
+                    },
+                    {
+                        "name": "Technika",
+                        "range": [ 7, 10 ]
+                    },
+                    {
+                        "name": "Sprzęt",
+                        "range": [ 11, 13 ]
+                    },
+                    {
+                        "name": "Pirotechnika",
+                        "range": [ 14, 16 ]
+                    },
+                    {
+                        "name": "Wiedza Ogólna",
+                        "range": [ 19, 20 ]
+                    }
+                ]
+            },
+            {
+                "name": "Handlarz",
+                "throws": [
+                    {
+                        "count": 1,
+                        "value": 2
+                    }
+                ],
+                "extra": {
+                    "skillpacks": [ "Negocjacje", "Empatia" ],
+                    "value": 3
+                },
+                "data": [
+                    {
+                        "name": "Prowadzenie Pojazdów",
+                        "range": [ 1, 8 ]
+                    },
+                    {
+                        "name": "Spostrzegawczość",
+                        "range": [ 9, 13 ]
+                    },
+                    {
+                        "name": "Technika",
+                        "range": [ 14, 20 ]
+                    }
+                ]
+            },
+            {
+                "name": "Złodziej",
+                "throws": [
+                    {
+                        "count": 1,
+                        "value": 3
+                    }
+                ],
+                "data": [
+                    {
+                        "name": "Zdolności Manualne",
+                        "range": [ 1, 5 ]
+                    },
+                    {
+                        "name": "Spostrzegawczość",
+                        "range": [ 6, 10 ]
+                    },
+                    {
+                        "name": "Kamuflaż",
+                        "range": [ 11, 15 ]
+                    },
+                    {
+                        "name": "Empatia",
+                        "range": [ 16, 20 ]
+                    }
+                ]
             }
         ]
     }

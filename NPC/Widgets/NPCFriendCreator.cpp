@@ -2,6 +2,7 @@
 
 #include "NPCFeatureWidget.h"
 #include "NPCFriendEquipment.h"
+#include "NPCFriendStats.h"
 #include "../Utils/DataLoader.h"
 
 #include <QComboBox>
@@ -22,19 +23,14 @@ NPCFriendCreator::NPCFriendCreator(QString cash, QWidget *parent)
       m_pAvailableCash( new QLabel(this) ),
       m_pSpendedCash( new QLabel(this) ),
       m_pTabWidget( new QTabWidget ),
-      m_pName( new QLineEdit ),
-      m_pSurname( new QLineEdit ),
-      m_pNickname( new QLineEdit ),
-      m_pProfession( new QLineEdit ),
-      m_pConnection( new QComboBox ),
       m_pAvailableFeatures( new QListWidget ),
       m_pFeatures( new QListWidget ),
       m_pRemoveBtn( new QPushButton("Usuń") ),
       m_pAddBtn( new QPushButton("Dodaj") ),
-      m_pEquipment( new NPCFriendEquipment )
+      m_pEquipment( new NPCFriendEquipment(this) ),
+      m_pStats( new NPCFriendStats(this) ),
+      m_pRandomBtn( new QPushButton( QIcon(":/images/icons/Dice_icon.png"), "Losuj", this ) )
 {
-    connect( m_pConnection, QOverload<int>::of(&QComboBox::currentIndexChanged),
-             this, &NPCFriendCreator::onConnectionValueChange );
     connect( m_pAvailableFeatures, &QListWidget::itemClicked,
              this, &NPCFriendCreator::onAvailableFeatureClick );
     connect( m_pFeatures, &QListWidget::itemClicked,
@@ -43,14 +39,21 @@ NPCFriendCreator::NPCFriendCreator(QString cash, QWidget *parent)
              this, &NPCFriendCreator::onAddBtnClick );
     connect( m_pRemoveBtn, &QPushButton::clicked,
              this, &NPCFriendCreator::onRemoveBtnClick );
-    connect( this, &NPCFriendCreator::connectionCostChanged,
+    connect( m_pStats, &NPCFriendStats::connectionChanged,
              [this](const int &value){ this->setCost("connection", value); } );
     connect( this, &NPCFriendCreator::featureCostChanged,
              [this](const int &value){ this->setCost("feature", value); } );
     connect( this, &NPCFriendCreator::profitCostChanged,
              [this](const int &value){ this->setCost("profit", value); } );
+    connect( m_pEquipment, &NPCFriendEquipment::itemBougth,
+             [this](const int &value){ this->setCost("equipment", value); } );
+    connect( m_pEquipment, &NPCFriendEquipment::itemSold,
+             [this](const int &value){ this->setCost("equipment", value); } );
+    connect( m_pRandomBtn, &QPushButton::clicked,
+             m_pStats, &NPCFriendStats::random );
 
     init();
+    setCost( "connection", 5 );
 
     QHBoxLayout *pCashRow = new QHBoxLayout;
     pCashRow->addWidget( new QLabel("Dostępne gamble:") );
@@ -59,29 +62,27 @@ NPCFriendCreator::NPCFriendCreator(QString cash, QWidget *parent)
     pCashRow->addWidget( new QLabel("Wydane gamble:") );
     pCashRow->addWidget( m_pSpendedCash );
     pCashRow->addSpacerItem( new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Expanding) );
+    pCashRow->addWidget( m_pRandomBtn );
 
     QScrollArea *pScrollArea = new QScrollArea;
     pScrollArea->setWidgetResizable( true );
     pScrollArea->setWidget( createPersonalTab() );
 
+    QScrollArea *pStatScroll = new QScrollArea;
+    pStatScroll->setWidgetResizable( true );
+    pStatScroll->setWidget( m_pStats );
+
     m_pTabWidget->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
-    m_pTabWidget->addTab( pScrollArea, "Dane personalne" );
+    m_pTabWidget->addTab( pStatScroll, "Statystyki" );
     m_pTabWidget->addTab( createFeaturesTab(), "Cechy" );
     m_pTabWidget->addTab( m_pEquipment, "Ekwipunek" );
+    m_pTabWidget->addTab( pScrollArea, "Formularz" );
 
     QVBoxLayout *pLayout = new QVBoxLayout;
     setLayout( pLayout );
     pLayout->setSpacing( 1 );
     pLayout->addLayout( pCashRow );
     pLayout->addWidget( m_pTabWidget );
-}
-
-void NPCFriendCreator::onConnectionValueChange(const int &value)
-{
-    m_pConnection->setToolTip( "<div style=\"width: 200px; word-wrap: break-word;\" align=\"justify\">"
-                               + m_connections.at(value).toObject().value("description").toString() +
-                               "</div>" );
-    emit connectionCostChanged( 5*(value+1) );
 }
 
 void NPCFriendCreator::onAvailableFeatureClick(QListWidgetItem *pItem)
@@ -93,7 +94,7 @@ void NPCFriendCreator::onAvailableFeatureClick(QListWidgetItem *pItem)
 
 void NPCFriendCreator::onBougthFeatureClick(QListWidgetItem *pItem)
 {
-    Q_UNUSED(pItem);
+    Q_UNUSED(pItem)
     m_pRemoveBtn->setEnabled( true );
 }
 
@@ -155,9 +156,13 @@ void NPCFriendCreator::setCost(const QString &type, const int &value)
         m_featuresCost += value;
     else if ( "profit" == type )
         m_profit += value;
+    else if ( "equipment" == type )
+        m_equipmentCost += value;
 
-    m_pSpendedCash->setNum( m_connectionCost + m_featuresCost + m_profit );
+    m_pSpendedCash->setNum( m_connectionCost + m_featuresCost + m_profit + m_equipmentCost );
     m_pAvailableCash->setNum( m_cash.toInt() - m_pSpendedCash->text().toInt() );
+
+    m_pEquipment->setAvailableCash( m_pAvailableCash->text().toInt() );
 
     checkFeatureAvailability();
 }
@@ -172,7 +177,7 @@ void NPCFriendCreator::checkFeatureAvailability()
 
         if ( (price > 0 && m_pAvailableCash->text().toInt() < price)
              || (price < 0 && (m_featuresCost+m_connectionCost < 70) && m_profit < 30 )
-             || (feature.contains("connection") && feature.value("connection").toInt() < m_pConnection->currentIndex()+1)
+             || (feature.contains("connection") && feature.value("connection").toInt() < (m_connectionCost/5))
              || (("other" == type || "debt" == type )
                  && (pItem->data(0x101).toBool() || feature.value("price").toInt()+m_profit < -30)) ) {
             pItem->setFlags( pItem->flags() & ~Qt::ItemIsEnabled );
@@ -204,14 +209,6 @@ void NPCFriendCreator::init()
     m_pAddBtn->setDisabled( true );
     m_pRemoveBtn->setDisabled( true );
 
-    m_connections = jsonData( "connection" );
-
-    for ( const QJsonValue connection: m_connections ) {
-        const QJsonObject &tConnection = connection.toObject();
-        m_pConnection->addItem( QString::number(tConnection.value("value").toInt()) + ". "
-                                + tConnection.value("name").toString() );
-    }
-
     QJsonArray features = jsonData( "features" );
     for ( const QJsonValue feature: features ) {
         const QJsonObject tFeature = feature.toObject();
@@ -233,22 +230,9 @@ QWidget *NPCFriendCreator::createPersonalTab()
 {
     QWidget *pWidget = new QWidget();
 
-    m_pName = new QLineEdit( pWidget );
-    m_pSurname = new QLineEdit( pWidget );
-    m_pNickname = new QLineEdit( pWidget );
-    m_pProfession = new QLineEdit( pWidget );
-
     QGridLayout *pLayout = new QGridLayout;
     pWidget->setLayout( pLayout );
     pLayout->setSpacing( 2 );
-    pLayout->addWidget( new QLabel("Imię"), 0, 0 );
-    pLayout->addWidget( m_pName, 0, 1 );
-    pLayout->addWidget( new QLabel("Nazwisko"), 0, 2 );
-    pLayout->addWidget( m_pSurname, 0, 3 );
-    pLayout->addWidget( new QLabel("Ksywa"), 1, 0 );
-    pLayout->addWidget( m_pNickname, 1, 1 );
-    pLayout->addWidget( new QLabel("Profesja"), 1, 2 );
-    pLayout->addWidget( m_pProfession, 1, 3 );
 
     QJsonArray questions = jsonData( "questions" );
 
@@ -279,14 +263,12 @@ QWidget *NPCFriendCreator::createFeaturesTab()
     QGridLayout *pLayout = new QGridLayout;
     pWidget->setLayout( pLayout );
     pLayout->setSpacing( 1 );
-    pLayout->addWidget( new QLabel("Poziom powiązania (koszt: 5 gambli x poziom)"), 0, 0 );
-    pLayout->addWidget( m_pConnection, 0, 1 );
-    pLayout->addWidget( pAvailableL, 1, 0 );
-    pLayout->addWidget( m_pAvailableFeatures, 2, 0, 4, 1 );
-    pLayout->addWidget( pBougthL, 1, 1 );
-    pLayout->addWidget( m_pFeatures, 2, 1, 4, 1 );
-    pLayout->addWidget( m_pAddBtn, 6, 0 );
-    pLayout->addWidget( m_pRemoveBtn, 6, 1 );
+    pLayout->addWidget( pAvailableL, 0, 0 );
+    pLayout->addWidget( m_pAvailableFeatures, 1, 0, 4, 1 );
+    pLayout->addWidget( pBougthL, 0, 1 );
+    pLayout->addWidget( m_pFeatures, 1, 1, 4, 1 );
+    pLayout->addWidget( m_pAddBtn, 5, 0 );
+    pLayout->addWidget( m_pRemoveBtn, 5, 1 );
 
     return pWidget;
 }

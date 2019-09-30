@@ -21,7 +21,7 @@ private:
     QJsonArray tricksJson(const QListWidget *tricks) const;
     QJsonArray attributesJson(const QHash<QString, NPCAttributeView *> *attributes) const;
     QJsonArray packetsJson(const QHash<QString, NPCSkillpackView *> &skillPacks) const;
-    QJsonArray skillsJson(const QHash<QLabel *, QLabel *> &skills) const;
+    QJsonArray skillsJson(const QVector<QPair<QString, int> > &skills) const;
     QJsonArray inventoryJson(const QVector<NPCItem*> items) const;
 
     void personal(NPCCardTab *card, const QJsonObject &object);

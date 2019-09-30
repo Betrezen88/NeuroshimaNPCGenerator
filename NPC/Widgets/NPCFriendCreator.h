@@ -20,6 +20,7 @@ class QSpinBox;
 
 class NPCFeatureWidget;
 class NPCFriendEquipment;
+class NPCFriendStats;
 
 class NPCFriendCreator : public QWidget
 {
@@ -36,7 +37,6 @@ signals:
 public slots:
 
 private slots:
-    void onConnectionValueChange(const int &value);
     void onAvailableFeatureClick(QListWidgetItem *pItem);
     void onBougthFeatureClick(QListWidgetItem *pItem);
     void onAddBtnClick();
@@ -59,6 +59,7 @@ private:
     int m_connectionCost{0};
     int m_featuresCost{0};
     int m_profit{0};
+    int m_equipmentCost{0};
 
     QLabel *m_pAvailableCash{nullptr};
     QLabel *m_pSpendedCash{nullptr};
@@ -69,8 +70,6 @@ private:
     QLineEdit *m_pNickname{nullptr};
     QLineEdit *m_pProfession{nullptr};
 
-    QComboBox *m_pConnection{nullptr};
-
     QListWidget *m_pAvailableFeatures{nullptr};
     QListWidget *m_pFeatures{nullptr};
 
@@ -78,12 +77,13 @@ private:
     QPushButton *m_pAddBtn{nullptr};
 
     NPCFriendEquipment *m_pEquipment{nullptr};
+    NPCFriendStats *m_pStats{nullptr};
 
+    QPushButton *m_pRandomBtn{nullptr};
     QPushButton *m_pOkBtn{nullptr};
     QPushButton *m_pCloseBtn{nullptr};
 
     QVector<QPlainTextEdit*> m_answers;
-    QJsonArray m_connections;
 };
 
 #endif // NPCFRIENDCREATOR_H
