@@ -4,8 +4,8 @@
 #include <QWidget>
 
 class QLabel;
-class QListWidget;
 class QPushButton;
+class QTabWidget;
 
 class NPCFriendManager : public QWidget
 {
@@ -14,9 +14,10 @@ public:
 
 private slots:
     void showCreatorDialog() const;
+    void addFriend(const QJsonObject &pal);
 
 private:
-    QListWidget *m_pFriends{nullptr};
+    QTabWidget *m_pFriends{nullptr};
     QPushButton *m_pAddBtn{nullptr};
     QPushButton *m_pEditBtn{nullptr};
     QPushButton *m_pRemoveBtn{nullptr};

@@ -3,13 +3,14 @@
 
 #include <QDialog>
 #include <QLabel>
-#include <QListWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QScrollArea>
+#include <QTabWidget>
 
 NPCFriendManager::NPCFriendManager(QWidget *parent)
     : QWidget (parent),
-      m_pFriends( new QListWidget(this) ),
+      m_pFriends( new QTabWidget(this) ),
       m_pAddBtn( new QPushButton("Stwórz", this) ),
       m_pEditBtn( new QPushButton("Edytuj", this) ),
       m_pRemoveBtn( new QPushButton("Usuń", this) ),
@@ -17,6 +18,10 @@ NPCFriendManager::NPCFriendManager(QWidget *parent)
 {
     connect( m_pAddBtn, &QPushButton::clicked,
              this, &NPCFriendManager::showCreatorDialog );
+
+    QScrollArea *pScrollArea = new QScrollArea( this );
+    pScrollArea->setWidgetResizable( true );
+    pScrollArea->setWidget( m_pFriends );
 
     QHBoxLayout *pCashL = new QHBoxLayout;
     pCashL->addWidget( new QLabel("Kasa na znajomości:") );
@@ -31,7 +36,7 @@ NPCFriendManager::NPCFriendManager(QWidget *parent)
     setLayout( pLayout );
     pLayout->addLayout( pCashL );
     pLayout->addLayout( pButtons );
-    pLayout->addWidget( m_pFriends );
+    pLayout->addWidget( pScrollArea );
 }
 
 void NPCFriendManager::showCreatorDialog() const
@@ -42,11 +47,17 @@ void NPCFriendManager::showCreatorDialog() const
     pDialog->setWindowTitle( "Tworzenie znajomości" );
     pDialog->setMinimumWidth( 400 );
 
+    NPCFriendCreator *pCreator = new NPCFriendCreator( m_pCash->text() );
+
     QPushButton *pOkBtn = new QPushButton("Dodaj");
     QPushButton *pCloseBtn = new QPushButton("Anuluj");
 
     connect( pCloseBtn, &QPushButton::clicked,
              pDialog, &QDialog::close );
+    connect( pOkBtn, &QPushButton::clicked,
+             pCreator, &NPCFriendCreator::completeFriendCreation );
+    connect( pCreator, &NPCFriendCreator::sendFriend,
+             this, &NPCFriendManager::addFriend );
     connect( pOkBtn, &QPushButton::clicked,
              pDialog, &QDialog::close );
 
@@ -55,8 +66,6 @@ void NPCFriendManager::showCreatorDialog() const
     pButtonL->addWidget( pOkBtn );
     pButtonL->addWidget( pCloseBtn );
 
-    NPCFriendCreator *pCreator = new NPCFriendCreator( m_pCash->text() );
-
     QVBoxLayout *pLayout = new QVBoxLayout;
     pLayout->addWidget( pCreator );
     pLayout->addLayout( pButtonL );
@@ -64,4 +73,12 @@ void NPCFriendManager::showCreatorDialog() const
     pDialog->setLayout( pLayout );
 
     pDialog->show();
+}
+
+void NPCFriendManager::addFriend(const QJsonObject &pal)
+{
+    const QString name = pal.value("personal").toObject().value("name").toString() + " '"
+            + pal.value("personal").toObject().value("nickname").toString() + "' "
+            + pal.value("personal").toObject().value("surname").toString() ;
+    m_pFriends->addTab( new QWidget(), name  );
 }
