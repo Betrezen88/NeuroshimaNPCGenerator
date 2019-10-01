@@ -47,6 +47,56 @@ NPCFriendStats::NPCFriendStats(QWidget *parent)
     pLayout->addWidget( skillBox(), 1, 0, 2, 2 );
 }
 
+QString NPCFriendStats::name() const
+{
+    return m_pName->text();
+}
+
+QString NPCFriendStats::surname() const
+{
+    return m_pSurname->text();
+}
+
+QString NPCFriendStats::nickname() const
+{
+    return m_pNickname->text();
+}
+
+QString NPCFriendStats::profession() const
+{
+    return m_pProfession->text();
+}
+
+QString NPCFriendStats::origin() const
+{
+    return m_pOrigin->currentText();
+}
+
+QString NPCFriendStats::sickness() const
+{
+    return m_pSickness->currentText();
+}
+
+QString NPCFriendStats::connection() const
+{
+    return m_pConnection->currentText();
+}
+
+QHash<QString, int> NPCFriendStats::attributes() const
+{
+    QHash<QString, int> result;
+
+    for ( const QString &attribute: m_attributes.keys() )
+        result.insert( attribute, m_attributes.value(attribute)->text().toInt() );
+
+    return result;
+}
+
+const QVector<NPCAbstractSkillpackView *> &NPCFriendStats::skillpacks() const
+{
+    return m_skillpacks;
+}
+
 void NPCFriendStats::random()
 {
     Dice d20{20};

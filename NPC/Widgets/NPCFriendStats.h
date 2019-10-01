@@ -19,6 +19,16 @@ class NPCFriendStats : public QWidget
     Q_OBJECT
 public:
     explicit NPCFriendStats(QWidget *parent = nullptr);
+    
+    QString name() const;
+    QString surname() const;
+    QString nickname() const;
+    QString profession() const;
+    QString origin() const;
+    QString sickness() const;
+    QString connection() const;
+    QHash<QString, int> attributes() const;
+    const QVector<NPCAbstractSkillpackView*> &skillpacks() const;
 
 signals:
     void skillpacksChanged(const QJsonArray &skillpacks, const bool &add);
