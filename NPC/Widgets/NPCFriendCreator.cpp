@@ -3,6 +3,7 @@
 #include "NPCFeatureWidget.h"
 #include "NPCFriendEquipment.h"
 #include "NPCFriendStats.h"
+#include "NPCAbstractSkillpackView.h"
 #include "../Utils/DataLoader.h"
 
 #include <QComboBox>
@@ -202,6 +203,55 @@ void NPCFriendCreator::checkFeatureAvailability()
         else
             pItem->setFlags( pItem->flags() | Qt::ItemIsEnabled );
     }
+}
+
+void NPCFriendCreator::completeFriendCreation()
+{
+    QJsonObject personal;
+    personal.insert( "name", m_pStats->name() );
+    personal.insert( "surname", m_pStats->surname() );
+    personal.insert( "nickname", m_pStats->nickname() );
+    personal.insert( "profession", m_pStats->profession() );
+    personal.insert( "sickness", m_pStats->sickness() );
+    personal.insert( "connection", m_pStats->connection() );
+    personal.insert( "origin", m_pStats->origin() );
+
+    QJsonArray attributes;
+    const QHash<QString, int> &attributesArray = m_pStats->attributes();
+    for ( const QString &attribute: attributesArray.keys() ) {
+        QJsonObject tAttribute;
+        tAttribute.insert( "name", attribute );
+        tAttribute.insert( "value", attributesArray.value(attribute) );
+        attributes.push_back( tAttribute );
+    }
+
+    QJsonArray skillpacks;
+    const QVector<NPCAbstractSkillpackView*> &skillpacksArray = m_pStats->skillpacks();
+    for ( const NPCAbstractSkillpackView *skillpack: skillpacksArray ) {
+        QJsonObject tSkillpack;
+        tSkillpack.insert( "name", skillpack->name() );
+
+        QJsonArray specs;
+        for ( const QString &spec: skillpack->specializations() )
+            specs.push_back( spec );
+        tSkillpack.insert( "specializations", specs );
+
+        QJsonArray tSkills;
+        for ( const QPair<QString, int> &skill: skillpack->skills() ) {
+            QJsonObject tSkill;
+            tSkill.insert( "name", skill.first );
+            tSkill.insert( "value", skill.second );
+            tSkills.push_back( tSkill );
+        }
+        skillpacks.push_back( tSkillpack );
+    }
+
+    QJsonObject pal;
+    pal.insert( "personal", personal );
+    pal.insert( "attributes", attributes );
+    pal.insert( "skillpacks", skillpacks );
+
+    emit sendFriend( pal );
 }
 
 void NPCFriendCreator::init()

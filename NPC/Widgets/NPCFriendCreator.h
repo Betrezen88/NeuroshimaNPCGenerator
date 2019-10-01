@@ -33,8 +33,10 @@ signals:
     void connectionCostChanged(const int &value);
     void featureCostChanged(const int &value);
     void profitCostChanged(const int &value);
+    void sendFriend(const QJsonObject &pal);
 
 public slots:
+    void completeFriendCreation();
 
 private slots:
     void onAvailableFeatureClick(QListWidgetItem *pItem);
