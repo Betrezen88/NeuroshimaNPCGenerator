@@ -56,6 +56,7 @@ NPCFriendCreator::NPCFriendCreator(QString cash, QWidget *parent)
     connect( m_pRandomBtn, &QPushButton::clicked,
              m_pStats, &NPCFriendStats::random );
 
+    m_pTabWidget->setMinimumSize( 400, 400 );
     init();
     setCost( "connection", 5 );
 
