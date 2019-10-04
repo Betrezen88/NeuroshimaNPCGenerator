@@ -1,5 +1,6 @@
 #include "NPCFriendCreator.h"
 
+#include "NPCAttributeView.h"
 #include "NPCFeatureWidget.h"
 #include "NPCFriendEquipment.h"
 #include "NPCFriendStats.h"
@@ -217,39 +218,39 @@ void NPCFriendCreator::completeFriendCreation()
     personal.insert( "origin", m_pStats->origin() );
 
     QJsonArray attributes;
-    const QHash<QString, int> &attributesArray = m_pStats->attributes();
-    for ( const QString &attribute: attributesArray.keys() ) {
+    const QHash<QString, NPCAttributeView*> &attributesArray = m_pStats->attributes();
+    for ( const NPCAttributeView *pAttribute: attributesArray ) {
         QJsonObject tAttribute;
-        tAttribute.insert( "name", attribute );
-        tAttribute.insert( "value", attributesArray.value(attribute) );
-        attributes.push_back( tAttribute );
-    }
+        tAttribute.insert( "name", pAttribute->name() );
+        tAttribute.insert( "value", pAttribute->value() );
 
-    QJsonArray skillpacks;
-    const QVector<NPCAbstractSkillpackView*> &skillpacksArray = m_pStats->skillpacks();
-    for ( const NPCAbstractSkillpackView *skillpack: skillpacksArray ) {
-        QJsonObject tSkillpack;
-        tSkillpack.insert( "name", skillpack->name() );
+        QJsonArray skillpacks;
+        for ( const NPCAbstractSkillpackView *pSkillpack: pAttribute->skillpacks() ) {
+            QJsonObject tSkillpack;
+            tSkillpack.insert( "name", pSkillpack->name() );
 
-        QJsonArray specs;
-        for ( const QString &spec: skillpack->specializations() )
-            specs.push_back( spec );
-        tSkillpack.insert( "specializations", specs );
+            QJsonArray specs;
+            for ( const QString &spec: pSkillpack->specializations() )
+                specs.push_back( spec );
+            tSkillpack.insert( "specializations", specs );
 
-        QJsonArray tSkills;
-        for ( const QPair<QString, int> &skill: skillpack->skills() ) {
-            QJsonObject tSkill;
-            tSkill.insert( "name", skill.first );
-            tSkill.insert( "value", skill.second );
-            tSkills.push_back( tSkill );
+            QJsonArray skills;
+            for ( const QPair<QString, int> &skill: pSkillpack->skills() ) {
+                QJsonObject tSkill;
+                tSkill.insert( "name", skill.first );
+                tSkill.insert( "value", skill.second );
+                skills.push_back( tSkill );
+            }
+            tSkillpack.insert( "skills", skills );
+            skillpacks.push_back( tSkillpack );
         }
-        skillpacks.push_back( tSkillpack );
+        tAttribute.insert( "skillpacks", skillpacks );
+        attributes.push_back( tAttribute );
     }
 
     QJsonObject pal;
     pal.insert( "personal", personal );
     pal.insert( "attributes", attributes );
-    pal.insert( "skillpacks", skillpacks );
 
     emit sendFriend( pal );
 }
