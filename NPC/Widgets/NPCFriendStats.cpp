@@ -131,9 +131,9 @@ void NPCFriendStats::onArchetypeChanged()
 {
     int attributeValue{0};
     for ( const QJsonValue attribute: m_pArchetype->currentData(Qt::UserRole).toJsonArray() ) {
-        int value = m_attributesValues.at(attributeValue).toInt();
-        m_attributes.value( attribute.toString() )->setNum( value );
         const QString &name = attribute.toString();
+        int value = (m_attributesFixed.contains(name))
+                ? m_attributesFixed.value(name) : m_attributesValues.at(attributeValue).toInt();
         m_attributes.value(name)->setValue( value );
         ++attributeValue;
     }
@@ -422,4 +422,9 @@ void NPCFriendStats::randomAttributes()
     QJsonArray attributes = DataLoader::loadJson(":/data/json/Friend.json").at(4).toObject().value("data").toArray();
 
     m_attributesValues = attributes.at(static_cast<int>(d20.throwValue())).toArray();
+}
+void NPCFriendStats::setFixedAttributeValue(const QString &name, const int &value)
+{
+    m_attributesFixed.insert( name, value );
+    m_attributes.value(name)->setValue( value );
 }

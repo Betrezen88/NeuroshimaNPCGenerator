@@ -55,6 +55,7 @@ private:
 
     void randomSkills(const QJsonArray &rules, const QJsonArray &data);
     void randomAttributes();
+    void setFixedAttributeValue(const QString &name, const int &value);
 
 private:
     QLineEdit *m_pName{nullptr};
@@ -70,6 +71,7 @@ private:
 
     QHash<QString, NPCAttributeView*> m_attributes;
 
+    QHash<QString, int> m_attributesFixed;
     QJsonArray m_attributesValues;
     QJsonArray m_basicSkillpacks;
     QJsonArray m_modSkillpacks;
