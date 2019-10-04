@@ -253,9 +253,19 @@ void NPCFriendCreator::completeFriendCreation()
         attributes.push_back( tAttribute );
     }
 
+    QJsonArray features;
+    for ( int i{0}; i<m_pFeatures->count(); ++i )
+        features.push_back( m_pFeatures->item(i)->data(0x100).toJsonObject() );
+
+    QJsonArray answers;
+    for ( const QPlainTextEdit *pAnswer: m_answers )
+        answers.push_back( pAnswer->toPlainText() );
+
     QJsonObject pal;
     pal.insert( "personal", personal );
     pal.insert( "attributes", attributes );
+    pal.insert( "questions", answers );
+    pal.insert( "features", features );
 
     emit sendFriend( pal, m_pSpendedCash->text().toInt() );
 }
