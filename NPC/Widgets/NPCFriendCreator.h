@@ -33,7 +33,7 @@ signals:
     void connectionCostChanged(const int &value);
     void featureCostChanged(const int &value);
     void profitCostChanged(const int &value);
-    void sendFriend(const QJsonObject &pal);
+    void sendFriend(const QJsonObject &pal, const int &cost);
     void featureBougth(const QJsonObject &feature);
 
 public slots:

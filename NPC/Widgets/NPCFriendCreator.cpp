@@ -257,7 +257,7 @@ void NPCFriendCreator::completeFriendCreation()
     pal.insert( "personal", personal );
     pal.insert( "attributes", attributes );
 
-    emit sendFriend( pal );
+    emit sendFriend( pal, m_pSpendedCash->text().toInt() );
 }
 
 void NPCFriendCreator::init()
