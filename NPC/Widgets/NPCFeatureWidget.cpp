@@ -30,11 +30,19 @@ SkillSelector::SkillSelector(const QJsonObject &feature, QWidget *parent)
 
 void SkillSelector::createFeature()
 {
+    const QString &name = m_pSkill->currentText();
+    const int &value = m_feature.value("value").toInt();
+
+    QJsonObject skill;
+    skill.insert( "name", name );
+    skill.insert( "value", value );
+
     QJsonObject feature;
 
-    feature.insert( "name", "Umiejętność "+m_pSkill->currentText()+" na poziomie "
-                    +QString::number(m_feature.value("value").toInt()) );
+    feature.insert( "name", "Umiejętność "+name+" na poziomie "
+                    +QString::number(value) );
     feature.insert( "price", m_feature.value("price").toInt() );
+    feature.insert( "skill", skill );
 
     emit sendFeature( feature );
 }
@@ -90,6 +98,15 @@ SkillsSelector::SkillsSelector(const QJsonObject &feature, QWidget *parent)
 
 void SkillsSelector::createFeature()
 {
+    int skillValue{4};
+    QJsonArray skills;
+    for ( const QComboBox *skill: m_skills ) {
+        QJsonObject tSkill;
+        tSkill.insert( "name", skill->currentText() );
+        tSkill.insert( "value", skillValue-- );
+        skills.push_back( tSkill );
+    }
+
     QJsonObject feature;
 
     feature.insert( "name", "Umiejętności specjalizacji "+m_pSpec->currentText()
@@ -97,6 +114,7 @@ void SkillsSelector::createFeature()
                             +m_skills.at(1)->currentText()+": 3, "
                             +m_skills.at(2)->currentText()+": 2 )" );
     feature.insert( "price", m_feature.value("price").toInt() );
+    feature.insert( "skills", skills );
 
     emit sendFeature( feature );
 }
@@ -164,11 +182,19 @@ AttributeSelector::AttributeSelector(const QJsonObject &feature, QWidget *parent
 
 void AttributeSelector::createFeature()
 {
+    const QString &name = m_pAttribute->currentText();
+    const int &value = m_feature.value("value").toInt();
+
+    QJsonObject attribute;
+    attribute.insert( "name", name );
+    attribute.insert( "value", value );
+
     QJsonObject feature;
 
-    feature.insert( "name", "Współczynnik "+m_pAttribute->currentText()
-                    +" na poziomie "+QString::number(m_feature.value("value").toInt()) );
+    feature.insert( "name", "Współczynnik "+name+" na poziomie "
+                    +QString::number(value) );
     feature.insert( "price", m_feature.value("price").toInt() );
+    feature.insert( "attribute", attribute );
 
     emit sendFeature( feature );
 }
