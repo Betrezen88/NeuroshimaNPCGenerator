@@ -54,10 +54,9 @@ void MainWindow::onCardClose(const int &index)
                                   "Zapisz postać",
                                   "Czy chcesz zapisać postać ?",
                                   QMessageBox::StandardButton::Yes
-                                  | QMessageBox::StandardButton::No
-                                  | QMessageBox::StandardButton::Cancel );
+                                  | QMessageBox::StandardButton::No );
 
-    if ( QMessageBox::StandardButton::Cancel == btn )
+    if ( QMessageBox::StandardButton::No == btn )
         return;
 
     if ( QMessageBox::StandardButton::Yes == btn )
