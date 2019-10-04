@@ -127,6 +127,25 @@ void NPCFriendStats::random()
     m_pMod->setCurrentIndex( static_cast<int>(d5.throwValue()-1) );
 }
 
+void NPCFriendStats::applyFeature(const QJsonObject &feature)
+{
+    if ( feature.contains("skill") ) {
+        const QJsonObject &skill = feature.value("skill").toObject();
+        setSkillValueBy( skill.value("name").toString(), skill.value("value").toInt() );
+    }
+    else if ( feature.contains("skills") ) {
+        const QJsonArray &skills = feature.value("skills").toArray();
+        for ( const QJsonValue skill: skills ) {
+            const QJsonObject &tSkill = skill.toObject();
+            setSkillValueBy( tSkill.value("name").toString(), tSkill.value("value").toInt() );
+        }
+    }
+    else if ( feature.contains("attribute") ) {
+        const QJsonObject &tAttribute = feature.value("attribute").toObject();
+        setFixedAttributeValue( tAttribute.value("name").toString(), tAttribute.value("value").toInt() );
+    }
+}
+
 void NPCFriendStats::onArchetypeChanged()
 {
     int attributeValue{0};
@@ -423,6 +442,17 @@ void NPCFriendStats::randomAttributes()
 
     m_attributesValues = attributes.at(static_cast<int>(d20.throwValue())).toArray();
 }
+
+void NPCFriendStats::setSkillValueBy(const QString &name, const int &value)
+{
+    for ( NPCAttributeView *pAttribute: m_attributes.values() )
+        for ( NPCAbstractSkillpackView *pSkillpack: pAttribute->skillpacks().values() )
+            if ( pSkillpack->hasSkill(name) ) {
+                pSkillpack->setSkillValueBy( name, value );
+                break;
+            }
+}
+
 void NPCFriendStats::setFixedAttributeValue(const QString &name, const int &value)
 {
     m_attributesFixed.insert( name, value );

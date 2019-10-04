@@ -38,6 +38,7 @@ signals:
 
 public slots:
     void random();
+    void applyFeature(const QJsonObject &feature);
 
 private slots:
     void onArchetypeChanged();
@@ -55,6 +56,7 @@ private:
 
     void randomSkills(const QJsonArray &rules, const QJsonArray &data);
     void randomAttributes();
+    void setSkillValueBy(const QString &name, const int &value);
     void setFixedAttributeValue(const QString &name, const int &value);
 
 private:
