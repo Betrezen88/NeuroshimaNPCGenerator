@@ -24,6 +24,14 @@ QVector<QPair<QString, int> > NPCGeneralSkillpack::skills() const
     return result;
 }
 
+bool NPCGeneralSkillpack::hasSkill(const QString &name) const
+{
+    for ( const QPair<QComboBox*, QLabel*> &skill: m_skills )
+        if ( name == skill.first->currentText() )
+            return true;
+    return false;
+}
+
 void NPCGeneralSkillpack::setSkillValue(const QString &name, const int &value)
 {
     for ( const QPair<QComboBox*, QLabel*> &skill: m_skills )

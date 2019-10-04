@@ -19,6 +19,14 @@ QVector<QPair<QString, int> > NPCSkillpackView::skills() const
     return result;
 }
 
+bool NPCSkillpackView::hasSkill(const QString &name) const
+{
+    for ( const QPair<QLabel*, QLabel*> &skill: m_skills )
+        if ( name == skill.first->text() )
+            return true;
+    return false;
+}
+
 void NPCSkillpackView::setSkillValue(const QString &name, const int &value)
 {
     for ( QPair<QLabel*, QLabel*> skill: m_skills )

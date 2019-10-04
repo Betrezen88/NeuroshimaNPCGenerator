@@ -16,6 +16,7 @@ public:
     QString name() const;
     QStringList specializations() const;
 
+    virtual bool hasSkill(const QString &name) const = 0;
     virtual QVector<QPair<QString, int>> skills() const = 0;
 
 public slots:

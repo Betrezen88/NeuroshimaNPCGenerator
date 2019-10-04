@@ -12,6 +12,7 @@ public:
                               QWidget *parent = nullptr);
 
     QVector<QPair<QString, int> > skills() const override;
+    bool hasSkill(const QString &name) const override;
 
 public slots:
     void setSkillValue(const QString &name, const int &value) override;
