@@ -7,6 +7,8 @@ class QLabel;
 class QPushButton;
 class QTabWidget;
 
+class NPCFriendView;
+
 class NPCFriendManager : public QWidget
 {
 public:
@@ -14,7 +16,8 @@ public:
 
 private slots:
     void showCreatorDialog() const;
-    void addFriend(const QJsonObject &pal);
+    void addFriend(const QJsonObject &pal, const int &cost);
+    void removeFriend(const int &index);
 
 private:
     QTabWidget *m_pFriends{nullptr};
@@ -23,6 +26,9 @@ private:
     QPushButton *m_pRemoveBtn{nullptr};
 
     QLabel *m_pCash{nullptr};
+
+    QVector<NPCFriendView*> m_friends;
+    QHash<QString, int> m_prices;
 
     const QString m_titleStyle{
         "QLabel#Title{"

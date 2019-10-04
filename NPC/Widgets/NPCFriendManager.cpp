@@ -4,6 +4,7 @@
 
 #include <QDialog>
 #include <QLabel>
+#include <QMessageBox>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QScrollArea>
@@ -19,6 +20,8 @@ NPCFriendManager::NPCFriendManager(QWidget *parent)
 {
     connect( m_pAddBtn, &QPushButton::clicked,
              this, &NPCFriendManager::showCreatorDialog );
+    connect( m_pFriends, &QTabWidget::tabCloseRequested,
+             this, &NPCFriendManager::removeFriend );
 
     m_pFriends->setTabsClosable( true );
     QScrollArea *pScrollArea = new QScrollArea( this );
@@ -77,8 +80,31 @@ void NPCFriendManager::showCreatorDialog() const
     pDialog->show();
 }
 
-void NPCFriendManager::addFriend(const QJsonObject &pal)
+void NPCFriendManager::addFriend(const QJsonObject &pal, const int &cost)
 {
     NPCFriendView *pFriend = new NPCFriendView( pal, this );
-    m_pFriends->addTab( pFriend, pFriend->name()  );
+    m_friends.push_back( pFriend );
+    m_pFriends->addTab( pFriend, pFriend->name() );
+
+    m_prices.insert( pFriend->name(), cost );
+    m_pCash->setNum( m_pCash->text().toInt() - cost );
+}
+
+void NPCFriendManager::removeFriend(const int &index)
+{
+    const QString &name = m_friends.at(index)->name();
+    QMessageBox::StandardButton btn =
+            QMessageBox::question(this,
+                                  "Usunąć przyjaciela",
+                                  "Czy chcesz usunąć "+name+ " ?",
+                                  QMessageBox::StandardButton::Yes
+                                  | QMessageBox::StandardButton::No);
+
+    if ( QMessageBox::StandardButton::No == btn )
+        return;
+    else {
+        m_pCash->setNum( m_pCash->text().toInt() + m_prices.value(name) );
+        m_pFriends->removeTab( index );
+        m_friends.removeAt( index );
+    }
 }
