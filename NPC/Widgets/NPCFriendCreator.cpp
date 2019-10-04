@@ -41,6 +41,8 @@ NPCFriendCreator::NPCFriendCreator(QString cash, QWidget *parent)
              this, &NPCFriendCreator::onAddBtnClick );
     connect( m_pRemoveBtn, &QPushButton::clicked,
              this, &NPCFriendCreator::onRemoveBtnClick );
+    connect( this, &NPCFriendCreator::featureBougth,
+             m_pStats, &NPCFriendStats::applyFeature );
     connect( m_pStats, &NPCFriendStats::connectionChanged,
              [this](const int &value){ this->setCost("connection", value); } );
     connect( this, &NPCFriendCreator::featureCostChanged,
@@ -144,8 +146,10 @@ void NPCFriendCreator::buyFeature(const QJsonObject &feature)
     pFeature->setData( 0x100, feature );
     m_pFeatures->addItem( pFeature );
 
-    if ( 0 < price )
+    if ( 0 < price ) {
         emit featureCostChanged( price );
+        emit featureBougth( feature );
+    }
     else
         emit profitCostChanged( price );
 }
