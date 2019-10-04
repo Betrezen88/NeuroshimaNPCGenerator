@@ -1,5 +1,6 @@
 #include "NPCFriendManager.h"
 #include "NPCFriendCreator.h"
+#include "NPCFriendView.h"
 
 #include <QDialog>
 #include <QLabel>
@@ -19,6 +20,7 @@ NPCFriendManager::NPCFriendManager(QWidget *parent)
     connect( m_pAddBtn, &QPushButton::clicked,
              this, &NPCFriendManager::showCreatorDialog );
 
+    m_pFriends->setTabsClosable( true );
     QScrollArea *pScrollArea = new QScrollArea( this );
     pScrollArea->setWidgetResizable( true );
     pScrollArea->setWidget( m_pFriends );
@@ -77,8 +79,6 @@ void NPCFriendManager::showCreatorDialog() const
 
 void NPCFriendManager::addFriend(const QJsonObject &pal)
 {
-    const QString name = pal.value("personal").toObject().value("name").toString() + " '"
-            + pal.value("personal").toObject().value("nickname").toString() + "' "
-            + pal.value("personal").toObject().value("surname").toString() ;
-    m_pFriends->addTab( new QWidget(), name  );
+    NPCFriendView *pFriend = new NPCFriendView( pal, this );
+    m_pFriends->addTab( pFriend, pFriend->name()  );
 }
