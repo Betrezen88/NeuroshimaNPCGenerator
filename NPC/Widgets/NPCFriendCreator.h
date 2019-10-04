@@ -34,6 +34,7 @@ signals:
     void featureCostChanged(const int &value);
     void profitCostChanged(const int &value);
     void sendFriend(const QJsonObject &pal);
+    void featureBougth(const QJsonObject &feature);
 
 public slots:
     void completeFriendCreation();
