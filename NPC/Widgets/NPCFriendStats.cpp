@@ -356,7 +356,7 @@ QGroupBox *NPCFriendStats::personalBox()
 
     QGridLayout *pLayout = new QGridLayout;
     pGroupBox->setLayout( pLayout );
-    pLayout->setSpacing( 2 );
+    pLayout->setSpacing( 5 );
     pLayout->addWidget( new QLabel("Imie:"), 0, 0 );
     pLayout->addWidget( m_pName, 0, 1 );
     pLayout->addWidget( new QLabel("Nazwisko:"), 1, 0 );
@@ -367,14 +367,14 @@ QGroupBox *NPCFriendStats::personalBox()
     pLayout->addWidget( m_pProfession, 3, 1 );
     pLayout->addWidget( new QLabel("Archetyp:"), 4, 0 );
     pLayout->addWidget( m_pArchetype, 4, 1 );
-    pLayout->addWidget( new QLabel("Powiązanie:"), 5, 0 );
-    pLayout->addWidget( m_pConnection, 5, 1 );
-    pLayout->addWidget( new QLabel("Pochodzenie:"), 6, 0 );
-    pLayout->addWidget( m_pOrigin, 6, 1 );
-    pLayout->addWidget( new QLabel("Choroba:"), 7, 0 );
-    pLayout->addWidget( m_pSickness, 7, 1 );
-    pLayout->addWidget( new QLabel("Modyfikator:"), 8, 0 );
-    pLayout->addWidget( m_pMod, 8, 1 );
+    pLayout->addWidget( new QLabel("Powiązanie:"), 0, 2 );
+    pLayout->addWidget( m_pConnection, 0, 3 );
+    pLayout->addWidget( new QLabel("Pochodzenie:"), 1, 2 );
+    pLayout->addWidget( m_pOrigin, 1, 3 );
+    pLayout->addWidget( new QLabel("Choroba:"), 2, 2 );
+    pLayout->addWidget( m_pSickness, 2, 3 );
+    pLayout->addWidget( new QLabel("Modyfikator:"), 3, 2 );
+    pLayout->addWidget( m_pMod, 3, 3 );
 
     return pGroupBox;
 }
