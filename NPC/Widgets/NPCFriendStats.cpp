@@ -1,4 +1,5 @@
 #include "NPCFriendStats.h"
+#include "NPCAttributeView.h"
 #include "NPCSkillpackView.h"
 #include "NPCGeneralSkillpack.h"
 #include "../Utils/DataLoader.h"
@@ -43,8 +44,7 @@ NPCFriendStats::NPCFriendStats(QWidget *parent)
     QGridLayout *pLayout = new QGridLayout;
     setLayout( pLayout );
     pLayout->addWidget( personalBox(), 0, 0, 1, 1 );
-    pLayout->addWidget( attributeBox(), 0, 1, 1, 1 );
-    pLayout->addWidget( skillBox(), 1, 0, 2, 2 );
+    pLayout->addWidget( attributeBox(), 1, 0, 4, 1 );
 }
 
 QString NPCFriendStats::name() const
@@ -82,14 +82,9 @@ QString NPCFriendStats::connection() const
     return m_pConnection->currentText();
 }
 
-QHash<QString, int> NPCFriendStats::attributes() const
+const QHash<QString, NPCAttributeView *> &NPCFriendStats::attributes() const
 {
-    QHash<QString, int> result;
-
-    for ( const QString &attribute: m_attributes.keys() )
-        result.insert( attribute, m_attributes.value(attribute)->text().toInt() );
-
-    return result;
+    return m_attributes;
 }
 
 const QVector<NPCAbstractSkillpackView *> &NPCFriendStats::skillpacks() const
@@ -138,6 +133,8 @@ void NPCFriendStats::onArchetypeChanged()
     for ( const QJsonValue attribute: m_pArchetype->currentData(Qt::UserRole).toJsonArray() ) {
         int value = m_attributesValues.at(attributeValue).toInt();
         m_attributes.value( attribute.toString() )->setNum( value );
+        const QString &name = attribute.toString();
+        m_attributes.value(name)->setValue( value );
         ++attributeValue;
     }
 }
@@ -216,6 +213,11 @@ void NPCFriendStats::init()
 {
     QJsonArray attributes = DataLoader::loadJson( ":/data/json/Attributes.json" );
     for ( const QJsonValue attribute: attributes ) {
+        const QJsonObject &tAttribute = attribute.toObject();
+        const QString &attributeName = tAttribute.value("name").toString();
+        NPCAttributeView *pAttribute = new NPCAttributeView(attributeName, 0, 0, this);
+        m_attributes.insert( attributeName, pAttribute );
+
         for ( const QJsonValue skillpack: attribute.toObject().value("skillPacks").toArray() ) {
             const QJsonObject &tSkillpack = skillpack.toObject();
 
@@ -238,6 +240,7 @@ void NPCFriendStats::init()
                                                       skills,
                                                       this );
             }
+            pAttribute->addSkillpack( pSkillpack );
             m_skillpacks.push_back( pSkillpack );
         }
     }
@@ -362,41 +365,23 @@ QGroupBox *NPCFriendStats::attributeBox()
     QGroupBox *pGroupBox = new QGroupBox("Współczynniki");
     pGroupBox->setMinimumWidth( 100 );
 
-    QGridLayout *pLayout = new QGridLayout;
+    QVBoxLayout *pColumn1 = new QVBoxLayout;
+    pColumn1->addWidget( m_attributes.value("Budowa") );
+    pColumn1->addWidget( m_attributes.value("Zręczność") );
+
+    QVBoxLayout *pColumn2 = new QVBoxLayout;
+    pColumn2->addWidget( m_attributes.value("Charakter") );
+    pColumn2->addWidget( m_attributes.value("Percepcja") );
+
+    QVBoxLayout *pColumn3 = new QVBoxLayout;
+    pColumn3->addWidget( m_attributes.value("Spryt") );
+    pColumn3->addSpacerItem( new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Expanding) );
+
+    QHBoxLayout *pLayout = new QHBoxLayout;
     pGroupBox->setLayout( pLayout );
-    pLayout->setSpacing( 2 );
-    pLayout->addWidget( new QLabel("Budowa"), 0, 0 );
-    pLayout->addWidget( m_attributes.value("Budowa"), 0, 1, Qt::AlignRight );
-    pLayout->addWidget( new QLabel("Zręczność"), 1, 0 );
-    pLayout->addWidget( m_attributes.value("Zręczność"), 1, 1, Qt::AlignRight );
-    pLayout->addWidget( new QLabel("Charakter"), 2, 0 );
-    pLayout->addWidget( m_attributes.value("Charakter"), 2, 1, Qt::AlignRight );
-    pLayout->addWidget( new QLabel("Spryt"), 3, 0 );
-    pLayout->addWidget( m_attributes.value("Spryt"), 3, 1, Qt::AlignRight );
-    pLayout->addWidget( new QLabel("Percepcja"), 4, 0 );
-    pLayout->addWidget( m_attributes.value("Percepcja"), 4, 1, Qt::AlignRight );
-
-    return pGroupBox;
-}
-
-QGroupBox *NPCFriendStats::skillBox()
-{
-    QGroupBox *pGroupBox = new QGroupBox("Umiejętności");
-
-    QGridLayout *pLayout = new QGridLayout;
-    pGroupBox->setLayout( pLayout );
-
-    int row{0}, column{0};
-    for ( int i{0}; i<m_skillpacks.count(); ++i ) {
-        pLayout->addWidget( m_skillpacks.at(i), row, column );
-
-        if ( 2 == column ) {
-            column = 0;
-            ++row;
-        }
-        else
-            ++column;
-    }
+    pLayout->addLayout( pColumn1 );
+    pLayout->addLayout( pColumn2 );
+    pLayout->addLayout( pColumn3 );
 
     return pGroupBox;
 }

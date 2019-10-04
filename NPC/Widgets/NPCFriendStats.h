@@ -13,6 +13,7 @@ class QLineEdit;
 class QPushButton;
 
 class NPCAbstractSkillpackView;
+class NPCAttributeView;
 
 class NPCFriendStats : public QWidget
 {
@@ -27,7 +28,7 @@ public:
     QString origin() const;
     QString sickness() const;
     QString connection() const;
-    QHash<QString, int> attributes() const;
+    const QHash<QString, NPCAttributeView*> &attributes() const;
     const QVector<NPCAbstractSkillpackView*> &skillpacks() const;
 
 signals:
@@ -51,7 +52,6 @@ private:
     void initMods(const QJsonArray &mods);
     QGroupBox *personalBox();
     QGroupBox *attributeBox();
-    QGroupBox *skillBox();
 
     void randomSkills(const QJsonArray &rules, const QJsonArray &data);
     void randomAttributes();
@@ -68,13 +68,7 @@ private:
     QComboBox *m_pSickness{nullptr};
     QComboBox *m_pMod{nullptr};
 
-    QHash<QString, QLabel*> m_attributes{
-        {"Budowa", new QLabel("0")},
-        {"Zręczność", new QLabel("0")},
-        {"Charakter", new QLabel("0")},
-        {"Spryt", new QLabel("0")},
-        {"Percepcja", new QLabel("0")}
-    };
+    QHash<QString, NPCAttributeView*> m_attributes;
 
     QJsonArray m_attributesValues;
     QJsonArray m_basicSkillpacks;
