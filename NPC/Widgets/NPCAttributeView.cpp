@@ -2,6 +2,7 @@
 
 #include "../Utils/DataLoader.h"
 #include "NPCAttributeValueWidget.h"
+#include "NPCAbstractSkillpackView.h"
 
 #include <QPainter>
 #include <QStyleOption>
@@ -39,15 +40,20 @@ NPCAttributeView::NPCAttributeView(const QString &name,
     setLayout( m_pLayout );
 }
 
-void NPCAttributeView::addSkillpack(NPCSkillpackView *skillpack)
+void NPCAttributeView::addSkillpack(NPCAbstractSkillpackView *skillpack)
 {
     m_skillpacks.insert( skillpack->name(), skillpack );
     m_pSkillsLayout->addWidget( skillpack, Qt::AlignTop );
 }
 
-QHash<QString, NPCSkillpackView *> NPCAttributeView::skillpacks() const
+QHash<QString, NPCAbstractSkillpackView *> NPCAttributeView::skillpacks() const
 {
     return m_skillpacks;
+}
+
+QString NPCAttributeView::name() const
+{
+    return m_pName->text();
 }
 
 void NPCAttributeView::setValue(const int &value)

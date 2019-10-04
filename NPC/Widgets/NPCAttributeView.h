@@ -7,7 +7,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
-#include "NPCSkillpackView.h"
+class NPCAbstractSkillpackView;
 
 class NPCAttributeView : public QWidget
 {
@@ -18,8 +18,10 @@ public:
                               const int &modValue,
                               QWidget *parent = nullptr);
 
-    void addSkillpack(NPCSkillpackView *skillpack);
-    QHash<QString, NPCSkillpackView*> skillpacks() const;
+    void addSkillpack(NPCAbstractSkillpackView *skillpack);
+    QHash<QString, NPCAbstractSkillpackView*> skillpacks() const;
+
+    QString name() const;
 
     void setValue(const int &value);
     int value() const;
@@ -50,7 +52,7 @@ private:
     QHBoxLayout *m_pLayout{nullptr};
     QVBoxLayout *m_pSkillsLayout{nullptr};
 
-    QHash<QString, NPCSkillpackView*> m_skillpacks;
+    QHash<QString, NPCAbstractSkillpackView*> m_skillpacks;
 
     const QString m_titleStyle{
         "QLabel#Title{"
