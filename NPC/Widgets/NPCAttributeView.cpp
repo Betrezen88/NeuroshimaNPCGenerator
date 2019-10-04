@@ -10,8 +10,6 @@
 #include <QJsonObject>
 #include <QJsonValue>
 
-#include <QDebug>
-
 NPCAttributeView::NPCAttributeView(const QString &name,
                                    const int &value,
                                    const int &modValue,
