@@ -1,4 +1,5 @@
 #include "CardConverter.h"
+#include "NPC/Widgets/NPCAbstractSkillpackView.h"
 #include "NPC/Widgets/NPCAttributeView.h"
 #include "NPC/Widgets/NPCInventory.h"
 #include "NPC/Widgets/NPCItem.h"
@@ -148,11 +149,11 @@ QJsonArray CardConverter::attributesJson(const QHash<QString, NPCAttributeView *
     return attributesObj;
 }
 
-QJsonArray CardConverter::packetsJson(const QHash<QString, NPCSkillpackView *> &skillPacks) const
+QJsonArray CardConverter::packetsJson(const QHash<QString, NPCAbstractSkillpackView *> &skillPacks) const
 {
     QJsonArray packetsArray;
 
-    for ( NPCSkillpackView *skillPack: skillPacks ) {
+    for ( NPCAbstractSkillpackView *skillPack: skillPacks ) {
         QJsonObject skillPackObj;
         skillPackObj.insert( "name", skillPacks.key(skillPack) );
         skillPackObj.insert( "skills", skillsJson(skillPack->skills()) );
@@ -230,7 +231,7 @@ void CardConverter::stats(NPCCardTab *card, const QJsonArray &stats)
 
         for ( const QJsonValue skillpack: tAttribute.value("skillPacks").toArray() ) {
             const QJsonObject &tSkillpack = skillpack.toObject();
-            NPCSkillpackView *pSkillpack =
+            NPCAbstractSkillpackView *pSkillpack =
                     pAttribute->skillpacks().value( tSkillpack.value("name").toString() );
             for ( const QJsonValue skill: tSkillpack.value("skills").toArray() ) {
                 const QJsonObject &tSkill = skill.toObject();

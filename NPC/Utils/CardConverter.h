@@ -5,6 +5,7 @@
 
 #include "NPC/NPCCardTab.h"
 
+class NPCAbstractSkillpackView;
 class NPCItem;
 
 class CardConverter
@@ -20,7 +21,7 @@ private:
     QJsonArray reputationJson(QHash<QString, int> reputation) const;
     QJsonArray tricksJson(const QListWidget *tricks) const;
     QJsonArray attributesJson(const QHash<QString, NPCAttributeView *> *attributes) const;
-    QJsonArray packetsJson(const QHash<QString, NPCSkillpackView *> &skillPacks) const;
+    QJsonArray packetsJson(const QHash<QString, NPCAbstractSkillpackView *> &skillPacks) const;
     QJsonArray skillsJson(const QVector<QPair<QString, int> > &skills) const;
     QJsonArray inventoryJson(const QVector<NPCItem*> items) const;
 
