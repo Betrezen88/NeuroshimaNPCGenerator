@@ -18,6 +18,12 @@ public:
                               const int &modValue,
                               QWidget *parent = nullptr);
 
+    explicit NPCAttributeView(const QString &name,
+                              const int &value,
+                              const int &modValue,
+                              const QJsonArray &skillpacks,
+                              QWidget *parent = nullptr);
+
     void addSkillpack(NPCAbstractSkillpackView *skillpack);
     QHash<QString, NPCAbstractSkillpackView*> skillpacks() const;
 
@@ -41,6 +47,7 @@ private slots:
     void setCurrentValue(const int &value);
 
 private:
+    void init();
     QVBoxLayout *pointsView();
 
 private:
