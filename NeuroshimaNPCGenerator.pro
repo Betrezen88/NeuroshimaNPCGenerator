@@ -30,6 +30,7 @@ SOURCES += \
     NPC/Widgets/NPCFriendCreator.cpp \
     NPC/Widgets/NPCFriendEquipment.cpp \
     NPC/Widgets/NPCFriendManager.cpp \
+    NPC/Widgets/NPCFriendObverse.cpp \
     NPC/Widgets/NPCFriendStats.cpp \
     NPC/Widgets/NPCFriendView.cpp \
     NPC/Widgets/NPCGeneralSkillpack.cpp \
@@ -88,6 +89,7 @@ HEADERS += \
     NPC/Widgets/NPCFriendCreator.h \
     NPC/Widgets/NPCFriendEquipment.h \
     NPC/Widgets/NPCFriendManager.h \
+    NPC/Widgets/NPCFriendObverse.h \
     NPC/Widgets/NPCFriendStats.h \
     NPC/Widgets/NPCFriendView.h \
     NPC/Widgets/NPCGeneralSkillpack.h \
