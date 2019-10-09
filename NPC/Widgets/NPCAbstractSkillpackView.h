@@ -3,6 +3,7 @@
 
 #include "NPCCustomWidget.h"
 
+#include <QJsonArray>
 #include <QVector>
 
 class QLabel;
@@ -12,6 +13,7 @@ class NPCAbstractSkillpackView : public NPCCustomWidget
 {
 public:
     NPCAbstractSkillpackView(const QString &name, const QStringList &specs, QWidget *parent = nullptr);
+    NPCAbstractSkillpackView(const QString &name, const QJsonArray &specs, QWidget *parent = nullptr);
 
     QString name() const;
     QStringList specializations() const;
@@ -24,6 +26,7 @@ public slots:
     virtual void setSkillValueBy(const QString &name, const int &value) = 0;
 
 protected:
+    void init();
     void setSpecializationsLabel(const QStringList &specs);
     virtual void addSkills(const QStringList &skills) = 0;
 

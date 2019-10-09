@@ -11,10 +11,14 @@ class QLabel;
 class NPCGeneralSkillpack : public NPCAbstractSkillpackView
 {
 public:
-    NPCGeneralSkillpack(const QString &name,
-                        const QStringList &specs,
-                        const QStringList &skills,
-                        QWidget *parent = nullptr);
+    explicit NPCGeneralSkillpack(const QString &name,
+                                 const QStringList &specs,
+                                 const QStringList &skills,
+                                 QWidget *parent = nullptr);
+    explicit NPCGeneralSkillpack(const QString &name,
+                                 const QJsonArray &specs,
+                                 const QJsonArray &skills,
+                                 QWidget *parent = nullptr);
 
     QVector<QPair<QString, int> > skills() const override;
     bool hasSkill(const QString &name) const override;

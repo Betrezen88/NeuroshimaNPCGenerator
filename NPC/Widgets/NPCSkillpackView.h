@@ -3,12 +3,19 @@
 
 #include "NPCAbstractSkillpackView.h"
 
+#include <QJsonArray>
+
 class NPCSkillpackView : public NPCAbstractSkillpackView
 {
 public:
     explicit NPCSkillpackView(const QString &name,
                               const QStringList &specs,
                               const QStringList &skills,
+                              QWidget *parent = nullptr);
+
+    explicit NPCSkillpackView(const QString &name,
+                              const QJsonArray &specs,
+                              const QJsonArray &skills,
                               QWidget *parent = nullptr);
 
     QVector<QPair<QString, int> > skills() const override;
@@ -20,6 +27,7 @@ public slots:
 
 private:
     void addSkills(const QStringList &skills) override;
+    void addSkills(const QJsonArray &skills);
 
 private:
     QVector<QPair<QLabel*, QLabel*>> m_skills;

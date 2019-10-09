@@ -3,6 +3,8 @@
 #include <QComboBox>
 #include <QGridLayout>
 #include <QLabel>
+#include <QJsonObject>
+#include <QJsonValue>
 
 NPCGeneralSkillpack::NPCGeneralSkillpack(const QString &name,
                                          const QStringList &specs,
@@ -11,6 +13,18 @@ NPCGeneralSkillpack::NPCGeneralSkillpack(const QString &name,
     : NPCAbstractSkillpackView(name, specs, parent)
 {
     addSkills( skills );
+}
+
+NPCGeneralSkillpack::NPCGeneralSkillpack(const QString &name,
+                                         const QJsonArray &specs,
+                                         const QJsonArray &skills,
+                                         QWidget *parent)
+    : NPCAbstractSkillpackView(name, specs, parent)
+{
+    QStringList tSkills;
+    for ( const QJsonValue skill: skills )
+        tSkills << skill.toString();
+    addSkills( tSkills );
 }
 
 QVector<QPair<QString, int> > NPCGeneralSkillpack::skills() const
