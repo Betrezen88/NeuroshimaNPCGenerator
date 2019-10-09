@@ -8,6 +8,7 @@ class QPushButton;
 class QTabWidget;
 
 class NPCFriendView;
+class NPCFriendCard;
 
 class NPCFriendManager : public QWidget
 {
@@ -27,7 +28,7 @@ private:
 
     QLabel *m_pCash{nullptr};
 
-    QVector<NPCFriendView*> m_friends;
+    QVector<NPCFriendCard*> m_friends;
     QHash<QString, int> m_prices;
 
     const QString m_titleStyle{
