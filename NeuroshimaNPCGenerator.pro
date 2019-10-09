@@ -27,6 +27,7 @@ SOURCES += \
     NPC/Widgets/NPCAbstractSkillpackView.cpp \
     NPC/Widgets/NPCArmor.cpp \
     NPC/Widgets/NPCFeatureWidget.cpp \
+    NPC/Widgets/NPCFriendCard.cpp \
     NPC/Widgets/NPCFriendCreator.cpp \
     NPC/Widgets/NPCFriendEquipment.cpp \
     NPC/Widgets/NPCFriendManager.cpp \
@@ -86,6 +87,7 @@ HEADERS += \
     NPC/Widgets/NPCAttributeWidget.h \
     NPC/Widgets/NPCAttributeValueWidget.h \
     NPC/Widgets/NPCFeatureWidget.h \
+    NPC/Widgets/NPCFriendCard.h \
     NPC/Widgets/NPCFriendCreator.h \
     NPC/Widgets/NPCFriendEquipment.h \
     NPC/Widgets/NPCFriendManager.h \
