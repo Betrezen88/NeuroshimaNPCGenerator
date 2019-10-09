@@ -266,6 +266,7 @@ void NPCFriendCreator::completeFriendCreation()
     pal.insert( "attributes", attributes );
     pal.insert( "questions", answers );
     pal.insert( "features", features );
+    pal.insert( "equipment", m_pEquipment->equipment() );
 
     emit sendFriend( pal, m_pSpendedCash->text().toInt() );
 }
