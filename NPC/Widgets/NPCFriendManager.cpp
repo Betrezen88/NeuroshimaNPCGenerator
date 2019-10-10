@@ -1,6 +1,5 @@
 #include "NPCFriendManager.h"
 #include "NPCFriendCreator.h"
-#include "NPCFriendView.h"
 #include "NPCFriendCard.h"
 #include "NPCFriendObverse.h"
 
@@ -85,7 +84,7 @@ void NPCFriendManager::showCreatorDialog() const
 void NPCFriendManager::addFriend(const QJsonObject &pal, const int &cost)
 {
     NPCFriendCard *pFriend = new NPCFriendCard(pal, this);
-    const QString &name = pFriend->obverse().fullname();
+    const QString &name = pFriend->obverse()->fullname();
     m_friends.push_back( pFriend );
     m_pFriends->addTab( pFriend, name );
 
@@ -95,7 +94,7 @@ void NPCFriendManager::addFriend(const QJsonObject &pal, const int &cost)
 
 void NPCFriendManager::removeFriend(const int &index)
 {
-    const QString &name = m_friends.at(index)->obverse().fullname();
+    const QString &name = m_friends.at(index)->obverse()->fullname();
     QMessageBox::StandardButton btn =
             QMessageBox::question(this,
                                   "Usunąć przyjaciela",
