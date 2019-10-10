@@ -22,6 +22,7 @@ public:
                               QWidget *parent = nullptr);
 
     QString fullname() const;
+    NPCAttributeView *attribute(const QString &name) const;
 
 private:
     void setAttributes(const QJsonArray &attributes);

@@ -39,6 +39,11 @@ QString NPCFriendObverse::fullname() const
     return name;
 }
 
+NPCAttributeView *NPCFriendObverse::attribute(const QString &name) const
+{
+    return m_attributes.value(name);
+}
+
 void NPCFriendObverse::setAttributes(const QJsonArray &attributes)
 {
     for ( const QJsonValue attribute: attributes ) {
