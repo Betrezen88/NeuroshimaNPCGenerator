@@ -6,17 +6,19 @@
 #include <QJsonObject>
 
 class NPCFriendObverse;
+class NPCCardReverse;
 
 class NPCFriendCard : public QTabWidget
 {
 public:
     explicit NPCFriendCard(const QJsonObject &pal, QWidget *parent = nullptr);
 
-    const NPCFriendObverse &obverse() const;
+    NPCFriendObverse *obverse() const;
+    NPCCardReverse *reverse() const;
 
 private:
     NPCFriendObverse *m_pObverse{nullptr};
-    QWidget *m_pReverse{nullptr};
+    NPCCardReverse *m_pReverse{nullptr};
 
     QJsonObject m_pal;
 };
