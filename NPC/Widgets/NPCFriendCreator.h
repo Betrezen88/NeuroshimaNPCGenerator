@@ -86,7 +86,7 @@ private:
     QPushButton *m_pOkBtn{nullptr};
     QPushButton *m_pCloseBtn{nullptr};
 
-    QVector<QPlainTextEdit*> m_answers;
+    QVector<QPair<QLabel*,QPlainTextEdit*>> m_answers;
 };
 
 #endif // NPCFRIENDCREATOR_H

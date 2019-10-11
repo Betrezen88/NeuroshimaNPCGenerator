@@ -258,8 +258,12 @@ void NPCFriendCreator::completeFriendCreation()
         features.push_back( m_pFeatures->item(i)->data(0x100).toJsonObject() );
 
     QJsonArray answers;
-    for ( const QPlainTextEdit *pAnswer: m_answers )
-        answers.push_back( pAnswer->toPlainText() );
+    for ( const QPair<QLabel*,QPlainTextEdit*> &answer: m_answers ) {
+        QJsonObject obj;
+        obj.insert( "question", answer.first->text() );
+        obj.insert( "answer", answer.second->toPlainText() );
+        answers.push_back( obj );
+    }
 
     QJsonObject pal;
     pal.insert( "personal", personal );
@@ -305,12 +309,12 @@ QWidget *NPCFriendCreator::createPersonalTab()
 
     int row{2};
     for ( const QJsonValue question: questions ) {
-        QLabel *pLabel = new QLabel(question.toObject().value("question").toString());
-        pLabel->setWordWrap( true );
-        pLayout->addWidget( pLabel, row, 0, 1, 4 );
+        QLabel *pQuestion = new QLabel(question.toObject().value("question").toString());
+        pQuestion->setWordWrap( true );
+        pLayout->addWidget( pQuestion, row, 0, 1, 4 );
         QPlainTextEdit *pAnswer = new QPlainTextEdit( this );
         pAnswer->setMaximumHeight( 80 );
-        m_answers.push_back( pAnswer );
+        m_answers.push_back( QPair<QLabel*, QPlainTextEdit*>(pQuestion, pAnswer) );
         pLayout->addWidget( pAnswer, ++row, 0, 1, 4 );
         ++row;
     }
