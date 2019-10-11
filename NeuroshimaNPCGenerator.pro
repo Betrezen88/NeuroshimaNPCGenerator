@@ -59,6 +59,7 @@ SOURCES += \
     NPC/Utils/Dice.cpp \
     NPC/NPCCardObverse.cpp \
     NPC/NPCCardReverse.cpp \
+    NPC/NPCCardForm.cpp \
     NPC/NPCCardTab.cpp \
     NPC/Utils/CardConverter.cpp \
     NPC/Dialogs/NPCCreatorDialog.cpp \
@@ -113,6 +114,7 @@ HEADERS += \
     NPC/Utils/Dice.h \
     NPC/NPCCardObverse.h \
     NPC/NPCCardReverse.h \
+    NPC/NPCCardForm.h \
     NPC/NPCCardTab.h \
     NPC/Utils/CardConverter.h \
     NPC/Dialogs/NPCCreatorDialog.h \
