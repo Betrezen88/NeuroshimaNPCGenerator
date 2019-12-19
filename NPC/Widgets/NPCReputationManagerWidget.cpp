@@ -42,12 +42,18 @@ void NPCReputationManagerWidget::onOriginChange(const QString &name)
         return;
 
     if ( !m_currentOrigin.isEmpty() ) {
-        m_reputation.value(m_currentOrigin)->setValue( -1 );
-        emit reputationChanged( m_currentOrigin, m_reputation.value(m_currentOrigin)->value() );
+        if ( m_reputation.contains(m_currentOrigin) ) {
+            m_reputation.value(m_currentOrigin)->setValue( 0 );
+            emit reputationChanged( m_currentOrigin, m_reputation.value(m_currentOrigin)->value() );
+        }
+        else {
+            m_pPoints->setNum( 0 );
+            emit freeReputationPointsChanged( m_pPoints->text().toInt() );
+        }
     }
 
-    m_reputation.value(name)->setValue( 1 );
-    emit reputationChanged( name, m_reputation.value(name)->value() );
+    setPlaceReputation(name);
+
     m_currentOrigin = name;
 }
 
